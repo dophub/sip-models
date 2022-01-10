@@ -9,7 +9,6 @@ export 'src/model/response/category_widget_model.dart';
 export 'src/model/response/dealer_detail_model.dart';
 export 'src/model/response/default_model.dart';
 export 'src/model/response/get_near_dealers_model.dart';
-export 'src/model/response/last_orders_model.dart';
 export 'src/model/response/near_dealer_details_model.dart';
 export 'src/model/response/parameters_order.dart';
 export 'src/model/response/past_order_details_model.dart';

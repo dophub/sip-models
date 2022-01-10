@@ -1,7 +1,8 @@
 
 import 'dart:convert';
 
-import 'package:sip_models/src/model/general/menu_detail_model.dart';
+
+import '../../model/general/menu_detail_model.dart';
 
 
 
