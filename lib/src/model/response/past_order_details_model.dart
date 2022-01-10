@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'last_orders_model.dart';
+import '../general/images_model.dart';
 
 PastOrderDetailsModel pastOrderDetailsModelFromJson(String str) =>
     PastOrderDetailsModel.fromJson(json.decode(str));
@@ -80,9 +80,9 @@ class PastOrderDealer {
   int? avgServiceTimeMax;
   int? minPackageAmount;
   int? distance;
-  Image? logoImage;
-  Image? listImage;
-  Image? mobileCoverImage;
+  ImagesModel? logoImage;
+  ImagesModel? listImage;
+  ImagesModel? mobileCoverImage;
   String? latlng;
   List<FoodCategory>? foodCategories;
 
@@ -97,9 +97,9 @@ class PastOrderDealer {
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"],
         distance: json["distance"],
-        logoImage: Image.fromJson(json["logo_image"]),
-        listImage: Image.fromJson(json["list_image"]),
-        mobileCoverImage: Image.fromJson(json["mobile_cover_image"]),
+        logoImage: ImagesModel.fromJson(json["logo_image"]),
+        listImage: ImagesModel.fromJson(json["list_image"]),
+        mobileCoverImage: ImagesModel.fromJson(json["mobile_cover_image"]),
         latlng: json["latlng"],
         foodCategories: List<FoodCategory>.from(
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
@@ -113,12 +113,12 @@ class FoodCategory {
     this.categoryName,
   });
 
-  Image? image;
+  ImagesModel? image;
   bool? isDefault;
   String? categoryName;
 
   factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
-        image: Image.fromJson(json["image"]),
+        image: ImagesModel.fromJson(json["image"]),
         isDefault: json["is_default"],
         categoryName: json["category_name"],
       );
