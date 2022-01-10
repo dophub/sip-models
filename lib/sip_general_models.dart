@@ -8,3 +8,4 @@ export 'src/model/general/price_model.dart';
 export 'src/model/general/product_cart_model.dart';
 export 'src/model/general/product_detail_model.dart';
 export 'src/model/general/promotion_menu_model.dart';
+export 'src/model/general/sections_widget_model.dart';
