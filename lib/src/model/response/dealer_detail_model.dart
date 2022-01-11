@@ -1,5 +1,5 @@
-import 'package:sip_models/src/model/general/images_model.dart';
 
+import '../../../sip_general_models.dart';
 import 'category_widget_model.dart';
 
 

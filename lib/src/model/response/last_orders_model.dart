@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import '../../../sip_general_models.dart';
 import 'past_order_details_model.dart';
 
 List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
@@ -147,9 +148,9 @@ class Dealer {
   int? rating;
   int? rating2;
   int? commentCount;
-  Image? logoImage;
-  Image? listImage;
-  Image? mobileCoverImage;
+  ImagesModel? logoImage;
+  ImagesModel? listImage;
+  ImagesModel? mobileCoverImage;
 
   factory Dealer.fromJson(Map<String, dynamic> json) => Dealer(
         dealerId: json["dealer_id"],
@@ -157,9 +158,9 @@ class Dealer {
         rating: json["rating"],
         rating2: json["rating2"],
         commentCount: json["comment_count"],
-        logoImage: Image.fromJson(json["logo_image"]),
-        listImage: Image.fromJson(json["list_image"]),
-        mobileCoverImage: Image.fromJson(json["mobile_cover_image"]),
+        logoImage: ImagesModel.fromJson(json["logo_image"]),
+        listImage: ImagesModel.fromJson(json["list_image"]),
+        mobileCoverImage: ImagesModel.fromJson(json["mobile_cover_image"]),
       );
 /*
   Map<String, dynamic> toJson() => {
@@ -172,26 +173,6 @@ class Dealer {
         "list_image": listImage?.toJson(),
         "mobile_cover_image": mobileCoverImage?.toJson(),
       };*/
-}
-
-class Image {
-  Image({
-    this.url,
-    this.sizeCode,
-  });
-
-  String? url;
-  String? sizeCode;
-
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
-        url: json["url"],
-        sizeCode: json["size_code"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url,
-        "size_code": sizeCode,
-      };
 }
 
 class LastOrdersModelItem {
