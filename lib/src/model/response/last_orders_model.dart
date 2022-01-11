@@ -3,9 +3,7 @@ import 'dart:convert';
 
 import 'past_order_details_model.dart';
 
-List<LastOrdersModel> lastOrdersModelFromJson(String str) =>
-    List<LastOrdersModel>.from(
-        json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
+List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
 
 /*String lastOrdersModelToJson(List<LastOrdersModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));*/

@@ -22,3 +22,4 @@ export 'src/model/response/rating_group.dart';
 export 'src/model/response/token_model.dart';
 export 'src/model/response/user_info_model.dart';
 export 'src/model/response/waiter_request_model.dart';
+export 'src/model/response/last_orders_model.dart';
