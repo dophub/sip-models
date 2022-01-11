@@ -67,4 +67,7 @@ enum GetBuilderId { onChangeServiceModel }
 /// [INKITCHEN] Mutfakta
 enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN }
 
+/// [ClientPointId] Platform
+/// [MOBILE_APP] Mobil
+enum ClientPointId { MOBILE_APP }
 
