@@ -65,7 +65,7 @@ class LastOrdersModel {
   String? title;
   dynamic tipAmountWithoutKdv;
   double? totalAmountWithoutKdv;
-  Dealer? dealer;
+  LastOrderDealer? dealer;
   List<LastOrdersModelItem>? items;
 
   factory LastOrdersModel.fromJson(Map<String, dynamic> json) =>
@@ -95,7 +95,7 @@ class LastOrdersModel {
         title: json["title"],
         tipAmountWithoutKdv: json["tip_amount_without_kdv"],
         totalAmountWithoutKdv: json["total_amount_without_kdv"].toDouble(),
-        dealer: Dealer.fromJson(json["dealer"]),
+        dealer: LastOrderDealer.fromJson(json["dealer"]),
         items: List<LastOrdersModelItem>.from(
             json["items"].map((x) => LastOrdersModelItem.fromJson(x))),
       );
@@ -131,8 +131,8 @@ class LastOrdersModel {
       };*/
 }
 
-class Dealer {
-  Dealer({
+class LastOrderDealer {
+  LastOrderDealer({
     this.dealerId,
     this.dealerName,
     this.rating,
@@ -152,7 +152,7 @@ class Dealer {
   ImagesModel? listImage;
   ImagesModel? mobileCoverImage;
 
-  factory Dealer.fromJson(Map<String, dynamic> json) => Dealer(
+  factory LastOrderDealer.fromJson(Map<String, dynamic> json) => LastOrderDealer(
         dealerId: json["dealer_id"],
         dealerName: json["dealer_name"],
         rating: json["rating"],
