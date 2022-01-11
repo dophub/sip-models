@@ -1,2 +1,2 @@
 library local;
-export 'src/model/local/current_address_model.dart';
+export 'src/model/local/address_model.dart';

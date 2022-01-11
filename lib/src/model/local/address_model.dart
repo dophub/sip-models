@@ -1,5 +1,7 @@
-class CurrentAddressModel {
-  CurrentAddressModel({
+
+
+class AddressModel {
+  AddressModel({
     this.addressId,
     this.type,
     this.title,
@@ -34,8 +36,8 @@ class CurrentAddressModel {
   String? addressDetail;
 
   //todo: RF: tipler DB ile aynı formatta olacak
-  factory CurrentAddressModel.fromJson(Map<String, dynamic> json) =>
-      CurrentAddressModel(
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      AddressModel(
           addressId: json["addressId"],
           type: json["type"],
           title: json["title"],
