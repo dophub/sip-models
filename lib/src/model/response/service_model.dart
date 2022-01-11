@@ -1,5 +1,7 @@
-import 'package:sip_models/src/model/general/abstract_base_model.dart';
-import 'package:sip_models/src/model/general/order_model.dart';
+
+import 'package:sip_models/src/model/request/order_model.dart';
+
+import 'abstract_base_model.dart';
 
 /// Dealer de adisyon için kullanılmakta
 class ServiceModel extends IBaseModel<ServiceModel> {

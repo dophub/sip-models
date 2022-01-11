@@ -1,6 +1,6 @@
 
-import '../../../sip_general_models.dart';
 import 'category_widget_model.dart';
+import 'images_model.dart';
 
 
 /// GR Kod okutulduğu zaman Api den dönen response

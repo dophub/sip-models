@@ -1,9 +1,7 @@
 import 'dart:convert';
-
-import 'package:sip_models/src/model/general/images_model.dart';
-import 'package:sip_models/src/model/general/menu_detail_model.dart';
-
+import 'menu_detail_model.dart';
 import 'past_order_details_model.dart';
+import 'images_model.dart';
 
 List<SearchProductModel> searchProductModelFromJson(String str) =>
     List<SearchProductModel>.from(

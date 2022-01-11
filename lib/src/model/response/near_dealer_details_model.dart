@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 
-import '../../model/general/menu_detail_model.dart';
+import 'menu_detail_model.dart';
 
 
 

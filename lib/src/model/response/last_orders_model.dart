@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 
-import '../../../sip_general_models.dart';
+import 'images_model.dart';
 import 'past_order_details_model.dart';
 
 List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));

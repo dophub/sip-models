@@ -1,5 +1,5 @@
 import 'dart:convert';
-import '../general/images_model.dart';
+import 'images_model.dart';
 
 PastOrderDetailsModel pastOrderDetailsModelFromJson(String str) =>
     PastOrderDetailsModel.fromJson(json.decode(str));
