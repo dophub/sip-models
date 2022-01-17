@@ -1,13 +1,6 @@
-import 'dart:convert';
+import '../../../response.dart';
 
-List<GetNearDealersModel> getNearDealersModelFromJson(String str) =>
-    List<GetNearDealersModel>.from(
-        json.decode(str).map((x) => GetNearDealersModel.fromJson(x)));
-
-String getNearDealersModelToJson(List<GetNearDealersModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
-class GetNearDealersModel {
+class DealerModel extends IBaseModel<DealerModel> {
   int? dealerId;
   String? dealerName;
   int? rating;
@@ -25,7 +18,7 @@ class GetNearDealersModel {
   WorkingHours? workingHours;
   List<FoodCategories>? foodCategories;
 
-  GetNearDealersModel(
+  DealerModel(
       {this.dealerId,
       this.dealerName,
       this.rating,
@@ -43,7 +36,8 @@ class GetNearDealersModel {
       this.workingHours,
       this.foodCategories});
 
-  GetNearDealersModel.fromJson(Map<String, dynamic> json) {
+  @override
+  fromJson(Map<dynamic, dynamic> json) {
     dealerId = json['dealer_id'];
     dealerName = json['dealer_name'];
     rating = json['rating'];
@@ -55,57 +49,59 @@ class GetNearDealersModel {
     minPackageAmount = json['min_package_amount'];
     distance = json['distance'];
     logoImage = json['logo_image'] != null
-        ? new LogoImage.fromJson(json['logo_image'])
+        ? LogoImage.fromJson(json['logo_image'])
         : null;
     listImage = json['list_image'] != null
-        ? new LogoImage.fromJson(json['list_image'])
+        ? LogoImage.fromJson(json['list_image'])
         : null;
     mobileCoverImage = json['mobile_cover_image'] != null
-        ? new LogoImage.fromJson(json['mobile_cover_image'])
+        ? LogoImage.fromJson(json['mobile_cover_image'])
         : null;
     latlng = json['latlng'];
     workingHours = json['working_hours'] != null
-        ? new WorkingHours.fromJson(json['working_hours'])
+        ? WorkingHours.fromJson(json['working_hours'])
         : null;
     if (json['food_categories'] != null) {
       foodCategories = <FoodCategories>[];
       json['food_categories'].forEach((v) {
-        foodCategories!.add(new FoodCategories.fromJson(v));
+        foodCategories!.add(FoodCategories.fromJson(v));
       });
     }
+    return this;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['dealer_id'] = this.dealerId;
-    data['dealer_name'] = this.dealerName;
-    data['rating'] = this.rating;
-    data['rating2'] = this.rating2;
-    data['comment_count'] = this.commentCount;
-    data['avg_service_time'] = this.avgServiceTime;
-    data['avg_service_time_min'] = this.avgServiceTimeMin;
-    data['avg_service_time_max'] = this.avgServiceTimeMax;
-    data['min_package_amount'] = this.minPackageAmount;
-    data['distance'] = this.distance;
-    if (this.logoImage != null) {
-      data['logo_image'] = this.logoImage!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['dealer_id'] = dealerId;
+    data['dealer_name'] = dealerName;
+    data['rating'] = rating;
+    data['rating2'] = rating2;
+    data['comment_count'] = commentCount;
+    data['avg_service_time'] = avgServiceTime;
+    data['avg_service_time_min'] = avgServiceTimeMin;
+    data['avg_service_time_max'] = avgServiceTimeMax;
+    data['min_package_amount'] = minPackageAmount;
+    data['distance'] = distance;
+    if (logoImage != null) {
+      data['logo_image'] = logoImage!.toJson();
     }
-    if (this.listImage != null) {
-      data['list_image'] = this.listImage!.toJson();
+    if (listImage != null) {
+      data['list_image'] = listImage!.toJson();
     }
-    if (this.mobileCoverImage != null) {
-      data['mobile_cover_image'] = this.mobileCoverImage!.toJson();
+    if (mobileCoverImage != null) {
+      data['mobile_cover_image'] = mobileCoverImage!.toJson();
     }
-    data['latlng'] = this.latlng;
-    if (this.workingHours != null) {
-      data['working_hours'] = this.workingHours!.toJson();
+    data['latlng'] = latlng;
+    if (workingHours != null) {
+      data['working_hours'] = workingHours!.toJson();
     }
-    if (this.foodCategories != null) {
+    if (foodCategories != null) {
       data['food_categories'] =
-          this.foodCategories!.map((v) => v.toJson()).toList();
+          foodCategories!.map((v) => v.toJson()).toList();
     }
     return data;
   }
+
 }
 
 class LogoImage {
@@ -120,9 +116,9 @@ class LogoImage {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
-    data['size_code'] = this.sizeCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['url'] = url;
+    data['size_code'] = sizeCode;
     return data;
   }
 }
@@ -159,15 +155,15 @@ class WorkingHours {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['end'] = this.end;
-    data['start'] = this.start;
-    data['title'] = this.title;
-    data['status'] = this.status;
-    data['courier'] = this.courier;
-    data['dayofweek'] = this.dayofweek;
-    data['courier_end'] = this.courierEnd;
-    data['courier_start'] = this.courierStart;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['end'] = end;
+    data['start'] = start;
+    data['title'] = title;
+    data['status'] = status;
+    data['courier'] = courier;
+    data['dayofweek'] = dayofweek;
+    data['courier_end'] = courierEnd;
+    data['courier_start'] = courierStart;
     return data;
   }
 }
@@ -181,18 +177,18 @@ class FoodCategories {
 
   FoodCategories.fromJson(Map<String, dynamic> json) {
     image =
-        json['image'] != null ? new LogoImage.fromJson(json['image']) : null;
+        json['image'] != null ? LogoImage.fromJson(json['image']) : null;
     isDefault = json['is_default'];
     categoryName = json['category_name'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.image != null) {
-      data['image'] = this.image!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (image != null) {
+      data['image'] = image!.toJson();
     }
-    data['is_default'] = this.isDefault;
-    data['category_name'] = this.categoryName;
+    data['is_default'] = isDefault;
+    data['category_name'] = categoryName;
     return data;
   }
 }

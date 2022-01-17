@@ -1,5 +1,5 @@
 
-import 'category_widget_model.dart';
+import 'food_category_model.dart';
 import 'images_model.dart';
 
 
@@ -23,7 +23,7 @@ class DealerDetailModel {
   TableModel? table;
   WorkingHourModel? workingHours;
   List<MenuModel>? menus;
-  List<CategoryWidgetModel>? categories;
+  List<FoodCategoryModel>? categories;
   ImagesModel? logoImage;
   ImagesModel? listImage;
   ImagesModel? mobileCoverImage;
@@ -50,8 +50,8 @@ class DealerDetailModel {
                 json["menus"].map((x) => MenuModel.fromJson(x))),
         categories: json["categories"] == null
             ? []
-            : List<CategoryWidgetModel>.from(
-                json["categories"].map((x) => CategoryWidgetModel.fromJson(x))),
+            : List<FoodCategoryModel>.from(
+                json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
       );
 
 }
