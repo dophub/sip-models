@@ -37,38 +37,30 @@ class DealerModel extends IBaseModel<DealerModel> {
       this.foodCategories});
 
   @override
-  fromJson(Map<dynamic, dynamic> json) {
-    dealerId = json['dealer_id'];
-    dealerName = json['dealer_name'];
-    rating = json['rating'];
-    rating2 = json['rating2'];
-    commentCount = json['comment_count'];
-    avgServiceTime = json['avg_service_time'];
-    avgServiceTimeMin = json['avg_service_time_min'];
-    avgServiceTimeMax = json['avg_service_time_max'];
-    minPackageAmount = json['min_package_amount'];
-    distance = json['distance'];
-    logoImage = json['logo_image'] != null
-        ? LogoImage.fromJson(json['logo_image'])
-        : null;
-    listImage = json['list_image'] != null
-        ? LogoImage.fromJson(json['list_image'])
-        : null;
-    mobileCoverImage = json['mobile_cover_image'] != null
-        ? LogoImage.fromJson(json['mobile_cover_image'])
-        : null;
-    latlng = json['latlng'];
-    workingHours = json['working_hours'] != null
-        ? WorkingHours.fromJson(json['working_hours'])
-        : null;
-    if (json['food_categories'] != null) {
-      foodCategories = <FoodCategories>[];
-      json['food_categories'].forEach((v) {
-        foodCategories!.add(FoodCategories.fromJson(v));
-      });
-    }
-    return this;
-  }
+  fromJson(Map<dynamic, dynamic> json) => DealerModel(
+    dealerId : json['dealer_id'],
+    dealerName : json['dealer_name'],
+    rating : json['rating'],
+    rating2 : json['rating2'],
+    commentCount : json['comment_count'],
+    avgServiceTime : json['avg_service_time'],
+    avgServiceTimeMin : json['avg_service_time_min'],
+    avgServiceTimeMax : json['avg_service_time_max'],
+    minPackageAmount : json['min_package_amount'],
+    distance : json['distance'],
+    logoImage : json['logo_image'] != null ? LogoImage.fromJson(json['logo_image']) : null,
+    listImage : json['list_image'] != null ? LogoImage.fromJson(json['list_image']) : null,
+    mobileCoverImage : json['mobile_cover_image'] != null ? LogoImage.fromJson(json['mobile_cover_image']) : null,
+    latlng : json['latlng'],
+    workingHours : json['working_hours'] != null ? WorkingHours.fromJson(json['working_hours']) : null,
+      foodCategories: json["food_categories"] == null ? null : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
+
+ /* if (json['food_categories'] != null) {
+      foodCategories : <FoodCategories>[],
+      json['food_categories'].forEach((v) {foodCategories!.add(FoodCategories.fromJson(v)),
+      }),
+    }*/
+  );
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

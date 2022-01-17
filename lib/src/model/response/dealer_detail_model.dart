@@ -48,10 +48,7 @@ class DealerDetailModel {
             ? []
             : List<MenuModel>.from(
                 json["menus"].map((x) => MenuModel.fromJson(x))),
-        categories: json["categories"] == null
-            ? []
-            : List<FoodCategoryModel>.from(
-                json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
+        categories: json["categories"] == null ? [] : List<FoodCategoryModel>.from(json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
       );
 
 }
