@@ -53,13 +53,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     mobileCoverImage : json['mobile_cover_image'] != null ? LogoImage.fromJson(json['mobile_cover_image']) : null,
     latlng : json['latlng'],
     workingHours : json['working_hours'] != null ? WorkingHours.fromJson(json['working_hours']) : null,
-      foodCategories: json["food_categories"] == null ? null : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
-
- /* if (json['food_categories'] != null) {
-      foodCategories : <FoodCategories>[],
-      json['food_categories'].forEach((v) {foodCategories!.add(FoodCategories.fromJson(v)),
-      }),
-    }*/
+    foodCategories: json["food_categories"] == null ? null : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() {
