@@ -36,6 +36,7 @@ class DealerModel extends IBaseModel<DealerModel> {
       this.workingHours,
       this.foodCategories});
 
+  
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerModel(
     dealerId : json['dealer_id'],
