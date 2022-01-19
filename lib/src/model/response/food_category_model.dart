@@ -9,7 +9,7 @@ class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {
     this.categoryName,
   });
 
-  int? id;
+  String? id;
   ImagesModel? image;
   int? listOrder;
   String? categoryName;
