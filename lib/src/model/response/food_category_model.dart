@@ -9,7 +9,9 @@ class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {
     this.categoryName,
   });
 
-  String? id;
+  /// 1- Dealer modulunde QR detail categories için int olarak kullanılmakta
+  /// 2- MarketPlace modulunde NearDealerDetail de String olarak kullanılmakta
+  dynamic id;
   ImagesModel? image;
   int? listOrder;
   String? categoryName;
