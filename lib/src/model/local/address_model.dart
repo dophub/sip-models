@@ -1,5 +1,4 @@
-
-
+/*
 class AddressModel {
   AddressModel({
     this.addressId,
@@ -20,8 +19,8 @@ class AddressModel {
   });
 
   int? addressId;
-  String? type;
-  String? title;
+  String? type;//
+  String? title;//
   int? cityId;
   String? cityName;
   int? districtId;
@@ -31,11 +30,10 @@ class AddressModel {
   String? address;
   String? buildingNumber;
   String? floor;
-  String? no;
+  String? no;//
   String? latlng;
-  String? addressDetail;
+  String? addressDetail;//
 
-  //todo: RF: tipler DB ile aynı formatta olacak
   factory AddressModel.fromJson(Map<String, dynamic> json) =>
       AddressModel(
           addressId: json["addressId"],
@@ -72,3 +70,4 @@ class AddressModel {
         "addressDetail": addressDetail,
       };
 }
+*/

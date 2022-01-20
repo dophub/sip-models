@@ -1,8 +1,5 @@
 import 'dart:convert';
-
 import '../request/order_model.dart';
-
-
 
 ProductCartModel productCartModelFromJson(String? str) => ProductCartModel.fromJson(json.decode(str!));
 
@@ -170,13 +167,12 @@ class Customer {
   };
 }
 
-
 class CustomerAddress {
   CustomerAddress({
     this.id,
     this.floor,
     this.latlng,
-    this.address,
+    this.addressDetail,
     this.cityId,
     this.cityName,
     this.districtId,
@@ -187,28 +183,59 @@ class CustomerAddress {
     this.buildingNumber,
     this.neighborhoodId,
     this.neighborhoodName,
+    this.type,
+    this.addressDescription,
+    this.title,
+    this.doorNo
   });
 
   int? id;
   String? floor;
   String? latlng;
-  String? address;
+  String? addressDetail; //Address ---> CustomerAddress
   int? cityId;
   String? cityName;
   int? districtId;
-  String? flatNumber;
-  String? addressName;
-  String? addressRoute;
+  String? flatNumber;//
+  String? addressName;//
+  String? addressRoute;//
   String? districtName;
   String? buildingNumber;
   int? neighborhoodId;
   String? neighborhoodName;
+  String? type;//
+  String? addressDescription;// AddressDetail -----> AddressModel
+  String? title;//
+  String? doorNo;//no -----> AddressModel
+
+  CustomerAddress copyWith(){
+    return CustomerAddress(
+        id: id,
+        floor: floor,
+        latlng: latlng,
+        addressDetail: addressDetail,
+        cityId: cityId,
+        cityName: cityName,
+        districtId: districtId,
+        flatNumber: flatNumber,
+        addressName: addressName,
+        addressRoute: addressRoute,
+        districtName: districtName,
+        buildingNumber: buildingNumber,
+        neighborhoodId: neighborhoodId,
+        neighborhoodName: neighborhoodName,
+        type: type,
+        addressDescription: addressDescription,
+        title: title,
+        doorNo: doorNo,
+    );
+  }
 
   factory CustomerAddress.fromJson(Map<String, dynamic> json) => CustomerAddress(
     id: json["id"],
     floor: json["floor"],
     latlng: json["latlng"],
-    address: json["address"],
+    addressDetail: json["address_detail"],
     cityId: json["city_id"],
     cityName: json["city_name"],
     districtId: json["district_id"],
@@ -219,13 +246,17 @@ class CustomerAddress {
     buildingNumber: json["building_number"],
     neighborhoodId: json["neighborhood_id"],
     neighborhoodName: json["neighborhood_name"],
+    type: json["type"],
+    addressDescription: json["address_description"],
+    title: json["title"],
+    doorNo: json["door_no"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
     "floor": floor,
     "latlng": latlng,
-    "address": address,
+    "address_detail": addressDetail,
     "city_id": cityId,
     "city_name": cityName,
     "district_id": districtId,
@@ -236,6 +267,10 @@ class CustomerAddress {
     "building_number": buildingNumber,
     "neighborhood_id": neighborhoodId,
     "neighborhood_name": neighborhoodName,
+    "type": type,
+    "address_description": addressDescription,
+    "title": title,
+    "doorNo": doorNo,
   };
 }
 
