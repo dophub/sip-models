@@ -3,8 +3,7 @@ import 'dart:convert';
 PaymentModel paymentModelFromJson(String str) =>
     PaymentModel.fromJson(json.decode(str));
 
-
-/// PostPayment te dönen response
+/// Iyzico PostPayment te dönen response
 class PaymentModel {
   PaymentModel({
     this.complete,
@@ -24,6 +23,4 @@ class PaymentModel {
         total: json["total"].toDouble(),
         status: json["status"],
       );
-
-
 }

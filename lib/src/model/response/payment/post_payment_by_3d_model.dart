@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-PostPaymentBy3DModel postPaymentBy3DModelFromJson(String str) =>
-    PostPaymentBy3DModel.fromJson(json.decode(str));
+PostPaymentBy3DIyzicoModel postPaymentBy3DModelFromJson(String str) =>
+    PostPaymentBy3DIyzicoModel.fromJson(json.decode(str));
 
-
-class PostPaymentBy3DModel {
-  PostPaymentBy3DModel({
+/// iyzico 3D Ödeme yaptıktan sonrta dönen respobse
+class PostPaymentBy3DIyzicoModel {
+  PostPaymentBy3DIyzicoModel({
     this.htmlUrl,
     this.base64Content,
     this.paymentId,
@@ -17,8 +17,8 @@ class PostPaymentBy3DModel {
   String? paymentId;
   double? total;
 
-  factory PostPaymentBy3DModel.fromJson(Map<String, dynamic> json) =>
-      PostPaymentBy3DModel(
+  factory PostPaymentBy3DIyzicoModel.fromJson(Map<String, dynamic> json) =>
+      PostPaymentBy3DIyzicoModel(
         htmlUrl: json["htmlUrl"],
         base64Content: json["base64Content"],
         paymentId: json["paymentId"],

@@ -1,3 +1,5 @@
+
+/// Iyzico endpointinde kullanılan Ödeme id sini çekmek için kullanılmakta
 class GetPaymentIdModel {
   GetPaymentIdModel({
     this.orderId,
