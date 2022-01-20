@@ -6,9 +6,6 @@ import 'past_order_details_model.dart';
 
 List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
 
-/*String lastOrdersModelToJson(List<LastOrdersModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));*/
-
 class LastOrdersModel {
   LastOrdersModel({
     this.id,
@@ -99,36 +96,7 @@ class LastOrdersModel {
         items: List<LastOrdersModelItem>.from(
             json["items"].map((x) => LastOrdersModelItem.fromJson(x))),
       );
-/*
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "order_number": orderNumber,
-        "total_amount": totalAmount,
-        "record_date": recordDate?.toIso8601String(),
-        "update_date": updateDate?.toIso8601String(),
-        "revision_number": revisionNumber,
-        "order_note": orderNote,
-        "delivery_date": deliveryDate,
-        "tip_amount": tipAmount,
-        "client_point_id": clientPointId,
-        "customer_id": customerId,
-        "customer_address_id": customerAddressId,
-        "dealer_id": dealerId,
-        "delivery_time_id": deliveryTimeId,
-        "delivery_type_id": deliveryTypeId,
-        "order_point_id": orderPointId,
-        "order_status_id": orderStatusId,
-        "payment_type_id": paymentTypeId,
-        "session_point_id": sessionPointId,
-        "table_service_id": tableServiceId,
-        "cancel_code_id": cancelCodeId,
-        "sessionId": sessionId,
-        "title": title,
-        "tip_amount_without_kdv": tipAmountWithoutKdv,
-        "total_amount_without_kdv": totalAmountWithoutKdv,
-        "dealer": dealer?.toJson(),
-        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
-      };*/
+
 }
 
 class LastOrderDealer {
@@ -146,7 +114,7 @@ class LastOrderDealer {
   int? dealerId;
   String? dealerName;
   int? rating;
-  int? rating2;
+  double? rating2;
   int? commentCount;
   ImagesModel? logoImage;
   ImagesModel? listImage;
@@ -156,23 +124,12 @@ class LastOrderDealer {
         dealerId: json["dealer_id"],
         dealerName: json["dealer_name"],
         rating: json["rating"],
-        rating2: json["rating2"],
+        rating2: json["rating2"].toDouble(),
         commentCount: json["comment_count"],
         logoImage: ImagesModel.fromJson(json["logo_image"]),
         listImage: ImagesModel.fromJson(json["list_image"]),
         mobileCoverImage: ImagesModel.fromJson(json["mobile_cover_image"]),
       );
-/*
-  Map<String, dynamic> toJson() => {
-        "dealer_id": dealerId,
-        "dealer_name": dealerName,
-        "rating": rating,
-        "rating2": rating2,
-        "comment_count": commentCount,
-        "logo_image": logoImage?.toJson(),
-        "list_image": listImage?.toJson(),
-        "mobile_cover_image": mobileCoverImage?.toJson(),
-      };*/
 }
 
 class LastOrdersModelItem {
@@ -208,17 +165,6 @@ class LastOrdersModelItem {
         itemPrice: json["item_price"].toDouble(),
         totalPrice: json["total_price"].toDouble(),
       );
-/*
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "count": count,
-        "item_id": itemId,
-        "options": List<dynamic>.from(options!.map((x) => x.toJson())),
-        "item_name": itemName,
-        "item_type": itemType,
-        "item_price": itemPrice,
-        "total_price": totalPrice,
-      };*/
 }
 
 class Option {
@@ -247,14 +193,5 @@ class Option {
         optionType: json["option_type"],
         totalPrice: json["total_price"],
       );
-/*
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
-        "title": title,
-        "adding_type": addingType,
-        "option_type": optionType,
-        "total_price": totalPrice,
-      };*/
 }
 
