@@ -29,7 +29,7 @@ class PastOrderDetailsModel {
   String? deliveryTypeId;
   String? sessionPointId;
   PastOrderDealer? dealer;
-  Payment? payment;
+  PaymentDetailModel? payment;
   Status? status;
   List<PastOrderDetailsModelItem>? items;
 
@@ -44,7 +44,7 @@ class PastOrderDetailsModel {
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
         dealer: PastOrderDealer.fromJson(json["dealer"]),
-        payment: Payment.fromJson(json["payment"]),
+        payment: PaymentDetailModel.fromJson(json["payment"]),
         status: Status.fromJson(json["status"]),
         items: List<PastOrderDetailsModelItem>.from(
             json["items"].map((x) => PastOrderDetailsModelItem.fromJson(x))),
@@ -296,8 +296,8 @@ class SectionItemOption {
       );
 }
 
-class Payment {
-  Payment({
+class PaymentDetailModel {
+  PaymentDetailModel({
     this.code,
     this.title,
   });
@@ -305,7 +305,7 @@ class Payment {
   String? code;
   String? title;
 
-  factory Payment.fromJson(Map<String, dynamic> json) => Payment(
+  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) => PaymentDetailModel(
         code: json["code"],
         title: json["title"],
       );
