@@ -1,9 +1,9 @@
 import 'dart:convert';
+import '../../../response.dart';
 import 'menu_detail_model.dart';
 
-List<NearDealerDetailsModel> nearDealerDetailsModelFromJson(String str) => List<NearDealerDetailsModel>.from(json.decode(str).map((x) => NearDealerDetailsModel.fromJson(x)));
 
-class NearDealerDetailsModel {
+class NearDealerDetailsModel  extends IBaseModel<NearDealerDetailsModel> {
   NearDealerDetailsModel({
     this.id,
     this.menuName,
@@ -16,7 +16,8 @@ class NearDealerDetailsModel {
   int? menuOrder;
   List<Category>? categories;
 
-  factory NearDealerDetailsModel.fromJson(Map<String, dynamic> json) => NearDealerDetailsModel(
+  @override
+  fromJson(Map<dynamic, dynamic> json) => NearDealerDetailsModel(
     id: json["id"],
     menuName: json["menu_name"],
     menuOrder: json["menu_order"],

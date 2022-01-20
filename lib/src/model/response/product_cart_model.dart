@@ -184,9 +184,7 @@ class CustomerAddress {
     this.neighborhoodId,
     this.neighborhoodName,
     this.type,
-    this.addressDescription,
-    this.title,
-    this.doorNo
+    this.icon
   });
 
   int? id;
@@ -203,10 +201,11 @@ class CustomerAddress {
   String? buildingNumber;
   int? neighborhoodId;
   String? neighborhoodName;
-  String? type;//
-  String? addressDescription;// AddressDetail -----> AddressModel
-  String? title;//
-  String? doorNo;//no -----> AddressModel
+  String? type;
+ // String? addressDescription;// AddressDetail -----> AddressModel
+  //String? title;//
+ // String? doorNo;//no -----> AddressModel
+  String? icon;
 
   CustomerAddress copyWith(){
     return CustomerAddress(
@@ -225,9 +224,7 @@ class CustomerAddress {
         neighborhoodId: neighborhoodId,
         neighborhoodName: neighborhoodName,
         type: type,
-        addressDescription: addressDescription,
-        title: title,
-        doorNo: doorNo,
+        icon:icon
     );
   }
 
@@ -247,9 +244,7 @@ class CustomerAddress {
     neighborhoodId: json["neighborhood_id"],
     neighborhoodName: json["neighborhood_name"],
     type: json["type"],
-    addressDescription: json["address_description"],
-    title: json["title"],
-    doorNo: json["door_no"],
+    icon: json["icon"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -268,9 +263,7 @@ class CustomerAddress {
     "neighborhood_id": neighborhoodId,
     "neighborhood_name": neighborhoodName,
     "type": type,
-    "address_description": addressDescription,
-    "title": title,
-    "doorNo": doorNo,
+    "icon": icon,
   };
 }
 
