@@ -16,7 +16,7 @@ class PostPaymentModel {
 
   String? status;
   String? transactionId;
-  String? total;
+  double? total;
   bool? useThreeD;
   String? threeDSessionId;
   String? base64Content;
