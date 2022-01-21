@@ -73,7 +73,7 @@ class PastOrderDealer {
   int? id;
   String? dealerName;
   int? rating;
-  int? rating2;
+  double? rating2;
   int? commentCount;
   int? avgServiceTime;
   int? avgServiceTimeMin;
@@ -90,7 +90,7 @@ class PastOrderDealer {
         id: json["id"],
         dealerName: json["dealer_name"],
         rating: json["rating"],
-        rating2: json["rating2"],
+        rating2: json["rating2"] == null ? null: json["rating2"].toDouble(),
         commentCount: json["comment_count"],
         avgServiceTime: json["avg_service_time"],
         avgServiceTimeMin: json["avg_service_time_min"],
