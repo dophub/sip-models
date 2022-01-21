@@ -5,7 +5,7 @@ enum LoadingStatus { Init, Loading, Loaded, Error }
 enum ApiStatus { success, fail, loading, wait, init }
 enum CustomerStatusId { COMPLETE, WAIT }
 enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut, NotFound }
-enum PaymentFirebaseStatus { COMPLETED, ERROR }
+enum PaymentFirebaseStatus { COMPLETED, ERROR, WAITING }
 
 /// String değerler verip [ApiStatus] türünde değişken almak için yazıldı
 const Map<String, ApiStatus> stringToApiStatusMap = {
