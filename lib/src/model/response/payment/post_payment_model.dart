@@ -24,7 +24,7 @@ class PostPaymentModel {
   factory PostPaymentModel.fromJson(Map<String, dynamic> json) => PostPaymentModel(
     status: json["status"],
     transactionId: json["transactionId"],
-    total: json["total"],
+    total: json["total"].toDouble(),
     useThreeD: json["useThreeD"],
     threeDSessionId: json["threeDSessionId"],
     base64Content: json["base64Content"],
