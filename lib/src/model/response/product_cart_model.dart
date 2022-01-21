@@ -172,7 +172,7 @@ class CustomerAddress {
     this.id,
     this.floor,
     this.latlng,
-    this.addressDetail,
+    this.address,
     this.cityId,
     this.cityName,
     this.districtId,
@@ -183,14 +183,15 @@ class CustomerAddress {
     this.buildingNumber,
     this.neighborhoodId,
     this.neighborhoodName,
-    this.type,
+    this.addressTypeId,
+    this.addressTypeName,
     this.icon
   });
 
   int? id;
   String? floor;
   String? latlng;
-  String? addressDetail; //Address ---> CustomerAddress
+  String? address; //Address ---> CustomerAddress
   int? cityId;
   String? cityName;
   int? districtId;
@@ -201,7 +202,8 @@ class CustomerAddress {
   String? buildingNumber;
   int? neighborhoodId;
   String? neighborhoodName;
-  String? type;
+  String? addressTypeId;
+  String? addressTypeName;
  // String? addressDescription;// AddressDetail -----> AddressModel
   //String? title;//
  // String? doorNo;//no -----> AddressModel
@@ -212,7 +214,7 @@ class CustomerAddress {
         id: id,
         floor: floor,
         latlng: latlng,
-        addressDetail: addressDetail,
+        address: address,
         cityId: cityId,
         cityName: cityName,
         districtId: districtId,
@@ -223,7 +225,8 @@ class CustomerAddress {
         buildingNumber: buildingNumber,
         neighborhoodId: neighborhoodId,
         neighborhoodName: neighborhoodName,
-        type: type,
+        addressTypeId: addressTypeId,
+        addressTypeName: addressTypeName,
         icon:icon
     );
   }
@@ -232,7 +235,7 @@ class CustomerAddress {
     id: json["id"],
     floor: json["floor"],
     latlng: json["latlng"],
-    addressDetail: json["address_detail"],
+    address: json["address"],
     cityId: json["city_id"],
     cityName: json["city_name"],
     districtId: json["district_id"],
@@ -243,7 +246,8 @@ class CustomerAddress {
     buildingNumber: json["building_number"],
     neighborhoodId: json["neighborhood_id"],
     neighborhoodName: json["neighborhood_name"],
-    type: json["type"],
+    addressTypeId: json["address_type_id"],
+    addressTypeName: json["address_type_name"],
     icon: json["icon"],
   );
 
@@ -251,7 +255,7 @@ class CustomerAddress {
     "id": id,
     "floor": floor,
     "latlng": latlng,
-    "address_detail": addressDetail,
+    "address": address,
     "city_id": cityId,
     "city_name": cityName,
     "district_id": districtId,
@@ -262,7 +266,8 @@ class CustomerAddress {
     "building_number": buildingNumber,
     "neighborhood_id": neighborhoodId,
     "neighborhood_name": neighborhoodName,
-    "type": type,
+    "address_type_id": addressTypeId,
+    "address_type_name": addressTypeName,
     "icon": icon,
   };
 }
