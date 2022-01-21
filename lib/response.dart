@@ -29,3 +29,4 @@ export 'src/model/response/token_model.dart';
 export 'src/model/response/user_info_model.dart';
 export 'src/model/response/waiter_request_model.dart';
 export 'src/model/response/payment/post_payment_model.dart';
+export 'src/model/response/payment/paycell_contract_model.dart';
