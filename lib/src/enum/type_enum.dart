@@ -28,3 +28,10 @@ enum ItemType { PRODUCT, PROMOTION_MENU }
 /// [OPTION] Item olmayan option
 /// [FEATURE] Item olan option
 enum OptionType { OPTION, FEATURE }
+
+/// [PaymentOnlineType] Option türü
+/// [offline] kapıda ödeme VS..
+/// [online] KrediKartı VS..
+enum PaymentOnlineType { offline, online }
+
+
