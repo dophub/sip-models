@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:sip_models/src/model/response/payment/payment_types.dart';
+
 ParametersOrder parametersOrderFromJson(String str) =>
     ParametersOrder.fromJson(json.decode(str));
 
@@ -55,7 +57,7 @@ class ParametersOrder {
     if (json['payment_types'] != null) {
       paymentTypes = [];
       json['payment_types'].forEach((v) {
-        paymentTypes?.add(Payment_types.fromJson(v));
+        paymentTypes?.add(PaymentTypes.fromJson(v));
       });
     }
     if (json['order_delivery_types'] != null) {
@@ -135,7 +137,7 @@ class ParametersOrder {
   List<Currencies>? currencies;
   List<Address_types>? addressTypes;
   List<Languages>? languages;
-  List<Payment_types>? paymentTypes;
+  List<PaymentTypes>? paymentTypes;
   List<Order_delivery_types>? orderDeliveryTypes;
   List<Order_status>? orderStatus;
   List<Order_cancel_reason>? orderCancelReason;
@@ -663,39 +665,7 @@ class Order_delivery_types {
   }
 }
 
-/// payment_type_code : "CARD"
-/// payment_type : "Kredi kartı"
-/// is_active : true
-/// is_online_payment : false
 
-class Payment_types {
-  Payment_types({
-    this.paymentTypeCode,
-    this.paymentType,
-    this.isActive,
-    this.isOnlinePayment,
-  });
-
-  Payment_types.fromJson(dynamic json) {
-    paymentTypeCode = json['payment_type_code'];
-    paymentType = json['payment_type'];
-    isActive = json['is_active'];
-    isOnlinePayment = json['is_online_payment'];
-  }
-  String? paymentTypeCode;
-  String? paymentType;
-  bool? isActive;
-  bool? isOnlinePayment;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['payment_type_code'] = paymentTypeCode;
-    map['payment_type'] = paymentType;
-    map['is_active'] = isActive;
-    map['is_online_payment'] = isOnlinePayment;
-    return map;
-  }
-}
 
 /// language_code : "tr"
 /// language_name : "Turkish"

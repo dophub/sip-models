@@ -204,9 +204,6 @@ class CustomerAddress {
   String? neighborhoodName;
   String? addressTypeId;
   String? addressTypeName;
- // String? addressDescription;// AddressDetail -----> AddressModel
-  //String? title;//
- // String? doorNo;//no -----> AddressModel
   String? icon;
 
   CustomerAddress copyWith(){
