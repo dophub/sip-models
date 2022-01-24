@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:sip_models/src/model/response/payment/payment_types.dart';
+import 'package:sip_models/src/model/response/payment/payment_types_model.dart';
 
 ParametersOrder parametersOrderFromJson(String str) =>
     ParametersOrder.fromJson(json.decode(str));
@@ -57,7 +57,7 @@ class ParametersOrder {
     if (json['payment_types'] != null) {
       paymentTypes = [];
       json['payment_types'].forEach((v) {
-        paymentTypes?.add(PaymentTypes.fromJson(v));
+        paymentTypes?.add(PaymentTypesModel.fromJson(v));
       });
     }
     if (json['order_delivery_types'] != null) {
@@ -137,7 +137,7 @@ class ParametersOrder {
   List<Currencies>? currencies;
   List<Address_types>? addressTypes;
   List<Languages>? languages;
-  List<PaymentTypes>? paymentTypes;
+  List<PaymentTypesModel>? paymentTypes;
   List<Order_delivery_types>? orderDeliveryTypes;
   List<Order_status>? orderStatus;
   List<Order_cancel_reason>? orderCancelReason;
