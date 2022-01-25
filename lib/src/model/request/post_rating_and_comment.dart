@@ -1,5 +1,5 @@
-class RatingAndComment {
-  RatingAndComment({
+class RatingAndCommentModel {
+  RatingAndCommentModel({
     this.subject,
     this.comment,
     this.ratings,
@@ -19,8 +19,8 @@ class RatingAndComment {
         "ratings": List<dynamic>.from(ratings!.map((x) => x.toJson())),
       };
 
-  factory RatingAndComment.fromJson(Map<dynamic, dynamic> json) =>
-      RatingAndComment(
+  factory RatingAndCommentModel.fromJson(Map<dynamic, dynamic> json) =>
+      RatingAndCommentModel(
         ratings: json["ratings"] == null ? null: List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
         subject: json["subject"],
         createDate: json["create_date"] == null
