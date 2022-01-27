@@ -1,4 +1,3 @@
-
 /// Iyzico eski kartla ödeme
 class PostPaymentBySavedCardIyzicoModel {
   PostPaymentBySavedCardIyzicoModel({
@@ -16,18 +15,24 @@ class PostPaymentBySavedCardIyzicoModel {
 }
 
 /// Paycell eski kartla ödeme
-class PostPaymentBySavedCardModel {
-  PostPaymentBySavedCardModel({
+class PostPayModel {
+  PostPayModel({
     this.orderId,
     this.payDeskAmount,
     this.cardId,
+    this.paymentMethod,
+    this.orderNote
   });
 
   int? orderId;
   bool? payDeskAmount;
   String? cardId;
+  String? paymentMethod;
+  String? orderNote;
 
   Map<String, dynamic> toJson() => {
+        "payment_method": paymentMethod,
+        "order_note": orderNote,
         "order_id": orderId,
         "pay_desk_amount": payDeskAmount,
         "cardId": cardId,
