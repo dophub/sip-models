@@ -1,5 +1,5 @@
-class OfflinePayment {
-  OfflinePayment({
+class OfflinePaymentModel {
+  OfflinePaymentModel({
     this.paymentMethod,
     this.orderId,
     this.payDeskAmount,
