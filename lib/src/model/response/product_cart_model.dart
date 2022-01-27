@@ -185,19 +185,20 @@ class CustomerAddress {
     this.neighborhoodName,
     this.addressTypeId,
     this.addressTypeName,
-    this.icon
+    this.icon,
+    this.isAvailable
   });
 
   int? id;
   String? floor;
   String? latlng;
-  String? address; //Address ---> CustomerAddress
+  String? address;
   int? cityId;
   String? cityName;
   int? districtId;
-  String? flatNumber;//
-  String? addressName;//
-  String? addressRoute;//
+  String? flatNumber;
+  String? addressName;
+  String? addressRoute;
   String? districtName;
   String? buildingNumber;
   int? neighborhoodId;
@@ -205,6 +206,7 @@ class CustomerAddress {
   String? addressTypeId;
   String? addressTypeName;
   String? icon;
+  bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
 
   CustomerAddress copyWith(){
     return CustomerAddress(
@@ -224,7 +226,8 @@ class CustomerAddress {
         neighborhoodName: neighborhoodName,
         addressTypeId: addressTypeId,
         addressTypeName: addressTypeName,
-        icon:icon
+        icon:icon,
+      isAvailable:isAvailable
     );
   }
 
@@ -246,6 +249,7 @@ class CustomerAddress {
     addressTypeId: json["address_type_id"],
     addressTypeName: json["address_type_name"],
     icon: json["icon"],
+    isAvailable: json["is_available"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -266,6 +270,7 @@ class CustomerAddress {
     "address_type_id": addressTypeId,
     "address_type_name": addressTypeName,
     "icon": icon,
+    "is_available": isAvailable,
   };
 }
 
