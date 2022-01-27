@@ -8,3 +8,4 @@ export 'src/model/request/payment/post_payment_model_by_saved_card.dart';
 export 'src/model/request/post_rating_and_comment.dart';
 export 'src/model/request/post_recommendations_model.dart';
 export 'src/model/request/update_user_model.dart';
+export 'src/model/request/payment/offline_payment_model.dart';
