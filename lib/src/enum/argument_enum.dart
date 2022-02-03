@@ -10,3 +10,4 @@ enum MenuScreenArguments { menuId, focusActive }
 enum CategoryScreenArguments { categoryId, focusActive }
 enum DealerDetailScreenArguments { dealerModel, nearDealerDetailsModel }
 enum DealerPaymentScreenArguments { payDeskAmount }
+enum SearchScreenArguments { categoryId, isSelectedCategory, selectedCategoryName }
