@@ -126,9 +126,9 @@ class LastOrderDealer {
         rating: json["rating"],
         rating2: json["rating2"].toDouble(),
         commentCount: json["comment_count"],
-        logoImage: ImagesModel.fromJson(json["logo_image"]),
-        listImage: ImagesModel.fromJson(json["list_image"]),
-        mobileCoverImage: ImagesModel.fromJson(json["mobile_cover_image"]),
+        logoImage: json["logo_image"] == null ? ImagesModel():ImagesModel.fromJson(json["logo_image"]),
+        listImage: json["list_image"] == null ? ImagesModel():ImagesModel.fromJson(json["list_image"]),
+        mobileCoverImage: json["mobile_cover_image"] == null ? ImagesModel():ImagesModel.fromJson(json["mobile_cover_image"]),
       );
 }
 

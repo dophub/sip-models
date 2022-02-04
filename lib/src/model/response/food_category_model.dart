@@ -20,7 +20,7 @@ class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {
   fromJson(Map<dynamic, dynamic>  json) =>
       FoodCategoryModel(
         id: json["id"],
-        image: ImagesModel.fromJson(json["icon_file"]),
+        image: json["icon_file"] == null ? ImagesModel() :ImagesModel.fromJson(json["icon_file"]),
         listOrder: json["list_order"],
         categoryName: json["category_name"],
       );

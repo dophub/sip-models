@@ -86,20 +86,21 @@ class PastOrderDealer {
   String? latlng;
   List<FoodCategory>? foodCategories;
 
-  factory PastOrderDealer.fromJson(Map<String, dynamic> json) => PastOrderDealer(
+  factory PastOrderDealer.fromJson(Map<String, dynamic> json) =>
+      PastOrderDealer(
         id: json["id"],
         dealerName: json["dealer_name"],
         rating: json["rating"],
-        rating2: json["rating2"] == null ? null: json["rating2"].toDouble(),
+        rating2: json["rating2"] == null ? null : json["rating2"].toDouble(),
         commentCount: json["comment_count"],
         avgServiceTime: json["avg_service_time"],
         avgServiceTimeMin: json["avg_service_time_min"],
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"],
         distance: json["distance"],
-        logoImage: ImagesModel.fromJson(json["logo_image"]),
-        listImage: ImagesModel.fromJson(json["list_image"]),
-        mobileCoverImage: ImagesModel.fromJson(json["mobile_cover_image"]),
+        logoImage: json["logo_image"] == null ? ImagesModel():ImagesModel.fromJson(json["logo_image"]),
+        listImage:json["list_image"]  == null ? ImagesModel():ImagesModel.fromJson(json["list_image"]),
+        mobileCoverImage: json["mobile_cover_image"] == null ? ImagesModel(): ImagesModel.fromJson(json["mobile_cover_image"]),
         latlng: json["latlng"],
         foodCategories: List<FoodCategory>.from(
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
@@ -111,16 +112,19 @@ class FoodCategory {
     this.image,
     this.isDefault,
     this.categoryName,
+    this.categoryCode,
   });
 
   ImagesModel? image;
   bool? isDefault;
   String? categoryName;
+  String? categoryCode;
 
   factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
-        image: ImagesModel.fromJson(json["image"]),
+        image: json["image"] == null ? ImagesModel(): ImagesModel.fromJson(json["image"]),
         isDefault: json["is_default"],
         categoryName: json["category_name"],
+        categoryCode: json['category_code'],
       );
 }
 
@@ -305,7 +309,8 @@ class PaymentDetailModel {
   String? code;
   String? title;
 
-  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) => PaymentDetailModel(
+  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) =>
+      PaymentDetailModel(
         code: json["code"],
         title: json["title"],
       );

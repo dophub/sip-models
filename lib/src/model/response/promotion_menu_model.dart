@@ -29,6 +29,7 @@ class PromotionMenuDetailModel extends IBaseModel<PromotionMenuDetailModel>{
   List<PriceModel>? price;
   List<SectionModel>? sections;
 
+  @override
   fromJson(Map<dynamic, dynamic> json) => PromotionMenuDetailModel(
     id: json["id"],
     totalCalorie: json["total_calorie"],

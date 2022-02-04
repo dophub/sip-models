@@ -57,8 +57,8 @@ class SearchProductModel {
         dealerId: json["dealer_id"],
         dealerCode: json["dealer_code"],
         dealerName: json["dealer_name"],
-        rating: json["rating"] == null ? '': json["rating"].toDouble(),
-        rating2:  json["rating2"] == null ? '':json["rating2"].toDouble(),
+        rating: json["rating"] == null ? '' : json["rating"].toDouble(),
+        rating2: json["rating2"] == null ? '' : json["rating2"].toDouble(),
         commentCount: json["comment_count"],
         mainBrandId: json["main_brand_id"],
         latlng: json["latlng"],
@@ -66,17 +66,19 @@ class SearchProductModel {
         avgServiceTimeMin: json["avg_service_time_min"],
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"],
-        logoImage: ImagesModel.fromJson(json["logo_image"]),
+        logoImage: json["logo_image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["logo_image"]),
         openMarketplace: json["open_marketplace"],
         openReservation: json["open_reservation"],
         openTable: json["open_table"],
         openVale: json["open_vale"],
-        listImage: ImagesModel.fromJson(json["list_image"]),
+        listImage: json["list_image"] == null
+            ? ImagesModel()
+            :  ImagesModel.fromJson(json["list_image"]),
         foodCategories: List<FoodCategory>.from(
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
         products: List<ProductModel>.from(
             json["products"].map((x) => ProductModel.fromJson(x))),
       );
-
 }
-

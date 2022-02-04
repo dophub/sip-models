@@ -42,6 +42,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> {
   String? itemType;
 
 
+  @override
   fromJson(Map<dynamic, dynamic> json) => ProductDetailModel(
     id: json["id"],
     productName: json["product_name"],
