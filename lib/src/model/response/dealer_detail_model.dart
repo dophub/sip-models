@@ -1,8 +1,7 @@
-/*
-
 
 import 'food_category_model.dart';
 import 'images_model.dart';
+
 
 /// GR Kod okutulduğu zaman Api den dönen response
 class DealerDetailModel {
@@ -53,4 +52,82 @@ class DealerDetailModel {
       );
 
 }
-*/
+
+/// Okutulan masa bilgileri
+class TableModel {
+  TableModel({
+    this.tableCode,
+    this.tableName,
+    this.stationCode,
+  });
+
+  String? tableCode;
+  String? tableName;
+  String? stationCode;
+
+  factory TableModel.fromJson(Map<String, dynamic> json) => TableModel(
+        tableCode: json["table_code"],
+        tableName: json["table_name"],
+        stationCode: json["station_code"],
+      );
+
+}
+
+class MenuModel {
+  MenuModel({
+    this.id,
+    this.menuName,
+    this.menuImage,
+    this.menuOrder,
+  });
+
+  int? id;
+  String? menuName;
+  String? menuImage;
+  int? menuOrder;
+
+  factory MenuModel.fromJson(Map<String, dynamic> json) => MenuModel(
+        id: json["id"],
+        menuName: json["menu_name"],
+        menuImage: json["menu_image"],
+        menuOrder: json["menu_order"],
+      );
+
+}
+
+/// İşleteme çalışma saatleri
+class WorkingHourModel {
+  WorkingHourModel({
+    this.end,
+    this.start,
+    this.title,
+    this.status,
+    this.courier,
+    this.dayOfWeek,
+    this.courierEnd,
+    this.courierStart,
+  });
+
+  String? end;
+  String? start;
+  String? title;
+  bool? status;
+  bool? courier;
+  String? dayOfWeek;
+  String? courierEnd;
+  String? courierStart;
+
+  factory WorkingHourModel.fromJson(Map<String, dynamic> json) =>
+      WorkingHourModel(
+        end: json["end"],
+        start: json["start"],
+        title: json["title"],
+        status: json["status"],
+        courier: json["courier"],
+        dayOfWeek: json["dayofweek"],
+        courierEnd: json["courier_end"],
+        courierStart: json["courier_start"],
+      );
+
+}
+

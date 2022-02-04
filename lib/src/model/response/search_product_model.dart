@@ -1,4 +1,3 @@
-/*
 import 'dart:convert';
 import 'menu_detail_model.dart';
 import 'past_order_details_model.dart';
@@ -83,4 +82,3 @@ class SearchProductModel {
             json["products"].map((x) => ProductModel.fromJson(x))),
       );
 }
-*/
