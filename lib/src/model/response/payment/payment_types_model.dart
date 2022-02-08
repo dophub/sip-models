@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 
 /// payment_type_code : "CARD"
@@ -24,6 +22,7 @@ class PaymentTypesModel {
     isActive = json['is_active'];
     isOnlinePayment = json['is_online_payment'];
   }
+
   String? paymentTypeCode;
   String? paymentType;
   bool? isActive;
