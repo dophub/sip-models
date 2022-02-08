@@ -1,9 +1,6 @@
-import 'dart:convert';
+import '../../../response.dart';
 
-List<RatingGroup> ratingGroupFromJson(String str) => List<RatingGroup>.from(
-    json.decode(str).map((x) => RatingGroup.fromJson(x)));
-
-class RatingGroup {
+class RatingGroup extends IBaseModel<RatingGroup> {
   RatingGroup(
       {this.ratingCategoryName, this.ratingCategoryCode, this.rating = 0});
 
@@ -11,7 +8,8 @@ class RatingGroup {
   String? ratingCategoryCode;
   int rating; // değerlendirme için eklendi
 
-  factory RatingGroup.fromJson(Map<String, dynamic> json) => RatingGroup(
+  @override
+  RatingGroup fromJson(Map<dynamic, dynamic> json) => RatingGroup(
         ratingCategoryName: json['rating_category_name'],
         ratingCategoryCode: json['rating_category_code'],
       );

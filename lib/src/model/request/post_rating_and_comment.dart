@@ -1,4 +1,6 @@
-class RatingAndCommentModel {
+import '../../../response.dart';
+
+class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
   RatingAndCommentModel({
     this.subject,
     this.comment,
@@ -11,17 +13,11 @@ class RatingAndCommentModel {
   DateTime? createDate;
   List<Rating>? ratings;
 
-  Map<String, dynamic> toJson() => {
-        "subject": subject,
-        "comment": comment,
-        "create_date":
-            createDate == null ? null : createDate!.toIso8601String(),
-        "ratings": List<dynamic>.from(ratings!.map((x) => x.toJson())),
-      };
-
-  factory RatingAndCommentModel.fromJson(Map<dynamic, dynamic> json) =>
-      RatingAndCommentModel(
-        ratings: json["ratings"] == null ? null: List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
+  @override
+  fromJson(Map<dynamic, dynamic> json) => RatingAndCommentModel(
+        ratings: json["ratings"] == null
+            ? null
+            : List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
         subject: json["subject"],
         createDate: json["create_date"] == null
             ? null
@@ -38,12 +34,7 @@ class Rating {
 
   String? ratingCategory;
   int? ratingValue;
-
-  Map<String, dynamic> toJson() => {
-        "rating_category": ratingCategory,
-        "rating_value": ratingValue,
-      };
-
+  
   factory Rating.fromJson(Map<dynamic, dynamic> json) => Rating(
         ratingCategory: json["rating_category"],
         ratingValue: json["rating_value"],
