@@ -13,6 +13,14 @@ class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
   DateTime? createDate;
   List<Rating>? ratings;
 
+  Map<String, dynamic> toJson() => {
+        "subject": subject,
+        "comment": comment,
+        "create_date":
+            createDate == null ? null : createDate!.toIso8601String(),
+        "ratings": List<dynamic>.from(ratings!.map((x) => x.toJson())),
+      };
+
   @override
   fromJson(Map<dynamic, dynamic> json) => RatingAndCommentModel(
         ratings: json["ratings"] == null
@@ -34,7 +42,12 @@ class Rating {
 
   String? ratingCategory;
   int? ratingValue;
-  
+
+  Map<String, dynamic> toJson() => {
+        "rating_category": ratingCategory,
+        "rating_value": ratingValue,
+      };
+
   factory Rating.fromJson(Map<dynamic, dynamic> json) => Rating(
         ratingCategory: json["rating_category"],
         ratingValue: json["rating_value"],
