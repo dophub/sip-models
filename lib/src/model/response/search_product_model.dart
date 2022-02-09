@@ -34,8 +34,8 @@ class SearchProductModel {
   int? dealerId;
   String? dealerCode;
   String? dealerName;
-  double? rating;
-  double? rating2;
+  num? rating;
+  num? rating2;
   int? commentCount;
   int? mainBrandId;
   String? latlng;

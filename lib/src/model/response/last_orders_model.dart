@@ -113,8 +113,8 @@ class LastOrderDealer {
 
   int? dealerId;
   String? dealerName;
-  int? rating;
-  double? rating2;
+  num? rating;
+  num? rating2;
   int? commentCount;
   ImagesModel? logoImage;
   ImagesModel? listImage;
@@ -124,7 +124,7 @@ class LastOrderDealer {
         dealerId: json["dealer_id"],
         dealerName: json["dealer_name"],
         rating: json["rating"],
-        rating2: json["rating2"].toDouble(),
+        rating2: json["rating2"],
         commentCount: json["comment_count"],
         logoImage: json["logo_image"] == null ? ImagesModel():ImagesModel.fromJson(json["logo_image"]),
         listImage: json["list_image"] == null ? ImagesModel():ImagesModel.fromJson(json["list_image"]),

@@ -3,8 +3,8 @@ import '../../../response.dart';
 class DealerModel extends IBaseModel<DealerModel> {
   int? dealerId;
   String? dealerName;
-  int? rating;
-  double? rating2;
+  num? rating;
+  num? rating2;
   int? commentCount;
   int? avgServiceTime;
   int? avgServiceTimeMin;
@@ -42,7 +42,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     dealerId : json['dealer_id'],
     dealerName : json['dealer_name'],
     rating : json['rating'],
-    rating2 : json['rating2'].toDouble(),
+    rating2 : json['rating2'],
     commentCount : json['comment_count'],
     avgServiceTime : json['avg_service_time'],
     avgServiceTimeMin : json['avg_service_time_min'],
