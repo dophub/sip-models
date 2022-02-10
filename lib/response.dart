@@ -34,3 +34,4 @@ export 'src/model/response/payment/payment_types_model.dart';
 export 'src/model/response/error_model.dart';
 export 'src/model/response/waiter_info_model.dart';
 export 'src/model/response/dealer_info_model.dart';
+export 'src/model/response/parameters_Model.dart';

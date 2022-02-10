@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:sip_models/src/model/response/payment/payment_types_model.dart';
 
+import 'parameters_Model.dart';
+
 ParametersOrder parametersOrderFromJson(String str) =>
     ParametersOrder.fromJson(json.decode(str));
 
@@ -45,7 +47,7 @@ class ParametersOrder {
     if (json['address_types'] != null) {
       addressTypes = [];
       json['address_types'].forEach((v) {
-        addressTypes?.add(Address_types.fromJson(v));
+        addressTypes?.add(AddressType.fromJson(v));
       });
     }
     if (json['languages'] != null) {
@@ -135,7 +137,7 @@ class ParametersOrder {
   }
   List<Units>? units;
   List<Currencies>? currencies;
-  List<Address_types>? addressTypes;
+  List<AddressType>? addressTypes;
   List<Languages>? languages;
   List<PaymentTypesModel>? paymentTypes;
   List<Order_delivery_types>? orderDeliveryTypes;
@@ -215,29 +217,6 @@ class ParametersOrder {
   }
 }
 
-/// title : "Popülerlik"
-/// code : "POPULARITY"
-
-class OrderBy {
-  OrderBy({
-    this.title,
-    this.code,
-  });
-
-  OrderBy.fromJson(dynamic json) {
-    title = json['title'];
-    code = json['code'];
-  }
-  String? title;
-  String? code;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['title'] = title;
-    map['code'] = code;
-    return map;
-  }
-}
 
 /// category_code : "KAHVE-002"
 /// category_name : "Test - Kahveler"
@@ -692,35 +671,6 @@ class Languages {
     map['language_code'] = languageCode;
     map['language_name'] = languageName;
     map['is_default'] = isDefault;
-    return map;
-  }
-}
-
-/// address_type_code : "home"
-/// address_type_name : "Ev"
-/// icon : "-"
-
-class Address_types {
-  Address_types({
-    this.addressTypeCode,
-    this.addressTypeName,
-    this.icon,
-  });
-
-  Address_types.fromJson(dynamic json) {
-    addressTypeCode = json['address_type_code'];
-    addressTypeName = json['address_type_name'];
-    icon = json['icon'];
-  }
-  String? addressTypeCode;
-  String? addressTypeName;
-  String? icon;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['address_type_code'] = addressTypeCode;
-    map['address_type_name'] = addressTypeName;
-    map['icon'] = icon;
     return map;
   }
 }

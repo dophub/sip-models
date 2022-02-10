@@ -98,9 +98,15 @@ class PastOrderDealer {
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"],
         distance: json["distance"],
-        logoImage: json["logo_image"] == null ? ImagesModel():ImagesModel.fromJson(json["logo_image"]),
-        listImage:json["list_image"]  == null ? ImagesModel():ImagesModel.fromJson(json["list_image"]),
-        mobileCoverImage: json["mobile_cover_image"] == null ? ImagesModel(): ImagesModel.fromJson(json["mobile_cover_image"]),
+        logoImage: json["logo_image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["logo_image"]),
+        listImage: json["list_image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["list_image"]),
+        mobileCoverImage: json["mobile_cover_image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["mobile_cover_image"]),
         latlng: json["latlng"],
         foodCategories: List<FoodCategory>.from(
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
@@ -121,7 +127,9 @@ class FoodCategory {
   String? categoryCode;
 
   factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
-        image: json["image"] == null ? ImagesModel(): ImagesModel.fromJson(json["image"]),
+        image: json["image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["image"]),
         isDefault: json["is_default"],
         categoryName: json["category_name"],
         categoryCode: json['category_code'],
