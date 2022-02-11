@@ -16,8 +16,8 @@ class ParametersModel extends IBaseModel<ParametersModel> {
   List<PaymentTypesModel>? paymentTypes;
   List<OrderBy>? orderBy;
 
-  @override
-  fromJson(Map<dynamic, dynamic> json) => ParametersModel(
+
+  factory ParametersModel.fromJson(Map<dynamic, dynamic> json) => ParametersModel(
         addressType: json["address_type"] == null
             ? []
             : List<AddressType>.from(
