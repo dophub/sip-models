@@ -38,7 +38,8 @@ class DealerModel extends IBaseModel<DealerModel> {
 
   
   
-  factory DealerModel.fromJson(Map<dynamic, dynamic> json) => DealerModel(
+   @override
+   fromJson(Map<dynamic, dynamic> json) => DealerModel(
     dealerId : json['dealer_id'],
     dealerName : json['dealer_name'],
     rating : json['rating'],
