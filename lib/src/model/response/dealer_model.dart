@@ -9,7 +9,7 @@ class DealerModel extends IBaseModel<DealerModel> {
   int? avgServiceTime;
   int? avgServiceTimeMin;
   int? avgServiceTimeMax;
-  num? minPackageAmount;
+  double? minPackageAmount;
   int? distance;
   ImagesModel? logoImage;
   ImagesModel? listImage;
@@ -46,7 +46,7 @@ class DealerModel extends IBaseModel<DealerModel> {
         avgServiceTime: json['avg_service_time'],
         avgServiceTimeMin: json['avg_service_time_min'],
         avgServiceTimeMax: json['avg_service_time_max'],
-        minPackageAmount: json['min_package_amount'],
+        minPackageAmount: json['min_package_amount'].toDouble() ?? 0.0,
         distance: json['distance'],
         logoImage: json['logo_image'] != null
             ? ImagesModel.fromJson(json['logo_image'])
