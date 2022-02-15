@@ -1,6 +1,6 @@
 class CreateReservationModel {
   CreateReservationModel({
-    this.date,
+    this.bookStartDate,
     this.personCount,
     this.customerFullName,
     this.customerPhone,
@@ -9,7 +9,7 @@ class CreateReservationModel {
     this.fixMenu,
   });
 
-  DateTime? date;
+  DateTime? bookStartDate;
   int? personCount;
   String? customerFullName;
   String? customerPhone;
@@ -18,7 +18,7 @@ class CreateReservationModel {
   List<FixMenu>? fixMenu;
 
   Map<String, dynamic> toJson() => {
-        "date": date?.toIso8601String(),
+        "book_start_date": bookStartDate?.toIso8601String(),
         "person_count": personCount,
         "customer_full_name": customerFullName,
         "customer_phone": customerPhone,
