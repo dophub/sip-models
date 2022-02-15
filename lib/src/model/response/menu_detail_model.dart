@@ -8,7 +8,7 @@ MenuDetailModel menuDetailModelFromJson(String str) =>
 
 List<ProductModel> productListModelFromJson(String str) =>
     List<ProductModel>.from(
-        json.decode(str).map((x) => ProductModel.fromJson(x)));
+        json.decode(str).map((x) => ProductModel().fromJson(x)));
 
 /// Menü ye tılandığı zaman Api den gelen response için kullanılmakta
 class MenuDetailModel {
@@ -64,12 +64,12 @@ class CategoryModel extends IBaseModel<CategoryModel> {
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(
-                json["products"].map((x) => ProductModel.fromJson(x))),
+                json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
 
 /// Menu va kategori modelerde olan ürün biligileri
-class ProductModel {
+class ProductModel extends IBaseModel<ProductModel> {
   ProductModel({
     this.id,
     this.price,
@@ -94,8 +94,8 @@ class ProductModel {
   String? productName;
   String? shortDescription;
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) =>
-      ProductModel(
+  @override
+  fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
         price: List<PriceModel>.from(
             json["price"].map((x) => PriceModel.fromJson(x))),

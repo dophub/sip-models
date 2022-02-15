@@ -42,7 +42,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
     id: json["id"],
-    products: json["products"] == null ? []: List<ProductModel>.from(json["products"].map((x) => ProductModel.fromJson(x))),
+    products: json["products"] == null ? []: List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
     listOrder: json["list_order"],
     categoryName: json["category_name"],
     menuListTypeId: json["menu_list_type_id"],

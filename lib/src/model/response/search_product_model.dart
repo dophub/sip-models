@@ -79,6 +79,6 @@ class SearchProductModel {
         foodCategories: List<FoodCategory>.from(
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
         products: List<ProductModel>.from(
-            json["products"].map((x) => ProductModel.fromJson(x))),
+            json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }

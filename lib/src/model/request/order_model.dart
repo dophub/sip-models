@@ -344,7 +344,7 @@ class OrderItem {
     itemPrice: json["item_price"].toDouble(),
     itemTitle: json["item_title"],
     productId: json["product_id"] == null ? null : json["product_id"],
-    itemObject: ProductModel.fromJson(json["item_object"]),
+    itemObject: ProductModel().fromJson(json["item_object"]),
     taxPercent: json["tax_percent"],
     totalPrice: json["total_price"].toDouble(),
     itemTypeId: json["item_type_id"],

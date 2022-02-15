@@ -1,4 +1,5 @@
 library response;
+
 export 'src/model/response/abstract_base_model.dart';
 export 'src/model/response/address_by_location.dart';
 export 'src/model/response/api_url_model.dart';
