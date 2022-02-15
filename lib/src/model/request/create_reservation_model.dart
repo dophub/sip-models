@@ -1,5 +1,5 @@
-class CrateReservationModel {
-  CrateReservationModel({
+class CreateReservationModel {
+  CreateReservationModel({
     this.date,
     this.personCount,
     this.customerFullName,
