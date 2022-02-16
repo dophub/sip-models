@@ -114,7 +114,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         optionCount: json["option_count"],
         productName: json["product_name"],
         shortDescription: json["short_description"],
-        count: json["count"],
+        count: json["count"] ?? 0,
       );
 
   Map<String, dynamic> toJson() =>
