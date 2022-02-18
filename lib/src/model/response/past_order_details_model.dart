@@ -40,7 +40,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         orderNumber: json["order_number"],
         totalAmount: json["total_amount"].toDouble(),
         recordDate: DateTime.parse(json["record_date"]),
-        deliveryDate: DateTime.parse(json["delivery_date"]),
+        deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
         orderPointId: json["order_point_id"],
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
