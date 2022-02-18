@@ -19,10 +19,8 @@ class ParametersModel extends IBaseModel<ParametersModel> {
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ParametersModel(
-        addressType: json["address_type"] == null
-            ? []
-            : List<AddressType>.from(
-                json["address_type"].map((x) => AddressType.fromJson(x))),
+        addressType: json["address_type"] == null ? []
+            : List<AddressType>.from(json["address_type"].map((x) => AddressType.fromJson(x))),
         foodCategories: json["food_categories"] == null
             ? []
             : List<FoodCategory>.from(
@@ -80,4 +78,28 @@ class OrderBy {
         "title": title,
         "code": code,
       };
+}
+
+class Status {
+  Status({
+    this.code,
+    this.title,
+    this.orderStatusGroupId,
+    this.isStartLevel,
+    this.isCompleteOrder,
+  });
+
+  String? code;
+  String? title;
+  String? orderStatusGroupId;
+  bool? isStartLevel;
+  bool? isCompleteOrder;
+
+  factory Status.fromJson(Map<String, dynamic> json) => Status(
+    code: json["code"],
+    title: json["title"],
+    orderStatusGroupId: json["order_status_group_id"],
+    isStartLevel: json["is_start_level"],
+    isCompleteOrder: json["is_complete_order"],
+  );
 }

@@ -1,8 +1,9 @@
 
 import 'dart:convert';
 
+import 'package:sip_models/src/model/request/order_model.dart';
+
 import 'images_model.dart';
-import 'past_order_details_model.dart';
 
 List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
 
@@ -147,7 +148,7 @@ class LastOrdersModelItem {
   int? id;
   int? count;
   int? itemId;
-  List<Option>? options;
+  List<OrderOption>? options;
   String? itemName;
   String? itemType;
   double? itemPrice;
@@ -159,7 +160,7 @@ class LastOrdersModelItem {
         count: json["count"],
         itemId: json["item_id"],
         options:
-            List<Option>.from(json["options"].map((x) => Option.fromJson(x))),
+            List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
         itemName: json["item_name"],
         itemType: json["item_type"],
         itemPrice: json["item_price"].toDouble(),
@@ -167,31 +168,4 @@ class LastOrdersModelItem {
       );
 }
 
-class Option {
-  Option({
-    this.id,
-    this.items,
-    this.title,
-    this.addingType,
-    this.optionType,
-    this.totalPrice,
-  });
-
-  int? id;
-  List<OptionItem>? items;
-  String? title;
-  String? addingType;
-  String? optionType;
-  int? totalPrice;
-
-  factory Option.fromJson(Map<String, dynamic> json) => Option(
-        id: json["id"],
-        items: List<OptionItem>.from(
-            json["items"].map((x) => OptionItem.fromJson(x))),
-        title: json["title"],
-        addingType: json["adding_type"],
-        optionType: json["option_type"],
-        totalPrice: json["total_price"],
-      );
-}
 

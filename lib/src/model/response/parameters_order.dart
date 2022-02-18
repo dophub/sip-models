@@ -1,3 +1,4 @@
+/*
 import 'dart:convert';
 
 import 'package:sip_models/src/model/response/payment/payment_types_model.dart';
@@ -519,63 +520,6 @@ class Order_cancel_reason {
 /// config : {"icon":"default.png","color":"purple"}
 /// order_status_group_id : "TEMP"
 
-class Order_status {
-  Order_status({
-    this.orderStatusCode,
-    this.orderStatusName,
-    this.isStartLevel,
-    this.isPaymentEnable,
-    this.isCompleteOrder,
-    this.settings,
-    this.orderPointId,
-    this.listOrder,
-    this.config,
-    this.orderStatusGroupId,
-  });
-
-  Order_status.fromJson(dynamic json) {
-    orderStatusCode = json['order_status_code'];
-    orderStatusName = json['order_status_name'];
-    isStartLevel = json['is_start_level'];
-    isPaymentEnable = json['is_payment_enable'];
-    isCompleteOrder = json['is_complete_order'];
-    settings =
-        json['settings'] != null ? Settings.fromJson(json['settings']) : null;
-    orderPointId = json['order_point_id'];
-    listOrder = json['list_order'];
-    config = json['config'] != null ? Config.fromJson(json['config']) : null;
-    orderStatusGroupId = json['order_status_group_id'];
-  }
-  String? orderStatusCode;
-  String? orderStatusName;
-  bool? isStartLevel;
-  bool? isPaymentEnable;
-  bool? isCompleteOrder;
-  Settings? settings;
-  String? orderPointId;
-  int? listOrder;
-  Config? config;
-  String? orderStatusGroupId;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['order_status_code'] = orderStatusCode;
-    map['order_status_name'] = orderStatusName;
-    map['is_start_level'] = isStartLevel;
-    map['is_payment_enable'] = isPaymentEnable;
-    map['is_complete_order'] = isCompleteOrder;
-    if (settings != null) {
-      map['settings'] = settings?.toJson();
-    }
-    map['order_point_id'] = orderPointId;
-    map['list_order'] = listOrder;
-    if (config != null) {
-      map['config'] = config?.toJson();
-    }
-    map['order_status_group_id'] = orderStatusGroupId;
-    return map;
-  }
-}
 
 /// icon : "default.png"
 /// color : "purple"
@@ -727,3 +671,4 @@ class Units {
     return map;
   }
 }
+*/

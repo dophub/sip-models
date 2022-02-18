@@ -1,4 +1,3 @@
-
 import '../response/abstract_base_model.dart';
 import '../response/images_model.dart';
 import '../response/menu_detail_model.dart';
@@ -343,13 +342,13 @@ class OrderItem {
     statusId: json["status_id"],
     itemPrice: json["item_price"].toDouble(),
     itemTitle: json["item_title"],
-    productId: json["product_id"] == null ? null : json["product_id"],
+    productId: json["product_id"],
     itemObject: ProductModel().fromJson(json["item_object"]),
     taxPercent: json["tax_percent"],
     totalPrice: json["total_price"].toDouble(),
     itemTypeId: json["item_type_id"],
     orderMainId: json["order_main_id"],
-    promotionMenuId: json["promotion_menu_id"] == null ? null : json["promotion_menu_id"],
+    promotionMenuId: json["promotion_menu_id"],
     itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
     totalPriceWithoutKdv: json["total_price_without_kdv"].toDouble(),
     status: ItemStatus.fromJson(json["status"]),
@@ -364,12 +363,12 @@ class OrderItem {
     "status_id": statusId,
     "item_price": itemPrice,
     "item_title": itemTitle,
-    "product_id": productId == null ? null : productId,
+    "product_id": productId,
     "tax_percent": taxPercent,
     "total_price": totalPrice,
     "item_type_id": itemTypeId,
     "order_main_id": orderMainId,
-    "promotion_menu_id": promotionMenuId == null ? null : promotionMenuId,
+    "promotion_menu_id": promotionMenuId,
     "item_object": itemObject == null ? null : itemObject!.toJson(),
     "item_price_without_kdv": itemPriceWithoutKdv,
     "total_price_without_kdv": totalPriceWithoutKdv,
@@ -414,7 +413,7 @@ class OrderOption {
   );
 
   Map<String, dynamic> toJson() => {
-    "id": id == null ? null : id,
+    "id": id,
     "items": items == null
         ? null
         : List<dynamic>.from(items!.map((x) => x.toJson())),

@@ -18,25 +18,25 @@ class DealerModel extends IBaseModel<DealerModel> {
   WorkingHourModel? workingHours;
   List<FoodCategories>? foodCategories;
 
-  DealerModel(
-      {this.dealerId,
-      this.dealerName,
-      this.rating,
-      this.rating2,
-      this.commentCount,
-      this.avgServiceTime,
-      this.avgServiceTimeMin,
-      this.avgServiceTimeMax,
-      this.minPackageAmount,
-      this.distance,
-      this.logoImage,
-      this.listImage,
-      this.mobileCoverImage,
-      this.latlng,
-      this.workingHours,
-      this.foodCategories});
+  DealerModel({
+    this.dealerId,
+    this.dealerName,
+    this.rating,
+    this.rating2,
+    this.commentCount,
+    this.avgServiceTime,
+    this.avgServiceTimeMin,
+    this.avgServiceTimeMax,
+    this.minPackageAmount,
+    this.distance,
+    this.logoImage,
+    this.listImage,
+    this.mobileCoverImage,
+    this.latlng,
+    this.workingHours,
+    this.foodCategories,
+  });
 
-  
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerModel(
     dealerId : json['dealer_id'],

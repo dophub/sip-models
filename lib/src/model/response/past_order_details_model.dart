@@ -1,10 +1,11 @@
-import 'dart:convert';
+import 'package:sip_models/src/model/request/order_model.dart';
+import 'package:sip_models/src/model/response/parameters_Model.dart';
+import 'abstract_base_model.dart';
+import 'dealer_model.dart';
 import 'images_model.dart';
 
-PastOrderDetailsModel pastOrderDetailsModelFromJson(String str) =>
-    PastOrderDetailsModel.fromJson(json.decode(str));
-
-class PastOrderDetailsModel {
+/// Dealer model id => dealer_id
+class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   PastOrderDetailsModel({
     this.id,
     this.orderNumber,
@@ -24,33 +25,73 @@ class PastOrderDetailsModel {
   String? orderNumber;
   double? totalAmount;
   DateTime? recordDate;
-  dynamic deliveryDate;
+  DateTime? deliveryDate;
   String? orderPointId;
   String? deliveryTypeId;
   String? sessionPointId;
-  PastOrderDealer? dealer;
+  DealerModel? dealer;
   PaymentDetailModel? payment;
   Status? status;
-  List<PastOrderDetailsModelItem>? items;
+  List<OrderItem>? items;
 
-  factory PastOrderDetailsModel.fromJson(Map<String, dynamic> json) =>
-      PastOrderDetailsModel(
+  @override
+  fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
         id: json["id"],
         orderNumber: json["order_number"],
         totalAmount: json["total_amount"].toDouble(),
         recordDate: DateTime.parse(json["record_date"]),
-        deliveryDate: json["delivery_date"],
+        deliveryDate: DateTime.parse(json["delivery_date"]),
         orderPointId: json["order_point_id"],
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
-        dealer: PastOrderDealer.fromJson(json["dealer"]),
+        dealer: DealerModel().fromJson(json["dealer"]),
         payment: PaymentDetailModel.fromJson(json["payment"]),
         status: Status.fromJson(json["status"]),
-        items: List<PastOrderDetailsModelItem>.from(
-            json["items"].map((x) => PastOrderDetailsModelItem.fromJson(x))),
+        items: List<OrderItem>.from(
+            json["items"].map((x) => OrderItem.fromJson(x))),
       );
 }
 
+class FoodCategory {
+  FoodCategory({
+    this.image,
+    this.isDefault,
+    this.categoryName,
+    this.categoryCode,
+  });
+
+  ImagesModel? image;
+  bool? isDefault;
+  String? categoryName;
+  String? categoryCode;
+
+  factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
+        image: json["image"] == null
+            ? ImagesModel()
+            : ImagesModel.fromJson(json["image"]),
+        isDefault: json["is_default"],
+        categoryName: json["category_name"],
+        categoryCode: json['category_code'],
+      );
+}
+
+class PaymentDetailModel {
+  PaymentDetailModel({
+    this.code,
+    this.title,
+  });
+
+  String? code;
+  String? title;
+
+  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) =>
+      PaymentDetailModel(
+        code: json["code"],
+        title: json["title"],
+      );
+}
+
+/*
 class PastOrderDealer {
   PastOrderDealer({
     this.id,
@@ -112,30 +153,9 @@ class PastOrderDealer {
             json["food_categories"].map((x) => FoodCategory.fromJson(x))),
       );
 }
+*/
 
-class FoodCategory {
-  FoodCategory({
-    this.image,
-    this.isDefault,
-    this.categoryName,
-    this.categoryCode,
-  });
-
-  ImagesModel? image;
-  bool? isDefault;
-  String? categoryName;
-  String? categoryCode;
-
-  factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
-        image: json["image"] == null
-            ? ImagesModel()
-            : ImagesModel.fromJson(json["image"]),
-        isDefault: json["is_default"],
-        categoryName: json["category_name"],
-        categoryCode: json['category_code'],
-      );
-}
-
+/*
 class PastOrderDetailsModelItem {
   PastOrderDetailsModelItem({
     this.id,
@@ -181,13 +201,10 @@ class PastOrderDetailsModelItem {
         totalPrice: json["total_price"].toDouble(),
         itemNote: json["item_note"],
         orderMainId: json["order_main_id"],
-        productId: json["product_id"] == null ? null : json["product_id"],
-        promotionMenuId: json["promotion_menu_id"] == null
-            ? null
-            : json["promotion_menu_id"],
+        productId: json["product_id"],
+        promotionMenuId: json["promotion_menu_id"],
         statusId: json["status_id"],
-        options: List<ItemOption>.from(
-            json["options"].map((x) => ItemOption.fromJson(x))),
+        options: List<ItemOption>.from(json["options"].map((x) => ItemOption.fromJson(x))),
         itemTitle: json["item_title"],
         itemTypeId: json["item_type_id"],
         itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
@@ -196,7 +213,9 @@ class PastOrderDetailsModelItem {
         itemCode: json["item_code"],
       );
 }
+*/
 
+/*
 class ItemOption {
   ItemOption({
     this.sectionId,
@@ -214,31 +233,29 @@ class ItemOption {
   SectionItem? sectionItem;
   String? sectionTitle;
   int? id;
-  List<OptionItem>? items;
+  List<OrderOptionItem>? items;
   String? title;
   String? addingType;
   String? optionType;
   int? totalPrice;
 
   factory ItemOption.fromJson(Map<String, dynamic> json) => ItemOption(
-        sectionId: json["section_id"] == null ? null : json["section_id"],
+        sectionId: json["section_id"],
         sectionItem: json["section_item"] == null
             ? null
             : SectionItem.fromJson(json["section_item"]),
-        sectionTitle:
-            json["section_title"] == null ? null : json["section_title"],
-        id: json["id"] == null ? null : json["id"],
-        items: json["items"] == null
-            ? null
-            : List<OptionItem>.from(
-                json["items"].map((x) => OptionItem.fromJson(x))),
-        title: json["title"] == null ? null : json["title"],
-        addingType: json["adding_type"] == null ? null : json["adding_type"],
-        optionType: json["option_type"] == null ? null : json["option_type"],
-        totalPrice: json["total_price"] == null ? null : json["total_price"],
+        sectionTitle: json["section_title"],
+        id: json["id"],
+        items: json["items"] == null ? null : List<OrderOptionItem>.from(json["items"].map((x) => OrderOptionItem.fromJson(x))),
+        title: json["title"],
+        addingType: json["adding_type"],
+        optionType: json["option_type"],
+        totalPrice: json["total_price"],
       );
 }
+*/
 
+/*
 class OptionItem {
   OptionItem({
     this.id,
@@ -259,7 +276,10 @@ class OptionItem {
         productId: json["product_id"],
       );
 }
+*/
 
+
+/*
 class SectionItem {
   SectionItem({
     this.itemId,
@@ -268,18 +288,19 @@ class SectionItem {
   });
 
   int? itemId;
-  List<SectionItemOption>? options;
+  List<OrderOption>? options;
   String? productName;
 
   factory SectionItem.fromJson(Map<String, dynamic> json) => SectionItem(
         itemId: json["item_id"],
-        options: List<SectionItemOption>.from(
-            json["options"].map((x) => SectionItemOption.fromJson(x))),
+        options: List<OrderOption>.from(
+            json["options"].map((x) => OrderOption.fromJson(x))),
         productName: json["product_name"],
       );
 }
+*/
 
-class SectionItemOption {
+/*class SectionItemOption {
   SectionItemOption({
     this.id,
     this.items,
@@ -290,7 +311,7 @@ class SectionItemOption {
   });
 
   int? id;
-  List<OptionItem>? items;
+  List<OrderOptionItem>? items;
   String? title;
   String? addingType;
   String? optionType;
@@ -299,51 +320,12 @@ class SectionItemOption {
   factory SectionItemOption.fromJson(Map<String, dynamic> json) =>
       SectionItemOption(
         id: json["id"],
-        items: List<OptionItem>.from(
-            json["items"].map((x) => OptionItem.fromJson(x))),
+        items: List<OrderOptionItem>.from(
+            json["items"].map((x) => OrderOptionItem.fromJson(x))),
         title: json["title"],
         addingType: json["adding_type"],
         optionType: json["option_type"],
         totalPrice: json["total_price"],
       );
-}
+}*/
 
-class PaymentDetailModel {
-  PaymentDetailModel({
-    this.code,
-    this.title,
-  });
-
-  String? code;
-  String? title;
-
-  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) =>
-      PaymentDetailModel(
-        code: json["code"],
-        title: json["title"],
-      );
-}
-
-class Status {
-  Status({
-    this.code,
-    this.title,
-    this.orderStatusGroupId,
-    this.isStartLevel,
-    this.isCompleteOrder,
-  });
-
-  String? code;
-  String? title;
-  String? orderStatusGroupId;
-  bool? isStartLevel;
-  bool? isCompleteOrder;
-
-  factory Status.fromJson(Map<String, dynamic> json) => Status(
-        code: json["code"],
-        title: json["title"],
-        orderStatusGroupId: json["order_status_group_id"],
-        isStartLevel: json["is_start_level"],
-        isCompleteOrder: json["is_complete_order"],
-      );
-}
