@@ -45,10 +45,9 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
         dealer: DealerModel().fromJson(json["dealer"]),
-        payment: PaymentDetailModel.fromJson(json["payment"]),
-        status: Status.fromJson(json["status"]),
-        items: List<OrderItem>.from(
-            json["items"].map((x) => OrderItem.fromJson(x))),
+        payment: json["payment"] == null ? PaymentDetailModel(): PaymentDetailModel.fromJson(json["payment"]),
+        status: json["status"] == null ? Status():Status.fromJson(json["status"]),
+        items:json["items"] == null ? []: List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
       );
 }
 
