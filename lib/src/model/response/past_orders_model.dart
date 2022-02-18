@@ -1,11 +1,6 @@
-import 'dart:convert';
+import 'package:sip_models/response.dart';
 
-List<PastOrdersModel> pastOrdersModelFromJson(String str) =>
-    List<PastOrdersModel>.from(
-        json.decode(str).map((x) => PastOrdersModel.fromJson(x)));
-
-
-class PastOrdersModel {
+class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   PastOrdersModel({
     this.id,
     this.orderNumber,
@@ -24,9 +19,10 @@ class PastOrdersModel {
   String? dealerName;
   String? dealerFullName;
   String? addressName;
-  AddressInfo? addressInfo;
+  AddressType? addressInfo;
 
-  factory PastOrdersModel.fromJson(Map<String, dynamic> json) =>
+  @override
+  fromJson(Map<dynamic, dynamic> json) =>
       PastOrdersModel(
         id: json["id"],
         orderNumber: json["order_number"],
@@ -35,26 +31,6 @@ class PastOrdersModel {
         dealerName: json["dealer_name"],
         dealerFullName: json["dealer_full_name"],
         addressName: json["address_name"],
-        addressInfo: AddressInfo.fromJson(json["address_info"]),
-      );
-
-
-}
-
-class AddressInfo {
-  AddressInfo({
-    this.type,
-    this.name,
-    this.icon,
-  });
-
-  String? type;
-  String? name;
-  String? icon;
-
-  factory AddressInfo.fromJson(Map<String, dynamic> json) => AddressInfo(
-        type: json["type"],
-        name: json["name"],
-        icon: json["icon"],
+        addressInfo: AddressType.fromJson(json["address_info"]),
       );
 }
