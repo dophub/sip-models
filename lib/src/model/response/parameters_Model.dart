@@ -80,8 +80,8 @@ class OrderBy {
       };
 }
 
-class Status {
-  Status({
+class StatusModel {
+  StatusModel({
     this.code,
     this.title,
     this.orderStatusGroupId,
@@ -95,7 +95,7 @@ class Status {
   bool? isStartLevel;
   bool? isCompleteOrder;
 
-  factory Status.fromJson(Map<String, dynamic> json) => Status(
+  factory StatusModel.fromJson(Map<String, dynamic> json) => StatusModel(
     code: json["code"],
     title: json["title"],
     orderStatusGroupId: json["order_status_group_id"],
