@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'abstract_base_model.dart';
+import 'campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';
 
@@ -42,12 +43,12 @@ class CategoryModel extends IBaseModel<CategoryModel> {
 
   CategoryModel.clone(CategoryModel obj)
       : this(
-    id: obj.id,
-    categoryName: obj.categoryName,
-    menuListTypeId: obj.menuListTypeId,
-    listOrder: obj.listOrder,
-    products: obj.products,
-  );
+          id: obj.id,
+          categoryName: obj.categoryName,
+          menuListTypeId: obj.menuListTypeId,
+          listOrder: obj.listOrder,
+          products: obj.products,
+        );
 
   int? id;
   String? categoryName;
@@ -56,8 +57,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
   List<ProductModel>? products;
 
   @override
-  CategoryModel fromJson(Map<dynamic, dynamic> json) =>
-      CategoryModel(
+  CategoryModel fromJson(Map<dynamic, dynamic> json) => CategoryModel(
         id: json["id"],
         categoryName: json["category_name"],
         menuListTypeId: json["menu_list_type_id"],
@@ -65,7 +65,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(
-            json["products"].map((x) => ProductModel().fromJson(x))),
+                json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
 
@@ -83,6 +83,7 @@ class ProductModel extends IBaseModel<ProductModel> {
     this.productName,
     this.shortDescription,
     this.count = 0,
+    this.campaigns,
   });
 
   int? id;
@@ -95,18 +96,18 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? optionCount;
   String? productName;
   String? shortDescription;
-  int? count;// Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  List<CampaignModel>? campaigns;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) =>
-      ProductModel(
+  fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
         price: List<PriceModel>.from(
             json["price"].map((x) => PriceModel.fromJson(x))),
         images: json["images"] == null
             ? []
             : List<ImagesModel>.from(
-            json["images"].map((x) => ImagesModel.fromJson(x))),
+                json["images"].map((x) => ImagesModel.fromJson(x))),
         calorie: json["calorie"] ?? 0,
         itemType: json["item_type"],
         makeTime: json["make_time"] ?? 0,
@@ -115,10 +116,10 @@ class ProductModel extends IBaseModel<ProductModel> {
         productName: json["product_name"],
         shortDescription: json["short_description"],
         count: json["count"] ?? 0,
+        campaigns: List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
       );
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "price": List<dynamic>.from(price!.map((x) => x.toJson())),
         "images": List<dynamic>.from(images!.map((x) => x.toJson())),
@@ -129,6 +130,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         "option_count": optionCount,
         "product_name": productName,
         "short_description": shortDescription,
+        "campaigns": List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
       };
 }
