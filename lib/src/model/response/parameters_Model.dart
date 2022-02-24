@@ -38,14 +38,14 @@ class ParametersModel extends IBaseModel<ParametersModel> {
 
 class AddressType {
   AddressType({
-    required this.addressTypeCode,
-    required this.addressTypeName,
-    required this.icon,
+    this.addressTypeCode,
+    this.addressTypeName,
+    this.icon,
   });
 
-  String addressTypeCode;
-  String addressTypeName;
-  String icon;
+  String? addressTypeCode;
+  String? addressTypeName;
+  String? icon;
 
   factory AddressType.fromJson(Map<String, dynamic> json) => AddressType(
         addressTypeCode: json["address_type_code"],
