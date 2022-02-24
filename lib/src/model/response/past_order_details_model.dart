@@ -68,7 +68,7 @@ class FoodCategory {
         image: json["image"] == null
             ? ImagesModel()
             : ImagesModel.fromJson(json["image"]),
-        isDefault: json["is_default"],
+        isDefault: json["is_default"] == null ? false : json["is_default"],
         categoryName: json["category_name"],
         categoryCode: json['category_code'],
       );
