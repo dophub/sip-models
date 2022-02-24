@@ -62,12 +62,12 @@ class AddressType {
 
 class OrderBy {
   OrderBy({
-    required this.title,
-    required this.code,
+    this.title,
+    this.code,
   });
 
-  String title;
-  String code;
+  String? title;
+  String? code;
 
   factory OrderBy.fromJson(Map<String, dynamic> json) => OrderBy(
         title: json["title"],
