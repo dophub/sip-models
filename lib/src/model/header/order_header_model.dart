@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:sip_models/enum.dart';
 import 'session_header_model.dart';
 
@@ -21,7 +20,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         "tableid": tableId ?? '',
         "orderpoint": _orderPoint.name,
         "deliverytype": deliveryType.name,
-        "sessionpoint": describeEnum(sessionPoint),
+        "sessionpoint": sessionPoint.name,
       };
 
   @override
@@ -45,8 +44,12 @@ class OrderHeaderModel extends SessionHeaderModel {
 
   factory OrderHeaderModel.toDealer(
           String token, String sessionId, int dealerId, String tableId) =>
-      OrderHeaderModel(token, sessionId, dealerId, OrderPoint.TABLE, tableId: tableId)._setDealer();
+      OrderHeaderModel(token, sessionId, dealerId, OrderPoint.TABLE,
+              tableId: tableId)
+          ._setDealer();
 
-  factory OrderHeaderModel.toMarketPlace(String token, String sessionId, int dealerId, OrderPoint _orderPoint, DeliveryType _deliveryType) =>
-      OrderHeaderModel(token, sessionId, dealerId, _orderPoint)._setMarketPlace(_deliveryType);
+  factory OrderHeaderModel.toMarketPlace(String token, String sessionId,
+          int dealerId, OrderPoint _orderPoint, DeliveryType _deliveryType) =>
+      OrderHeaderModel(token, sessionId, dealerId, _orderPoint)
+          ._setMarketPlace(_deliveryType);
 }
