@@ -8,13 +8,13 @@ import 'package:sip_models/src/enum/id_enum.dart';
 class SessionHeaderModel {
   const SessionHeaderModel({
     required this.token,
-    required this.orderPoint,
+    this.orderPoint,
     this.customerAddress,
   });
 
   final String token;
   final String lang = 'tr';
-  final OrderPoint orderPoint;
+  final OrderPoint? orderPoint;
   final CustomerAddress? customerAddress;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
@@ -23,7 +23,7 @@ class SessionHeaderModel {
       "content-type": "application/json",
       "authorization": 'Bearer $token',
       "lang": lang,
-      "order-point": orderPoint.name,
+      "order-point": orderPoint == null ? '' : orderPoint!.name,
       "neighborhood-id": (address.neighborhoodId ?? 0).toString(),
       "address-id": (address.id ?? 0).toString(),
       "latlng": address.latlng ?? '0.0',
