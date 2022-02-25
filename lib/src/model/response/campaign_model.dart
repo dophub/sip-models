@@ -80,7 +80,7 @@ class CampaignProductResultModel {
   int? campaignDiscountPercent;
 
   factory CampaignProductResultModel.fromJson(Map<String, dynamic> json) => CampaignProductResultModel(
-    newPrice: json["new_price"].toDouble(),
+    newPrice: json["new_price"] == null ? null :json["new_price"].toDouble(),
     productId: json["product_id"],
     campaignDiscountPercent: json["campaign_discount_percent"],
   );
