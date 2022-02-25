@@ -26,7 +26,7 @@ class SessionHeaderModel {
       "order-point": orderPoint == null ? '' : orderPoint!.name,
       "neighborhood-id": (address.neighborhoodId ?? 0).toString(),
       "address-id": (address.id ?? 0).toString(),
-      "latlng": address.latlng ?? '0.0',
+      "latlng": address.latlng ?? '0,0',
     };
     _map.addAll(addMap);
     return _map;

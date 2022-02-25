@@ -71,3 +71,10 @@ enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN }
 /// [MOBILE_APP] Mobil
 enum ClientPointId { MOBILE_APP }
 
+/// [CampaignTypeId] indirim türleri
+/// [PERCENT] % indirim-PERCENT
+/// [DISCOUNT] Sabit Oran İndirimi-DISCOUNT
+/// [GIFTPRODUCT] Hediye Ürün-GIFTPRODUCT
+/// [PRICECHANGE] Ürün Fiyatı Değiştirme-PRICECHANGE
+/// [COUPON] 3.Party Kupon Kampanyası-COUPON
+enum CampaignTypeId { PERCENT, DISCOUNT, GIFTPRODUCT, PRICECHANGE, COUPON }
