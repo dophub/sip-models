@@ -116,7 +116,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         productName: json["product_name"],
         shortDescription: json["short_description"],
         count: json["count"] ?? 0,
-        campaigns: List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
+        campaigns: json["campaigns"] == null ? []: List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -130,7 +130,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         "option_count": optionCount,
         "product_name": productName,
         "short_description": shortDescription,
-        "campaigns": List<dynamic>.from(campaigns!.map((x) => x.toJson())),
+        "campaigns": campaigns == null ? null: List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
       };
 }
