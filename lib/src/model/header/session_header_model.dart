@@ -21,6 +21,7 @@ class SessionHeaderModel {
     final address = customerAddress ?? CustomerAddress();
     final Map<String, String> _map = {
       "content-type": "application/json",
+      "client_point": "MOBILE_APP",
       "authorization": 'Bearer $token',
       "lang": lang,
       "order-point": orderPoint == null ? '' : orderPoint!.name,
