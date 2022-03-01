@@ -1,6 +1,6 @@
 import 'package:sip_models/response.dart';
 
-class CampaignModel {
+class CampaignModel extends IBaseModel<CampaignModel> {
   CampaignModel({
     this.id,
     this.banners,
@@ -31,7 +31,12 @@ class CampaignModel {
   bool? notUseBannerForTemplate;
   String? limitNumberOfOrderTypeId;
 
-  factory CampaignModel.fromJson(Map<String, dynamic> json) => CampaignModel(
+  @override
+  CampaignModel fromJson(Map<dynamic, dynamic> json) {
+    return CampaignModel.fromJson(json);
+  }
+
+  factory CampaignModel.fromJson(Map<dynamic, dynamic> json) => CampaignModel(
         id: json["id"],
         banners: json["banners"] == null
             ? []
@@ -68,6 +73,7 @@ class CampaignModel {
         "not_use_banner_for_template": notUseBannerForTemplate,
         "limit_number_of_order_type_id": limitNumberOfOrderTypeId,
       };
+
 }
 
 class CampaignProductResultModel {
