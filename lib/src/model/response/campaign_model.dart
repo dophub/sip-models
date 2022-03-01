@@ -49,8 +49,10 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         campaignTypeId: json["campaign_type_id"],
         isCopyCampaign: json["is_copy_campaign"],
         mainCampaignId: json["main_campaign_id"],
-        campaignProductResult: CampaignProductResultModel.fromJson(
-            json["campaign_product_result"]),
+    campaignProductResult: json["campaign_product_result"] == null
+            ? null
+            : CampaignProductResultModel.fromJson(
+                json["campaign_product_result"]),
         campaignDiscountPercent: json["campaign_discount_percent"].toDouble(),
         notUseBannerForTemplate: json["not_use_banner_for_template"],
         limitNumberOfOrderTypeId: json["limit_number_of_order_type_id"],
