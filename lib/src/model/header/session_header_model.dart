@@ -21,12 +21,12 @@ class SessionHeaderModel {
     final address = customerAddress ?? CustomerAddress();
     final Map<String, String> _map = {
       "content-type": "application/json",
-      "client_point": "MOBILE_APP",
+      "clientpoint": "MOBILE_APP",
       "authorization": 'Bearer $token',
       "lang": lang,
-      "order-point": orderPoint == null ? '' : orderPoint!.name,
-      "neighborhood-id": (address.neighborhoodId ?? 0).toString(),
-      "address-id": (address.id ?? 0).toString(),
+      "orderpoint": orderPoint == null ? '' : orderPoint!.name,
+      "neighborhoodid": (address.neighborhoodId ?? 0).toString(),
+      "addressid": (address.id ?? 0).toString(),
       "latlng": address.latlng ?? '0,0',
     };
     _map.addAll(addMap);
