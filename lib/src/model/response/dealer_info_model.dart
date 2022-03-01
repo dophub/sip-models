@@ -2,6 +2,7 @@
 import 'package:sip_models/src/model/response/abstract_base_model.dart';
 import 'package:sip_models/src/model/response/dealer_detail_model.dart';
 import 'package:sip_models/src/model/response/images_model.dart';
+import 'package:sip_models/src/model/response/product_cart_model.dart';
 import 'past_order_details_model.dart';
 
 class DealerInfoModel extends IBaseModel<DealerInfoModel> {
@@ -32,6 +33,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
     this.socials,
     this.webAddress,
     this.foodCategories,
+    this.dealerAddress
   });
 
   int? dealerId;
@@ -60,6 +62,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
   SocialsModel? socials;
   String? webAddress;
   List<FoodCategory>? foodCategories;
+  CustomerAddress? dealerAddress;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerInfoModel(
@@ -89,6 +92,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
     socials:json["socials"] == null ? SocialsModel() : SocialsModel.fromJson(json["socials"]),
     webAddress: json["web_address"],
     foodCategories: json["food_categories"] == null ? [] :  List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
+    dealerAddress: json["address"] == null ? null : CustomerAddress.fromJson(json["address"]),
   );
 }
 
