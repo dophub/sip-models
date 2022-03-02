@@ -134,7 +134,7 @@ class OrderStatus {
   String? orderStatusCode;
   String? orderStatusName;
 
-  factory OrderStatus.fromJson(Map<String, dynamic> json) => OrderStatus(
+  factory OrderStatus.fromJson(Map<dynamic, dynamic> json) => OrderStatus(
     orderStatusCode: json["order_status_code"],
     orderStatusName: json["order_status_name"],
   );
