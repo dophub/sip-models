@@ -34,4 +34,4 @@ enum OptionType { OPTION, FEATURE }
 /// [online] KrediKartı VS..
 enum PaymentOnlineType { offline, online }
 
-
+enum DeviceType { IOS, ANDROID}
