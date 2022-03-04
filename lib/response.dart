@@ -38,3 +38,4 @@ export 'src/model/response/dealer_info_model.dart';
 export 'src/model/response/parameters_Model.dart';
 export 'src/model/response/order_rating_and_comment_model.dart';
 export 'src/model/response/campaign_model.dart';
+export 'src/model/response/auth/SendOTpForLoginResponseModel.dart';
