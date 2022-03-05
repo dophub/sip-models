@@ -13,4 +13,5 @@ enum DealerPaymentScreenArguments { payDeskAmount }
 enum SearchScreenArguments { categoryId, isSelectedCategory, selectedCategoryName }
 enum FixMenuScreenArguments { dealerId, selectedFixMenuList}
 enum CampaignScreenArguments { campaignList, viewMode}
+enum OtpVerificationScreenArguments { transactionId, telNo}
 
