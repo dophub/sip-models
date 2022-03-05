@@ -6,4 +6,4 @@ enum ListMode { Line, Grid }
 /// [RegisterMode] Register ekranında kullanılmakta
 /// [Update] Eski Kullanıcı Bilgiler Güncellenecek
 /// [Insert] Yeni Kullanıcı Bilgiler Insert Edilecek
-enum RegisterMode { Update, Insert }
+enum RegisterMode { Update, Insert, Otp }
