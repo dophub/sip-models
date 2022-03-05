@@ -29,7 +29,8 @@ enum OrderPoint { TAKEOUT, GETIN, TABLE }
 /// [RESTIN] Restoran içi
 /// [MARKETPLACE] Marketplace
 /// [LINK] Restoran sayfası
-enum SessionPoint { RESTIN, MARKETPLACE, LINK }
+/// [RESTOP] İşletme tarafında garson tarafından kullanılıyor.
+enum SessionPoint { RESTIN, RESTOP, MARKETPLACE, LINK }
 
 /// [AppModuleId] OUygulama modulleri
 /// [Dealer] Restoran içi
