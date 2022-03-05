@@ -1,4 +1,3 @@
-
 /// [DeliveryType] Teslimat türü
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
@@ -34,4 +33,4 @@ enum OptionType { OPTION, FEATURE }
 /// [online] KrediKartı VS..
 enum PaymentOnlineType { offline, online }
 
-enum DeviceType { IOS, ANDROID}
+enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS }
