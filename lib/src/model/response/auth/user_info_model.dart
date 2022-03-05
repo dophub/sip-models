@@ -1,26 +1,26 @@
 
 /// Türkcell Hızlı Girişte OTP kodu doğru girildiğinde çekilen kullanıcı bilgileri
 /// [complete] Kullanıcı kayıdını önceden tamamlamışmı tamamlamamış mı
-class UserInfoModel {
-  UserInfoModel({
+class GetUserInfoModel {
+  GetUserInfoModel({
     this.complete,
     this.data,
     this.token,
   });
 
   bool? complete;
-  UserInfo? data;
+  UserInfoModel? data;
   String? token;
 
-  factory UserInfoModel.fromJson(Map<String, dynamic> json) => UserInfoModel(
+  factory GetUserInfoModel.fromJson(Map<String, dynamic> json) => GetUserInfoModel(
         complete: json["complete"],
-        data: UserInfo.fromJson(json["data"]),
+        data: UserInfoModel.fromJson(json["data"]),
         token: json["token"],
       );
 }
 
-class UserInfo {
-  UserInfo({
+class UserInfoModel {
+  UserInfoModel({
     this.id,
     this.firstName,
     this.lastName,
@@ -38,7 +38,7 @@ class UserInfo {
   String? ssoId;
   String? customerStatusId;
 
-  factory UserInfo.fromJson(Map<String, dynamic> json) => UserInfo(
+  factory UserInfoModel.fromJson(Map<String, dynamic> json) => UserInfoModel(
         id: json["id"],
         firstName: json["first_name"],
         lastName: json["last_name"],
