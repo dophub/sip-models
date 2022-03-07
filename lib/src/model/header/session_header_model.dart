@@ -10,24 +10,27 @@ class SessionHeaderModel {
     required this.token,
     this.orderPoint,
     this.customerAddress,
+    this.sessionPoint,
   });
 
   final String token;
   final String lang = 'tr';
   final OrderPoint? orderPoint;
+  final SessionPoint? sessionPoint;
   final CustomerAddress? customerAddress;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddress();
     final Map<String, String> _map = {
       "content-type": "application/json",
-      "clientpoint": "MOBILE_APP",
+      "clientpoint": ClientPointId.MOBILE_APP.name,
       "authorization": 'Bearer $token',
       "lang": lang,
       "orderpoint": orderPoint == null ? '' : orderPoint!.name,
       "neighborhoodid": (address.neighborhoodId ?? 0).toString(),
       "addressid": (address.id ?? 0).toString(),
       "latlng": address.latlng ?? '0,0',
+      "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
     };
     _map.addAll(addMap);
     return _map;
