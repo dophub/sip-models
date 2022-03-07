@@ -40,3 +40,4 @@ export 'src/model/response/order_rating_and_comment_model.dart';
 export 'src/model/response/campaign_model.dart';
 export 'src/model/response/auth/SendOTpForLoginResponseModel.dart';
 export 'src/model/response/vehicle_info_model.dart';
+export 'src/model/response/banner_model.dart';
