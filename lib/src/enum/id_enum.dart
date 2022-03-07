@@ -86,3 +86,9 @@ enum ClientPointId { MOBILE_APP }
 /// [PRICECHANGE] Ürün Fiyatı Değiştirme-PRICECHANGE
 /// [COUPON] 3.Party Kupon Kampanyası-COUPON
 enum CampaignTypeId { PERCENT, DISCOUNT, GIFTPRODUCT, PRICECHANGE, COUPON }
+
+/// [BannerTargetId] Banner Event Id leri
+/// [dealer] İşletmeye gider
+/// [product] Ürüne gider
+/// [link] Link e gider
+enum BannerTargetId { dealer, product, link }
