@@ -92,3 +92,10 @@ enum CampaignTypeId { PERCENT, DISCOUNT, GIFTPRODUCT, PRICECHANGE, COUPON }
 /// [product] Ürüne gider
 /// [link] Link e gider
 enum BannerTargetId { dealer, product, link }
+
+/// [LimitNumberOfOrderTypeId] Banner Event Id leri
+/// [JUST] Sadece
+/// [EVERYC] Müşterinin Her
+/// [EVERYCD] Müşterinin aynı işletmede her
+/// [ALL] Her siparişte
+enum LimitNumberOfOrderTypeId { JUST, EVERYC, EVERYCD, ALL }
