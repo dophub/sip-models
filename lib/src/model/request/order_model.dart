@@ -104,9 +104,9 @@ class OrderModel extends IBaseModel<OrderModel>{
     paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
     tableServiceId: json["table_service_id"],
     isUseCampaign: json["is_use_campaign"],
-    beforeCampaignTotal: json["before_campaign_total"],
-    totalCampaignDiscount: json["total_campaign_discount"],
-    totalUsedCampaignBudget: json["total_used_campaign_budget"],
+    beforeCampaignTotal: json["before_campaign_total"].toDouble(),
+    totalCampaignDiscount: json["total_campaign_discount"].toDouble(),
+    totalUsedCampaignBudget: json["total_used_campaign_budget"].toDouble(),
   );
 
   Map<String, dynamic> toJson() => {
@@ -379,8 +379,8 @@ class OrderItem {
     itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
     totalPriceWithoutKdv: json["total_price_without_kdv"].toDouble(),
     status: ItemStatus.fromJson(json["status"]),
-    beforeCampaignItemPrice: json["before_campaign_item_price"],
-    beforeCampaignTotal: json["before_campaign_total"],
+    beforeCampaignItemPrice: json["before_campaign_item_price"].toDouble(),
+    beforeCampaignTotal: json["before_campaign_total"].toDouble(),
     campaignId: json["campaign_id"],
     isGift: json["is_gift"],
     isUseCampaign: json["is_use_campaign"],
