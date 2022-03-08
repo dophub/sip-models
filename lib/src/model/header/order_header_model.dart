@@ -1,11 +1,12 @@
 import 'package:sip_models/enum.dart';
+import '../../../response.dart';
 import 'session_header_model.dart';
 
 class OrderHeaderModel extends SessionHeaderModel {
   OrderHeaderModel(
       String token, this.sessionId, this.dealerId, OrderPoint _orderPoint,SessionPoint sessionPoint,
-      {this.tableId})
-      : super(token: token, orderPoint: _orderPoint,sessionPoint: sessionPoint);
+      {this.tableId,CustomerAddress? customerAddress})
+      : super(token: token, orderPoint: _orderPoint,sessionPoint: sessionPoint,customerAddress: customerAddress);
 
   String? tableId;
   int dealerId;
@@ -44,7 +45,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           String token, String sessionId, int dealerId, String tableId) =>
       OrderHeaderModel(token, sessionId, dealerId, OrderPoint.TABLE, SessionPoint.RESTIN,tableId: tableId)._setDealer();
 
-  factory OrderHeaderModel.toMarketPlace(String token, String sessionId, int dealerId, OrderPoint _orderPoint, DeliveryType _deliveryType) =>
-      OrderHeaderModel(token, sessionId, dealerId, _orderPoint,SessionPoint.MARKETPLACE)
+  factory OrderHeaderModel.toMarketPlace(String token, String sessionId, int dealerId, OrderPoint _orderPoint, DeliveryType _deliveryType,CustomerAddress? customerAddress) =>
+      OrderHeaderModel(token, sessionId, dealerId, _orderPoint,SessionPoint.MARKETPLACE,customerAddress: customerAddress)
           ._setMarketPlace(_deliveryType);
 }
