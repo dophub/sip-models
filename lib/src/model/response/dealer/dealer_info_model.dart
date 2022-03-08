@@ -1,9 +1,10 @@
 
 import 'package:sip_models/src/model/response/abstract_base_model.dart';
-import 'package:sip_models/src/model/response/dealer_detail_model.dart';
+import 'package:sip_models/src/model/response/dealer/dealer_detail_model.dart';
 import 'package:sip_models/src/model/response/images_model.dart';
-import 'package:sip_models/src/model/response/product_cart_model.dart';
-import 'past_order_details_model.dart';
+import 'package:sip_models/src/model/response/order/product_cart_model.dart';
+import '../address/customer_address.dart';
+import '../order/past_order_details_model.dart';
 
 class DealerInfoModel extends IBaseModel<DealerInfoModel> {
   DealerInfoModel({

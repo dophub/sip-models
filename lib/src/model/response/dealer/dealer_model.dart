@@ -1,4 +1,4 @@
-import '../../../response.dart';
+import '../../../../response.dart';
 
 class DealerModel extends IBaseModel<DealerModel> {
   int? dealerId;

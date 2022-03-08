@@ -1,0 +1,163 @@
+{
+  "id": 855,
+  "is_use_campaign": false,
+  "before_campaign_total": 22.700000000000003,
+  "total_campaign_discount": 0,
+  "total_used_campaign_budget": 0,
+  "table_service_id": null,
+  "record_date": "2022-03-08T08:16:54.820+00:00",
+  "order_number": "a4f8f4b5-1bc4-4ece-89d1-af8a844406d9",
+  "total_amount": 22.700000000000003,
+  "total_amount_without_kdv": 21.02,
+  "order_note": "",
+  "order_point_id": "TAKEOUT",
+  "session_point_id": "MARKETPLACE",
+  "sessionId": "896d38e2-d8b1-4499-a0b7-a765cc5e5d02",
+  "delivery_type_id": "TAKEOUT",
+  "delivery_date": null,
+  "delivery_time_id": "NOW",
+  "tip_amount": 0,
+  "tip_amount_without_kdv": null,
+  "dealer_id": 594,
+  "client_point_id": "MOBILE_APP",
+  "order_status": {
+    "order_status_code": "OUT_TEMP",
+    "order_status_name": "Cihazda",
+    "order_status_group_id": "TEMP"
+  },
+  "customer_id": 1151,
+  "payment_info": null,
+  "courier_info": null,
+  "customer": {
+    "id": 1151,
+    "sessionId": "896d38e2-d8b1-4499-a0b7-a765cc5e5d02",
+    "name_surname": "Mustafa Türkmen"
+  },
+  "customer_address": null,
+  "sso_id": "896d38e2-d8b1-4499-a0b7-a765cc5e5d02",
+  "nick_name": "Mustafa Türkmen",
+  "order_options": null,
+  "campaigns": null,
+  "items": [
+    {
+      "id": 1471,
+      "count": 1,
+      "item_price": 22.7,
+      "total_price": 22.7,
+      "item_note": "",
+      "order_main_id": 855,
+      "product_id": 258,
+      "promotion_menu_id": null,
+      "status_id": "WAIT",
+      "options": [
+        {
+          "id": 56,
+          "items": [
+            {
+              "id": 88,
+              "price": 10.9,
+              "title": "Çikolatalı Suffle",
+              "product_id": 1
+            }
+          ],
+          "title": "Promosyon Tatlı",
+          "adding_type": "ADD",
+          "option_type": "FEATURE",
+          "total_price": 0
+        },
+        {
+          "id": 57,
+          "items": [
+            {
+              "id": 89,
+              "price": 6.9,
+              "title": "Gurme Patates",
+              "product_id": 1
+            }
+          ],
+          "title": "Promosyon Atıştırmalık",
+          "adding_type": "ADD",
+          "option_type": "FEATURE",
+          "total_price": 0
+        },
+        {
+          "id": 58,
+          "items": [
+            {
+              "id": 91,
+              "price": 4.9,
+              "title": "Pepsi (1 L.)",
+              "product_id": 1
+            }
+          ],
+          "title": "Promosyon İçecek Seçimi",
+          "adding_type": "ADD",
+          "option_type": "FEATURE",
+          "total_price": 0
+        },
+        {
+          "id": 78,
+          "items": [
+            {
+              "id": 208,
+              "price": 0,
+              "title": "Biber",
+              "product_id": 0
+            }
+          ],
+          "title": "Çıkarılacak Malzemeler",
+          "adding_type": "DECREASE",
+          "option_type": "OPTION",
+          "total_price": 0
+        },
+        {
+          "id": 79,
+          "items": [
+            {
+              "id": 212,
+              "price": 0,
+              "title": "Mozarella Peynirli Hamur",
+              "product_id": 0
+            }
+          ],
+          "title": "Hamur Seçimi",
+          "adding_type": "ADD",
+          "option_type": "OPTION",
+          "total_price": 0
+        }
+      ],
+      "item_title": "Bol Bol Pizza (Orta Boy)",
+      "item_type_id": "PRODUCT",
+      "item_price_without_kdv": 21.02,
+      "total_price_without_kdv": 21.02,
+      "tax_percent": 8,
+      "item_code": "P-258-56-88-57-89-58-91-78-208-79-212",
+      "before_campaign_item_price": null,
+      "before_campaign_total": 22.7,
+      "campaign_id": null,
+      "is_gift": null,
+      "is_use_campaign": null,
+      "item_object": {
+        "id": 258,
+        "price": [
+          {
+            "id": 142,
+            "price": 43.99,
+            "is_default": false,
+            "order_delivery_type_id": "TABLE"
+          }
+        ],
+        "images": null,
+        "calorie": 0,
+        "item_type": "PRODUCT",
+        "make_time": 15,
+        "product_name": "Bol Bol Pizza (Orta Boy)",
+        "short_description": "Pizza Sosu Mozzarella Peyniri Sucuk Jambon Sosis Domates Siyah Zeytin Kekik"
+      },
+      "status": {
+        "status_code": "WAIT",
+        "status_name": "Bekliyor"
+      }
+    }
+  ]
+}

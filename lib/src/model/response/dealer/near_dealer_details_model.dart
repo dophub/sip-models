@@ -1,6 +1,6 @@
 import 'dart:convert';
-import '../../../response.dart';
-import 'menu_detail_model.dart';
+import '../../../../response.dart';
+import '../menu_detail_model.dart';
 
 
 class NearDealerDetailsModel  extends IBaseModel<NearDealerDetailsModel> {

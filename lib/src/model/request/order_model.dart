@@ -1,10 +1,11 @@
 import '../response/abstract_base_model.dart';
+import '../response/address/customer_address.dart';
 import '../response/images_model.dart';
 import '../response/menu_detail_model.dart';
 import '../response/price_model.dart';
-import '../response/product_cart_model.dart';
-import '../response/product_detail_model.dart';
-import '../response/promotion_menu_model.dart';
+import '../response/order/product_cart_model.dart';
+import '../response/product/product_detail_model.dart';
+import '../response/product/promotion_menu_model.dart';
 import '../../enum/id_enum.dart';
 import '../../enum/type_enum.dart';
 
@@ -37,6 +38,10 @@ class OrderModel extends IBaseModel<OrderModel>{
     this.customerAddress,
     this.tableServiceId,
     this.paymentInfo,
+    this.isUseCampaign,
+    this.beforeCampaignTotal,
+    this.totalCampaignDiscount,
+    this.totalUsedCampaignBudget,
   });
 
 
@@ -66,6 +71,10 @@ class OrderModel extends IBaseModel<OrderModel>{
   CustomerAddress? customerAddress;
   int? tableServiceId;
   PaymentInfo? paymentInfo;
+  bool? isUseCampaign;
+  double? beforeCampaignTotal;
+  double? totalCampaignDiscount;
+  double? totalUsedCampaignBudget;
 
   @override
     OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -94,6 +103,10 @@ class OrderModel extends IBaseModel<OrderModel>{
     customerAddress: json["customer_address"] == null ? null : CustomerAddress.fromJson(json["customer_address"]),
     paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
     tableServiceId: json["table_service_id"],
+    isUseCampaign: json["is_use_campaign"],
+    beforeCampaignTotal: json["before_campaign_total"],
+    totalCampaignDiscount: json["total_campaign_discount"],
+    totalUsedCampaignBudget: json["total_used_campaign_budget"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -122,6 +135,10 @@ class OrderModel extends IBaseModel<OrderModel>{
     "customer_address": customerAddress!.toJson(),
     "payment_info": paymentInfo!.toJson(),
     "table_service_id": tableServiceId,
+    "is_use_campaign": isUseCampaign,
+    "before_campaign_total": beforeCampaignTotal,
+    "total_campaign_discount": totalCampaignDiscount,
+    "total_used_campaign_budget": totalUsedCampaignBudget,
   };
 }
 
@@ -188,6 +205,11 @@ class OrderItem {
     this.totalPriceWithoutKdv,
     this.itemObject,
     this.status,
+    this.beforeCampaignTotal,
+    this.beforeCampaignItemPrice,
+    this.campaignId,
+    this.isGift,
+    this.isUseCampaign,
   });
 
   int? id;
@@ -208,6 +230,11 @@ class OrderItem {
   double? totalPriceWithoutKdv;
   ProductModel? itemObject;
   ItemStatus? status;
+  double? beforeCampaignItemPrice;
+  double? beforeCampaignTotal;
+  int? campaignId;
+  bool? isGift;
+  bool? isUseCampaign;
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
@@ -352,6 +379,11 @@ class OrderItem {
     itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
     totalPriceWithoutKdv: json["total_price_without_kdv"].toDouble(),
     status: ItemStatus.fromJson(json["status"]),
+    beforeCampaignItemPrice: json["before_campaign_item_price"],
+    beforeCampaignTotal: json["before_campaign_total"],
+    campaignId: json["campaign_id"],
+    isGift: json["is_gift"],
+    isUseCampaign: json["is_use_campaign"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -373,6 +405,11 @@ class OrderItem {
     "item_price_without_kdv": itemPriceWithoutKdv,
     "total_price_without_kdv": totalPriceWithoutKdv,
     "status": status == null ? null :  status!.toJson(),
+    "before_campaign_item_price": beforeCampaignItemPrice,
+    "before_campaign_total": beforeCampaignTotal,
+    "campaign_id": campaignId,
+    "is_gift": isGift,
+    "is_use_campaign": isUseCampaign,
   };
 }
 

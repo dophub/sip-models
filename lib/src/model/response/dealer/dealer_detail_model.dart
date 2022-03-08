@@ -1,6 +1,6 @@
 
-import 'food_category_model.dart';
-import 'images_model.dart';
+import '../food_category_model.dart';
+import '../images_model.dart';
 
 
 /// GR Kod okutulduğu zaman Api den dönen response

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:sip_models/src/model/request/order_model.dart';
 
-import 'images_model.dart';
+import '../images_model.dart';
 
 List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
 

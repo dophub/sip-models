@@ -1,6 +1,6 @@
-import 'abstract_base_model.dart';
-import 'past_order_details_model.dart';
-import 'payment/payment_types_model.dart';
+import '../abstract_base_model.dart';
+import '../order/past_order_details_model.dart';
+import '../payment/payment_types_model.dart';
 
 class ParametersModel extends IBaseModel<ParametersModel> {
   ParametersModel({

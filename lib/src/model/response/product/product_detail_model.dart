@@ -1,8 +1,8 @@
 
 import 'dart:convert';
-import 'abstract_base_model.dart';
-import 'images_model.dart';
-import 'price_model.dart';
+import '../abstract_base_model.dart';
+import '../images_model.dart';
+import '../price_model.dart';
 
 
 String productDetailModelToJson(ProductDetailModel data) => json.encode(data.toJson());

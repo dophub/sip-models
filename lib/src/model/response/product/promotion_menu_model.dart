@@ -1,7 +1,7 @@
-import 'abstract_base_model.dart';
-import 'images_model.dart';
-import 'menu_detail_model.dart';
-import 'price_model.dart';
+import '../abstract_base_model.dart';
+import '../images_model.dart';
+import '../menu_detail_model.dart';
+import '../price_model.dart';
 import 'product_detail_model.dart';
 
 
