@@ -2,6 +2,7 @@ library response;
 
 export 'src/model/response/abstract_base_model.dart';
 export 'src/model/response/address/address_by_location.dart';
+export 'src/model/response/address/customer_address.dart';
 export 'src/model/response/auth/api_url_model.dart';
 export 'src/model/response/payment/cards_model.dart';
 export 'src/model/response/food_category_model.dart';
