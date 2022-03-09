@@ -42,6 +42,7 @@ class OrderModel extends IBaseModel<OrderModel>{
     this.beforeCampaignTotal,
     this.totalCampaignDiscount,
     this.totalUsedCampaignBudget,
+    this.campaigns,
   });
 
 
@@ -75,6 +76,7 @@ class OrderModel extends IBaseModel<OrderModel>{
   double? beforeCampaignTotal;
   double? totalCampaignDiscount;
   double? totalUsedCampaignBudget;
+  List<OrderCampaignsModel>? campaigns;
 
   @override
     OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -107,6 +109,7 @@ class OrderModel extends IBaseModel<OrderModel>{
     beforeCampaignTotal: json["before_campaign_total"]  == null ? 0.0 : json["before_campaign_total"].toDouble(),
     totalCampaignDiscount: json["total_campaign_discount"]  == null ? 0.0 : json["total_campaign_discount"].toDouble(),
     totalUsedCampaignBudget:json["total_used_campaign_budget"]  == null ? 0.0 :  json["total_used_campaign_budget"].toDouble(),
+      campaigns: json["campaigns"] == null ? [] : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x)))
   );
 
   Map<String, dynamic> toJson() => {
@@ -139,6 +142,7 @@ class OrderModel extends IBaseModel<OrderModel>{
     "before_campaign_total": beforeCampaignTotal,
     "total_campaign_discount": totalCampaignDiscount,
     "total_used_campaign_budget": totalUsedCampaignBudget,
+    "campaigns": campaigns,
   };
 }
 
@@ -605,3 +609,26 @@ class ItemStatus {
 }
 
 
+class OrderCampaignsModel {
+  OrderCampaignsModel({
+    this.spotTitle,
+    this.id,
+    this.campaignAmount,
+  });
+
+  String? spotTitle;
+  int? id;
+  double? campaignAmount;
+
+  factory OrderCampaignsModel.fromJson(Map<String, dynamic> json) => OrderCampaignsModel(
+    spotTitle: json["spot_title"],
+    id: json["id"],
+    campaignAmount: json["campaign_amount"].toDouble(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "spot_title": spotTitle,
+    "id": id,
+    "campaign_amount": campaignAmount,
+  };
+}
