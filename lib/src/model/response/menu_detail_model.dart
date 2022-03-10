@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'abstract_base_model.dart';
-import 'campaign_model.dart';
+import 'campaign/campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';
 
