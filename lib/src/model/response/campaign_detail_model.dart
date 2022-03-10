@@ -1,5 +1,7 @@
 
-class CampaignDetailModel {
+import 'package:sip_models/src/model/response/abstract_base_model.dart';
+
+class CampaignDetailModel extends IBaseModel<CampaignDetailModel> {
   CampaignDetailModel({
     this.id,
     this.title,
@@ -88,7 +90,8 @@ class CampaignDetailModel {
   bool? isCompleteAnalysis;
   String? usedBudgetAmount;
 
-  factory CampaignDetailModel.fromJson(Map<String, dynamic> json) => CampaignDetailModel(
+  @override
+  fromJson(Map<dynamic, dynamic> json) => CampaignDetailModel(
     id: json["id"],
     title: json["title"],
     description: json["description"],
