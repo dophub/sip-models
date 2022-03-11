@@ -2,7 +2,7 @@
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
-enum DeliveryType { TAKEOUT, GETIN, TABLE }
+enum DeliveryType { TAKEOUT , GETIN, TABLE }
 
 /// [ItemSeparatorType] List Item lar arasındaki boşluk türüdür
 /// [Space] Boşluk olsun
