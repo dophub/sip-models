@@ -3,11 +3,11 @@ import '../response/address/customer_address.dart';
 import '../response/images_model.dart';
 import '../response/menu_detail_model.dart';
 import '../response/price_model.dart';
-import '../response/order/product_cart_model.dart';
 import '../response/product/product_detail_model.dart';
 import '../response/product/promotion_menu_model.dart';
 import '../../enum/id_enum.dart';
 import '../../enum/type_enum.dart';
+import 'isletme_courier_info.dart';
 
 /// Sepette ürün ekleme request inde kullanılan order model
 /// Order Masteri temsil etmekte
@@ -43,6 +43,7 @@ class OrderModel extends IBaseModel<OrderModel>{
     this.totalCampaignDiscount,
     this.totalUsedCampaignBudget,
     this.campaigns,
+    this.courierInfo,
   });
 
 
@@ -69,6 +70,7 @@ class OrderModel extends IBaseModel<OrderModel>{
   OrderCustomerModel? customer;
   DateTime? recordDate;
   String? orderOptions;
+  CourierInfo? courierInfo;
   CustomerAddress? customerAddress;
   int? tableServiceId;
   PaymentInfo? paymentInfo;
@@ -95,6 +97,10 @@ class OrderModel extends IBaseModel<OrderModel>{
     deliveryDate: json["delivery_date"],
     orderPointId: json["order_point_id"],
     clientPointId: json["client_point_id"],
+    courierInfo:  json['courier_info'] == null
+            ? null
+            : CourierInfo.fromJson(
+                json['courier_info'] as Map<String, dynamic>),
     deliveryTypeId: json["delivery_type_id"],
     sessionPointId: json["session_point_id"],
     tipAmountWithoutKdv: json["tip_amount_without_kdv"]  == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
