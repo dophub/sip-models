@@ -19,6 +19,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.payment,
     this.status,
     this.items,
+    this.campaigns,
   });
 
   int? id;
@@ -33,6 +34,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   PaymentDetailModel? payment;
   StatusModel? status;
   List<OrderItem>? items;
+  List<OrderCampaignsModel>? campaigns;
+
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
@@ -48,7 +51,9 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         payment: json["payment"] == null ? PaymentDetailModel(): PaymentDetailModel.fromJson(json["payment"]),
         status: json["status"] == null ? StatusModel():StatusModel.fromJson(json["status"]),
         items:json["items"] == null ? []: List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
-      );
+        campaigns: json["campaigns"] == null ? [] : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x)))
+
+  );
 }
 
 class FoodCategory {
