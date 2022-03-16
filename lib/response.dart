@@ -25,7 +25,6 @@ export 'src/model/response/product/product_detail_model.dart';
 export 'src/model/response/product/promotion_menu_model.dart';
 export 'src/model/response/rating_group.dart';
 export 'src/model/response/response_error_model.dart';
-export 'src/model/response/product/search_product_model.dart';
 export 'src/model/response/order/service_model.dart';
 export 'src/model/response/auth/token_model.dart';
 export 'src/model/response/auth/user_info_model.dart';

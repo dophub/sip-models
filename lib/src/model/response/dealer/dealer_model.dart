@@ -17,6 +17,15 @@ class DealerModel extends IBaseModel<DealerModel> {
   String? latlng;
   WorkingHourModel? workingHours;
   List<FoodCategories>? foodCategories;
+  String? dealerCode;
+  int? mainBrandId;
+  bool? openMarketplace;
+  bool? openReservation;
+  bool? openTable;
+  bool? openVale;
+
+  /// Product Listesi Searchte kullanılıyor
+  List<ProductModel>? products;
 
   DealerModel({
     this.dealerId,
@@ -35,6 +44,13 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.latlng,
     this.workingHours,
     this.foodCategories,
+    this.dealerCode,
+    this.mainBrandId,
+    this.openMarketplace,
+    this.openReservation,
+    this.openTable,
+    this.openVale,
+    this.products,
   });
 
   @override
@@ -66,6 +82,14 @@ class DealerModel extends IBaseModel<DealerModel> {
             ? null
             : List<FoodCategories>.from(
                 json["food_categories"].map((x) => FoodCategories.fromJson(x))),
+        dealerCode: json["dealer_code"],
+        mainBrandId: json["main_brand_id"],
+        openMarketplace: json["open_marketplace"],
+        openReservation: json["open_reservation"],
+        openTable: json["open_table"],
+        openVale: json["open_vale"],
+        products: List<ProductModel>.from(
+            json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
 

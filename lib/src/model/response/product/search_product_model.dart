@@ -1,4 +1,7 @@
+/*
 import 'dart:convert';
+import 'package:sip_models/src/model/response/dealer/dealer_model.dart';
+
 import '../menu_detail_model.dart';
 import '../order/past_order_details_model.dart';
 import '../images_model.dart';
@@ -52,6 +55,8 @@ class SearchProductModel {
   List<FoodCategory>? foodCategories;
   List<ProductModel>? products;
 
+
+
   factory SearchProductModel.fromJson(Map<String, dynamic> json) =>
       SearchProductModel(
         dealerId: json["dealer_id"],
@@ -82,3 +87,4 @@ class SearchProductModel {
             json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
+*/
