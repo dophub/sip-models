@@ -88,7 +88,9 @@ class DealerModel extends IBaseModel<DealerModel> {
         openReservation: json["open_reservation"],
         openTable: json["open_table"],
         openVale: json["open_vale"],
-        products: List<ProductModel>.from(
+        products: json["products"] == null
+            ? []
+            :  List<ProductModel>.from(
             json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
