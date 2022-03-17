@@ -46,13 +46,18 @@ class OrderHeaderModel extends SessionHeaderModel {
   }
 
   factory OrderHeaderModel.toDealer(
-          String token, String sessionId, int dealerId, String tableId) =>
+    String token,
+    String sessionId,
+    int dealerId,
+    SessionPoint sessionPoint,
+    String tableId,
+  ) =>
       OrderHeaderModel(
         token,
         sessionId,
         dealerId,
         OrderPoint.TABLE,
-        SessionPoint.RESTIN,
+        sessionPoint,
         tableId: tableId,
       )._setDealer();
 
