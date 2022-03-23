@@ -8,7 +8,7 @@
 enum ProductProfileScreenArguments { dealerId, orderItem, itemObject, currentModule }
 enum MenuScreenArguments { menuId, focusActive }
 enum CategoryScreenArguments { categoryId, focusActive }
-enum DealerDetailScreenArguments { dealerModel, nearDealerDetailsModel }
+enum DealerDetailScreenArguments { dealerModel }
 enum DealerPaymentScreenArguments { payDeskAmount }
 enum SearchScreenArguments { categoryId, isSelectedCategory, selectedCategoryName }
 enum FixMenuScreenArguments { dealerId, selectedFixMenuList}
