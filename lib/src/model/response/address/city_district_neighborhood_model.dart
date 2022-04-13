@@ -1,11 +1,10 @@
 
 import 'dart:convert';
 
-CityDistrictNeighborhoodModel getCityDistrictNeighborhoodModelFromJson(
-        String str) =>
-    CityDistrictNeighborhoodModel.fromJson(json.decode(str));
+import 'package:sip_models/response.dart';
 
-class CityDistrictNeighborhoodModel {
+
+class CityDistrictNeighborhoodModel extends IBaseModel{
   CityDistrictNeighborhoodModel({
     this.cityId,
     this.cityName,
@@ -24,7 +23,8 @@ class CityDistrictNeighborhoodModel {
   List<Place>? neighborhoods;
   List<Place>? cities;
 
-  factory CityDistrictNeighborhoodModel.fromJson(Map<String, dynamic> json) =>
+  @override
+  fromJson(Map<dynamic, dynamic> json) =>
       CityDistrictNeighborhoodModel(
         cityId: json["city_id"],
         cityName: json["city_name"],
