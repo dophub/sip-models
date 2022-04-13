@@ -1,5 +1,7 @@
-class CustomerAddress {
-  CustomerAddress(
+import 'package:sip_models/response.dart';
+
+class CustomerAddressModel extends IBaseModel{
+  CustomerAddressModel(
       {this.id,
       this.floor,
       this.latlng,
@@ -39,8 +41,8 @@ class CustomerAddress {
   bool?
       isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
 
-  CustomerAddress copyWith() {
-    return CustomerAddress(
+  CustomerAddressModel copyWith() {
+    return CustomerAddressModel(
         id: id,
         floor: floor,
         latlng: latlng,
@@ -61,8 +63,9 @@ class CustomerAddress {
         isAvailable: isAvailable);
   }
 
-  factory CustomerAddress.fromJson(Map<String, dynamic> json) =>
-      CustomerAddress(
+  @override
+  fromJson(Map<dynamic, dynamic> json) =>
+      CustomerAddressModel(
         id: json["id"],
         floor: json["floor"],
         latlng: json["latlng"],

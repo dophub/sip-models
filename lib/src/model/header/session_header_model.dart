@@ -19,10 +19,10 @@ class SessionHeaderModel {
   final String lang = 'tr';
   final OrderPoint? orderPoint;
   final SessionPoint? sessionPoint;
-  final CustomerAddress? customerAddress;
+  final CustomerAddressModel? customerAddress;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
-    final address = customerAddress ?? CustomerAddress();
+    final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
       "content-type": "application/json",
       "clientpoint": ClientPointId.MOBILE_APP.name,

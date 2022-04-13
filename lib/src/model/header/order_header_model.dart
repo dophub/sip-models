@@ -10,7 +10,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     OrderPoint _orderPoint,
     SessionPoint sessionPoint, {
     this.tableId,
-    CustomerAddress? customerAddress,
+    CustomerAddressModel? customerAddress,
   }) : super(
           token: token,
           orderPoint: _orderPoint,
@@ -67,7 +67,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     int dealerId,
     OrderPoint _orderPoint,
     DeliveryType _deliveryType,
-    CustomerAddress? customerAddress,
+    CustomerAddressModel? customerAddress,
   ) =>
       OrderHeaderModel(
         token,

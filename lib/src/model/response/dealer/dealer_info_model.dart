@@ -63,7 +63,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
   SocialsModel? socials;
   String? webAddress;
   List<FoodCategory>? foodCategories;
-  CustomerAddress? dealerAddress;
+  CustomerAddressModel? dealerAddress;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerInfoModel(
@@ -93,7 +93,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
     socials:json["socials"] == null ? SocialsModel() : SocialsModel.fromJson(json["socials"]),
     webAddress: json["web_address"],
     foodCategories: json["food_categories"] == null ? [] :  List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
-    dealerAddress: json["address"] == null ? null : CustomerAddress.fromJson(json["address"]),
+    dealerAddress: json["address"] == null ? null : CustomerAddressModel().fromJson(json["address"]),
   );
 }
 

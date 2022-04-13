@@ -87,7 +87,7 @@ class Order {
   String? sessionPointId;
   String? paymentTypeId;
   String? deliveryTypeId;
-  CustomerAddress? customerAddress;
+  CustomerAddressModel? customerAddress;
   String? deliveryTimeId;
   String? deliveryDate;
   double? tipAmount;
@@ -107,7 +107,7 @@ class Order {
     sessionPointId: json["session_point_id"],
     paymentTypeId: json["payment_type_id"],
     deliveryTypeId: json["delivery_type_id"],
-    customerAddress: CustomerAddress.fromJson(json["customer_address"]),
+    customerAddress: CustomerAddressModel().fromJson(json["customer_address"]),
     deliveryTimeId: json["delivery_time_id"],
     deliveryDate: json["delivery_date"],
     tipAmount: json["tip_amount"].toDouble(),

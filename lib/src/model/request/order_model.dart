@@ -69,7 +69,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   DateTime? recordDate;
   String? orderOptions;
   CourierInfo? courierInfo;
-  CustomerAddress? customerAddress;
+  CustomerAddressModel? customerAddress;
   int? tableServiceId;
   PaymentInfo? paymentInfo;
   bool? isUseCampaign;
@@ -118,7 +118,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       orderOptions: json["order_options"] ?? '',
       customerAddress: json["customer_address"] == null
           ? null
-          : CustomerAddress.fromJson(json["customer_address"]),
+          : CustomerAddressModel().fromJson(json["customer_address"]),
       paymentInfo: json["payment_info"] == null
           ? null
           : PaymentInfo.fromJson(json["payment_info"]),
