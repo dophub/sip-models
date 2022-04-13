@@ -110,10 +110,12 @@ class PaymentType {
       required this.paymentType,
       required this.isActive,
       required this.isOnlinePayment,
+      this.imageUrl,
       required this.isSelected});
 
   String paymentTypeCode;
   String paymentType;
+  String? imageUrl;
   bool isActive;
   bool isOnlinePayment;
   bool isSelected;
@@ -123,6 +125,7 @@ class PaymentType {
         paymentType: json["payment_type"],
         isActive: json["is_active"],
         isOnlinePayment: json["is_online_payment"],
+        imageUrl: json['image_url'],
         isSelected: false,
       );
 
@@ -130,6 +133,7 @@ class PaymentType {
         "payment_type_code": paymentTypeCode,
         "payment_type": paymentType,
         "is_active": isActive,
+        'image_url': imageUrl,
         "is_online_payment": isOnlinePayment,
         'is_selected': isSelected,
       };
