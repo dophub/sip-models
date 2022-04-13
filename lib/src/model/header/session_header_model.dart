@@ -1,7 +1,7 @@
 import 'package:sip_models/response.dart';
 import 'package:sip_models/src/enum/id_enum.dart';
 
-import '../response/address/customer_address.dart';
+import '../response/address/customer_address_model.dart';
 
 ///  Business Logic'teki client class ları bu modelden extends edilecek.
 ///  Business Logic'teki Class türetildiği zaman bu modelin Constructor headerin gerekli parametrelerini dolduracak

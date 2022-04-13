@@ -1,4 +1,4 @@
-import '../abstract_base_model.dart';
+import '../other/abstract_base_model.dart';
 import '../order/past_order_details_model.dart';
 import '../payment/payment_types_model.dart';
 

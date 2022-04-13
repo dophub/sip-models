@@ -1,4 +1,4 @@
-import '../../../response.dart';
+import '../../../../response.dart';
 
 ///Dealer(Kategori) ve MarketPlace(Mutfaklar) modüllerinde kullanılan model
 class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {

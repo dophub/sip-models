@@ -1,4 +1,4 @@
-import '../../../response.dart';
+import '../../../../response.dart';
 
 class RatingGroup extends IBaseModel<RatingGroup> {
   RatingGroup(

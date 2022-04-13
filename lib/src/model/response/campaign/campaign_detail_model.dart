@@ -1,5 +1,5 @@
 
-import 'package:sip_models/src/model/response/abstract_base_model.dart';
+import 'package:sip_models/src/model/response/other/abstract_base_model.dart';
 
 class CampaignDetailModel extends IBaseModel<CampaignDetailModel> {
   CampaignDetailModel({

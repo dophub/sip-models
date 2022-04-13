@@ -1,6 +1,6 @@
 import 'package:sip_models/response.dart';
 
-class CustomerAddressModel extends IBaseModel{
+class CustomerAddressModel extends IBaseModel<CustomerAddressModel>{
   CustomerAddressModel(
       {this.id,
       this.floor,

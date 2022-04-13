@@ -1,6 +1,6 @@
 import 'dart:convert';
 import '../../request/order_model.dart';
-import '../address/customer_address.dart';
+import '../address/customer_address_model.dart';
 
 ProductCartModel productCartModelFromJson(String? str) => ProductCartModel.fromJson(json.decode(str!));
 

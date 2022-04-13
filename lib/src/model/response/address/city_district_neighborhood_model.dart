@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:sip_models/response.dart';
 
 
-class CityDistrictNeighborhoodModel extends IBaseModel{
+class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodModel>{
   CityDistrictNeighborhoodModel({
     this.cityId,
     this.cityName,

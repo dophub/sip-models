@@ -1,8 +1,8 @@
-import '../response/abstract_base_model.dart';
-import '../response/address/customer_address.dart';
-import '../response/images_model.dart';
-import '../response/menu_detail_model.dart';
-import '../response/price_model.dart';
+import '../response/other/abstract_base_model.dart';
+import '../response/address/customer_address_model.dart';
+import '../response/other/images_model.dart';
+import '../response/other/menu_detail_model.dart';
+import '../response/other/price_model.dart';
 import '../response/product/product_detail_model.dart';
 import '../response/product/promotion_menu_model.dart';
 import '../../enum/id_enum.dart';

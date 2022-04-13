@@ -1,8 +1,8 @@
 import 'package:sip_models/src/model/request/order_model.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
-import '../abstract_base_model.dart';
+import '../other/abstract_base_model.dart';
 import '../dealer/dealer_model.dart';
-import '../images_model.dart';
+import '../other/images_model.dart';
 
 /// Dealer model id => dealer_id
 class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
