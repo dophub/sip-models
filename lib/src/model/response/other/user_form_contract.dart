@@ -1,6 +1,6 @@
 import 'package:sip_models/response.dart';
 
-class UserFormContractModel extends IBaseModel {
+class UserFormContractModel extends IBaseModel<UserFormContractModel> {
   UserFormContractModel({
     this.id,
     this.title,
