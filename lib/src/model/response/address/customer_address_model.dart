@@ -1,25 +1,27 @@
 import 'package:sip_models/response.dart';
 
-class CustomerAddressModel extends IBaseModel<CustomerAddressModel>{
-  CustomerAddressModel(
-      {this.id,
-      this.floor,
-      this.latlng,
-      this.address,
-      this.cityId,
-      this.cityName,
-      this.districtId,
-      this.flatNumber,
-      this.addressName,
-      this.addressRoute,
-      this.districtName,
-      this.buildingNumber,
-      this.neighborhoodId,
-      this.neighborhoodName,
-      this.addressTypeId,
-      this.addressTypeName,
-      this.icon,
-      this.isAvailable});
+class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
+  CustomerAddressModel({
+    this.id,
+    this.floor,
+    this.latlng,
+    this.address,
+    this.cityId,
+    this.cityName,
+    this.districtId,
+    this.flatNumber,
+    this.addressName,
+    this.addressRoute,
+    this.districtName,
+    this.buildingNumber,
+    this.neighborhoodId,
+    this.neighborhoodName,
+    this.addressTypeId,
+    this.addressTypeName,
+    this.icon,
+    this.isAvailable,
+    this.distance,
+  });
 
   int? id;
   String? floor;
@@ -40,32 +42,34 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel>{
   String? icon;
   bool?
       isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
+  int? distance;
 
   CustomerAddressModel copyWith() {
     return CustomerAddressModel(
-        id: id,
-        floor: floor,
-        latlng: latlng,
-        address: address,
-        cityId: cityId,
-        cityName: cityName,
-        districtId: districtId,
-        flatNumber: flatNumber,
-        addressName: addressName,
-        addressRoute: addressRoute,
-        districtName: districtName,
-        buildingNumber: buildingNumber,
-        neighborhoodId: neighborhoodId,
-        neighborhoodName: neighborhoodName,
-        addressTypeId: addressTypeId,
-        addressTypeName: addressTypeName,
-        icon: icon,
-        isAvailable: isAvailable);
+      id: id,
+      floor: floor,
+      latlng: latlng,
+      address: address,
+      cityId: cityId,
+      cityName: cityName,
+      districtId: districtId,
+      flatNumber: flatNumber,
+      addressName: addressName,
+      addressRoute: addressRoute,
+      districtName: districtName,
+      buildingNumber: buildingNumber,
+      neighborhoodId: neighborhoodId,
+      neighborhoodName: neighborhoodName,
+      addressTypeId: addressTypeId,
+      addressTypeName: addressTypeName,
+      icon: icon,
+      isAvailable: isAvailable,
+      distance: distance,
+    );
   }
 
   @override
-  fromJson(Map<dynamic, dynamic> json) =>
-      CustomerAddressModel(
+  fromJson(Map<dynamic, dynamic> json) => CustomerAddressModel(
         id: json["id"],
         floor: json["floor"],
         latlng: json["latlng"],
@@ -84,6 +88,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel>{
         addressTypeName: json["address_type_name"],
         icon: json["icon"],
         isAvailable: json["is_available"],
+        distance: json["distance"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -105,5 +110,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel>{
         "address_type_name": addressTypeName,
         "icon": icon,
         "is_available": isAvailable,
+        "distance": distance,
       };
 }
