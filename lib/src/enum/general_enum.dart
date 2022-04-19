@@ -96,4 +96,5 @@ enum TableOrderStatus {
 /// [Add] Masaya açık olan service devam etmek istiyorum
 enum TimeoutAction { None, New, Add }
 
-
+/// [AddressTypeEnum] Adres türleri
+enum AddressTypeEnum { home, work, hotel, other }
