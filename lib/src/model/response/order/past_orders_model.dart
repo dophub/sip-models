@@ -12,6 +12,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
     this.addressInfo,
     this.status,
     this.dealerId,
+    this.orderPointId,
   });
 
   int? id;
@@ -24,10 +25,10 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   AddressType? addressInfo;
   StatusModel? status;
   int? dealerId;
+  String? orderPointId;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) =>
-      PastOrdersModel(
+  fromJson(Map<dynamic, dynamic> json) => PastOrdersModel(
         id: json["id"],
         orderNumber: json["order_number"],
         recordDate: DateTime.parse(json["record_date"]),
@@ -36,7 +37,10 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
         dealerFullName: json["dealer_full_name"],
         addressName: json["address_name"],
         addressInfo: AddressType.fromJson(json["address_info"]),
-        status: json["status"] == null ? StatusModel():StatusModel.fromJson(json["status"]),
+        status: json["status"] == null
+            ? StatusModel()
+            : StatusModel.fromJson(json["status"]),
         dealerId: json["dealer_id"],
+        orderPointId: json["order_point_id"],
       );
 }
