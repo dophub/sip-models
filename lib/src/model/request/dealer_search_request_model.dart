@@ -13,7 +13,7 @@ class DealerSearchRequestModel {
   DealerSearchFilterModel? filter;
   int? districtId;
   int? neighborhoodId;
-  String? addressId;
+  int? addressId;
   String? latlng;
 
   Map<String, dynamic> toJson() => {
