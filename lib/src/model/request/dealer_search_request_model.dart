@@ -10,7 +10,7 @@ class DealerSearchRequestModel {
   });
 
   String? keyword;
-  ProductSearchFilterModel? filter;
+  DealerSearchFilterModel? filter;
   int? districtId;
   int? neighborhoodId;
   String? addressId;
@@ -26,8 +26,8 @@ class DealerSearchRequestModel {
   };
 }
 
-class ProductSearchFilterModel {
-  ProductSearchFilterModel({
+class DealerSearchFilterModel {
+  DealerSearchFilterModel({
     this.foodCategory,
     this.paymentType,
     this.deliveryTime,
