@@ -66,7 +66,7 @@ class LastOrdersModel  extends IBaseModel{
       LastOrdersModel(
         id: json["id"],
         orderNumber: json["order_number"],
-        totalAmount: json["total_amount"].toDouble(),
+        totalAmount: json["total_amount"] == null ? 0 :json["total_amount"].toDouble(),
         recordDate: DateTime.parse(json["record_date"]),
         updateDate: DateTime.parse(json["update_date"]),
         revisionNumber: json["revision_number"],
@@ -88,7 +88,7 @@ class LastOrdersModel  extends IBaseModel{
         sessionId: json["sessionId"],
         title: json["title"],
         tipAmountWithoutKdv: json["tip_amount_without_kdv"],
-        totalAmountWithoutKdv: json["total_amount_without_kdv"].toDouble(),
+        totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 :json["total_amount_without_kdv"].toDouble(),
         dealer: DealerModel().fromJson(json["dealer"]),
         items: List<LastOrdersModelItem>.from(
             json["items"].map((x) => LastOrdersModelItem.fromJson(x))),
@@ -127,8 +127,8 @@ class LastOrdersModelItem {
             List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
         itemName: json["item_name"],
         itemType: json["item_type"],
-        itemPrice: json["item_price"].toDouble(),
-        totalPrice: json["total_price"].toDouble(),
+        itemPrice: json["item_price"] == null ? 0 :json["item_price"].toDouble(),
+        totalPrice: json["total_price"] == null ? 0 : json["total_price"].toDouble(),
       );
 }
 
