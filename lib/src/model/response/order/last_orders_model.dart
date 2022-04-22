@@ -2,7 +2,7 @@ import 'package:sip_models/response.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 
 
-class LastOrdersModel  extends IBaseModel{
+class LastOrdersModel  extends IBaseModel<LastOrdersModel> {
   LastOrdersModel({
     this.id,
     this.orderNumber,
