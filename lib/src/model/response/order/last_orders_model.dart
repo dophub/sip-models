@@ -1,13 +1,8 @@
-
-import 'dart:convert';
-
+import 'package:sip_models/response.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 
-import '../other/images_model.dart';
 
-List<LastOrdersModel> lastOrdersModelFromJson(String str) => List<LastOrdersModel>.from(json.decode(str).map((x) => LastOrdersModel.fromJson(x)));
-
-class LastOrdersModel {
+class LastOrdersModel  extends IBaseModel{
   LastOrdersModel({
     this.id,
     this.orderNumber,
@@ -45,8 +40,8 @@ class LastOrdersModel {
   DateTime? updateDate;
   String? revisionNumber;
   String? orderNote;
-  dynamic deliveryDate;
-  dynamic tipAmount;
+  DateTime? deliveryDate;
+  double? tipAmount;
   String? clientPointId;
   int? customerId;
   int? customerAddressId;
@@ -55,18 +50,19 @@ class LastOrdersModel {
   String? deliveryTypeId;
   String? orderPointId;
   String? orderStatusId;
-  dynamic paymentTypeId;
+  String? paymentTypeId;
   String? sessionPointId;
   int? tableServiceId;
-  dynamic cancelCodeId;
+  String? cancelCodeId;
   String? sessionId;
   String? title;
-  dynamic tipAmountWithoutKdv;
+  double? tipAmountWithoutKdv;
   double? totalAmountWithoutKdv;
-  LastOrderDealer? dealer;
+  DealerModel? dealer;
   List<LastOrdersModelItem>? items;
 
-  factory LastOrdersModel.fromJson(Map<String, dynamic> json) =>
+  @override
+  fromJson(Map<dynamic, dynamic> json) =>
       LastOrdersModel(
         id: json["id"],
         orderNumber: json["order_number"],
@@ -93,45 +89,13 @@ class LastOrdersModel {
         title: json["title"],
         tipAmountWithoutKdv: json["tip_amount_without_kdv"],
         totalAmountWithoutKdv: json["total_amount_without_kdv"].toDouble(),
-        dealer: LastOrderDealer.fromJson(json["dealer"]),
+        dealer: DealerModel().fromJson(json["dealer"]),
         items: List<LastOrdersModelItem>.from(
             json["items"].map((x) => LastOrdersModelItem.fromJson(x))),
       );
 
 }
 
-class LastOrderDealer {
-  LastOrderDealer({
-    this.dealerId,
-    this.dealerName,
-    this.rating,
-    this.rating2,
-    this.commentCount,
-    this.logoImage,
-    this.listImage,
-    this.mobileCoverImage,
-  });
-
-  int? dealerId;
-  String? dealerName;
-  num? rating;
-  num? rating2;
-  int? commentCount;
-  ImagesModel? logoImage;
-  ImagesModel? listImage;
-  ImagesModel? mobileCoverImage;
-
-  factory LastOrderDealer.fromJson(Map<String, dynamic> json) => LastOrderDealer(
-        dealerId: json["dealer_id"],
-        dealerName: json["dealer_name"],
-        rating: json["rating"],
-        rating2: json["rating2"],
-        commentCount: json["comment_count"],
-        logoImage: json["logo_image"] == null ? ImagesModel():ImagesModel.fromJson(json["logo_image"]),
-        listImage: json["list_image"] == null ? ImagesModel():ImagesModel.fromJson(json["list_image"]),
-        mobileCoverImage: json["mobile_cover_image"] == null ? ImagesModel():ImagesModel.fromJson(json["mobile_cover_image"]),
-      );
-}
 
 class LastOrdersModelItem {
   LastOrdersModelItem({
@@ -167,5 +131,4 @@ class LastOrdersModelItem {
         totalPrice: json["total_price"].toDouble(),
       );
 }
-
 
