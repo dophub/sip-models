@@ -71,7 +71,7 @@ class LastOrdersModel  extends IBaseModel{
         updateDate: DateTime.parse(json["update_date"]),
         revisionNumber: json["revision_number"],
         orderNote: json["order_note"],
-        deliveryDate: json["delivery_date"],
+        deliveryDate: DateTime.parse(json["delivery_date"]),
         tipAmount: json["tip_amount"],
         clientPointId: json["client_point_id"],
         customerId: json["customer_id"],
