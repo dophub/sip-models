@@ -99,3 +99,10 @@ enum BannerTargetId { dealer, product, link }
 /// [EVERYCD] Müşterinin aynı işletmede her
 /// [ALL] Her siparişte
 enum LimitNumberOfOrderTypeId { JUST, EVERYC, EVERYCD, ALL }
+
+
+/// [LimitNumberOfOrderTypeId] Banner Event Id leri
+/// [IN_VALET] Valede
+/// [WAITING_FOR_GET] Bekleniyor
+/// [DONE] Teslim Edildi
+enum VehicleStatusId { IN_VALET, WAITING_FOR_GET, DONE }
