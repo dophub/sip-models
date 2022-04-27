@@ -12,44 +12,45 @@ import 'isletme_courier_info.dart';
 /// Sepette ürün ekleme request inde kullanılan order model
 /// Order Masteri temsil etmekte
 class OrderModel extends IBaseModel<OrderModel> {
-  OrderModel({
-    this.id,
-    this.items,
-    this.ssoId,
-    this.dealerId,
-    this.nickName,
-    this.sessionId,
-    this.orderNote,
-    this.tipAmount,
-    this.customerId,
-    this.orderNumber,
-    this.orderStatus,
-    this.totalAmount,
-    this.deliveryDate,
-    this.orderPointId,
-    this.clientPointId,
-    this.deliveryTypeId,
-    this.sessionPointId,
-    this.tipAmountWithoutKdv,
-    this.totalAmountWithoutKdv,
-    this.customer,
-    this.recordDate,
-    this.orderOptions,
-    this.customerAddress,
-    this.tableServiceId,
-    this.paymentInfo,
-    this.isUseCampaign,
-    this.beforeCampaignTotal,
-    this.totalCampaignDiscount,
-    this.totalUsedCampaignBudget,
-    this.campaigns,
-    this.courierInfo,
-  });
+  OrderModel(
+      {this.id,
+      this.items,
+      this.ssoId,
+      this.dealerId,
+      this.nickName,
+      this.sessionId,
+      this.orderNote,
+      this.tipAmount,
+      this.customerId,
+      this.orderNumber,
+      this.orderStatus,
+      this.totalAmount,
+      this.deliveryDate,
+      this.orderPointId,
+      this.clientPointId,
+      this.deliveryTypeId,
+      this.sessionPointId,
+      this.tipAmountWithoutKdv,
+      this.totalAmountWithoutKdv,
+      this.customer,
+      this.recordDate,
+      this.orderOptions,
+      this.customerAddress,
+      this.tableServiceId,
+      this.paymentInfo,
+      this.isUseCampaign,
+      this.beforeCampaignTotal,
+      this.totalCampaignDiscount,
+      this.totalUsedCampaignBudget,
+      this.campaigns,
+      this.courierInfo,
+      this.callNumber});
 
   int? id;
   List<OrderItem>? items;
   String? ssoId;
   int? dealerId;
+  String? callNumber;
   String? nickName;
   String? sessionId;
   String? orderNote;
@@ -86,6 +87,7 @@ class OrderModel extends IBaseModel<OrderModel> {
           : List<OrderItem>.from(
               json["items"].map((x) => OrderItem.fromJson(x))),
       ssoId: json["sso_id"],
+      callNumber: json["callnumber"],
       dealerId: json["dealer_id"],
       nickName: json["nick_name"],
       sessionId: json["sessionId"],
@@ -145,6 +147,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "dealer_id": dealerId,
         "nick_name": nickName,
         "sessionId": sessionId,
+        "callnumber": callNumber,
         "order_note": orderNote,
         "tip_amount": tipAmount,
         "customer_id": customerId,
