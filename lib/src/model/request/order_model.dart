@@ -82,63 +82,42 @@ class OrderModel extends IBaseModel<OrderModel> {
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
       id: json["id"],
-      items: json["items"] == null
-          ? []
-          : List<OrderItem>.from(
-              json["items"].map((x) => OrderItem.fromJson(x))),
+      items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
       ssoId: json["sso_id"],
       callNumber: json["callnumber"],
       dealerId: json["dealer_id"],
       nickName: json["nick_name"],
       sessionId: json["sessionId"],
       orderNote: json["order_note"],
-      tipAmount:
-          json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
+      tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
       customerId: json["customer_id"],
       orderNumber: json["order_number"],
       orderStatus: OrderStatus.fromJson(json["order_status"]),
-      totalAmount:
-          json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
+      totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
       deliveryDate: json["delivery_date"],
       orderPointId: json["order_point_id"],
       clientPointId: json["client_point_id"],
-      courierInfo: json['courier_info'] == null
-          ? null
-          : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
+      courierInfo:
+          json['courier_info'] == null ? null : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
       deliveryTypeId: json["delivery_type_id"],
       sessionPointId: json["session_point_id"],
-      tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null
-          ? 0
-          : json["tip_amount_without_kdv"].toDouble(),
-      totalAmountWithoutKdv: json["total_amount_without_kdv"] == null
-          ? 0
-          : json["total_amount_without_kdv"].toDouble(),
-      customer: json["customer"] == null
-          ? null
-          : OrderCustomerModel.fromJson(json["customer"]),
+      tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
+      totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
+      customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
       recordDate: DateTime.parse(json["record_date"]),
       orderOptions: json["order_options"] ?? '',
-      customerAddress: json["customer_address"] == null
-          ? null
-          : CustomerAddressModel().fromJson(json["customer_address"]),
-      paymentInfo: json["payment_info"] == null
-          ? null
-          : PaymentInfo.fromJson(json["payment_info"]),
+      customerAddress:
+          json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
+      paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
       tableServiceId: json["table_service_id"],
       isUseCampaign: json["is_use_campaign"],
-      beforeCampaignTotal: json["before_campaign_total"] == null
-          ? 0.0
-          : json["before_campaign_total"].toDouble(),
-      totalCampaignDiscount: json["total_campaign_discount"] == null
-          ? 0.0
-          : json["total_campaign_discount"].toDouble(),
-      totalUsedCampaignBudget: json["total_used_campaign_budget"] == null
-          ? 0.0
-          : json["total_used_campaign_budget"].toDouble(),
+      beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
+      totalCampaignDiscount: json["total_campaign_discount"] == null ? 0.0 : json["total_campaign_discount"].toDouble(),
+      totalUsedCampaignBudget:
+          json["total_used_campaign_budget"] == null ? 0.0 : json["total_used_campaign_budget"].toDouble(),
       campaigns: json["campaigns"] == null
           ? []
-          : List<OrderCampaignsModel>.from(
-              json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
+          : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
 
   Map<String, dynamic> toJson() => {
         "id": id,
@@ -162,8 +141,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "tip_amount_without_kdv": tipAmountWithoutKdv,
         "total_amount_without_kdv": totalAmountWithoutKdv,
         "customer": customer == null ? null : customer!.toJson(),
-        "record_date":
-            recordDate == null ? null : recordDate!.toIso8601String(),
+        "record_date": recordDate == null ? null : recordDate!.toIso8601String(),
         "order_options": orderOptions,
         "customer_address": customerAddress!.toJson(),
         "payment_info": paymentInfo!.toJson(),
@@ -317,8 +295,8 @@ class OrderItem {
       if (item.options![i].optionType == OptionType.OPTION.name) {
         var optionGroupItem = OptionGroupModel()
           ..id = item.options![i].id
-          ..options = List.generate(item.options![i].items!.length,
-              (index) => OptionModel(id: item.options![i].items![index].id));
+          ..options = List.generate(
+              item.options![i].items!.length, (index) => OptionModel(id: item.options![i].items![index].id));
         optionGroups.add(optionGroupItem);
       } else {
         var featuresItem = FeatureModel(
@@ -366,44 +344,34 @@ class OrderItem {
         products: [
           ProductDetailModel(
             id: options![index].sectionItem!.itemId,
-            features: List.of(
-                _getFeatureFromOrder(options![index].sectionItem!.options!)),
-            optionGroups: List.of(
-                _getOptionFromOrder(options![index].sectionItem!.options!)),
+            features: List.of(_getFeatureFromOrder(options![index].sectionItem!.options!)),
+            optionGroups: List.of(_getOptionFromOrder(options![index].sectionItem!.options!)),
           )
         ],
       ),
     );
 
-  List<FeatureModel> _getFeatureFromOrder(
-      List<OrderSectionItemOption> orderOption) {
+  List<FeatureModel> _getFeatureFromOrder(List<OrderSectionItemOption> orderOption) {
     List<FeatureModel> feature = [];
-    for (int featureIndex = 0;
-        featureIndex < orderOption.length;
-        featureIndex++) {
+    for (int featureIndex = 0; featureIndex < orderOption.length; featureIndex++) {
       if (orderOption[featureIndex].optionType == OptionType.FEATURE.name) {
         feature.add(FeatureModel(
             id: orderOption[featureIndex].id,
-            items: List.generate(
-                orderOption[featureIndex].items!.length,
-                (index) => ItemModel(
-                    id: orderOption[featureIndex].items![index].id))));
+            items: List.generate(orderOption[featureIndex].items!.length,
+                (index) => ItemModel(id: orderOption[featureIndex].items![index].id))));
       }
     }
     return feature;
   }
 
-  List<OptionGroupModel> _getOptionFromOrder(
-      List<OrderSectionItemOption> orderOption) {
+  List<OptionGroupModel> _getOptionFromOrder(List<OrderSectionItemOption> orderOption) {
     List<OptionGroupModel> option = [];
     for (int optionIndex = 0; optionIndex < orderOption.length; optionIndex++) {
       if (orderOption[optionIndex].optionType == OptionType.OPTION.name) {
         option.add(OptionGroupModel(
             id: orderOption[optionIndex].id,
-            options: List.generate(
-                orderOption[optionIndex].items!.length,
-                (index) => OptionModel(
-                    id: orderOption[optionIndex].items![index].id))));
+            options: List.generate(orderOption[optionIndex].items!.length,
+                (index) => OptionModel(id: orderOption[optionIndex].items![index].id))));
       }
     }
     return option;
@@ -412,10 +380,8 @@ class OrderItem {
   factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
         id: json["id"],
         count: json["count"],
-        options: json["options"] == null
-            ? []
-            : List<OrderOption>.from(
-                json["options"].map((x) => OrderOption.fromJson(x))),
+        options:
+            json["options"] == null ? [] : List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
         itemCode: json["item_code"],
         itemNote: json["item_note"] ?? '',
         statusId: json["status_id"],
@@ -431,12 +397,9 @@ class OrderItem {
         itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
         totalPriceWithoutKdv: json["total_price_without_kdv"].toDouble(),
         status: ItemStatus.fromJson(json["status"]),
-        beforeCampaignItemPrice: json["before_campaign_item_price"] == null
-            ? 0.0
-            : json["before_campaign_item_price"].toDouble(),
-        beforeCampaignTotal: json["before_campaign_total"] == null
-            ? 0.0
-            : json["before_campaign_total"].toDouble(),
+        beforeCampaignItemPrice:
+            json["before_campaign_item_price"] == null ? 0.0 : json["before_campaign_item_price"].toDouble(),
+        beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
         campaignId: json["campaign_id"],
         isGift: json["is_gift"],
         isUseCampaign: json["is_use_campaign"],
@@ -445,9 +408,7 @@ class OrderItem {
   Map<String, dynamic> toJson() => {
         "id": id,
         "count": count,
-        "options": options == null
-            ? []
-            : List<dynamic>.from(options!.map((x) => x.toJson())),
+        "options": options == null ? [] : List<dynamic>.from(options!.map((x) => x.toJson())),
         "item_code": itemCode,
         "item_note": itemNote,
         "status_id": statusId,
@@ -499,24 +460,19 @@ class OrderOption {
         id: json["id"],
         items: json["items"] == null
             ? []
-            : List<OrderOptionItem>.from(
-                json["items"].map((x) => OrderOptionItem.fromJson(x))),
+            : List<OrderOptionItem>.from(json["items"].map((x) => OrderOptionItem.fromJson(x))),
         title: json["title"],
         addingType: json["adding_type"],
         optionType: json["option_type"],
         totalPrice: json["total_price"],
         sectionId: json["section_id"],
-        sectionItem: json["section_item"] == null
-            ? null
-            : OrderSectionItem.fromJson(json["section_item"]),
+        sectionItem: json["section_item"] == null ? null : OrderSectionItem.fromJson(json["section_item"]),
         sectionTitle: json["section_title"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "items": items == null
-            ? null
-            : List<dynamic>.from(items!.map((x) => x.toJson())),
+        "items": items == null ? null : List<dynamic>.from(items!.map((x) => x.toJson())),
         "title": title,
         "adding_type": addingType,
         "option_type": optionType,
@@ -538,8 +494,7 @@ class OrderCustomerModel {
   String? sessionId;
   String? nameSurname;
 
-  factory OrderCustomerModel.fromJson(Map<String, dynamic> json) =>
-      OrderCustomerModel(
+  factory OrderCustomerModel.fromJson(Map<String, dynamic> json) => OrderCustomerModel(
         id: json["id"],
         sessionId: json["sessionId"],
         nameSurname: json["name_surname"],
@@ -566,8 +521,7 @@ class OrderOptionItem {
   String? title;
   int? productId;
 
-  factory OrderOptionItem.fromJson(Map<String, dynamic> json) =>
-      OrderOptionItem(
+  factory OrderOptionItem.fromJson(Map<String, dynamic> json) => OrderOptionItem(
         id: json["id"],
         price: json["price"].toDouble(),
         title: json["title"],
@@ -597,21 +551,17 @@ class OrderSectionItem {
   List<OrderSectionItemOption>? options;
   String? productName;
 
-  factory OrderSectionItem.fromJson(Map<String, dynamic> json) =>
-      OrderSectionItem(
+  factory OrderSectionItem.fromJson(Map<String, dynamic> json) => OrderSectionItem(
         itemId: json["item_id"],
         options: json["options"] == null
             ? []
-            : List<OrderSectionItemOption>.from(
-                json["options"].map((x) => OrderSectionItemOption.fromJson(x))),
+            : List<OrderSectionItemOption>.from(json["options"].map((x) => OrderSectionItemOption.fromJson(x))),
         productName: json["product_name"],
       );
 
   Map<String, dynamic> toJson() => {
         "item_id": itemId,
-        "options": options == null
-            ? null
-            : List<dynamic>.from(options!.map((x) => x.toJson())),
+        "options": options == null ? null : List<dynamic>.from(options!.map((x) => x.toJson())),
         "product_name": productName,
       };
 }
@@ -633,13 +583,11 @@ class OrderSectionItemOption {
   String? optionType;
   int? totalPrice;
 
-  factory OrderSectionItemOption.fromJson(Map<String, dynamic> json) =>
-      OrderSectionItemOption(
+  factory OrderSectionItemOption.fromJson(Map<String, dynamic> json) => OrderSectionItemOption(
         id: json["id"],
         items: json["items"] == null
             ? []
-            : List<OrderOptionItem>.from(
-                json["items"].map((x) => OrderOptionItem.fromJson(x))),
+            : List<OrderOptionItem>.from(json["items"].map((x) => OrderOptionItem.fromJson(x))),
         title: json["title"],
         addingType: json["adding_type"],
         optionType: json["option_type"],
@@ -689,8 +637,7 @@ class OrderCampaignsModel {
   int? id;
   double? campaignAmount;
 
-  factory OrderCampaignsModel.fromJson(Map<String, dynamic> json) =>
-      OrderCampaignsModel(
+  factory OrderCampaignsModel.fromJson(Map<String, dynamic> json) => OrderCampaignsModel(
         spotTitle: json["spot_title"],
         id: json["id"],
         campaignAmount: json["campaign_amount"].toDouble(),
