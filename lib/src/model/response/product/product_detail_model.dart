@@ -3,13 +3,8 @@ import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 import '../other/images_model.dart';
 import '../other/price_model.dart';
 
-/*
-
-String productDetailModelToJson(ProductDetailModel data) => json.encode(data.toJson());
-*/
-
 /// ProductProfileScreende kullanılam ürün detay modelidir
-class ProductDetailModel extends IBaseModel<ProductDetailModel> {
+class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWidgetModel{
   ProductDetailModel({
     this.id,
     this.productName,
@@ -85,6 +80,18 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> {
         "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x.toJson())),
         "item_type": itemType,
       };
+
+  @override
+  String get getId => throw UnimplementedError();
+
+  @override
+  String get getName => productName!;
+
+  @override
+  double? get getPrice => null;
+
+  @override
+  bool get getStatus => throw UnimplementedError();
 }
 
 /// Ürün özelikleri her biri bi üründür
