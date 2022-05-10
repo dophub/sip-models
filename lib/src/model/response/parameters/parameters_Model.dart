@@ -27,7 +27,7 @@ class ParametersModel extends IBaseModel<ParametersModel> {
         paymentTypes: json["payment_types"] == null
             ? []
             : List<PaymentTypesModel>.from(
-                json["payment_types"].map((x) => PaymentTypesModel.fromJson(x))),
+                json["payment_types"].map((x) => PaymentTypesModel().fromJson(x))),
         orderBy: json["order_by"] == null
             ? []
             : List<OrderBy>.from(json["order_by"].map((x) => OrderBy.fromJson(x))),

@@ -1,6 +1,8 @@
+import 'package:background_json_parser/json_parser.dart';
+
 /// Paycell Ödeme yaparken dönen response
 /// Yeni kartla ve kayıtlı kartla
-class PostPaymentModel {
+class PostPaymentModel extends IBaseModel<PostPaymentModel> {
   PostPaymentModel({
     this.status,
     this.transactionId,
@@ -17,7 +19,8 @@ class PostPaymentModel {
   String? threeDSessionId;
   String? base64Content;
 
-  factory PostPaymentModel.fromJson(Map<String, dynamic> json) => PostPaymentModel(
+  @override
+  fromJson(Map<String, dynamic> json) => PostPaymentModel(
         status: json["status"],
         transactionId: json["transactionId"],
         total: json["total"].toDouble(),
@@ -25,4 +28,9 @@ class PostPaymentModel {
         threeDSessionId: json["threeDSessionId"],
         base64Content: json["base64Content"],
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
