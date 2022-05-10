@@ -1,4 +1,5 @@
 import 'package:background_json_parser/json_parser.dart';
+import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 import '../other/images_model.dart';
 import '../other/price_model.dart';
 
@@ -138,7 +139,7 @@ class FeatureModel {
       };
 }
 
-class ItemModel {
+class ItemModel extends ISectionsWidgetModel {
   ItemModel(
       {this.id,
       this.isFree,
@@ -173,6 +174,18 @@ class ItemModel {
         "list_order": listOrder,
         "product_name": productName,
       };
+
+  @override
+  String get getId => throw UnimplementedError();
+
+  @override
+  String get getName => productName!;
+
+  @override
+  double? get getPrice => isFree! ? null : addPrice;
+
+  @override
+  bool get getStatus => isSelected;
 }
 
 /// Ürün opsiyonlarını temsil etmekte
@@ -223,7 +236,7 @@ class OptionGroupModel {
       };
 }
 
-class OptionModel {
+class OptionModel extends ISectionsWidgetModel {
   OptionModel(
       {this.id,
       this.isFree,
@@ -262,4 +275,17 @@ class OptionModel {
         "option_code": optionCode,
         "option_name": optionName,
       };
+
+  @override
+  String get getId => throw UnimplementedError();
+
+  @override
+  String get getName => optionName!;
+
+  /// Çoklu Çıkarma da price 0 girimişti
+  @override
+  double? get getPrice => isFree! ? null : addPrice;
+
+  @override
+  bool get getStatus => isSelected;
 }

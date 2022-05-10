@@ -1,10 +1,11 @@
 import 'package:background_json_parser/json_parser.dart';
+import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
 /// payment_type_code : "CARD"
 /// payment_type : "Kredi kartı"
 /// is_active : true
 /// is_online_payment : false
-class PaymentTypesModel extends IBaseModel<PaymentTypesModel> {
+class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidgetModel {
   PaymentTypesModel({
     this.paymentTypeCode,
     this.paymentType,
@@ -37,4 +38,16 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> {
       isOnlinePayment: json['is_online_payment'],
     );
   }
+
+  @override
+  String get getId => throw UnimplementedError();
+
+  @override
+  String get getName => paymentType!;
+
+  @override
+  double? get getPrice => null;
+
+  @override
+  bool get getStatus => throw UnimplementedError();
 }

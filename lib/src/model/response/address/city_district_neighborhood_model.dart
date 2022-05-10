@@ -1,4 +1,5 @@
 import 'package:background_json_parser/json_parser.dart';
+import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
 class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodModel> {
   CityDistrictNeighborhoodModel({
@@ -55,7 +56,7 @@ class Place {
       );
 }
 
-class PlaceModel extends IBaseModel<PlaceModel> {
+class PlaceModel extends IBaseModel<PlaceModel> with ISectionsWidgetModel {
   PlaceModel({
     this.id,
     this.name,
@@ -74,4 +75,16 @@ class PlaceModel extends IBaseModel<PlaceModel> {
   Map<String, dynamic> toJson() {
     throw UnimplementedError();
   }
+
+  @override
+  String get getId => throw UnimplementedError();
+
+  @override
+  String get getName => name!;
+
+  @override
+  double? get getPrice => null;
+
+  @override
+  bool get getStatus => throw UnimplementedError();
 }

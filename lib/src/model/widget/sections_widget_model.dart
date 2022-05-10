@@ -11,11 +11,11 @@ class SectionsWidgetModel {
 }
 
 abstract class ISectionsWidgetModel {
-  String get id;
+  String get getId;
 
-  String get name;
+  String get getName;
 
-  bool get status;
+  bool get getStatus;
 
-  double get price;
+  double? get getPrice;
 }
