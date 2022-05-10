@@ -115,6 +115,7 @@ class ProductModel extends IBaseModel<ProductModel> {
             : List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "price": List<dynamic>.from(price!.map((x) => x.toJson())),

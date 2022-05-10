@@ -7,3 +7,10 @@ class SectionsWidgetModel {
 
   SectionsWidgetModel({this.id, required this.name, this.status, this.price});
 }
+
+abstract class ISectionsWidgetModel {
+  String get id;
+  String get name;
+  bool get status;
+  double get price;
+}

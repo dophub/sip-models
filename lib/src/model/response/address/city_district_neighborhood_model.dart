@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:background_json_parser/json_parser.dart';
 
 class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodModel> {
