@@ -1,4 +1,5 @@
-import '../other/abstract_base_model.dart';
+import 'package:background_json_parser/json_parser.dart';
+
 import '../order/past_order_details_model.dart';
 import '../payment/payment_types_model.dart';
 
@@ -19,21 +20,23 @@ class ParametersModel extends IBaseModel<ParametersModel> {
   fromJson(Map<dynamic, dynamic> json) => ParametersModel(
         addressType: json["address_type"] == null
             ? []
-            : List<AddressType>.from(
-                json["address_type"].map((x) => AddressType.fromJson(x))),
+            : List<AddressType>.from(json["address_type"].map((x) => AddressType.fromJson(x))),
         foodCategories: json["food_categories"] == null
             ? []
-            : List<FoodCategory>.from(
-                json["food_categories"].map((x) => FoodCategory.fromJson(x))),
+            : List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
         paymentTypes: json["payment_types"] == null
             ? []
-            : List<PaymentTypesModel>.from(json["payment_types"]
-                .map((x) => PaymentTypesModel.fromJson(x))),
+            : List<PaymentTypesModel>.from(
+                json["payment_types"].map((x) => PaymentTypesModel.fromJson(x))),
         orderBy: json["order_by"] == null
             ? []
-            : List<OrderBy>.from(
-                json["order_by"].map((x) => OrderBy.fromJson(x))),
+            : List<OrderBy>.from(json["order_by"].map((x) => OrderBy.fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 class AddressType {

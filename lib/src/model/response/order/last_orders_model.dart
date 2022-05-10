@@ -1,8 +1,9 @@
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 
+import '../dealer/dealer_model.dart';
 
-class LastOrdersModel  extends IBaseModel<LastOrdersModel> {
+class LastOrdersModel extends IBaseModel<LastOrdersModel> {
   LastOrdersModel({
     this.id,
     this.orderNumber,
@@ -62,16 +63,15 @@ class LastOrdersModel  extends IBaseModel<LastOrdersModel> {
   List<LastOrdersModelItem>? items;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) =>
-      LastOrdersModel(
+  fromJson(Map<dynamic, dynamic> json) => LastOrdersModel(
         id: json["id"],
         orderNumber: json["order_number"],
-        totalAmount: json["total_amount"] == null ? 0 :json["total_amount"].toDouble(),
-        recordDate: json["record_date"] == null ? null: DateTime.parse(json["record_date"]),
-        updateDate: json["update_date"] == null ? null: DateTime.parse(json["update_date"]),
+        totalAmount: json["total_amount"] == null ? 0 : json["total_amount"].toDouble(),
+        recordDate: json["record_date"] == null ? null : DateTime.parse(json["record_date"]),
+        updateDate: json["update_date"] == null ? null : DateTime.parse(json["update_date"]),
         revisionNumber: json["revision_number"],
         orderNote: json["order_note"],
-        deliveryDate: json["delivery_date"] == null ? null: DateTime.parse(json["delivery_date"]),
+        deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
         tipAmount: json["tip_amount"],
         clientPointId: json["client_point_id"],
         customerId: json["customer_id"],
@@ -88,14 +88,19 @@ class LastOrdersModel  extends IBaseModel<LastOrdersModel> {
         sessionId: json["sessionId"],
         title: json["title"],
         tipAmountWithoutKdv: json["tip_amount_without_kdv"],
-        totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 :json["total_amount_without_kdv"].toDouble(),
+        totalAmountWithoutKdv: json["total_amount_without_kdv"] == null
+            ? 0
+            : json["total_amount_without_kdv"].toDouble(),
         dealer: DealerModel().fromJson(json["dealer"]),
         items: List<LastOrdersModelItem>.from(
             json["items"].map((x) => LastOrdersModelItem.fromJson(x))),
       );
 
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
-
 
 class LastOrdersModelItem {
   LastOrdersModelItem({
@@ -118,17 +123,14 @@ class LastOrdersModelItem {
   double? itemPrice;
   double? totalPrice;
 
-  factory LastOrdersModelItem.fromJson(Map<String, dynamic> json) =>
-      LastOrdersModelItem(
+  factory LastOrdersModelItem.fromJson(Map<String, dynamic> json) => LastOrdersModelItem(
         id: json["id"],
         count: json["count"],
         itemId: json["item_id"],
-        options:
-            List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
+        options: List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
         itemName: json["item_name"],
         itemType: json["item_type"],
-        itemPrice: json["item_price"] == null ? 0 :json["item_price"].toDouble(),
+        itemPrice: json["item_price"] == null ? 0 : json["item_price"].toDouble(),
         totalPrice: json["total_price"] == null ? 0 : json["total_price"].toDouble(),
       );
 }
-

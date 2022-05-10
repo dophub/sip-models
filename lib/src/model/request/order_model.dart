@@ -1,4 +1,4 @@
-import '../response/other/abstract_base_model.dart';
+import 'package:background_json_parser/json_parser.dart';
 import '../response/address/customer_address_model.dart';
 import '../response/other/images_model.dart';
 import '../response/other/menu_detail_model.dart';
@@ -138,6 +138,7 @@ class OrderModel extends IBaseModel<OrderModel> {
           : List<OrderCampaignsModel>.from(
               json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "items": List<dynamic>.from(items!.map((x) => x.toJson())),

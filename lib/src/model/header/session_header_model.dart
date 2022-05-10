@@ -1,4 +1,4 @@
-import 'package:sip_models/response.dart';
+
 import 'package:sip_models/src/enum/id_enum.dart';
 
 import '../response/address/customer_address_model.dart';

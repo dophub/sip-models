@@ -1,6 +1,5 @@
+import 'package:background_json_parser/json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
-
-import '../other/abstract_base_model.dart';
 
 /// Dealer de adisyon için kullanılmakta
 class ServiceModel extends IBaseModel<ServiceModel> {
@@ -49,11 +48,14 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         servicePayTypeId: json["service_pay_type_id"],
         serviceTotalAmount: json["service_total_amount"].toDouble(),
         serviceStatusId: json["service_status_id"],
-        serviceTotalAmountWithoutKdv:
-            json["service_total_amount_without_kdv"].toDouble(),
+        serviceTotalAmountWithoutKdv: json["service_total_amount_without_kdv"].toDouble(),
         orders: json["orders"] == null
             ? []
-            : List<OrderModel>.from(
-                json["orders"].map((x) => OrderModel().fromJson(x))),
+            : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }

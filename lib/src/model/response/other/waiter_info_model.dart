@@ -1,4 +1,4 @@
-import 'package:sip_models/response.dart';
+import 'images_model.dart';
 
 class WaiterInfoModel {
   WaiterInfoModel({
@@ -9,8 +9,7 @@ class WaiterInfoModel {
   String? fullName;
   ImagesModel? profilePhoto;
 
-  factory WaiterInfoModel.fromJson(Map<String, dynamic> json) =>
-      WaiterInfoModel(
+  factory WaiterInfoModel.fromJson(Map<String, dynamic> json) => WaiterInfoModel(
         fullName: json["full_name"],
         profilePhoto: json["profile_photo"] == null
             ? ImagesModel()

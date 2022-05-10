@@ -1,4 +1,6 @@
-import 'package:sip_models/response.dart';
+
+
+import 'package:background_json_parser/json_parser.dart';
 
 class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
   CustomerAddressModel({
@@ -91,6 +93,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         distance: json["distance"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "floor": floor,

@@ -1,6 +1,6 @@
+import 'package:background_json_parser/json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
-import '../other/abstract_base_model.dart';
 import '../dealer/dealer_model.dart';
 import '../other/images_model.dart';
 
@@ -36,24 +36,33 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   List<OrderItem>? items;
   List<OrderCampaignsModel>? campaigns;
 
-
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
-        id: json["id"],
-        orderNumber: json["order_number"],
-        totalAmount: json["total_amount"].toDouble(),
-        recordDate: DateTime.parse(json["record_date"]),
-        deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
-        orderPointId: json["order_point_id"],
-        deliveryTypeId: json["delivery_type_id"],
-        sessionPointId: json["session_point_id"],
-        dealer: DealerModel().fromJson(json["dealer"]),
-        payment: json["payment"] == null ? PaymentDetailModel(): PaymentDetailModel.fromJson(json["payment"]),
-        status: json["status"] == null ? StatusModel():StatusModel.fromJson(json["status"]),
-        items:json["items"] == null ? []: List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
-        campaigns: json["campaigns"] == null ? [] : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x)))
+      id: json["id"],
+      orderNumber: json["order_number"],
+      totalAmount: json["total_amount"].toDouble(),
+      recordDate: DateTime.parse(json["record_date"]),
+      deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
+      orderPointId: json["order_point_id"],
+      deliveryTypeId: json["delivery_type_id"],
+      sessionPointId: json["session_point_id"],
+      dealer: DealerModel().fromJson(json["dealer"]),
+      payment: json["payment"] == null
+          ? PaymentDetailModel()
+          : PaymentDetailModel.fromJson(json["payment"]),
+      status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
+      items: json["items"] == null
+          ? []
+          : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
+      campaigns: json["campaigns"] == null
+          ? []
+          : List<OrderCampaignsModel>.from(
+              json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
 
-  );
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 class FoodCategory {
@@ -70,9 +79,7 @@ class FoodCategory {
   String? categoryCode;
 
   factory FoodCategory.fromJson(Map<String, dynamic> json) => FoodCategory(
-        image: json["image"] == null
-            ? ImagesModel()
-            : ImagesModel.fromJson(json["image"]),
+        image: json["image"] == null ? ImagesModel() : ImagesModel.fromJson(json["image"]),
         isDefault: json["is_default"] ?? false,
         categoryName: json["category_name"],
         categoryCode: json['category_code'],
@@ -88,8 +95,7 @@ class PaymentDetailModel {
   String? code;
   String? title;
 
-  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) =>
-      PaymentDetailModel(
+  factory PaymentDetailModel.fromJson(Map<String, dynamic> json) => PaymentDetailModel(
         code: json["code"],
         title: json["title"],
       );

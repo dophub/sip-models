@@ -1,7 +1,9 @@
+import 'package:background_json_parser/json_parser.dart';
+
 import '../../../../response.dart';
 
 ///Dealer(Kategori) ve MarketPlace(Mutfaklar) modüllerinde kullanılan model
-class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {
+class FoodCategoryModel extends IBaseModel<FoodCategoryModel> {
   FoodCategoryModel({
     this.id,
     this.image,
@@ -17,12 +19,15 @@ class FoodCategoryModel  extends IBaseModel<FoodCategoryModel> {
   String? categoryName;
 
   @override
-  fromJson(Map<dynamic, dynamic>  json) =>
-      FoodCategoryModel(
+  fromJson(Map<dynamic, dynamic> json) => FoodCategoryModel(
         id: json["id"],
-        image: json["icon_file"] == null ? ImagesModel() :ImagesModel.fromJson(json["icon_file"]),
+        image: json["icon_file"] == null ? ImagesModel() : ImagesModel.fromJson(json["icon_file"]),
         listOrder: json["list_order"],
         categoryName: json["category_name"],
       );
 
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }

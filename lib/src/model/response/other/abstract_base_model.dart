@@ -1,3 +1,4 @@
+/*
 import 'dart:convert';
 import 'dart:isolate';
 import 'dart:typed_data';
@@ -34,3 +35,4 @@ abstract class IBaseModel<T> {
     }
   }
 }
+*/

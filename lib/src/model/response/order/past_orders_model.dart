@@ -1,4 +1,6 @@
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
+
+import '../parameters/parameters_Model.dart';
 
 class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   PastOrdersModel({
@@ -37,10 +39,14 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
         dealerFullName: json["dealer_full_name"],
         addressName: json["address_name"],
         addressInfo: AddressType.fromJson(json["address_info"]),
-        status: json["status"] == null
-            ? StatusModel()
-            : StatusModel.fromJson(json["status"]),
+        status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
         dealerId: json["dealer_id"],
         orderPointId: json["order_point_id"],
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }

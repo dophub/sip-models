@@ -1,6 +1,5 @@
+import 'package:background_json_parser/json_parser.dart';
 import 'package:sip_models/src/model/request/post_rating_and_comment.dart';
-
-import 'abstract_base_model.dart';
 
 class OrderRatingAndCommentModel extends IBaseModel<OrderRatingAndCommentModel> {
   OrderRatingAndCommentModel({
@@ -21,11 +20,15 @@ class OrderRatingAndCommentModel extends IBaseModel<OrderRatingAndCommentModel> 
         totalCommentCount: json["total_comment_count"],
         categoriesRating: json["categories_rating"] == null
             ? []
-            : List<RatingModel>.from(
-                json["categories_rating"].map((x) => RatingModel.fromJson(x))),
+            : List<RatingModel>.from(json["categories_rating"].map((x) => RatingModel.fromJson(x))),
         comments: json["comments"] == null
             ? []
-            : List<RatingAndCommentModel>.from(json["comments"]
-                .map((x) => RatingAndCommentModel().fromJson(x))),
+            : List<RatingAndCommentModel>.from(
+                json["comments"].map((x) => RatingAndCommentModel().fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }

@@ -1,4 +1,8 @@
-import '../../../../response.dart';
+import 'package:background_json_parser/json_parser.dart';
+
+import '../other/images_model.dart';
+import '../other/menu_detail_model.dart';
+import 'dealer_detail_model.dart';
 
 class DealerModel extends IBaseModel<DealerModel> {
   int? dealerId;
@@ -63,21 +67,19 @@ class DealerModel extends IBaseModel<DealerModel> {
         avgServiceTime: json['avg_service_time'],
         avgServiceTimeMin: json['avg_service_time_min'],
         avgServiceTimeMax: json['avg_service_time_max'],
-        minPackageAmount: json['min_package_amount'] == null ? 0 :json['min_package_amount'].toDouble(),
+        minPackageAmount:
+            json['min_package_amount'] == null ? 0 : json['min_package_amount'].toDouble(),
         distance: json['distance'],
-        logoImage: json['logo_image'] != null
-            ? ImagesModel.fromJson(json['logo_image'])
-            : ImagesModel(),
-        listImage: json['list_image'] != null
-            ? ImagesModel.fromJson(json['list_image'])
-            : ImagesModel(),
+        logoImage:
+            json['logo_image'] != null ? ImagesModel.fromJson(json['logo_image']) : ImagesModel(),
+        listImage:
+            json['list_image'] != null ? ImagesModel.fromJson(json['list_image']) : ImagesModel(),
         mobileCoverImage: json['mobile_cover_image'] != null
             ? ImagesModel.fromJson(json['mobile_cover_image'])
             : ImagesModel(),
         latlng: json['latlng'],
-        workingHours: json['working_hours'] != null
-            ? WorkingHourModel.fromJson(json['working_hours'])
-            : null,
+        workingHours:
+            json['working_hours'] != null ? WorkingHourModel.fromJson(json['working_hours']) : null,
         foodCategories: json["food_categories"] == null
             ? null
             : List<FoodCategories>.from(
@@ -90,9 +92,13 @@ class DealerModel extends IBaseModel<DealerModel> {
         openVale: json["open_vale"],
         products: json["products"] == null
             ? []
-            :  List<ProductModel>.from(
-            json["products"].map((x) => ProductModel().fromJson(x))),
+            : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 class FoodCategories {

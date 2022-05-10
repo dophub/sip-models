@@ -1,8 +1,8 @@
-import 'dart:convert';
-import 'abstract_base_model.dart';
+import 'package:background_json_parser/json_parser.dart';
 import '../campaign/campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';
+/*
 
 MenuDetailModel menuDetailModelFromJson(String str) =>
     MenuDetailModel.fromJson(json.decode(str));
@@ -10,6 +10,7 @@ MenuDetailModel menuDetailModelFromJson(String str) =>
 List<ProductModel> productListModelFromJson(String str) =>
     List<ProductModel>.from(
         json.decode(str).map((x) => ProductModel().fromJson(x)));
+*/
 
 /// Menü ye tılandığı zaman Api den gelen response için kullanılmakta
 class MenuDetailModel {
@@ -23,12 +24,11 @@ class MenuDetailModel {
   String? menuName;
   List<CategoryModel>? categories;
 
-  factory MenuDetailModel.fromJson(Map<String, dynamic> json) =>
-      MenuDetailModel(
+  factory MenuDetailModel.fromJson(Map<String, dynamic> json) => MenuDetailModel(
         id: json["id"],
         menuName: json["menu_name"],
-        categories: List<CategoryModel>.from(
-            json["categories"].map((x) => CategoryModel().fromJson(x))),
+        categories:
+            List<CategoryModel>.from(json["categories"].map((x) => CategoryModel().fromJson(x))),
       );
 }
 
@@ -64,9 +64,13 @@ class CategoryModel extends IBaseModel<CategoryModel> {
         listOrder: json["list_order"],
         products: json["products"] == null
             ? []
-            : List<ProductModel>.from(
-                json["products"].map((x) => ProductModel().fromJson(x))),
+            : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 /// Menu va kategori modelerde olan ürün biligileri
@@ -96,18 +100,17 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? optionCount;
   String? productName;
   String? shortDescription;
-  int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  int?
+      count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
   List<CampaignModel>? campaigns;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
-        price: List<PriceModel>.from(
-            json["price"].map((x) => PriceModel.fromJson(x))),
+        price: List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
         images: json["images"] == null
             ? []
-            : List<ImagesModel>.from(
-                json["images"].map((x) => ImagesModel.fromJson(x))),
+            : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
         calorie: json["calorie"] ?? 0,
         itemType: json["item_type"],
         makeTime: json["make_time"] ?? 0,
@@ -116,7 +119,9 @@ class ProductModel extends IBaseModel<ProductModel> {
         productName: json["product_name"],
         shortDescription: json["short_description"],
         count: json["count"] ?? 0,
-        campaigns: json["campaigns"] == null ? []: List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
+        campaigns: json["campaigns"] == null
+            ? []
+            : List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -130,7 +135,8 @@ class ProductModel extends IBaseModel<ProductModel> {
         "option_count": optionCount,
         "product_name": productName,
         "short_description": shortDescription,
-        "campaigns": campaigns == null ? null: List<dynamic>.from(campaigns!.map((x) => x.toJson())),
+        "campaigns":
+            campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
       };
 }

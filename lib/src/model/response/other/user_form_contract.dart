@@ -1,4 +1,4 @@
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
 
 class UserFormContractModel extends IBaseModel<UserFormContractModel> {
   UserFormContractModel({
@@ -35,6 +35,7 @@ class UserFormContractModel extends IBaseModel<UserFormContractModel> {
         version: json["version"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,

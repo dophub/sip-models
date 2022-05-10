@@ -1,4 +1,5 @@
-import '../../../response.dart';
+import 'package:background_json_parser/json_parser.dart';
+
 
 class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
   RatingAndCommentModel(
@@ -16,6 +17,7 @@ class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
   int? orderId;
   String? fullName;
 
+  @override
   Map<String, dynamic> toJson() => {
         "subject": subject,
         "comment": comment,

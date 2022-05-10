@@ -1,4 +1,6 @@
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
+
+import '../other/images_model.dart';
 
 class CampaignModel extends IBaseModel<CampaignModel> {
   CampaignModel({
@@ -40,8 +42,7 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         id: json["id"],
         banners: json["banners"] == null
             ? []
-            : List<ImagesModel>.from(
-                json["banners"].map((x) => ImagesModel.fromJson(x))),
+            : List<ImagesModel>.from(json["banners"].map((x) => ImagesModel.fromJson(x))),
         dealerId: json["dealer_id"],
         spotTitle: json["spot_title"],
         description: json["description"],
@@ -49,20 +50,18 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         campaignTypeId: json["campaign_type_id"],
         isCopyCampaign: json["is_copy_campaign"],
         mainCampaignId: json["main_campaign_id"],
-    campaignProductResult: json["campaign_product_result"] == null
+        campaignProductResult: json["campaign_product_result"] == null
             ? null
-            : CampaignProductResultModel.fromJson(
-                json["campaign_product_result"]),
+            : CampaignProductResultModel.fromJson(json["campaign_product_result"]),
         campaignDiscountPercent: json["campaign_discount_percent"].toDouble(),
         notUseBannerForTemplate: json["not_use_banner_for_template"],
         limitNumberOfOrderTypeId: json["limit_number_of_order_type_id"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
-        "banners": banners == null
-            ? []
-            : List<dynamic>.from(banners!.map((x) => x.toJson())),
+        "banners": banners == null ? [] : List<dynamic>.from(banners!.map((x) => x.toJson())),
         "dealer_id": dealerId,
         "spot_title": spotTitle,
         "description": description,
@@ -75,7 +74,6 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         "not_use_banner_for_template": notUseBannerForTemplate,
         "limit_number_of_order_type_id": limitNumberOfOrderTypeId,
       };
-
 }
 
 class CampaignProductResultModel {
@@ -91,8 +89,7 @@ class CampaignProductResultModel {
 
   factory CampaignProductResultModel.fromJson(Map<String, dynamic> json) =>
       CampaignProductResultModel(
-        newPrice:
-            json['new_price'] == null ? null : json["new_price"].toDouble(),
+        newPrice: json['new_price'] == null ? null : json["new_price"].toDouble(),
         productId: json["product_id"],
         campaignDiscountPercent: json["campaign_discount_percent"],
       );

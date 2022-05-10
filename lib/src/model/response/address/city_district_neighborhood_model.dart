@@ -1,10 +1,8 @@
-
 import 'dart:convert';
 
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
 
-
-class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodModel>{
+class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodModel> {
   CityDistrictNeighborhoodModel({
     this.cityId,
     this.cityName,
@@ -24,18 +22,21 @@ class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodM
   List<Place>? cities;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) =>
-      CityDistrictNeighborhoodModel(
+  fromJson(Map<dynamic, dynamic> json) => CityDistrictNeighborhoodModel(
         cityId: json["city_id"],
         cityName: json["city_name"],
-        districts:
-            List<Place>.from(json["districts"].map((x) => Place.fromJson(x))),
+        districts: List<Place>.from(json["districts"].map((x) => Place.fromJson(x))),
         districtId: json["district_id"],
         districtName: json["district_name"],
-        neighborhoods: List<Place>.from(
-            json["neighborhoods"].map((x) => Place.fromJson(x))),
+        neighborhoods: List<Place>.from(json["neighborhoods"].map((x) => Place.fromJson(x))),
         cities: List<Place>.from(json["cities"].map((x) => Place.fromJson(x))),
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }
 
 List<Place> placeFromJson(String str) =>
@@ -54,5 +55,4 @@ class Place {
         id: json["id"],
         name: json["name"],
       );
-
 }

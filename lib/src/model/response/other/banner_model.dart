@@ -1,4 +1,5 @@
-import 'package:sip_models/response.dart';
+import 'package:background_json_parser/json_parser.dart';
+
 
 class BannerModel extends IBaseModel<BannerModel> {
   BannerModel({
@@ -41,6 +42,12 @@ class BannerModel extends IBaseModel<BannerModel> {
         targetObject: TargetObject.fromJson(json["target_object"]),
         title: json["title"],
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }
 
 class FileUrl {
