@@ -101,4 +101,9 @@ class CardList extends ISectionsWidgetModel {
 
   @override
   bool get getStatus => throw UnimplementedError();
+
+  @override
+  set setStatus(bool value) {
+    throw UnimplementedError();
+  }
 }

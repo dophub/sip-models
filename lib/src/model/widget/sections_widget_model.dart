@@ -18,4 +18,6 @@ abstract class ISectionsWidgetModel {
   bool get getStatus;
 
   double? get getPrice;
+
+  set setStatus(bool value);
 }

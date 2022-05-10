@@ -87,4 +87,9 @@ class PlaceModel extends IBaseModel<PlaceModel> with ISectionsWidgetModel {
 
   @override
   bool get getStatus => throw UnimplementedError();
+
+  @override
+  set setStatus(bool value) {
+    throw UnimplementedError();
+  }
 }

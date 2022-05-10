@@ -50,4 +50,9 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidg
 
   @override
   bool get getStatus => throw UnimplementedError();
+
+  @override
+  set setStatus(bool value) {
+    throw UnimplementedError();
+  }
 }

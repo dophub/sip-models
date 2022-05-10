@@ -92,6 +92,9 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
 
   @override
   bool get getStatus => throw UnimplementedError();
+
+  @override
+  set setStatus(bool value) {}
 }
 
 /// Ürün özelikleri her biri bi üründür
@@ -193,6 +196,11 @@ class ItemModel extends ISectionsWidgetModel {
 
   @override
   bool get getStatus => isSelected;
+
+  @override
+  set setStatus(bool value) {
+    isSelected = value;
+  }
 }
 
 /// Ürün opsiyonlarını temsil etmekte
@@ -295,4 +303,9 @@ class OptionModel extends ISectionsWidgetModel {
 
   @override
   bool get getStatus => isSelected;
+
+  @override
+  set setStatus(bool value) {
+    isSelected = value;
+  }
 }
