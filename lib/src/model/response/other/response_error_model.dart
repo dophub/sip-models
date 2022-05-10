@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-ResponseErrorModel responseErrorModelFromJson(String str) =>
-    ResponseErrorModel.fromJson(json.decode(str));
 
 /// response Error Model
 class ResponseErrorModel {
@@ -11,10 +7,8 @@ class ResponseErrorModel {
 
   List<Detail>? detail;
 
-  factory ResponseErrorModel.fromJson(Map<String, dynamic> json) =>
-      ResponseErrorModel(
-        detail:
-            List<Detail>.from(json["detail"].map((x) => Detail.fromJson(x))),
+  factory ResponseErrorModel.fromJson(Map<String, dynamic> json) => ResponseErrorModel(
+        detail: List<Detail>.from(json["detail"].map((x) => Detail.fromJson(x))),
       );
 }
 

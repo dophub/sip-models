@@ -14,7 +14,6 @@ export 'src/model/response/other/images_model.dart';
 export 'src/model/response/order/last_orders_model.dart';
 export 'src/model/response/other/menu_detail_model.dart';
 export 'src/model/response/dealer/near_dealer_details_model.dart';
-export 'src/model/response/parameters/parameters_order.dart';
 export 'src/model/response/order/past_order_details_model.dart';
 export 'src/model/response/order/past_orders_model.dart';
 export 'src/model/response/payment/payment_model.dart';

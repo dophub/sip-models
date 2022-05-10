@@ -1,8 +1,3 @@
-import 'dart:convert';
-
-PostPaymentBy3DIyzicoModel postPaymentBy3DModelFromJson(String str) =>
-    PostPaymentBy3DIyzicoModel.fromJson(json.decode(str));
-
 /// iyzico 3D Ödeme yaptıktan sonrta dönen respobse
 class PostPaymentBy3DIyzicoModel {
   PostPaymentBy3DIyzicoModel({
@@ -24,5 +19,4 @@ class PostPaymentBy3DIyzicoModel {
         paymentId: json["paymentId"],
         total: json["total"].toDouble(),
       );
-
 }

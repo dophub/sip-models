@@ -2,15 +2,6 @@ import 'package:background_json_parser/json_parser.dart';
 import '../campaign/campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';
-/*
-
-MenuDetailModel menuDetailModelFromJson(String str) =>
-    MenuDetailModel.fromJson(json.decode(str));
-
-List<ProductModel> productListModelFromJson(String str) =>
-    List<ProductModel>.from(
-        json.decode(str).map((x) => ProductModel().fromJson(x)));
-*/
 
 /// Menü ye tılandığı zaman Api den gelen response için kullanılmakta
 class MenuDetailModel {

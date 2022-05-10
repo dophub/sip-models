@@ -1,13 +1,8 @@
-import 'dart:convert';
 
 /// payment_type_code : "CARD"
 /// payment_type : "Kredi kartı"
 /// is_active : true
 /// is_online_payment : false
-List<PaymentTypesModel> paymentTypesModelFromJson(String str) =>
-    List<PaymentTypesModel>.from(
-        json.decode(str).map((x) => PaymentTypesModel.fromJson(x)));
-
 class PaymentTypesModel {
   PaymentTypesModel({
     this.paymentTypeCode,

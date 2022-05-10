@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-PaymentModel paymentModelFromJson(String str) =>
-    PaymentModel.fromJson(json.decode(str));
 
 /// Iyzico PostPayment te dönen response
 class PaymentModel {

@@ -39,9 +39,6 @@ class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodM
   }
 }
 
-List<Place> placeFromJson(String str) =>
-    List<Place>.from(json.decode(str).map((x) => Place.fromJson(x)));
-
 class Place {
   Place({
     this.id,

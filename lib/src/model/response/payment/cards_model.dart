@@ -1,9 +1,3 @@
-import 'dart:convert';
-
-List<CardsIyzicoModel> cardsIyzicoModelFromJson(String str) =>
-    List<CardsIyzicoModel>.from(
-        json.decode(str).map((x) => CardsIyzicoModel.fromJson(x)));
-
 /// Iyzico kullanıcı kayıtlı kartları çekmek için kullanılmakta
 class CardsIyzicoModel {
   CardsIyzicoModel({
@@ -20,8 +14,7 @@ class CardsIyzicoModel {
   String? family;
   String? association;
 
-  factory CardsIyzicoModel.fromJson(Map<String, dynamic> json) =>
-      CardsIyzicoModel(
+  factory CardsIyzicoModel.fromJson(Map<String, dynamic> json) => CardsIyzicoModel(
         id: json["id"],
         title: json["title"],
         cardNo: json["cardno"],
@@ -43,8 +36,7 @@ class CardsModel {
 
   factory CardsModel.fromJson(Map<String, dynamic> json) => CardsModel(
         eulaId: json["eulaId"],
-        cardList: List<CardList>.from(
-            json["cardList"].map((x) => CardList.fromJson(x))),
+        cardList: List<CardList>.from(json["cardList"].map((x) => CardList.fromJson(x))),
       );
 }
 
