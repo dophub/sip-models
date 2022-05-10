@@ -1,5 +1,7 @@
+import 'package:background_json_parser/json_parser.dart';
+
 /// Iyzico kullanıcı kayıtlı kartları çekmek için kullanılmakta
-class CardsIyzicoModel {
+class CardsIyzicoModel extends IBaseModel<CardsIyzicoModel> {
   CardsIyzicoModel({
     this.id,
     this.title,
@@ -14,13 +16,19 @@ class CardsIyzicoModel {
   String? family;
   String? association;
 
-  factory CardsIyzicoModel.fromJson(Map<String, dynamic> json) => CardsIyzicoModel(
+  @override
+  fromJson(Map<String, dynamic> json) => CardsIyzicoModel(
         id: json["id"],
         title: json["title"],
         cardNo: json["cardno"],
         family: json["family"],
         association: json["association"],
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 /// Paycell kullanıcı kayıtlı kartları çekmek için kullanılmakta
