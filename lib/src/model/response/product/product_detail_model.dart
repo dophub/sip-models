@@ -4,7 +4,7 @@ import '../other/images_model.dart';
 import '../other/price_model.dart';
 
 /// ProductProfileScreende kullanılam ürün detay modelidir
-class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWidgetModel{
+class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWidgetModel {
   ProductDetailModel({
     this.id,
     this.productName,
@@ -47,16 +47,12 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
         tags: json["tags"] == null ? [] : List<String>.from(json["tags"].map((x) => x)),
         makeTime: json["make_time"],
         calorie: json["calorie"],
-        price: json["price"] == null
-            ? []
-            : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
-        images: json["images"] == null
-            ? []
-            : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
+        price: json["price"] == null ? [] : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
+        images:
+            json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
         optionGroups: json["option_groups"] == null
             ? []
-            : List<OptionGroupModel>.from(
-                json["option_groups"].map((x) => OptionGroupModel.fromJson(x))),
+            : List<OptionGroupModel>.from(json["option_groups"].map((x) => OptionGroupModel.fromJson(x))),
         features: json["features"] == null
             ? []
             : List<FeatureModel>.from(json["features"].map((x) => FeatureModel.fromJson(x))),
@@ -75,8 +71,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
         "calorie": calorie,
         "price": price == null ? [] : List<dynamic>.from(price!.map((x) => x.toJson())),
         "images": List<dynamic>.from(images!.map((x) => x.toJson())),
-        "option_groups":
-            optionGroups == null ? [] : List<dynamic>.from(optionGroups!.map((x) => x.toJson())),
+        "option_groups": optionGroups == null ? [] : List<dynamic>.from(optionGroups!.map((x) => x.toJson())),
         "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x.toJson())),
         "item_type": itemType,
       };
@@ -124,9 +119,7 @@ class FeatureModel {
 
   factory FeatureModel.fromJson(Map<String, dynamic> json) => FeatureModel(
         id: json["id"],
-        items: json["items"] == null
-            ? []
-            : List<ItemModel>.from(json["items"].map((x) => ItemModel.fromJson(x))),
+        items: json["items"] == null ? [] : List<ItemModel>.from(json["items"].map((x) => ItemModel.fromJson(x))),
         maxCount: json["max_count"],
         listOrder: json["list_order"],
         description: json["description"],
@@ -150,14 +143,15 @@ class FeatureModel {
 }
 
 class ItemModel extends ISectionsWidgetModel {
-  ItemModel(
-      {this.id,
-      this.isFree,
-      this.addPrice,
-      this.isDefault,
-      this.listOrder,
-      this.productName,
-      this.isSelected = false});
+  ItemModel({
+    this.id,
+    this.isFree,
+    this.addPrice,
+    this.isDefault,
+    this.listOrder,
+    this.productName,
+    this.isSelected = false,
+  });
 
   int? id;
   bool? isFree;
@@ -228,9 +222,8 @@ class OptionGroupModel {
 
   factory OptionGroupModel.fromJson(Map<String, dynamic> json) => OptionGroupModel(
         id: json["id"],
-        options: json["options"] == null
-            ? []
-            : List<OptionModel>.from(json["options"].map((x) => OptionModel.fromJson(x))),
+        options:
+            json["options"] == null ? [] : List<OptionModel>.from(json["options"].map((x) => OptionModel.fromJson(x))),
         maxCount: json["max_count"],
         listOrder: json["list_order"],
         description: json["description"],
