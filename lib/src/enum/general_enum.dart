@@ -98,3 +98,6 @@ enum TimeoutAction { None, New, Add }
 
 /// [AddressTypeEnum] Adres türleri
 enum AddressTypeEnum { home, work, hotel, other }
+
+/// Http işlemerinde kullanılmakta
+enum HttpMethod { get, post, put, delete, update }
