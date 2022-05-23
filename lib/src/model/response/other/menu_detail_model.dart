@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 import '../campaign/campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';

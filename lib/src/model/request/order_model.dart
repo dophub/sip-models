@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 import '../response/address/customer_address_model.dart';
 import '../response/other/images_model.dart';
 import '../response/other/menu_detail_model.dart';

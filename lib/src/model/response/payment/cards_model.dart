@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
 /// Iyzico kullanıcı kayıtlı kartları çekmek için kullanılmakta

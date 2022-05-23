@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/request/post_rating_and_comment.dart';
 
 class OrderRatingAndCommentModel extends IBaseModel<OrderRatingAndCommentModel> {

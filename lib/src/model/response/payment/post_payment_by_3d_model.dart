@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 
 /// iyzico 3D Ödeme yaptıktan sonrta dönen respobse
 class PostPaymentBy3DIyzicoModel extends IBaseModel<PostPaymentBy3DIyzicoModel> {

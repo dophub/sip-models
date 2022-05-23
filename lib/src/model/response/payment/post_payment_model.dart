@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 
 /// Paycell Ödeme yaparken dönen response
 /// Yeni kartla ve kayıtlı kartla

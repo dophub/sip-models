@@ -1,4 +1,4 @@
-import 'package:background_json_parser/json_parser.dart';
+import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
 import '../dealer/dealer_model.dart';
