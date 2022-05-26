@@ -12,6 +12,7 @@ enum DealerDetailScreenArguments { dealerModel }
 enum DealerPaymentScreenArguments { payDeskAmount }
 enum FixMenuScreenArguments { dealerId, selectedFixMenuList }
 enum CampaignScreenArguments { campaignList, viewMode }
-enum OtpVerificationScreenArguments { transactionId, telNo }
+/// [ssoId] Apple, Google ..vs den gelen user id
+enum OtpVerificationScreenArguments { transactionId, telNo, ssoId }
 enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
 enum RegisterScreenArguments { mode, ssoTypeId, ssoUserId, mail }
