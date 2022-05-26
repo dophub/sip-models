@@ -33,8 +33,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
     this.dealerId,
     this.password,
     this.ssoTypeId,
-    this.appleUserId,
-    this.googleUserId,
+    this.userSsoId,
   });
 
   int? id;
@@ -48,8 +47,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
   int? dealerId;
   String? password;
   String? ssoTypeId;
-  String? appleUserId;
-  String? googleUserId;
+  String? userSsoId;
 
   @override
   fromJson(Map<String, dynamic> json) {
@@ -64,8 +62,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
     dealerId = json["dealer_id"];
     password = json["password"];
     ssoTypeId = json["SSO_type_id"];
-    appleUserId = json["apple_user_id"];
-    googleUserId = json["google_user_id"];
+    userSsoId = json["user_sso_id"];
     return this;
   }
 
@@ -82,7 +79,6 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
         "dealer_id": dealerId,
         "password": password,
         "SSO_type_id": ssoTypeId,
-        "apple_user_id": appleUserId,
-        "google_user_id": googleUserId,
+        "user_sso_id": userSsoId,
       };
 }
