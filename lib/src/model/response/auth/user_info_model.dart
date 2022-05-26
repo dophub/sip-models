@@ -32,6 +32,9 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
     this.contractStatus,
     this.dealerId,
     this.password,
+    this.ssoTypeId,
+    this.appleUserId,
+    this.googleUserId,
   });
 
   int? id;
