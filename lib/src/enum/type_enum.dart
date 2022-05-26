@@ -35,4 +35,5 @@ enum PaymentOnlineType { offline, online }
 
 enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS }
 
+/// [SSOTypeId] Google veya apple ile gieiş yapıldığında türünü belirlemekte
 enum SSOTypeId { google, apple }
