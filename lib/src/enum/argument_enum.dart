@@ -10,9 +10,8 @@ enum MenuScreenArguments { menuId, focusActive }
 enum CategoryScreenArguments { categoryId, focusActive }
 enum DealerDetailScreenArguments { dealerModel }
 enum DealerPaymentScreenArguments { payDeskAmount }
-enum FixMenuScreenArguments { dealerId, selectedFixMenuList}
-enum CampaignScreenArguments { campaignList, viewMode}
-enum OtpVerificationScreenArguments { transactionId, telNo}
-enum UserChooseAddressScreenArguments { canChangeAddress, addressList}
-enum RegisterScreenArguments { canChangeAddress, addressList}
-
+enum FixMenuScreenArguments { dealerId, selectedFixMenuList }
+enum CampaignScreenArguments { campaignList, viewMode }
+enum OtpVerificationScreenArguments { transactionId, telNo }
+enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
+enum RegisterScreenArguments { mode, ssoTypeId, ssoUserId }
