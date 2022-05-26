@@ -6,4 +6,5 @@ enum ListMode { Line, Grid }
 /// [RegisterMode] Register ekranında kullanılmakta
 /// [Update] Eski Kullanıcı Bilgiler Güncellenecek
 /// [Insert] Yeni Kullanıcı Bilgiler Insert Edilecek
-enum RegisterMode { Update, Insert, Otp }
+/// Google,Apple ..vs ile giriş yapıldığında
+enum RegisterMode { Update, Insert, SOO }
