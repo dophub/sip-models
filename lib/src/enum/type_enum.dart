@@ -2,7 +2,7 @@
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
-enum DeliveryType { TAKEOUT , GETIN, TABLE }
+enum DeliveryType { TAKEOUT, GETIN, TABLE }
 
 /// [ItemSeparatorType] List Item lar arasındaki boşluk türüdür
 /// [Space] Boşluk olsun
@@ -34,3 +34,5 @@ enum OptionType { OPTION, FEATURE }
 enum PaymentOnlineType { offline, online }
 
 enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS }
+
+enum SSOTypeId { google, apple }

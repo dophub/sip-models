@@ -37,7 +37,7 @@ export 'src/model/response/dealer/dealer_info_model.dart';
 export 'src/model/response/parameters/parameters_Model.dart';
 export 'src/model/response/other/order_rating_and_comment_model.dart';
 export 'src/model/response/campaign/campaign_model.dart';
-export 'src/model/response/auth/SendOTpForLoginResponseModel.dart';
+export 'src/model/response/auth/send_otp_for_login_response_model.dart';
 export 'src/model/response/other/vehicle_info_model.dart';
 export 'src/model/response/other/banner_model.dart';
 export 'src/model/response/campaign/campaign_detail_model.dart';
