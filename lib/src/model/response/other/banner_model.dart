@@ -1,6 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-
 class BannerModel extends IBaseModel<BannerModel> {
   BannerModel({
     this.clientPoint,
@@ -45,7 +44,6 @@ class BannerModel extends IBaseModel<BannerModel> {
 
   @override
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
     throw UnimplementedError();
   }
 }
@@ -72,6 +70,8 @@ class TargetObject {
     this.itemType,
     this.name,
     this.url,
+    this.campaignTitle,
+    this.campaignId,
   });
 
   int? dealerId;
@@ -79,6 +79,8 @@ class TargetObject {
   String? itemType;
   String? name;
   String? url;
+  String? campaignTitle;
+  int? campaignId;
 
   factory TargetObject.fromJson(Map<String, dynamic> json) => TargetObject(
         dealerId: json["dealer_id"],
@@ -86,5 +88,7 @@ class TargetObject {
         itemType: json["item_type"],
         name: json["name"],
         url: json["url"],
+        campaignId: json["campaign_id"],
+        campaignTitle: json["campaign_title"],
       );
 }
