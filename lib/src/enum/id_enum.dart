@@ -56,13 +56,7 @@ enum MarketPlaceBottomButtonId { Home, Search, Campaign, Basket }
 /// [mobile_list_col] bu resim türü [ListMode.Grid] inde kulanılmakta
 /// [mobile_detail] Ürün Detay ekranında kullanılmakta
 /// [campaign_app_image] Kampanya resimleri
-enum ImageSizeId {
-  mobile_list,
-  mobile_list_col,
-  mobile_detail,
-  mobile_daily_menu,
-  campaign_app_image
-}
+enum ImageSizeId { mobile_list, mobile_list_col, mobile_detail, mobile_daily_menu, campaign_app_image }
 
 /// GetX için yazıldı
 /// Her bit item Getx Id sidir
@@ -91,7 +85,8 @@ enum CampaignTypeId { PERCENT, DISCOUNT, GIFTPRODUCT, PRICECHANGE, COUPON }
 /// [dealer] İşletmeye gider
 /// [product] Ürüne gider
 /// [link] Link e gider
-enum BannerTargetId { dealer, product, link }
+/// [campaign] campaign e gider
+enum BannerTargetId { dealer, product, link, campaign }
 
 /// [LimitNumberOfOrderTypeId] Banner Event Id leri
 /// [JUST] Sadece
@@ -99,7 +94,6 @@ enum BannerTargetId { dealer, product, link }
 /// [EVERYCD] Müşterinin aynı işletmede her
 /// [ALL] Her siparişte
 enum LimitNumberOfOrderTypeId { JUST, EVERYC, EVERYCD, ALL }
-
 
 /// [LimitNumberOfOrderTypeId] Banner Event Id leri
 /// [IN_VALET] Valede
