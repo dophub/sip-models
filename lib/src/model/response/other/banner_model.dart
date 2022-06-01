@@ -73,7 +73,7 @@ class BannerTargetObject {
     this.url,
     this.campaignTitle,
     this.campaignId,
-    this.products,
+    this.product,
   });
 
   int? dealerId;
@@ -83,7 +83,7 @@ class BannerTargetObject {
   String? url;
   String? campaignTitle;
   int? campaignId;
-  List<ProductModel>? products;
+  ProductModel? product;
 
   factory BannerTargetObject.fromJson(Map<String, dynamic> json) => BannerTargetObject(
         dealerId: json["dealer_id"],
@@ -93,8 +93,6 @@ class BannerTargetObject {
         url: json["url"],
         campaignId: json["campaign_id"],
         campaignTitle: json["campaign_title"],
-        products: json["products"] == null
-            ? []
-            : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
+        product: json["products"] == null ? ProductModel() : ProductModel().fromJson(json["products"]),
       );
 }
