@@ -93,6 +93,6 @@ class BannerTargetObject {
         url: json["url"],
         campaignId: json["campaign_id"],
         campaignTitle: json["campaign_title"],
-        product: json["products"] == null ? ProductModel() : ProductModel().fromJson(json["products"]),
+        product: json["product"] == null ? ProductModel() : ProductModel().fromJson(json["product"]),
       );
 }
