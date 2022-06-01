@@ -19,26 +19,26 @@ class BannerModel extends IBaseModel<BannerModel> {
   DateTime? createDate;
   String? description;
   DateTime? endDate;
-  FileUrl? fileUrl;
+  BannerUrlModel? fileUrl;
   int? id;
   String? sessionPointId;
   DateTime? startDate;
   String? targetId;
-  TargetObject? targetObject;
+  BannerTargetObject? targetObject;
   String? title;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => BannerModel(
         clientPoint: json["client_point"],
-        createDate: DateTime.parse(json["create_date"]),
+        createDate: DateTime.tryParse(json["create_date"]),
         description: json["description"],
-        endDate: DateTime.parse(json["end_date"]),
-        fileUrl: FileUrl.fromJson(json["file_url"]),
+        endDate: DateTime.tryParse(json["end_date"]),
+        fileUrl: json["target_object"] == null ? BannerUrlModel() :  BannerUrlModel.fromJson(json["file_url"]),
         id: json["id"],
         sessionPointId: json["session_point_id"],
-        startDate: DateTime.parse(json["start_date"]),
+        startDate: DateTime.tryParse(json["start_date"]),
         targetId: json["target_id"],
-        targetObject: TargetObject.fromJson(json["target_object"]),
+        targetObject: json["target_object"] == null ? null : BannerTargetObject.fromJson(json["target_object"]),
         title: json["title"],
       );
 
@@ -48,8 +48,8 @@ class BannerModel extends IBaseModel<BannerModel> {
   }
 }
 
-class FileUrl {
-  FileUrl({
+class BannerUrlModel {
+  BannerUrlModel({
     this.app,
     this.web,
   });
@@ -57,14 +57,14 @@ class FileUrl {
   String? app;
   String? web;
 
-  factory FileUrl.fromJson(Map<String, dynamic> json) => FileUrl(
+  factory BannerUrlModel.fromJson(Map<String, dynamic> json) => BannerUrlModel(
         app: json["app"],
         web: json["web"],
       );
 }
 
-class TargetObject {
-  TargetObject({
+class BannerTargetObject {
+  BannerTargetObject({
     this.dealerId,
     this.id,
     this.itemType,
@@ -82,7 +82,7 @@ class TargetObject {
   String? campaignTitle;
   int? campaignId;
 
-  factory TargetObject.fromJson(Map<String, dynamic> json) => TargetObject(
+  factory BannerTargetObject.fromJson(Map<String, dynamic> json) => BannerTargetObject(
         dealerId: json["dealer_id"],
         id: json["id"],
         itemType: json["item_type"],
