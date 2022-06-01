@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/response.dart';
 
 class BannerModel extends IBaseModel<BannerModel> {
   BannerModel({
@@ -33,7 +34,7 @@ class BannerModel extends IBaseModel<BannerModel> {
         createDate: DateTime.tryParse(json["create_date"]),
         description: json["description"],
         endDate: DateTime.tryParse(json["end_date"]),
-        fileUrl: json["file_url"] == null ? BannerUrlModel() :  BannerUrlModel.fromJson(json["file_url"]),
+        fileUrl: json["file_url"] == null ? BannerUrlModel() : BannerUrlModel.fromJson(json["file_url"]),
         id: json["id"],
         sessionPointId: json["session_point_id"],
         startDate: DateTime.tryParse(json["start_date"]),
@@ -72,6 +73,7 @@ class BannerTargetObject {
     this.url,
     this.campaignTitle,
     this.campaignId,
+    this.products,
   });
 
   int? dealerId;
@@ -81,6 +83,7 @@ class BannerTargetObject {
   String? url;
   String? campaignTitle;
   int? campaignId;
+  List<ProductModel>? products;
 
   factory BannerTargetObject.fromJson(Map<String, dynamic> json) => BannerTargetObject(
         dealerId: json["dealer_id"],
@@ -90,5 +93,8 @@ class BannerTargetObject {
         url: json["url"],
         campaignId: json["campaign_id"],
         campaignTitle: json["campaign_title"],
+        products: json["products"] == null
+            ? []
+            : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
       );
 }
