@@ -33,7 +33,7 @@ class BannerModel extends IBaseModel<BannerModel> {
         createDate: DateTime.tryParse(json["create_date"]),
         description: json["description"],
         endDate: DateTime.tryParse(json["end_date"]),
-        fileUrl: json["target_object"] == null ? BannerUrlModel() :  BannerUrlModel.fromJson(json["file_url"]),
+        fileUrl: json["file_url"] == null ? BannerUrlModel() :  BannerUrlModel.fromJson(json["file_url"]),
         id: json["id"],
         sessionPointId: json["session_point_id"],
         startDate: DateTime.tryParse(json["start_date"]),
