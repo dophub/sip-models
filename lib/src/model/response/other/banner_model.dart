@@ -1,5 +1,8 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:sip_models/response.dart';
+
+import '../../../enum/id_enum.dart';
 
 class BannerModel extends IBaseModel<BannerModel> {
   BannerModel({
@@ -14,6 +17,7 @@ class BannerModel extends IBaseModel<BannerModel> {
     this.targetId,
     this.targetObject,
     this.title,
+    this.product,
   });
 
   String? clientPoint;
@@ -27,21 +31,38 @@ class BannerModel extends IBaseModel<BannerModel> {
   String? targetId;
   BannerTargetObject? targetObject;
   String? title;
+  ProductModel? product;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) => BannerModel(
-        clientPoint: json["client_point"],
-        createDate: DateTime.tryParse(json["create_date"]),
-        description: json["description"],
-        endDate: DateTime.tryParse(json["end_date"]),
-        fileUrl: json["file_url"] == null ? BannerUrlModel() : BannerUrlModel.fromJson(json["file_url"]),
-        id: json["id"],
-        sessionPointId: json["session_point_id"],
-        startDate: DateTime.tryParse(json["start_date"]),
-        targetId: json["target_id"],
-        targetObject: json["target_object"] == null ? null : BannerTargetObject.fromJson(json["target_object"]),
-        title: json["title"],
-      );
+  fromJson(Map<dynamic, dynamic> json) {
+    /// target_id i product ise target_object product model olarak gelmekte
+    String? _targetId = json["target_id"];
+    ProductModel? _product;
+    BannerTargetObject? _targetObject;
+    try {
+      if (_targetId == BannerTargetId.product.name) {
+        _product = json["target_object"] == null ? ProductModel() : ProductModel().fromJson(json["target_object"]);
+      } else {
+        _targetObject = BannerTargetObject.fromJson(json["target_object"]);
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return BannerModel(
+      clientPoint: json["client_point"],
+      createDate: DateTime.tryParse(json["create_date"]),
+      description: json["description"],
+      endDate: DateTime.tryParse(json["end_date"]),
+      fileUrl: json["file_url"] == null ? BannerUrlModel() : BannerUrlModel.fromJson(json["file_url"]),
+      id: json["id"],
+      sessionPointId: json["session_point_id"],
+      startDate: DateTime.tryParse(json["start_date"]),
+      title: json["title"],
+      targetId: _targetId,
+      targetObject: _targetObject,
+      product: _product,
+    );
+  }
 
   @override
   Map<String, dynamic> toJson() {
@@ -59,9 +80,9 @@ class BannerUrlModel {
   String? web;
 
   factory BannerUrlModel.fromJson(Map<String, dynamic> json) => BannerUrlModel(
-        app: json["app"],
-        web: json["web"],
-      );
+    app: json["app"],
+    web: json["web"],
+  );
 }
 
 class BannerTargetObject {
@@ -73,7 +94,6 @@ class BannerTargetObject {
     this.url,
     this.campaignTitle,
     this.campaignId,
-    this.product,
   });
 
   int? dealerId;
@@ -83,16 +103,14 @@ class BannerTargetObject {
   String? url;
   String? campaignTitle;
   int? campaignId;
-  ProductModel? product;
 
   factory BannerTargetObject.fromJson(Map<String, dynamic> json) => BannerTargetObject(
-        dealerId: json["dealer_id"],
-        id: json["id"],
-        itemType: json["item_type"],
-        name: json["name"],
-        url: json["url"],
-        campaignId: json["campaign_id"],
-        campaignTitle: json["campaign_title"],
-        product: json["product"] == null ? ProductModel() : ProductModel().fromJson(json["product"]),
-      );
+    dealerId: json["dealer_id"],
+    id: json["id"],
+    itemType: json["item_type"],
+    name: json["name"],
+    url: json["url"],
+    campaignId: json["campaign_id"],
+    campaignTitle: json["campaign_title"],
+  );
 }
