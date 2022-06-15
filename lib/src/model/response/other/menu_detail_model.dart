@@ -18,8 +18,7 @@ class MenuDetailModel {
   factory MenuDetailModel.fromJson(Map<String, dynamic> json) => MenuDetailModel(
         id: json["id"],
         menuName: json["menu_name"],
-        categories:
-            List<CategoryModel>.from(json["categories"].map((x) => CategoryModel().fromJson(x))),
+        categories: List<CategoryModel>.from(json["categories"].map((x) => CategoryModel().fromJson(x))),
       );
 }
 
@@ -68,6 +67,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
 class ProductModel extends IBaseModel<ProductModel> {
   ProductModel({
     this.id,
+    this.dealerId,
     this.price,
     this.images,
     this.calorie,
@@ -82,6 +82,7 @@ class ProductModel extends IBaseModel<ProductModel> {
   });
 
   int? id;
+  int? dealerId; // sadece bannerlarda dolu gelir
   List<PriceModel>? price;
   List<ImagesModel>? images;
   int? calorie;
@@ -91,17 +92,16 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? optionCount;
   String? productName;
   String? shortDescription;
-  int?
-      count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
   List<CampaignModel>? campaigns;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
+        dealerId: json["dealer_id"],
         price: List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
-        images: json["images"] == null
-            ? []
-            : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
+        images:
+            json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
         calorie: json["calorie"] ?? 0,
         itemType: json["item_type"],
         makeTime: json["make_time"] ?? 0,
@@ -118,6 +118,7 @@ class ProductModel extends IBaseModel<ProductModel> {
   @override
   Map<String, dynamic> toJson() => {
         "id": id,
+        "dealer_id": dealerId,
         "price": List<dynamic>.from(price!.map((x) => x.toJson())),
         "images": List<dynamic>.from(images!.map((x) => x.toJson())),
         "calorie": calorie,
@@ -127,8 +128,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         "option_count": optionCount,
         "product_name": productName,
         "short_description": shortDescription,
-        "campaigns":
-            campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
+        "campaigns": campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
       };
 }

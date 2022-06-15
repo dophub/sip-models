@@ -43,6 +43,7 @@ class BannerModel extends IBaseModel<BannerModel> {
       if (_targetId == BannerTargetId.product.name) {
         _product = json["target_object"] == null ? ProductModel() : ProductModel().fromJson(json["target_object"]);
       } else {
+        _product = ProductModel();
         _targetObject = BannerTargetObject.fromJson(json["target_object"]);
       }
     } catch (e) {
