@@ -1,7 +1,7 @@
+import 'dart:typed_data' show Uint8List;
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sip_models/response.dart';
-
 import '../../../enum/id_enum.dart';
 
 class BannerModel extends IBaseModel<BannerModel> {
@@ -79,6 +79,8 @@ class BannerUrlModel {
 
   String? app;
   String? web;
+  /// Bannerin byte ini alıpo burada set ediyoruz Api gelmeyip UI de kullanılmakta
+  List<Uint8List> imageListByte =[];
 
   factory BannerUrlModel.fromJson(Map<String, dynamic> json) => BannerUrlModel(
     app: json["app"],
