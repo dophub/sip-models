@@ -80,7 +80,7 @@ class BannerUrlModel {
   String? app;
   String? web;
   /// Bannerin byte ini alıpo burada set ediyoruz Api gelmeyip UI de kullanılmakta
-  List<Uint8List> imageListByte =[];
+  Uint8List? imageListByte;
 
   factory BannerUrlModel.fromJson(Map<String, dynamic> json) => BannerUrlModel(
     app: json["app"],
