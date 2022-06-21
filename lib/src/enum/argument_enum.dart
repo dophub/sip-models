@@ -15,4 +15,3 @@ enum CampaignScreenArguments { campaignList, viewMode }
 /// [ssoId] Apple, Google ..vs den gelen user id
 enum OtpVerificationScreenArguments { transactionId, telNo, ssoId }
 enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
-enum RegisterScreenArguments { mode, ssoTypeId, ssoUserId, mail }
