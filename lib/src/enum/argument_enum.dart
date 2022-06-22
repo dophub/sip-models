@@ -6,12 +6,19 @@
 
 /// Screens Arguments
 enum ProductProfileScreenArguments { dealerId, orderItem, itemObject, currentModule }
+
 enum MenuScreenArguments { menuId, focusActive }
+
 enum CategoryScreenArguments { categoryId, focusActive }
+
 enum DealerDetailScreenArguments { dealerModel }
+
 enum DealerPaymentScreenArguments { payDeskAmount }
+
 enum FixMenuScreenArguments { dealerId, selectedFixMenuList }
+
 enum CampaignScreenArguments { campaignList, viewMode }
-/// [ssoId] Apple, Google ..vs den gelen user id
-enum OtpVerificationScreenArguments { transactionId, telNo, ssoId }
+
+enum OtpVerificationScreenArguments { mode, transactionId, telNo, userModel }
+
 enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
