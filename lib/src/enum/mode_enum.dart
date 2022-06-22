@@ -1,13 +1,13 @@
 /// [ListMode] Ürün listelerinde kullanılmakta
-/// [Line] Horizontal Liste
-/// [Grid] Ikili Grid
-enum ListMode { Line, Grid }
+/// [line] Horizontal Liste
+/// [grid] Ikili Grid
+enum ListMode { line, grid }
 
 /// [RegisterScreenMode] Register ekranında kullanılmakta
 /// [Update] Eski Kullanıcı Bilgiler Güncellenecek
 /// [Insert] Yeni Kullanıcı Bilgiler Insert Edilecek
 /// Google,Apple ..vs ile giriş yapıldığında
-enum RegisterScreenMode { update, insert, sso }
+enum RegisterScreenMode { insert, sso }
 
 /// [OtpVerificationScreenMode] Verification ekranında kullanılmakta
 /// [register] Register de gönderilen OTP yi onaylamak için
