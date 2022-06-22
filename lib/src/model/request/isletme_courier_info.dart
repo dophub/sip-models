@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-
 class CourierInfo {
   int? id;
   String? name;
@@ -27,14 +25,6 @@ class CourierInfo {
       id: id ?? this.id,
       name: name ?? this.name,
     );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    if (other is! CourierInfo) return false;
-    final mapEquals = const DeepCollectionEquality().equals;
-    return mapEquals(other.toJson(), toJson());
   }
 
   @override

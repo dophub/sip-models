@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 
 class AddressByLocation {
   String? name;
@@ -64,14 +63,6 @@ class AddressByLocation {
       cityName: cityName ?? this.cityName,
       districtName: districtName ?? this.districtName,
     );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    if (other is! AddressByLocation) return false;
-    final mapEquals = const DeepCollectionEquality().equals;
-    return mapEquals(other.toJson(), toJson());
   }
 
   @override
