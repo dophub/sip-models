@@ -19,6 +19,6 @@ enum FixMenuScreenArguments { dealerId, selectedFixMenuList }
 
 enum CampaignScreenArguments { campaignList, viewMode }
 
-enum OtpVerificationScreenArguments { mode, transactionId, telNo }
+enum OtpVerificationScreenArguments { mode, userModel }
 
 enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
