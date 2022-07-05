@@ -100,3 +100,9 @@ enum LimitNumberOfOrderTypeId { JUST, EVERYC, EVERYCD, ALL }
 /// [WAITING_FOR_GET] Bekleniyor
 /// [DONE] Teslim Edildi
 enum VehicleStatusId { IN_VALET, WAITING_FOR_GET, DONE }
+
+/// [AdviceStatusId] QR web te kullanılmakta 'Uygulamayı tavsiye edermisiniz'
+/// [OK] Tavsiye ederim
+/// [NOTR] nötr
+/// [NOK] Tavisye etmem
+enum AdviceStatusId { OK, NOTR, NOK }
