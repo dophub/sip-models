@@ -7,7 +7,7 @@ class CommentAndComplaintModel extends IBaseModel<CommentAndComplaintModel> {
     this.review,
     this.adviceStatusId,
     this.satisfactionStatusId,
-    this.tableId,
+    this.qrCode,
   });
 
   String? nameSurname;
@@ -15,7 +15,7 @@ class CommentAndComplaintModel extends IBaseModel<CommentAndComplaintModel> {
   String? review;
   String? adviceStatusId;
   String? satisfactionStatusId;
-  String? tableId;
+  String? qrCode;
 
   @override
   Map<String, dynamic> toJson() => {
@@ -24,7 +24,7 @@ class CommentAndComplaintModel extends IBaseModel<CommentAndComplaintModel> {
     "review": review,
     "advice_status_id": adviceStatusId,
     "satisfaction_status_id": satisfactionStatusId,
-    "table_id": tableId,
+    "qr_code": qrCode,
   };
 
   @override
