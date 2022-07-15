@@ -199,16 +199,18 @@ class ItemModel extends ISectionsWidgetModel {
 
 /// Ürün opsiyonlarını temsil etmekte
 class OptionGroupModel {
-  OptionGroupModel(
-      {this.id,
-      this.options,
-      this.maxCount,
-      this.listOrder,
-      this.description,
-      this.addingTypeId,
-      this.chooseTypeId,
-      this.optionGroupName,
-      this.isSelected = false});
+  OptionGroupModel({
+    this.id,
+    this.options,
+    this.maxCount,
+    this.listOrder,
+    this.description,
+    this.addingTypeId,
+    this.chooseTypeId,
+    this.optionGroupName,
+    this.isRequire,
+    this.isSelected = false,
+  });
 
   int? id;
   List<OptionModel>? options;
@@ -218,6 +220,7 @@ class OptionGroupModel {
   String? addingTypeId;
   String? chooseTypeId;
   String? optionGroupName;
+  bool? isRequire;
   bool isSelected;
 
   factory OptionGroupModel.fromJson(Map<String, dynamic> json) => OptionGroupModel(
@@ -230,6 +233,7 @@ class OptionGroupModel {
         addingTypeId: json["adding_type_id"],
         chooseTypeId: json["choose_type_id"],
         optionGroupName: json["option_group_name"],
+        isRequire: json["is_require"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -241,6 +245,7 @@ class OptionGroupModel {
         "adding_type_id": addingTypeId,
         "choose_type_id": chooseTypeId,
         "option_group_name": optionGroupName,
+        "is_require": isRequire,
       };
 }
 
