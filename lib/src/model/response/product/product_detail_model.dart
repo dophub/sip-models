@@ -94,17 +94,19 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
 
 /// Ürün özelikleri her biri bi üründür
 class FeatureModel {
-  FeatureModel(
-      {this.id,
-      this.items,
-      this.maxCount,
-      this.listOrder,
-      this.description,
-      this.featureName,
-      this.addingTypeId,
-      this.chooseTypeId,
-      this.maxFreeCount,
-      this.isSelected = false});
+  FeatureModel({
+    this.id,
+    this.items,
+    this.maxCount,
+    this.listOrder,
+    this.description,
+    this.featureName,
+    this.addingTypeId,
+    this.chooseTypeId,
+    this.maxFreeCount,
+    this.isRequire,
+    this.isSelected = false,
+  });
 
   int? id;
   List<ItemModel>? items;
@@ -115,6 +117,7 @@ class FeatureModel {
   String? addingTypeId;
   String? chooseTypeId;
   int? maxFreeCount;
+  bool? isRequire;
   bool isSelected;
 
   factory FeatureModel.fromJson(Map<String, dynamic> json) => FeatureModel(
@@ -127,6 +130,7 @@ class FeatureModel {
         addingTypeId: json["adding_type_id"],
         chooseTypeId: json["choose_type_id"],
         maxFreeCount: json["max_free_count"],
+        isRequire: json["is_require"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -139,6 +143,7 @@ class FeatureModel {
         "adding_type_id": addingTypeId,
         "choose_type_id": chooseTypeId,
         "max_free_count": maxFreeCount,
+        "is_require": isRequire,
       };
 }
 
