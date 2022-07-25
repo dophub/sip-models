@@ -77,6 +77,7 @@ class ProductModel extends IBaseModel<ProductModel> {
     this.listOrder,
     this.optionCount,
     this.productName,
+    this.addedOrderNumber = 0,
     this.orderCount = 0,
     this.shortDescription,
     this.count = 0,
@@ -85,6 +86,7 @@ class ProductModel extends IBaseModel<ProductModel> {
 
   int? id;
   int? dealerId; // sadece bannerlarda dolu gelir
+  int? addedOrderNumber;
   List<PriceModel>? price;
   List<ImagesModel>? images;
   int? calorie;
