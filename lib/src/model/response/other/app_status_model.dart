@@ -14,6 +14,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.androidAppLink,
     this.enableDevLog,
     this.enableProdLog,
+    this.forceUpdate,
   });
 
   bool? marketplace;
@@ -28,6 +29,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   String? androidAppLink;
   bool? enableDevLog;
   bool? enableProdLog;
+  bool? forceUpdate;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -43,6 +45,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         androidAppLink: json["android_app_link"],
         enableDevLog: json["enable_dev_log"],
         enableProdLog: json["enable_prod_log"],
+        forceUpdate: json["force_update"],
       );
 
   @override
