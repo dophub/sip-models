@@ -9,18 +9,20 @@ import '../response/address/customer_address_model.dart';
 class SessionHeaderModel {
   const SessionHeaderModel({
     required this.token,
+    required this.appId,
     this.orderPoint,
     this.customerAddress,
     this.sessionPoint,
   });
 
   final String token;
+  final AppId appId;
   final String lang = 'tr';
   final OrderPoint? orderPoint;
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
 
-  Map<String, String> createHeader(AppId appId,{Map<String, String> addMap = const {}}) {
+  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
       "content-type": "application/json",

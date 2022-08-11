@@ -12,6 +12,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     this.tableId,
     CustomerAddressModel? customerAddress,
   }) : super(
+          appId: AppId.SIP,
           token: token,
           orderPoint: _orderPoint,
           sessionPoint: sessionPoint,
@@ -31,8 +32,8 @@ class OrderHeaderModel extends SessionHeaderModel {
       };
 
   @override
-  Map<String, String> createHeader(AppId appId,{Map<String, String> addMap = const {}}) {
-    return super.createHeader(appId,addMap: _toJson());
+  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
+    return super.createHeader(addMap: _toJson());
   }
 
   OrderHeaderModel _setDealer() {
