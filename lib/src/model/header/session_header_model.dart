@@ -1,4 +1,3 @@
-
 import 'package:sip_models/src/enum/id_enum.dart';
 
 import '../response/address/customer_address_model.dart';
@@ -21,12 +20,12 @@ class SessionHeaderModel {
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
 
-  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
+  Map<String, String> createHeader(AppId appId,{Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
       "content-type": "application/json",
       "clientpoint": ClientPointId.MOBILE_APP.name,
-      "client": AppId.SIP.name,
+      "client": appId.name,
       "authorization": 'Bearer $token',
       "lang": lang,
       "orderpoint": orderPoint == null ? '' : orderPoint!.name,

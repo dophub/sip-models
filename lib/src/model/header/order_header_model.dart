@@ -31,8 +31,8 @@ class OrderHeaderModel extends SessionHeaderModel {
       };
 
   @override
-  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
-    return super.createHeader(addMap: _toJson());
+  Map<String, String> createHeader(AppId appId,{Map<String, String> addMap = const {}}) {
+    return super.createHeader(appId,addMap: _toJson());
   }
 
   OrderHeaderModel _setDealer() {
