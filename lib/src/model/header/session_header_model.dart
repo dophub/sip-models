@@ -27,7 +27,7 @@ class SessionHeaderModel {
     final Map<String, String> _map = {
       "content-type": "application/json",
       "clientpoint": ClientPointId.MOBILE_APP.name,
-      "client": appId.name,
+      "applicationname": appId.name,
       "authorization": 'Bearer $token',
       "lang": lang,
       "orderpoint": orderPoint == null ? '' : orderPoint!.name,
