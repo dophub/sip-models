@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:background_json_parser/background_json_parser.dart';
 
 class AppStatusModel extends IBaseModel<AppStatusModel> {
@@ -12,8 +14,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.androidVersion,
     this.iosAppLink,
     this.androidAppLink,
-    this.enableDevLog,
-    this.enableProdLog,
+    this.enableLog,
     this.forceUpdate,
   });
 
@@ -27,8 +28,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   String? androidVersion;
   String? iosAppLink;
   String? androidAppLink;
-  bool? enableDevLog;
-  bool? enableProdLog;
+  bool? enableLog;
   bool? forceUpdate;
 
   @override
@@ -43,9 +43,8 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         androidVersion: json["android_version"],
         iosAppLink: json["ios_app_link"],
         androidAppLink: json["android_app_link"],
-        enableDevLog: json["enable_dev_log"],
-        enableProdLog: json["enable_prod_log"],
-        forceUpdate: json["force_update"],
+        enableLog: json["enable_log"],
+        forceUpdate: Platform.isIOS ? json["force_update_ios"] : json["force_update_android"],
       );
 
   @override
