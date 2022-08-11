@@ -7,12 +7,13 @@ class OrderHeaderModel extends SessionHeaderModel {
     String token,
     this.sessionId,
     this.dealerId,
+    AppId appId,
     OrderPoint _orderPoint,
     SessionPoint sessionPoint, {
     this.tableId,
     CustomerAddressModel? customerAddress,
   }) : super(
-          appId: AppId.SIP,
+          appId: appId,
           token: token,
           orderPoint: _orderPoint,
           sessionPoint: sessionPoint,
@@ -52,11 +53,13 @@ class OrderHeaderModel extends SessionHeaderModel {
     int dealerId,
     SessionPoint sessionPoint,
     String tableId,
+    AppId appId,
   ) =>
       OrderHeaderModel(
         token,
         sessionId,
         dealerId,
+        appId,
         OrderPoint.TABLE,
         sessionPoint,
         tableId: tableId,
@@ -69,11 +72,13 @@ class OrderHeaderModel extends SessionHeaderModel {
     OrderPoint _orderPoint,
     DeliveryType _deliveryType,
     CustomerAddressModel? customerAddress,
+    AppId appId,
   ) =>
       OrderHeaderModel(
         token,
         sessionId,
         dealerId,
+        appId,
         _orderPoint,
         SessionPoint.MARKETPLACE,
         customerAddress: customerAddress,
