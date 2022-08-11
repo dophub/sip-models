@@ -106,3 +106,8 @@ enum VehicleStatusId { IN_VALET, WAITING_FOR_GET, DONE }
 /// [NOTR] nötr
 /// [NOK] Tavisye etmem
 enum AdviceStatusId { OK, NOTR, NOK }
+
+/// [AppId] Uygulamaların id'si
+/// [SIP] Siparişim uygulaması
+/// [RI] Restorant işim uygulaması
+enum AppId { SIP, RI }
