@@ -1,4 +1,6 @@
-class ErrorModel {
+import 'package:background_json_parser/background_json_parser.dart';
+
+class ErrorModel extends IBaseModel<ErrorModel> {
   ErrorModel({
     this.errorCode,
     this.message,
@@ -7,11 +9,13 @@ class ErrorModel {
   String? errorCode;
   String? message;
 
-  factory ErrorModel.fromJson(Map<String, dynamic> json) => ErrorModel(
+  @override
+  fromJson(Map<String, dynamic> json) => ErrorModel(
         errorCode: json["error_code"],
         message: json["message"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "error_code": errorCode,
         "message": message,
