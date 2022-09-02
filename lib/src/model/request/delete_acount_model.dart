@@ -1,5 +1,5 @@
-class OrderDetailModel {
-  OrderDetailModel({
+class DeleteAccountModel {
+  DeleteAccountModel({
     this.reason,
     this.message,
     this.deviceId,
@@ -8,7 +8,7 @@ class OrderDetailModel {
   String? reason;
   String? message;
   String? deviceId;
-  
+
   Map<String, dynamic> toJson() => {
         "reason": reason,
         "message": message,
