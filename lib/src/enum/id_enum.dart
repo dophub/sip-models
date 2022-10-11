@@ -111,3 +111,8 @@ enum AdviceStatusId { OK, NOTR, NOK }
 /// [SIP] Siparişim uygulaması
 /// [RI] Restorant işim uygulaması
 enum AppId { SIP, RI }
+
+/// [TableOrderType] Masa modulunde sipariş verme türü
+/// [POST] Normal sipariş verme
+/// [PRE] Self Service
+enum TableOrderType { POST, PRE }
