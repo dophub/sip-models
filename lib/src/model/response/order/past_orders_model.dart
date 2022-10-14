@@ -34,7 +34,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrdersModel(
         id: json["id"],
-        numberOfService: json[''],
+        numberOfService: json['number_of_service'],
         orderNumber: json["order_number"],
         recordDate: DateTime.parse(json["record_date"]),
         totalAmount: json["total_amount"].toDouble(),
