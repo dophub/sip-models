@@ -8,8 +8,8 @@ import '../other/images_model.dart';
 class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   PastOrderDetailsModel({
     this.id,
-    this.numberOfService,
     this.orderNumber,
+    this.title,
     this.totalAmount,
     this.recordDate,
     this.deliveryDate,
@@ -25,6 +25,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
 
   int? id;
   int? numberOfService;
+  String? title;
   String? orderNumber;
   double? totalAmount;
   DateTime? recordDate;
@@ -41,7 +42,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
       id: json["id"],
-      numberOfService: json["number_of_service"],
+      title: json["title"],
       orderNumber: json["order_number"],
       totalAmount: json["total_amount"].toDouble(),
       recordDate: DateTime.parse(json["record_date"]),
