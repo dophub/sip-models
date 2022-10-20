@@ -2,8 +2,8 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../response.dart';
 
-class PastServiceDetail extends IBaseModel<PastServiceDetail> {
-  PastServiceDetail({
+class PastServiceDetails extends IBaseModel<PastServiceDetails> {
+  PastServiceDetails({
     this.id,
     this.serviceTotalAmount,
     this.numberOfService,
@@ -20,8 +20,8 @@ class PastServiceDetail extends IBaseModel<PastServiceDetail> {
   PastOrderDetailsModel? orders;
 
   @override
-  PastServiceDetail fromJson(Map<String, dynamic> json) {
-    return PastServiceDetail(
+  PastServiceDetails fromJson(Map<String, dynamic> json) {
+    return PastServiceDetails(
       id: json["id"],
       serviceTotalAmount: json["service_total_amount"].toDouble(),
       numberOfService: json["number_of_service"],
