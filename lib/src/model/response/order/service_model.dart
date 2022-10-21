@@ -9,7 +9,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
       this.serviceNumber,
       this.personCount,
       this.revisionNumber,
-      this.totalTipAmount,
+      // this.totalTipAmount,
       this.dealerId,
       this.payCustomerId,
       this.paymentTypeId,
@@ -24,7 +24,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
   String? serviceNumber;
   int? personCount;
   String? revisionNumber;
-  int? totalTipAmount;
+  // int? totalTipAmount;
   int? dealerId;
   int? payCustomerId;
   String? paymentTypeId;
@@ -41,7 +41,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         serviceNumber: json["service_number"],
         personCount: json["person_count"],
         revisionNumber: json["revision_number"],
-        totalTipAmount: json["total_tip_amount"],
+        // totalTipAmount: json["total_tip_amount"],
         dealerId: json["dealer_id"],
         payCustomerId: json["pay_customer_id"],
         paymentTypeId: json["payment_type_id"],
