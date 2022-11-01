@@ -71,8 +71,9 @@ class OrderHeaderModel extends SessionHeaderModel {
 
   @override
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
-    _toMap().addAll(addMap);
-    return super.createHeader(addMap: _toMap());
+    final map = _toMap();
+    map.addAll(addMap);
+    return super.createHeader(addMap: map);
   }
 
   OrderHeaderModel _setDealer() {
