@@ -3,6 +3,11 @@ import '../../../response.dart';
 import 'session_header_model.dart';
 
 class OrderHeaderModel extends SessionHeaderModel {
+  String? tableId;
+  int dealerId;
+  String sessionId;
+  late DeliveryType deliveryType;
+
   OrderHeaderModel(
     String token,
     this.sessionId,
@@ -19,33 +24,6 @@ class OrderHeaderModel extends SessionHeaderModel {
           sessionPoint: sessionPoint,
           customerAddress: customerAddress,
         );
-
-  String? tableId;
-  int dealerId;
-  late String sessionId;
-  late DeliveryType deliveryType;
-
-  Map<String, String> _toJson() => {
-        "sessionid": sessionId,
-        "dealerid": dealerId.toString(),
-        "tableid": tableId ?? '',
-        "deliverytype": deliveryType.name,
-      };
-
-  @override
-  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
-    return super.createHeader(addMap: _toJson());
-  }
-
-  OrderHeaderModel _setDealer() {
-    deliveryType = DeliveryType.TABLE;
-    return this;
-  }
-
-  OrderHeaderModel _setMarketPlace(DeliveryType _deliveryType) {
-    deliveryType = _deliveryType;
-    return this;
-  }
 
   factory OrderHeaderModel.toDealer(
     String token,
@@ -83,4 +61,27 @@ class OrderHeaderModel extends SessionHeaderModel {
         SessionPoint.MARKETPLACE,
         customerAddress: customerAddress,
       )._setMarketPlace(_deliveryType);
+
+  Map<String, String> _toMap() => {
+        "sessionid": sessionId,
+        "dealerid": dealerId.toString(),
+        "tableid": tableId ?? '',
+        "deliverytype": deliveryType.name,
+      };
+
+  @override
+  Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
+    _toMap().addAll(addMap);
+    return super.createHeader(addMap: _toMap());
+  }
+
+  OrderHeaderModel _setDealer() {
+    deliveryType = DeliveryType.TABLE;
+    return this;
+  }
+
+  OrderHeaderModel _setMarketPlace(DeliveryType _deliveryType) {
+    deliveryType = _deliveryType;
+    return this;
+  }
 }
