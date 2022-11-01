@@ -43,3 +43,4 @@ export 'src/model/response/other/banner_model.dart';
 export 'src/model/response/campaign/campaign_detail_model.dart';
 export 'src/model/response/other/user_form_contract.dart';
 export 'src/model/response/other/app_status_model.dart';
+export 'src/model/response/order/past_service_detail_model.dart';

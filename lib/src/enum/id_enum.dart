@@ -115,4 +115,5 @@ enum AppId { SIP, RI }
 /// [TableOrderType] Masa modulunde sipariş verme türü
 /// [POST] Normal sipariş verme
 /// [PRE] Self Service
-enum TableOrderType { POST, PRE }
+/// [HYBRID] İlk Önce ödeme alan restoranlar
+enum PaymentModelID { POST, PRE, HYBRID }

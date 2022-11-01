@@ -41,7 +41,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         serviceNumber: json["service_number"],
         personCount: json["person_count"],
         revisionNumber: json["revision_number"],
-        totalTipAmount: json["total_tip_amount"]==null ? null : json["total_tip_amount"].toDouble(),
+        totalTipAmount: json["total_tip_amount"] == null ? 0.0 : json["total_tip_amount"].toDouble(),
         dealerId: json["dealer_id"],
         payCustomerId: json["pay_customer_id"],
         paymentTypeId: json["payment_type_id"],
@@ -49,9 +49,8 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         serviceTotalAmount: json["service_total_amount"].toDouble(),
         serviceStatusId: json["service_status_id"],
         serviceTotalAmountWithoutKdv: json["service_total_amount_without_kdv"].toDouble(),
-        orders: json["orders"] == null
-            ? []
-            : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
+        orders:
+            json["orders"] == null ? [] : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
       );
 
   @override

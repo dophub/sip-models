@@ -102,5 +102,3 @@ enum AddressTypeEnum { home, work, hotel, other }
 /// Http işlemerinde kullanılmakta
 enum HttpMethod { get, post, put, delete, update }
 
-///Self servis mi,garsonlu masa mı ya da Hybrid masa mı durumu
-enum PaymentModelID{POST,PRE,HYBRID}

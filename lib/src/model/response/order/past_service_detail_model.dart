@@ -1,9 +1,8 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/src/model/response/order/past_order_details_model.dart';
 
-import '../../../../response.dart';
-
-class PastServiceDetails extends IBaseModel<PastServiceDetails> {
-  PastServiceDetails({
+class PastServiceDetailModel extends IBaseModel<PastServiceDetailModel> {
+  PastServiceDetailModel({
     this.id,
     this.serviceTotalAmount,
     this.numberOfService,
@@ -17,17 +16,17 @@ class PastServiceDetails extends IBaseModel<PastServiceDetails> {
   int? numberOfService;
   double? totalTipAmount;
   String? serviceStatusId;
-  PastOrderDetailsModel? orders;
+  List<PastOrderDetailsModel>? orders;
 
   @override
-  PastServiceDetails fromJson(Map<String, dynamic> json) {
-    return PastServiceDetails(
+  PastServiceDetailModel fromJson(Map<String, dynamic> json) {
+    return PastServiceDetailModel(
       id: json["id"],
       serviceTotalAmount: json["service_total_amount"].toDouble(),
       numberOfService: json["number_of_service"],
-      totalTipAmount: json["total_tip_amount"]==null ? null : json["total_tip_amount"]!.toDouble(),
+      totalTipAmount: json["total_tip_amount"] == null ? 0.0 : json["total_tip_amount"]!.toDouble(),
       serviceStatusId: json["service_status_id"],
-      orders: PastOrderDetailsModel().fromJson(json["orders"]),
+      orders: List<PastOrderDetailsModel>.from(json["orders"].map((x) => PastOrderDetailsModel().fromJson(x))),
     );
   }
 
