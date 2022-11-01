@@ -22,3 +22,7 @@ enum CampaignScreenArguments { campaignList, viewMode }
 enum OtpVerificationScreenArguments { mode, userModel }
 
 enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
+
+enum SelfServiceActiveOrderDetailScreenArguments { orderId, isPaymentMode }
+
+enum HybridActiveOrderDetailScreenArguments { serviceId, isPaymentMode }
