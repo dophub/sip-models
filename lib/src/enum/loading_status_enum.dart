@@ -9,6 +9,7 @@ enum CustomerStatusId { COMPLETE, WAIT }
 
 enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut, NotFound, Found }
 
+/// WebView Ödeme callback query parameters enum
 enum PaymentQueryParametersStatus { FAIL, SUCCESS }
 
 /// String değerler verip [ApiStatus] türünde değişken almak için yazıldı
