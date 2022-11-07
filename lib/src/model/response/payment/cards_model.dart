@@ -41,16 +41,16 @@ class CardsModel {
   });
 
   String? eulaId;
-  List<CardList>? cardList;
+  List<CardModel>? cardList;
 
   factory CardsModel.fromJson(Map<String, dynamic> json) => CardsModel(
         eulaId: json["eulaId"],
-        cardList: List<CardList>.from(json["cardList"].map((x) => CardList.fromJson(x))),
+        cardList: List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
       );
 }
 
-class CardList extends ISectionsWidgetModel {
-  CardList({
+class CardModel extends ISectionsWidgetModel {
+  CardModel({
     this.cardId,
     this.maskedCardNo,
     this.alias,
@@ -62,6 +62,7 @@ class CardList extends ISectionsWidgetModel {
     this.isOtpValidated,
     this.activationDate,
     this.cardType,
+    this.cardLogo,
   });
 
   String? cardId;
@@ -75,8 +76,9 @@ class CardList extends ISectionsWidgetModel {
   bool? isOtpValidated;
   DateTime? activationDate;
   String? cardType;
+  String? cardLogo;
 
-  factory CardList.fromJson(Map<String, dynamic> json) => CardList(
+  factory CardModel.fromJson(Map<String, dynamic> json) => CardModel(
         cardId: json["cardId"],
         maskedCardNo: json["maskedCardNo"],
         alias: json["alias"],
@@ -88,6 +90,7 @@ class CardList extends ISectionsWidgetModel {
         isOtpValidated: json["isOTPValidated"],
         activationDate: DateTime.parse(json["activationDate"]),
         cardType: json["cardType"],
+        cardLogo: json["card_logo"],
       );
 
   @override
