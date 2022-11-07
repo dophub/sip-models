@@ -20,3 +20,13 @@ const Map<String, ApiStatus> stringToApiStatusMap = {
   'loading': ApiStatus.loading,
   'success': ApiStatus.success
 };
+
+/// [SocketStatus] socket bağlantı dururmu
+enum SocketStatus {
+  connect,
+  connecting,
+  error,
+  connectError,
+  connectTimeout,
+  disconnect,
+}

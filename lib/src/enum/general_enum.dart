@@ -4,37 +4,6 @@ enum AppEnvironment {
   Production,
 }
 
-/// [RemoteConfigKey] Firabase remote Config Key leri
-/// [remote_ios_version] ios güncel uygulama versiyonu
-/// [force_update_ios] ios zorunlu güncelleme
-/// [ios_market_link] ios market link
-/// [ios_force_update_message] ios güncelleme mesajı
-/// [remote_android_version] android güncel versiyon
-/// [force_update_android] android zorunlu güncelleme
-/// [android_market_link] android uygulama linki
-/// [android_force_update_message] android uygulama güncelleme mesajı
-/// [enable_login] Kullanıcı girişi
-/// [enable_login_false_message] Kullanıcı giriş yapamadığında çıkacan mesaj
-/// [enable_marketplace] marketplace modülü aktif pasif
-/// [enable_marketplace_false_message] Kullanıcı marketplace girmediğinde çıkacan mesaj
-/// [enable_dealer] dealer modülü aktif pasif
-/// [enable_dealer_false_message] Kullanıcı dealere girmediğinde çıkacan mesaj
-enum RemoteConfigKey {
-  remote_ios_version,
-  force_update_ios,
-  ios_market_link,
-  ios_force_update_message,
-  remote_android_version,
-  force_update_android,
-  android_market_link,
-  android_force_update_message,
-  enable_login,
-  enable_login_false_message,
-  enable_marketplace,
-  enable_marketplace_false_message,
-  enable_dealer,
-  enable_dealer_false_message,
-}
 
 /// [OUT_TEMP] Cihazda
 /// [OUT_WAIT] Onay Bekliyor
