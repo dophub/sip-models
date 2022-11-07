@@ -57,7 +57,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   double? tipAmount;
   int? customerId;
   String? orderNumber;
-  OrderStatus? orderStatus;
+  OrderStatusModel? orderStatus;
   double? totalAmount;
   String? deliveryDate;
   String? orderPointId;
@@ -92,7 +92,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
       customerId: json["customer_id"],
       orderNumber: json["order_number"],
-      orderStatus: OrderStatus.fromJson(json["order_status"]),
+      orderStatus: OrderStatusModel.fromJson(json["order_status"]),
       totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
       deliveryDate: json["delivery_date"],
       orderPointId: json["order_point_id"],
@@ -155,8 +155,8 @@ class OrderModel extends IBaseModel<OrderModel> {
       };
 }
 
-class OrderStatus {
-  OrderStatus({
+class OrderStatusModel {
+  OrderStatusModel({
     this.orderStatusCode,
     this.orderStatusName,
     this.isCompleteOrder,
@@ -166,7 +166,7 @@ class OrderStatus {
   String? orderStatusName;
   bool? isCompleteOrder;
 
-  factory OrderStatus.fromJson(Map<dynamic, dynamic> json) => OrderStatus(
+  factory OrderStatusModel.fromJson(Map<dynamic, dynamic> json) => OrderStatusModel(
         orderStatusCode: json["order_status_code"],
         orderStatusName: json["order_status_name"],
         isCompleteOrder: json['is_complete_order'],

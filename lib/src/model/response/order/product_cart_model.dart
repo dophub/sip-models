@@ -93,7 +93,7 @@ class Order {
   double? tipAmount;
   int? dealerId;
   String? clientPointId;
-  OrderStatus? orderStatus;
+  OrderStatusModel? orderStatus;
   List<OrderOptionModel>? orderOptions;
   List<ItemOrder>? items;
 
@@ -113,7 +113,7 @@ class Order {
     tipAmount: json["tip_amount"].toDouble(),
     dealerId: json["dealer_id"],
     clientPointId: json["client_point_id"],
-    orderStatus: OrderStatus.fromJson(json["order_status"]),
+    orderStatus: OrderStatusModel.fromJson(json["order_status"]),
     orderOptions: List<OrderOptionModel>.from(json["order_options"].map((x) => OrderOptionModel.fromJson(x))),
     items: List<ItemOrder>.from(json["items"].map((x) => ItemOrder.fromJson(x))),
   );
