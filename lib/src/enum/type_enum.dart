@@ -37,3 +37,9 @@ enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS }
 
 /// [SSOTypeId] Google veya apple ile gieiş yapıldığında türünü belirlemekte
 enum SSOTypeId { google, apple }
+
+/// [OrderSocketType] Socketi dinlerken gelen data nın tipi
+/// [SERVICE] Masa modülünde service te güncelleme olduğunda
+/// [ORDER] Active order de
+/// [MOVE_TABLE] Masa taşıması yapıldığında
+enum OrderSocketType { SERVICE, ORDER, MOVE_TABLE }
