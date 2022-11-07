@@ -23,6 +23,7 @@ const Map<String, ApiStatus> stringToApiStatusMap = {
 
 /// [SocketStatus] socket bağlantı dururmu
 enum SocketStatus {
+  init,
   connect,
   connecting,
   error,
