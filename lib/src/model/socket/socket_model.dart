@@ -1,4 +1,4 @@
-import 'socket_order_data_model.dart';
+import 'order_socket_data_model.dart';
 
 class SocketModel {
   SocketModel({
@@ -7,10 +7,10 @@ class SocketModel {
   });
 
   String? type;
-  SocketOrderDataModel? data;
+  OrderSocketDataModel? data;
 
   factory SocketModel.fromJson(Map<String, dynamic> json) => SocketModel(
         type: json["type"],
-        data: SocketOrderDataModel.fromJson(json["data"]),
+        data: OrderSocketDataModel.fromJson(json["data"]),
       );
 }

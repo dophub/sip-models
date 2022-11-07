@@ -1,7 +1,7 @@
 import 'package:sip_models/src/model/request/order_model.dart';
 
-class SocketOrderDataModel {
-  SocketOrderDataModel({
+class OrderSocketDataModel {
+  OrderSocketDataModel({
     this.id,
     this.orderPoint,
     this.total,
@@ -21,7 +21,7 @@ class SocketOrderDataModel {
   int? dealerId;
   int? customerId;
 
-  factory SocketOrderDataModel.fromJson(Map<String, dynamic> json) => SocketOrderDataModel(
+  factory OrderSocketDataModel.fromJson(Map<String, dynamic> json) => OrderSocketDataModel(
         id: json["id"],
         orderPoint: json["order_point"],
         total: json["total"] == null ? 0.0 : json["total"].toDouble(),
