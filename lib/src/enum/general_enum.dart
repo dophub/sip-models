@@ -42,7 +42,7 @@ enum GetInOrderStatus {
 }
 
 /// [IN_TEMP] Cihazda
-/// [IN_WAIT] Bekliyor
+/// [IN_WAIT],[WAIT] Bekliyor
 /// [IN_ACCEPT] Onaylandı
 /// [IN_KITCHEN] Hazırlanıyor
 /// [IN_TABLE] Masada
@@ -51,6 +51,7 @@ enum GetInOrderStatus {
 enum TableOrderStatus {
   IN_TEMP,
   IN_WAIT,
+  WAIT,
   IN_ACCEPT,
   IN_KITCHEN,
   IN_TABLE,
