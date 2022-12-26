@@ -1,4 +1,3 @@
-
 class PaycellContractModel {
   PaycellContractModel({
     this.eulaId,
@@ -9,12 +8,12 @@ class PaycellContractModel {
   String? content;
 
   factory PaycellContractModel.fromJson(Map<String, dynamic> json) => PaycellContractModel(
-    eulaId: json["eulaId"],
-    content: json["content"],
-  );
+        eulaId: json["eulaId"],
+        content: json["content"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "eulaId": eulaId,
-    "content": content,
-  };
+        "eulaId": eulaId,
+        "content": content,
+      };
 }

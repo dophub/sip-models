@@ -1,11 +1,9 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
-/// payment_type_code : "CARD"
-/// payment_type : "Kredi kartı"
-/// is_active : true
-/// is_online_payment : false
-class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidgetModel {
+import '../../../../response.dart';
+
+class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidgetModel, PaymentModel {
   PaymentTypesModel({
     this.paymentTypeCode,
     this.paymentType,

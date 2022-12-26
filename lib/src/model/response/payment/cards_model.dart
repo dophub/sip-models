@@ -1,36 +1,6 @@
-import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
-/// Iyzico kullanıcı kayıtlı kartları çekmek için kullanılmakta
-class CardsIyzicoModel extends IBaseModel<CardsIyzicoModel> {
-  CardsIyzicoModel({
-    this.id,
-    this.title,
-    this.cardNo,
-    this.family,
-    this.association,
-  });
-
-  String? id;
-  String? title;
-  String? cardNo;
-  String? family;
-  String? association;
-
-  @override
-  fromJson(Map<String, dynamic> json) => CardsIyzicoModel(
-        id: json["id"],
-        title: json["title"],
-        cardNo: json["cardno"],
-        family: json["family"],
-        association: json["association"],
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    throw UnimplementedError();
-  }
-}
+abstract class PaymentModel {}
 
 /// Paycell kullanıcı kayıtlı kartları çekmek için kullanılmakta
 class CardsModel {
@@ -51,12 +21,11 @@ class CardsModel {
         cardList: List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
         turkcellMobilePayment:
             json['mobilePayment'] == null ? null : TurkcellMobilePayment.fromJson(json['mobilePayment']),
-        payeCard:
-            json['payeCard'] == null ? null : CardModel.fromJson(json['payeCard']),
+        payeCard: json['payeCard'] == null ? null : CardModel.fromJson(json['payeCard']),
       );
 }
 
-class CardModel extends ISectionsWidgetModel {
+class CardModel extends ISectionsWidgetModel with PaymentModel {
   CardModel({
     this.cardId,
     this.maskedCardNo,
@@ -118,7 +87,7 @@ class CardModel extends ISectionsWidgetModel {
   }
 }
 
-class TurkcellMobilePayment {
+class TurkcellMobilePayment with PaymentModel {
   TurkcellMobilePayment({
     this.cardLogo,
     this.cardLimit,
