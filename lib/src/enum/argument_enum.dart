@@ -27,6 +27,6 @@ enum SelfServiceActiveOrderDetailScreenArguments { orderId, isPaymentMode }
 
 enum HybridActiveOrderDetailScreenArguments { serviceId, isPaymentMode }
 
-enum MarketplaceChoosePaymentScreenScreenArguments { basketAmount, selectedCard }
+enum MarketplaceChoosePaymentScreenArguments { basketAmount, selectedCard }
 
 
