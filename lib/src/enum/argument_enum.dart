@@ -26,3 +26,7 @@ enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
 enum SelfServiceActiveOrderDetailScreenArguments { orderId, isPaymentMode }
 
 enum HybridActiveOrderDetailScreenArguments { serviceId, isPaymentMode }
+
+enum MarketplaceChoosePaymentScreenScreenArguments { basketAmount, selectedCard }
+
+
