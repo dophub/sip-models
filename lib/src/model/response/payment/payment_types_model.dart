@@ -3,7 +3,7 @@ import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
 import '../../../../response.dart';
 
-class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidgetModel, PaymentModel {
+class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidgetModel, IPaymentType {
   PaymentTypesModel({
     this.paymentTypeCode,
     this.paymentType,

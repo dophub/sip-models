@@ -1,6 +1,6 @@
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
-abstract class PaymentModel {}
+abstract class IPaymentType {}
 
 /// Paycell kullanıcı kayıtlı kartları çekmek için kullanılmakta
 class CardsModel {
@@ -25,7 +25,7 @@ class CardsModel {
       );
 }
 
-class CardModel extends ISectionsWidgetModel with PaymentModel {
+class CardModel extends ISectionsWidgetModel with IPaymentType {
   CardModel({
     this.cardId,
     this.maskedCardNo,
@@ -87,7 +87,7 @@ class CardModel extends ISectionsWidgetModel with PaymentModel {
   }
 }
 
-class TurkcellMobilePayment with PaymentModel {
+class TurkcellMobilePayment with IPaymentType {
   TurkcellMobilePayment({
     this.cardLogo,
     this.cardLimit,
