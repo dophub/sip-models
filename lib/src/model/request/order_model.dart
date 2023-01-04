@@ -304,7 +304,7 @@ class OrderItem {
           id: item.options![i].id,
           items: List.generate(
             item.options![i].items!.length,
-            (index) => ItemModel(),
+            (index) => ItemModel(id: item.options![i].items![index].id),
           ),
         );
         features.add(featuresItem);
