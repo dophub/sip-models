@@ -28,11 +28,11 @@ jobs:
         run: git push --tag
       - name: delete v char in new version
         run: |
-             "NEW=$(string=${{ env.NEW }} 
+             echo "NEW=$(string=${{ env.NEW }} 
              echo "${string//v/}")" >> $GITHUB_ENV
       - name: delete v char in old version
         run: |
-             "VERSION=$(string=${{ env.VERSION }} 
+             echo "VERSION=$(string=${{ env.VERSION }} 
              echo "${string//v/}")" >> $GITHUB_ENV
       - name: increment version
         uses: MathieuSoysal/replace-string-in-file@v1.0.0
