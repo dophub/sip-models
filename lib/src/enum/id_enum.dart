@@ -35,7 +35,7 @@ enum SessionPoint { RESTIN, RESTOP, MARKETPLACE, LINK }
 /// [AppModuleId] OUygulama modulleri
 /// [Dealer] Restoran içi
 /// [MarketPlace] Marketplace
-enum AppModuleId { Dealer, MarketPlace }
+enum AppModuleId { Dealer, MarketPlace, DigitalEnergy }
 
 /// [DealerBottomButtonId] İşletme modüllün alt buttonların Id si
 /// [Main] Ana ekran
