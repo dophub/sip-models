@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: fetch
+        run: git fetch
       - name: set up env var
         run: echo "VERSION=$(git tag --sort=-refname | awk 'match($0, /^v[0-9]+.*$/)' | head -n 1)" >> $GITHUB_ENV
       - name: set up env var
