@@ -41,5 +41,8 @@ jobs:
           old-string: 'version: ${{ env.VERSION }}'
           new-string: 'version: ${{ env.NEW }}'
       - name: git commit
-        run: git add .
+        run: |
+             echo "git add .
+             git commit -m"incremented version to ${{ env.NEW }}"
+             git push"
 
