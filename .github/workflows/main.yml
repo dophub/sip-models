@@ -36,6 +36,8 @@ jobs:
              echo "${string//v/}")" >> $GITHUB_ENV
       - name: increment version
         run: "sed -i 's/version: ${{ env.VERSION }}/version: ${{ env.NEW }}/' pubspec.yaml"
+      - name: create file
+        run: touch bar.txt
       - name: git commit
         run: |
              echo "git add .
