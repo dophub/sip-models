@@ -35,11 +35,7 @@ jobs:
              echo "VERSION=$(string=${{ env.VERSION }} 
              echo "${string//v/}")" >> $GITHUB_ENV
       - name: increment version
-        uses: MathieuSoysal/replace-string-in-file@v1.0.0
-        with:
-          file: pubspec.yaml
-          old-string: 'version: ${{ env.VERSION }}'
-          new-string: 'version: ${{ env.NEW }}'
+        run: "sed -i 's/version: ${{ env.VERSION }}/version: ${{ env.NEW }}/' pubspec.yaml"
       - name: git commit
         run: |
              echo "git add .
