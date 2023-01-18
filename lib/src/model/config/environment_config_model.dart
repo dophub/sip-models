@@ -5,19 +5,20 @@ import 'package:sip_models/enum.dart';
 /// Ortamlara ayırmak istediğimiz tüm ayarları bu nodelle yazıyoruz
 ///
 /// [environment] Ortam 'Environment'
-/// [sentryDsn] Sentrey DSN
-/// [sentryDsn] Base Url
-///
+/// [lokiUrl] Loki log url
+/// [serviceSocketUrl] Masa modulunde service socket url i
 class EnvironmentConfigModel {
   EnvironmentConfigModel({
     this.appName,
     required this.environment,
     required this.apiBaseUrl,
-    required this.sentryDsn,
+    required this.lokiUrl,
+    required this.serviceSocketUrl,
   });
 
   final String? appName;
   final AppEnvironment environment;
   final String apiBaseUrl;
-  final String sentryDsn;
+  final String lokiUrl;
+  final String serviceSocketUrl;
 }

@@ -2,10 +2,15 @@
 /// [ApiStatus] Api den gelen status durumları.
 /// [BaseModelStatus] BL katmanı ile Controleller katmanı arasındaki (HttpStatus) API Durumlarını 'dır.
 enum LoadingStatus { Init, Loading, Loaded, Error }
+
 enum ApiStatus { success, fail, loading, wait, init }
+
 enum CustomerStatusId { COMPLETE, WAIT }
-enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut }
-enum PaymentFirebaseStatus { COMPLETED, ERROR }
+
+enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut, NotFound, Found }
+
+/// WebView Ödeme callback query parameters enum
+enum PaymentQueryParametersStatus { COMPLETED, ERROR, WAITING, FAIL, SUCCESS }
 
 /// String değerler verip [ApiStatus] türünde değişken almak için yazıldı
 const Map<String, ApiStatus> stringToApiStatusMap = {
@@ -15,3 +20,14 @@ const Map<String, ApiStatus> stringToApiStatusMap = {
   'loading': ApiStatus.loading,
   'success': ApiStatus.success
 };
+
+/// [SocketStatus] socket bağlantı dururmu
+enum SocketStatus {
+  init,
+  connect,
+  connecting,
+  error,
+  connectError,
+  connectTimeout,
+  disconnect,
+}

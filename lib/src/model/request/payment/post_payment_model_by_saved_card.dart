@@ -1,0 +1,40 @@
+/// Iyzico eski kartla ödeme
+class PostPaymentBySavedCardIyzicoModel {
+  PostPaymentBySavedCardIyzicoModel({
+    this.cardId,
+    this.useThreeD,
+  });
+
+  String? cardId;
+  bool? useThreeD;
+
+  Map<String, dynamic> toJson() => {
+        "card_id": cardId,
+        "useThreeD": useThreeD,
+      };
+}
+
+/// Paycell eski kartla ödeme
+class PostPayModel {
+  PostPayModel({
+    this.orderId,
+    this.payDeskAmount,
+    this.cardId,
+    this.paymentMethod,
+    this.orderNote
+  });
+
+  int? orderId;
+  bool? payDeskAmount;
+  String? cardId;
+  String? paymentMethod;
+  String? orderNote;
+
+  Map<String, dynamic> toJson() => {
+        "payment_method": paymentMethod,
+        "order_note": orderNote,
+        "order_id": orderId,
+        "pay_desk_amount": payDeskAmount,
+        "cardId": cardId,
+      };
+}

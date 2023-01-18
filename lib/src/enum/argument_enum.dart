@@ -6,6 +6,27 @@
 
 /// Screens Arguments
 enum ProductProfileScreenArguments { dealerId, orderItem, itemObject, currentModule }
+
 enum MenuScreenArguments { menuId, focusActive }
+
 enum CategoryScreenArguments { categoryId, focusActive }
-enum DealerDetailScreenArguments { dealerModel, nearDealerDetailsModel }
+
+enum DealerDetailScreenArguments { dealerModel }
+
+enum DealerPaymentScreenArguments { payDeskAmount }
+
+enum FixMenuScreenArguments { dealerId, selectedFixMenuList }
+
+enum CampaignScreenArguments { campaignList, viewMode }
+
+enum OtpVerificationScreenArguments { mode, userModel }
+
+enum UserChooseAddressScreenArguments { canChangeAddress, addressList }
+
+enum SelfServiceActiveOrderDetailScreenArguments { orderId, isPaymentMode }
+
+enum HybridActiveOrderDetailScreenArguments { serviceId, isPaymentMode }
+
+enum MarketplaceChoosePaymentScreenArguments { basketAmount, selectedCard }
+
+

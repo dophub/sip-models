@@ -1,24 +1,41 @@
+import 'package:sip_models/src/enum/id_enum.dart';
+
+import '../response/address/customer_address_model.dart';
+
 ///  Business Logic'teki client class ları bu modelden extends edilecek.
 ///  Business Logic'teki Class türetildiği zaman bu modelin Constructor headerin gerekli parametrelerini dolduracak
 ///  daha sonra headere eklemek istediğimiz default parametreler hariç başka parametre eklemek istiyorsak
 ///  map paramtersine ekleyip [createHeader] metodunu çağırıyoruz.
 class SessionHeaderModel {
-  //final sessionService = Get.find<SessionService>();
+  const SessionHeaderModel({
+    required this.token,
+    required this.appId,
+    this.orderPoint,
+    this.customerAddress,
+    this.sessionPoint,
+  });
 
-  SessionHeaderModel(String token) {
-    authorization = 'Bearer $token';
-    lang = 'tr';
-  }
-
-  final String? contentType = "application/json";
-  String? authorization;
-  String? lang;
+  final String token;
+  final AppId appId;
+  final String lang = 'tr';
+  final OrderPoint? orderPoint;
+  final SessionPoint? sessionPoint;
+  final CustomerAddressModel? customerAddress;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
+    final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
-      "content-type": contentType!,
-      "authorization": authorization!,
-      "lang": lang!,
+      "content-type": "application/json",
+      "clientpoint": ClientPointId.MOBILE_APP.name,
+      "applicationname": appId.name,
+      "authorization": 'Bearer $token',
+      "lang": lang,
+      "orderpoint": orderPoint == null ? '' : orderPoint!.name,
+      "neighborhoodid": (address.neighborhoodId ?? 0).toString(),
+      "addressid": (address.id ?? 0).toString(),
+      "latlng": address.latlng ?? '0,0',
+      "panel": "d",
+      "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
     };
     _map.addAll(addMap);
     return _map;

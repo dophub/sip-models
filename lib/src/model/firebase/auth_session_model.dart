@@ -1,8 +1,3 @@
-import 'dart:convert';
-
-AuthSessionModel authSessionFromJson(String str) =>
-    AuthSessionModel.fromJson(json.decode(str));
-
 /// Hızlı giriş FireStorde dinlediğimiz beli [sessionId] Documenttı
 class AuthSessionModel {
   AuthSessionModel({
@@ -21,16 +16,13 @@ class AuthSessionModel {
   String? types;
   AuthErrorModel? error;
 
-  factory AuthSessionModel.fromJson(Map<String, dynamic> json) =>
-      AuthSessionModel(
+  factory AuthSessionModel.fromJson(Map<String, dynamic> json) => AuthSessionModel(
         status: json["status"],
         userHash: json["user_hash"],
         reqDate: DateTime.parse(json["req_date"]),
         sessionId: json["sessionId"],
         types: json["type"],
-        error: json["error"] != null
-            ? AuthErrorModel.fromJson(json["error"])
-            : AuthErrorModel(),
+        error: json["error"] != null ? AuthErrorModel.fromJson(json["error"]) : AuthErrorModel(),
       );
 }
 

@@ -1,4 +1,3 @@
-
 /// [DeliveryType] Teslimat türü
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
@@ -28,3 +27,19 @@ enum ItemType { PRODUCT, PROMOTION_MENU }
 /// [OPTION] Item olmayan option
 /// [FEATURE] Item olan option
 enum OptionType { OPTION, FEATURE }
+
+/// [PaymentOnlineType] Option türü
+/// [offline] kapıda ödeme VS..
+/// [online] KrediKartı VS..
+enum PaymentOnlineType { offline, online }
+
+enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS }
+
+/// [SSOTypeId] Google veya apple ile gieiş yapıldığında türünü belirlemekte
+enum SSOTypeId { google, apple }
+
+/// [OrderSocketType] Socketi dinlerken gelen data nın tipi
+/// [SERVICE] Masa modülünde service te güncelleme olduğunda
+/// [ORDER] Active order de
+/// [MOVE_TABLE] Masa taşıması yapıldığında
+enum OrderSocketType { SERVICE, ORDER, MOVE_TABLE }
