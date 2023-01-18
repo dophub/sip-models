@@ -11,7 +11,7 @@ jobs:
         run: echo "VERSION=$(git tag --sort=-refname | awk 'match($0, /^v[0-9]+.*$/)' | head -n 1)" >> $GITHUB_ENV
       - name: set up env var
         run: |
-             echo "NEW=$(IN=v1.2.3
+             echo "NEW=$(IN=${{ env.VERSION }}
              F1=`echo $IN | cut -f1 '-d.'`
              F2=`echo $IN | cut -f2 '-d.'`
              F3=`echo $IN | cut -f3 '-d.'`
