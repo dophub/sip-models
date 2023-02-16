@@ -51,6 +51,8 @@ enum DealerBottomButtonId { Main, Order, Waiter, Valet }
 /// [Basket] Sipariş ekranı
 enum MarketPlaceBottomButtonId { Home, Search, Campaign, Basket }
 
+enum EnergyBottomButtonId { Home, Planing, Map, History }
+
 /// [ImageSizeId] Resimin hangi Liste türünde [ListMode] gözükeceğini belirten id
 /// [mobile_list] bu resim türü [ListMode.line] inde kulanılmakta
 /// [mobile_list_col] bu resim türü [ListMode.grid] inde kulanılmakta
