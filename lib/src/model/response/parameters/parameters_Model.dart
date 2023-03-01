@@ -26,11 +26,8 @@ class ParametersModel extends IBaseModel<ParametersModel> {
             : List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
         paymentTypes: json["payment_types"] == null
             ? []
-            : List<PaymentTypesModel>.from(
-                json["payment_types"].map((x) => PaymentTypesModel().fromJson(x))),
-        orderBy: json["order_by"] == null
-            ? []
-            : List<OrderBy>.from(json["order_by"].map((x) => OrderBy.fromJson(x))),
+            : List<PaymentTypesModel>.from(json["payment_types"].map((x) => PaymentTypesModel().fromJson(x))),
+        orderBy: json["order_by"] == null ? [] : List<OrderBy>.from(json["order_by"].map((x) => OrderBy.fromJson(x))),
       );
 
   @override
@@ -108,13 +105,14 @@ class StatusModel {
 }
 
 class PaymentType {
-  PaymentType(
-      {required this.paymentTypeCode,
-      required this.paymentType,
-      required this.isActive,
-      required this.isOnlinePayment,
-      this.imageUrl,
-      required this.isSelected});
+  PaymentType({
+    required this.paymentTypeCode,
+    required this.paymentType,
+    required this.isActive,
+    required this.isOnlinePayment,
+    this.imageUrl,
+    required this.isSelected,
+  });
 
   String paymentTypeCode;
   String paymentType;
@@ -140,4 +138,13 @@ class PaymentType {
         "is_online_payment": isOnlinePayment,
         'is_selected': isSelected,
       };
+
+  PaymentType copyWith() => PaymentType(
+        paymentTypeCode: paymentTypeCode,
+        paymentType: paymentType,
+        isActive: isActive,
+        imageUrl: imageUrl,
+        isOnlinePayment: isOnlinePayment,
+        isSelected: isSelected,
+      );
 }
