@@ -104,7 +104,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
       totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
       customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
-      recordDate: DateTime.parse(json["record_date"]),
+      recordDate: DateTime.tryParse(json["record_date"]),
       orderOptions: json["order_options"] ?? '',
       customerAddress:
           json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
