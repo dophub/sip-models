@@ -52,7 +52,9 @@ class DealerDetailModel {
         isTipsActive: json["is_tips_active"],
         dealerTipShowTypeId: json["dealer_tip_show_type_id"],
         minTipPercent: json["min_tip_percent"],
-        tipsTable: List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
+        tipsTable: json["tips_table"] == null
+            ? []
+            : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
       );
 }
 
@@ -144,12 +146,12 @@ class TipsTableModel {
   });
 
   int? id;
-  int? amount;
+  double? amount;
   int? listOrder;
 
   factory TipsTableModel.fromJson(Map<String, dynamic> json) => TipsTableModel(
         id: json["id"],
-        amount: json["amount"],
+        amount: json["amount"].toDouble(),
         listOrder: json["list_order"],
       );
 
