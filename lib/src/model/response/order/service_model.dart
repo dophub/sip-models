@@ -3,21 +3,23 @@ import 'package:sip_models/src/model/request/order_model.dart';
 
 /// Dealer de adisyon için kullanılmakta
 class ServiceModel extends IBaseModel<ServiceModel> {
-  ServiceModel(
-      {this.serviceId,
-      this.tableId,
-      this.serviceNumber,
-      this.personCount,
-      this.revisionNumber,
-      this.totalTipAmount,
-      this.dealerId,
-      this.payCustomerId,
-      this.paymentTypeId,
-      this.servicePayTypeId,
-      this.serviceTotalAmount,
-      this.serviceTotalAmountWithoutKdv,
-      this.orders,
-      this.serviceStatusId});
+  ServiceModel({
+    this.serviceId,
+    this.tableId,
+    this.serviceNumber,
+    this.personCount,
+    this.revisionNumber,
+    this.totalTipAmount,
+    this.dealerId,
+    this.payCustomerId,
+    this.paymentTypeId,
+    this.servicePayTypeId,
+    this.serviceTotalAmount,
+    this.serviceTotalAmountWithoutKdv,
+    this.orders,
+    this.serviceStatusId,
+    this.tableServiceStatusId,
+  });
 
   int? serviceId;
   String? tableId;
@@ -32,6 +34,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
   double? serviceTotalAmount;
   String? serviceStatusId;
   double? serviceTotalAmountWithoutKdv;
+  String? tableServiceStatusId;
   List<OrderModel>? orders;
 
   @override
@@ -49,6 +52,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         serviceTotalAmount: json["service_total_amount"].toDouble(),
         serviceStatusId: json["service_status_id"],
         serviceTotalAmountWithoutKdv: json["service_total_amount_without_kdv"].toDouble(),
+        tableServiceStatusId: json["table_service_status_id"],
         orders:
             json["orders"] == null ? [] : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
       );
