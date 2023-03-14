@@ -35,7 +35,7 @@ enum SessionPoint { RESTIN, RESTOP, MARKETPLACE, LINK }
 /// [AppModuleId] OUygulama modulleri
 /// [Dealer] Restoran içi
 /// [MarketPlace] Marketplace
-enum AppModuleId { Dealer, MarketPlace, DigitalEnergy, Hotel, Trip, Market}
+enum AppModuleId { Dealer, MarketPlace, DigitalEnergy, Hotel, Trip, Market }
 
 /// [DealerBottomButtonId] İşletme modüllün alt buttonların Id si
 /// [Main] Ana ekran
@@ -69,7 +69,7 @@ enum GetBuilderId { onChangeServiceModel }
 /// [WAIT] Bekliyor
 /// [COMPLETE] Tamamlandı
 /// [INKITCHEN] Mutfakta
-enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN }
+enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL }
 
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil
