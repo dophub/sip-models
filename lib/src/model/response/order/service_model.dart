@@ -19,6 +19,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
     this.orders,
     this.serviceStatusId,
     this.tableServiceStatusId,
+    this.serviceOrderAmount,
   });
 
   int? serviceId;
@@ -34,6 +35,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
   double? serviceTotalAmount;
   String? serviceStatusId;
   double? serviceTotalAmountWithoutKdv;
+  double? serviceOrderAmount;
   String? tableServiceStatusId;
   List<OrderModel>? orders;
 
@@ -53,6 +55,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         serviceStatusId: json["service_status_id"],
         serviceTotalAmountWithoutKdv: json["service_total_amount_without_kdv"].toDouble(),
         tableServiceStatusId: json["table_service_status_id"],
+        serviceOrderAmount: json["service_order_amount"],
         orders:
             json["orders"] == null ? [] : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
       );
