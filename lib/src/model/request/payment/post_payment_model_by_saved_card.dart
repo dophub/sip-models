@@ -22,7 +22,7 @@ class PostPayModel {
     this.payDeskAmount,
     this.cardId,
     this.paymentMethod,
-    this.orderNote
+    this.orderNote,
     this.useThreeD
   });
 
