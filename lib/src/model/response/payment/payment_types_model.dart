@@ -9,11 +9,12 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidg
     this.paymentType,
     this.isActive,
     this.isOnlinePayment,
+    this.imageUrl,
   });
 
   String? paymentTypeCode;
   String? paymentType;
-
+  String? imageUrl;
   bool? isActive;
   bool? isOnlinePayment;
 
@@ -24,6 +25,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidg
     map['payment_type'] = paymentType;
     map['is_active'] = isActive;
     map['is_online_payment'] = isOnlinePayment;
+    map['image_url'] = imageUrl;
     return map;
   }
 
@@ -34,6 +36,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidg
       paymentType: json['payment_type'],
       isActive: json['is_active'],
       isOnlinePayment: json['is_online_payment'],
+      imageUrl: json['image_url'],
     );
   }
 

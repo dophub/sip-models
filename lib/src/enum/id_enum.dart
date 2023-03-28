@@ -35,7 +35,7 @@ enum SessionPoint { RESTIN, RESTOP, MARKETPLACE, LINK }
 /// [AppModuleId] OUygulama modulleri
 /// [Dealer] Restoran içi
 /// [MarketPlace] Marketplace
-enum AppModuleId { Dealer, MarketPlace, DigitalEnergy }
+enum AppModuleId { Dealer, MarketPlace, DigitalEnergy, Hotel, Trip, Market }
 
 /// [DealerBottomButtonId] İşletme modüllün alt buttonların Id si
 /// [Main] Ana ekran
@@ -50,6 +50,8 @@ enum DealerBottomButtonId { Main, Order, Waiter, Valet }
 /// [Search] Arama ekranı
 /// [Basket] Sipariş ekranı
 enum MarketPlaceBottomButtonId { Home, Search, Campaign, Basket }
+
+enum EnergyBottomButtonId { Home, Planing, Map, History }
 
 /// [ImageSizeId] Resimin hangi Liste türünde [ListMode] gözükeceğini belirten id
 /// [mobile_list] bu resim türü [ListMode.line] inde kulanılmakta
@@ -67,7 +69,7 @@ enum GetBuilderId { onChangeServiceModel }
 /// [WAIT] Bekliyor
 /// [COMPLETE] Tamamlandı
 /// [INKITCHEN] Mutfakta
-enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN }
+enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, REVISION }
 
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil

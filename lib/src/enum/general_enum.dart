@@ -51,7 +51,6 @@ enum GetInOrderStatus {
 enum TableOrderStatus {
   IN_TEMP,
   IN_WAIT,
-  WAIT,
   IN_ACCEPT,
   IN_KITCHEN,
   IN_TABLE,
@@ -72,3 +71,15 @@ enum AddressTypeEnum { home, work, hotel, other }
 /// Http işlemerinde kullanılmakta
 enum HttpMethod { get, post, put, delete, update }
 
+/// Service status id
+enum ServiceStatusEnum {
+  WAIT, //"Bekliyor"
+  IN_TABLE, //"Siparişler Masada"
+  IN_COMPLETE, //Tüm Siparişler Ödendi"
+  IN_KITCHEN, //"Hazırlanan Sipariş Var"
+  IN_TEMP, // "Gönderilecek Sipariş Var"
+  IN_WAIT, //"Onay Bekliyor"
+  IN_CANCEL, //"İptal Edildi"
+  IN_ACCEPT, //"Onaylandı"
+  CLOSE, //"Kapatıldı"
+}

@@ -43,3 +43,9 @@ enum SSOTypeId { google, apple }
 /// [ORDER] Active order de
 /// [MOVE_TABLE] Masa taşıması yapıldığında
 enum OrderSocketType { SERVICE, ORDER, MOVE_TABLE }
+
+
+/// [TableTipVisibilityType] Bahşiş gösterme şekli
+/// [INLINE] Direk ekranda gösterilecek
+/// [POPUP] Bottom sheet e gösterilecek
+enum TableTipVisibilityType { INLINE, POPUP }

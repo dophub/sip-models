@@ -3,17 +3,22 @@ import '../other/images_model.dart';
 
 /// GR Kod okutulduğu zaman Api den dönen response
 class DealerDetailModel {
-  DealerDetailModel(
-      {this.dealerId,
-      this.mainBrandId,
-      this.dealerName,
-      this.table,
-      this.workingHours,
-      this.logoImage,
-      this.menus,
-      this.categories,
-      this.listImage,
-      this.mobileCoverImage});
+  DealerDetailModel({
+    this.dealerId,
+    this.mainBrandId,
+    this.dealerName,
+    this.table,
+    this.workingHours,
+    this.logoImage,
+    this.menus,
+    this.categories,
+    this.listImage,
+    this.mobileCoverImage,
+    this.isTipsActive,
+    this.dealerTipShowTypeId,
+    this.minTipPercent,
+    this.tipsTable,
+  });
 
   int? dealerId;
   int? mainBrandId;
@@ -25,6 +30,10 @@ class DealerDetailModel {
   ImagesModel? logoImage;
   ImagesModel? listImage;
   ImagesModel? mobileCoverImage;
+  bool? isTipsActive;
+  String? dealerTipShowTypeId;
+  int? minTipPercent;
+  List<TipsTableModel>? tipsTable;
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -40,6 +49,12 @@ class DealerDetailModel {
         categories: json["categories"] == null
             ? []
             : List<FoodCategoryModel>.from(json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
+        isTipsActive: json["is_tips_active"],
+        dealerTipShowTypeId: json["dealer_tip_show_type_id"],
+        minTipPercent: json["min_tip_percent"],
+        tipsTable: json["tips_table"] == null
+            ? []
+            : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
       );
 }
 
@@ -121,4 +136,28 @@ class WorkingHourModel {
         courierEnd: json["courier_end"],
         courierStart: json["courier_start"],
       );
+}
+
+class TipsTableModel {
+  TipsTableModel({
+    this.id,
+    this.amount,
+    this.listOrder,
+  });
+
+  int? id;
+  double? amount;
+  int? listOrder;
+
+  factory TipsTableModel.fromJson(Map<String, dynamic> json) => TipsTableModel(
+        id: json["id"],
+        amount: json["amount"].toDouble(),
+        listOrder: json["list_order"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "amount": amount,
+        "list_order": listOrder,
+      };
 }

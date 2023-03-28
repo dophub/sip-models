@@ -8,7 +8,8 @@ class PostPaymentBySavedCardIyzicoModel {
   String? cardId;
   bool? useThreeD;
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "card_id": cardId,
         "useThreeD": useThreeD,
       };
@@ -21,7 +22,8 @@ class PostPayModel {
     this.payDeskAmount,
     this.cardId,
     this.paymentMethod,
-    this.orderNote
+    this.orderNote,
+    this.useThreeD
   });
 
   int? orderId;
@@ -29,12 +31,15 @@ class PostPayModel {
   String? cardId;
   String? paymentMethod;
   String? orderNote;
+  bool? useThreeD;
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "payment_method": paymentMethod,
         "order_note": orderNote,
         "order_id": orderId,
         "pay_desk_amount": payDeskAmount,
         "cardId": cardId,
+        "use_three_d": useThreeD,
       };
 }

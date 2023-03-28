@@ -92,7 +92,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
       customerId: json["customer_id"],
       orderNumber: json["order_number"],
-      orderStatus: OrderStatusModel.fromJson(json["order_status"]),
+      orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
       totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
       deliveryDate: json["delivery_date"],
       orderPointId: json["order_point_id"],
@@ -104,7 +104,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
       totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
       customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
-      recordDate: DateTime.parse(json["record_date"]),
+      recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
       orderOptions: json["order_options"] ?? '',
       customerAddress:
           json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
