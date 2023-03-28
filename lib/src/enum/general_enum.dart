@@ -51,7 +51,6 @@ enum GetInOrderStatus {
 enum TableOrderStatus {
   IN_TEMP,
   IN_WAIT,
-  WAIT,
   IN_ACCEPT,
   IN_KITCHEN,
   IN_TABLE,
