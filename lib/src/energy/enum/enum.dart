@@ -81,4 +81,4 @@ enum AuthorizationStatusEnum {
   ConcurrentTx
 }
 
-enum EnergyChargeDetailScreenStepEnum { init, register, started, stopped }
+enum EnergyChargeDetailScreenStepEnum { init, register, started, stopped, charging }
