@@ -66,5 +66,3 @@ enum ServiceStatusEnum {
   CLOSE, //"Kapatıldı"
 }
 
-/// şarj istatsyonu müsaitlik durumu
-enum ChargePointStatusEnum { Available, Unavailable }
