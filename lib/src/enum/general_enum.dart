@@ -4,7 +4,6 @@ enum AppEnvironment {
   Production,
 }
 
-
 /// [OUT_TEMP] Cihazda
 /// [OUT_WAIT] Onay Bekliyor
 /// [OUT_ACCEPT] Onaylandı
@@ -31,15 +30,7 @@ enum TakeOutOrderStatus {
 /// [GET_READY] Kasada Hazır
 /// [GET_COMPLETE] Tamamlandı
 /// [GET_CANCEL] İptal
-enum GetInOrderStatus {
-  GET_TEMP,
-  GET_WAIT,
-  GET_ACCEPT,
-  GET_KITCHEN,
-  GET_READY,
-  GET_COMPLETE,
-  GET_CANCEL
-}
+enum GetInOrderStatus { GET_TEMP, GET_WAIT, GET_ACCEPT, GET_KITCHEN, GET_READY, GET_COMPLETE, GET_CANCEL }
 
 /// [IN_TEMP] Cihazda
 /// [IN_WAIT],[WAIT] Bekliyor
@@ -48,16 +39,7 @@ enum GetInOrderStatus {
 /// [IN_TABLE] Masada
 /// [IN_COMPLETE] Tamamlandı
 /// [IN_CANCEL] İptal
-enum TableOrderStatus {
-  IN_TEMP,
-  IN_WAIT,
-  IN_ACCEPT,
-  IN_KITCHEN,
-  IN_TABLE,
-  IN_COMPLETE,
-  IN_CANCEL
-}
-
+enum TableOrderStatus { IN_TEMP, IN_WAIT, IN_ACCEPT, IN_KITCHEN, IN_TABLE, IN_COMPLETE, IN_CANCEL }
 
 /// [TimeoutAction] Dealer de Masa TimeOut durumu
 /// [None] Sepete Ilk eklemede ekleyeceğmiz durum
@@ -83,3 +65,6 @@ enum ServiceStatusEnum {
   IN_ACCEPT, //"Onaylandı"
   CLOSE, //"Kapatıldı"
 }
+
+/// şarj istatsyonu müsaitlik durumu
+enum ChargePointStatusEnum { Available, Unavailable }
