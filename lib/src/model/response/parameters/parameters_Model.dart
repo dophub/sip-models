@@ -111,6 +111,7 @@ class PaymentType {
     required this.isActive,
     required this.isOnlinePayment,
     this.imageUrl,
+    this.isWriteSlip,
     required this.isSelected,
   });
 
@@ -119,6 +120,7 @@ class PaymentType {
   String? imageUrl;
   bool isActive;
   bool isOnlinePayment;
+  bool? isWriteSlip;
   bool isSelected;
 
   factory PaymentType.fromJson(Map<String, dynamic> json) => PaymentType(
@@ -127,6 +129,7 @@ class PaymentType {
         isActive: json["is_active"],
         isOnlinePayment: json["is_online_payment"],
         imageUrl: json['image_url'],
+        isWriteSlip: json['is_write_slip'],
         isSelected: false,
       );
 
@@ -137,6 +140,7 @@ class PaymentType {
         'image_url': imageUrl,
         "is_online_payment": isOnlinePayment,
         'is_selected': isSelected,
+        "is_write_slip": isWriteSlip
       };
 
   PaymentType copyWith() => PaymentType(
@@ -146,5 +150,6 @@ class PaymentType {
         imageUrl: imageUrl,
         isOnlinePayment: isOnlinePayment,
         isSelected: isSelected,
+        isWriteSlip: isWriteSlip,
       );
 }
