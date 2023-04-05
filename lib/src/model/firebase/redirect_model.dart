@@ -25,17 +25,20 @@ class RedirectModel extends IBaseModel<RedirectModel> {
 
 class RedirectDataModel extends IBaseModel<RedirectDataModel> {
   RedirectDataModel({
+    this.typeId,
     this.module,
     this.page,
     this.qr,
   });
 
+  String? typeId;
   String? module;
   String? page;
   String? qr;
 
   @override
   RedirectDataModel fromJson(Map<String, dynamic> json) {
+    typeId = json["typeid"];
     module = json["module"];
     page = json["page"];
     qr = json["qr"];
@@ -44,6 +47,7 @@ class RedirectDataModel extends IBaseModel<RedirectDataModel> {
 
   @override
   Map<String, dynamic> toJson() => {
+        "typeid": typeId,
         "module": module,
         "page": page,
         "qr": qr,
