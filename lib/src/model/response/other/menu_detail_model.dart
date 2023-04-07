@@ -18,8 +18,7 @@ class MenuDetailModel {
   factory MenuDetailModel.fromJson(Map<String, dynamic> json) => MenuDetailModel(
         id: json["id"],
         menuName: json["menu_name"],
-        categories:
-            List<CategoryModel>.from(json["categories"].map((x) => CategoryModel().fromJson(x))),
+        categories: List<CategoryModel>.from(json["categories"].map((x) => CategoryModel().fromJson(x))),
       );
 }
 
@@ -82,6 +81,7 @@ class ProductModel extends IBaseModel<ProductModel> {
     this.shortDescription,
     this.count = 0,
     this.campaigns,
+    this.justSelfService,
   });
 
   int? id;
@@ -97,18 +97,17 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? orderCount;
   String? productName;
   String? shortDescription;
-  int?
-      count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
   List<CampaignModel>? campaigns;
+  bool? justSelfService;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
         dealerId: json["dealer_id"],
         price: List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
-        images: json["images"] == null
-            ? []
-            : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
+        images:
+            json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
         calorie: json["calorie"] ?? 0,
         itemType: json["item_type"],
         makeTime: json["make_time"] ?? 0,
@@ -120,6 +119,7 @@ class ProductModel extends IBaseModel<ProductModel> {
         campaigns: json["campaigns"] == null
             ? []
             : List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
+        justSelfService: json["just_self_service"],
       );
 
   @override
@@ -135,8 +135,8 @@ class ProductModel extends IBaseModel<ProductModel> {
         "option_count": optionCount,
         "product_name": productName,
         "short_description": shortDescription,
-        "campaigns":
-            campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
+        "campaigns": campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
+        "just_self_service": justSelfService,
       };
 }
