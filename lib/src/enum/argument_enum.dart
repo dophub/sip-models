@@ -5,7 +5,7 @@
 ///
 
 /// Screens Arguments
-enum ProductProfileScreenArguments { dealerId, orderItem, itemObject, currentModule, isSell }
+enum ProductProfileScreenArguments { dealerId, orderItem, itemObject, currentModule }
 
 enum MenuScreenArguments { menuId, focusActive }
 
