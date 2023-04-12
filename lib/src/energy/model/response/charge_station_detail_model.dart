@@ -1,6 +1,8 @@
+import 'package:background_json_parser/background_json_parser.dart';
+
 import '../../../../energy.dart';
 
-class ChargeStationDetailModel {
+class ChargeStationDetailModel extends IBaseModel<ChargeStationDetailModel> {
   ChargeStationDetailModel({
     this.id,
     this.title,
@@ -21,7 +23,8 @@ class ChargeStationDetailModel {
   int? distance;
   List<ChargeStationModel>? points;
 
-  factory ChargeStationDetailModel.fromJson(Map<String, dynamic> json) => ChargeStationDetailModel(
+  @override
+  fromJson(Map<String, dynamic> json) => ChargeStationDetailModel(
         id: json["id"],
         title: json["title"],
         lat: json["lat"].toDouble(),
@@ -34,6 +37,7 @@ class ChargeStationDetailModel {
             : List<ChargeStationModel>.from(json["points"].map((x) => ChargeStationModel().fromJson(x))),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
