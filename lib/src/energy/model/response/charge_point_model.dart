@@ -20,6 +20,8 @@ class ChargePointModel extends IBaseModel<ChargePointModel> {
     this.hours,
     this.connectorType,
     this.socketNumber,
+    this.userId,
+    this.isEditable,
   });
 
   String? id;
@@ -40,6 +42,8 @@ class ChargePointModel extends IBaseModel<ChargePointModel> {
   String? hours;
   String? connectorType;
   int? socketNumber;
+  int? userId;
+  bool? isEditable;
 
   @override
   fromJson(Map<String, dynamic> json) => ChargePointModel(
@@ -61,6 +65,8 @@ class ChargePointModel extends IBaseModel<ChargePointModel> {
         hours: json["hours"],
         connectorType: json["connector_type"],
         socketNumber: json["socket_number"],
+        userId: json["user_id"],
+        isEditable: json["is_editable"],
       );
 
   @override
@@ -83,5 +89,7 @@ class ChargePointModel extends IBaseModel<ChargePointModel> {
         "hours": hours,
         "connector_type": connectorType,
         "socket_number": socketNumber,
+        "user_id": userId,
+        "is_editable": isEditable,
       };
 }
