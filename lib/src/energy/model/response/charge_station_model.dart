@@ -52,7 +52,7 @@ class ChargeStationModel extends IBaseModel<ChargeStationModel> {
         pointCode: json["point_code"],
         power: json["power"],
         powerType: json["power_type"],
-        connectorTypes: List<String>.from(json["connector_types"].map((x) => x)),
+        connectorTypes: json["connector_types"] == null ? [] : List<String>.from(json["connector_types"].map((x) => x)),
         distance: json["distance"],
         unitPrice: json["unit_price"].toDouble(),
         pointStatus: json["point_status"],
