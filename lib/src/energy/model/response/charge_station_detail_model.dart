@@ -21,7 +21,7 @@ class ChargeStationDetailModel extends IBaseModel<ChargeStationDetailModel> {
   String? address;
   String? hours;
   int? distance;
-  List<ChargeStationModel>? points;
+  List<ChargePointModel>? points;
 
   @override
   fromJson(Map<String, dynamic> json) => ChargeStationDetailModel(
@@ -34,7 +34,7 @@ class ChargeStationDetailModel extends IBaseModel<ChargeStationDetailModel> {
         distance: json["distance"],
         points: json["points"] == null
             ? []
-            : List<ChargeStationModel>.from(json["points"].map((x) => ChargeStationModel().fromJson(x))),
+            : List<ChargePointModel>.from(json["points"].map((x) => ChargePointModel().fromJson(x))),
       );
 
   @override
