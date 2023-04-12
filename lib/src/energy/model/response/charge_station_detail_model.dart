@@ -27,8 +27,8 @@ class ChargeStationDetailModel extends IBaseModel<ChargeStationDetailModel> {
   fromJson(Map<String, dynamic> json) => ChargeStationDetailModel(
         id: json["id"],
         title: json["title"],
-        lat: json["lat"].toDouble(),
-        lng: json["lng"].toDouble(),
+        lat: json["lat"]?.toDouble(),
+        lng: json["lng"]?.toDouble(),
         address: json["address"],
         hours: json["hours"],
         distance: json["distance"],
