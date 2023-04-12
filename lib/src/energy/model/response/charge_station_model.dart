@@ -16,6 +16,10 @@ class ChargeStationModel extends IBaseModel<ChargeStationModel> {
     this.unitPrice,
     this.pointStatus,
     this.connectorId,
+    this.qrCode,
+    this.hours,
+    this.connectorType,
+    this.socketNumber,
   });
 
   String? id;
@@ -32,6 +36,10 @@ class ChargeStationModel extends IBaseModel<ChargeStationModel> {
   double? unitPrice;
   String? pointStatus;
   int? connectorId;
+  String? qrCode;
+  String? hours;
+  String? connectorType;
+  int? socketNumber;
 
   @override
   fromJson(Map<String, dynamic> json) => ChargeStationModel(
@@ -49,6 +57,10 @@ class ChargeStationModel extends IBaseModel<ChargeStationModel> {
         unitPrice: json["unit_price"].toDouble(),
         pointStatus: json["point_status"],
         connectorId: json["connector_id"],
+        qrCode: json["qr_code"],
+        hours: json["hours"],
+        connectorType: json["connector_type"],
+        socketNumber: json["socket_number"],
       );
 
   @override
@@ -67,5 +79,9 @@ class ChargeStationModel extends IBaseModel<ChargeStationModel> {
         "unit_price": unitPrice,
         "point_status": pointStatus,
         "connector_id": connectorId,
+        "qr_code": qrCode,
+        "hours": hours,
+        "connector_type": connectorType,
+        "socket_number": socketNumber,
       };
 }
