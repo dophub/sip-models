@@ -82,3 +82,5 @@ enum AuthorizationStatusEnum {
 }
 
 enum EnergyChargeDetailScreenStepEnum { init, register, started, stopped, charging }
+
+enum PowerTypeEnum { DC, AC }
