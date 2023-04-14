@@ -16,6 +16,10 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.androidAppLink,
     this.enableLog,
     this.forceUpdate,
+    this.market,
+    this.travel,
+    this.hotel,
+    this.energy,
   });
 
   bool? marketplace;
@@ -30,6 +34,10 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   String? androidAppLink;
   bool? enableLog;
   bool? forceUpdate;
+  bool? market;
+  bool? travel;
+  bool? hotel;
+  bool? energy;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -44,6 +52,10 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         iosAppLink: json["ios_app_link"],
         androidAppLink: json["android_app_link"],
         enableLog: json["enable_log"],
+        market: json["market"],
+        travel: json["travel"],
+        hotel: json["hotel"],
+        energy: json["energy"],
         forceUpdate: Platform.isIOS ? json["force_update_ios"] : json["force_update_android"],
       );
 
