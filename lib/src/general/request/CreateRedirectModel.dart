@@ -16,9 +16,9 @@ class CreateRedirectModel extends IBaseModel<CreateRedirectModel> {
       );
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson({Map<String, dynamic> addData = const {}}) => {
         "typeid": typeid,
-        "json_data": jsonData?.toJson(),
+        "json_data": jsonData?.toJson(addData: addData),
       };
 }
 
