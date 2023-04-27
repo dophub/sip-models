@@ -2,7 +2,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 class CreateRedirectModel extends IBaseModel<CreateRedirectModel> {
   String? typeid;
-  JsonData? jsonData;
+  CreateRedirectDataModel? jsonData;
 
   CreateRedirectModel({
     this.typeid,
@@ -12,7 +12,7 @@ class CreateRedirectModel extends IBaseModel<CreateRedirectModel> {
   @override
   fromJson(Map<String, dynamic> json) => CreateRedirectModel(
         typeid: json["typeid"],
-        jsonData: JsonData.fromJson(json["json_data"]),
+        jsonData: CreateRedirectDataModel.fromJson(json["json_data"]),
       );
 
   @override
@@ -22,18 +22,18 @@ class CreateRedirectModel extends IBaseModel<CreateRedirectModel> {
       };
 }
 
-class JsonData {
+class CreateRedirectDataModel {
   String? module;
   String? page;
   String? qr;
 
-  JsonData({
+  CreateRedirectDataModel({
     this.module,
     this.page,
     this.qr,
   });
 
-  factory JsonData.fromJson(Map<String, dynamic> json) => JsonData(
+  factory CreateRedirectDataModel.fromJson(Map<String, dynamic> json) => CreateRedirectDataModel(
         module: json["module"],
         page: json["page"],
         qr: json["qr"],
