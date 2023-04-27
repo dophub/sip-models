@@ -25,23 +25,25 @@ class CreateRedirectModel extends IBaseModel<CreateRedirectModel> {
 class CreateRedirectDataModel {
   String? module;
   String? page;
-  String? qr;
 
   CreateRedirectDataModel({
     this.module,
     this.page,
-    this.qr,
   });
 
-  factory CreateRedirectDataModel.fromJson(Map<String, dynamic> json) => CreateRedirectDataModel(
-        module: json["module"],
-        page: json["page"],
-        qr: json["qr"],
-      );
+  factory CreateRedirectDataModel.fromJson(Map<String, dynamic> json) {
+    return CreateRedirectDataModel(
+      module: json["module"],
+      page: json["page"],
+    );
+  }
 
-  Map<String, dynamic> toJson() => {
-        "module": module,
-        "page": page,
-        "qr": qr,
-      };
+  Map<String, dynamic> toJson({Map<String, dynamic> addData = const {}}) {
+    final Map<String, dynamic> _map = {
+      "module": module,
+      "page": page,
+    };
+    _map.addAll(addData);
+    return _map;
+  }
 }
