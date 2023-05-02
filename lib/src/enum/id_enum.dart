@@ -73,7 +73,13 @@ enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, REVISION }
 
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil
-enum ClientPointId { MOBILE_APP }
+/// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
+enum ClientPointId { MOBILE_APP, KIOSK }
+
+/// [ClientType] Platform
+/// [APP] Mobil
+/// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
+enum ClientType { APP, KIOSK }
 
 /// [CampaignTypeId] indirim türleri
 /// [PERCENT] % indirim-PERCENT

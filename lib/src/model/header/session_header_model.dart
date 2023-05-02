@@ -13,6 +13,7 @@ class SessionHeaderModel {
     this.orderPoint,
     this.customerAddress,
     this.sessionPoint,
+    this.clientType,
   });
 
   final String token;
@@ -21,12 +22,14 @@ class SessionHeaderModel {
   final OrderPoint? orderPoint;
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
+  final ClientType? clientType;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
       "content-type": "application/json",
       "clientpoint": ClientPointId.MOBILE_APP.name,
+      "clienttype": clientType?.name ?? ClientType.APP.name,
       "applicationname": appId.name,
       "authorization": 'Bearer $token',
       "lang": lang,

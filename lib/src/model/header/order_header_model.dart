@@ -17,12 +17,14 @@ class OrderHeaderModel extends SessionHeaderModel {
     SessionPoint sessionPoint, {
     this.tableId,
     CustomerAddressModel? customerAddress,
+    ClientType? clientType,
   }) : super(
           appId: appId,
           token: token,
           orderPoint: _orderPoint,
           sessionPoint: sessionPoint,
           customerAddress: customerAddress,
+          clientType: clientType,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -32,6 +34,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     SessionPoint sessionPoint,
     String tableId,
     AppId appId,
+    ClientType? clientType,
   ) =>
       OrderHeaderModel(
         token,
@@ -41,6 +44,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         OrderPoint.TABLE,
         sessionPoint,
         tableId: tableId,
+        clientType: clientType,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -51,6 +55,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     DeliveryType _deliveryType,
     CustomerAddressModel? customerAddress,
     AppId appId,
+    ClientType? clientType,
   ) =>
       OrderHeaderModel(
         token,
@@ -60,6 +65,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         _orderPoint,
         SessionPoint.MARKETPLACE,
         customerAddress: customerAddress,
+        clientType: clientType,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {
