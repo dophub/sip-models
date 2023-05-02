@@ -33,9 +33,9 @@ class OrderHeaderModel extends SessionHeaderModel {
     int dealerId,
     SessionPoint sessionPoint,
     String tableId,
-    AppId appId,
+    AppId appId, {
     ClientType? clientType,
-  ) =>
+  }) =>
       OrderHeaderModel(
         token,
         sessionId,
@@ -54,9 +54,9 @@ class OrderHeaderModel extends SessionHeaderModel {
     OrderPoint _orderPoint,
     DeliveryType _deliveryType,
     CustomerAddressModel? customerAddress,
-    AppId appId,
+    AppId appId, {
     ClientType? clientType,
-  ) =>
+  }) =>
       OrderHeaderModel(
         token,
         sessionId,
