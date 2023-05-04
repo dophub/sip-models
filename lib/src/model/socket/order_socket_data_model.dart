@@ -10,6 +10,7 @@ class OrderSocketDataModel {
     this.updateDate,
     this.dealerId,
     this.customerId,
+    this.numberOfService,
   });
 
   int? id;
@@ -20,6 +21,7 @@ class OrderSocketDataModel {
   DateTime? updateDate;
   int? dealerId;
   int? customerId;
+  int? numberOfService;
 
   factory OrderSocketDataModel.fromJson(Map<String, dynamic> json) => OrderSocketDataModel(
         id: json["id"],
@@ -30,5 +32,6 @@ class OrderSocketDataModel {
         updateDate: DateTime.parse(json["update_date"]),
         dealerId: json["dealer_id"],
         customerId: json["customer_id"],
+        numberOfService: json['number_of_service'],
       );
 }
