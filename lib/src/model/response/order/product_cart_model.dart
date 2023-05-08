@@ -28,36 +28,37 @@ class ProductCartModel {
   int? dealerId;
   String? paymentTypeId;
   Customer? payCustomer;
-  List<Order>? orders;
+  List<ProductCartModelOrderModel>? orders;
 
   factory ProductCartModel.fromJson(Map<String?, dynamic> json) => ProductCartModel(
-    serviceId: json["service_id"],
-    tableId: json["table_id"],
-    serviceNumber: json["service_number"],
-    totalAmount: json["total_amount"].toDouble(),
-    payTypeId: json["pay_type_id"],
-    dealerId: json["dealer_id"],
-    paymentTypeId: json["payment_type_id"],
-    payCustomer: Customer.fromJson(json["customer"]),
-    orders: List<Order>.from(json["orders"].map((x) => Order.fromJson(x))),
-  );
+        serviceId: json["service_id"],
+        tableId: json["table_id"],
+        serviceNumber: json["service_number"],
+        totalAmount: json["total_amount"].toDouble(),
+        payTypeId: json["pay_type_id"],
+        dealerId: json["dealer_id"],
+        paymentTypeId: json["payment_type_id"],
+        payCustomer: Customer.fromJson(json["customer"]),
+        orders:
+            List<ProductCartModelOrderModel>.from(json["orders"].map((x) => ProductCartModelOrderModel.fromJson(x))),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "service_id": serviceId,
-    "table_id": tableId,
-    "service_number": serviceNumber,
-    "total_amount": totalAmount,
-    "pay_type_id": payTypeId,
-    "dealer_id": dealerId,
-    "payment_type_id": paymentTypeId,
-    "pay_customer": payCustomer!.toJson(),
-    "orders": List<dynamic>.from(orders!.map((x) => x.toJson())),
-  };
+        "service_id": serviceId,
+        "table_id": tableId,
+        "service_number": serviceNumber,
+        "total_amount": totalAmount,
+        "pay_type_id": payTypeId,
+        "dealer_id": dealerId,
+        "payment_type_id": paymentTypeId,
+        "pay_customer": payCustomer!.toJson(),
+        "orders": List<dynamic>.from(orders!.map((x) => x.toJson())),
+      };
 }
 
 /// Sepete içinde olan siparisler
-class Order {
-  Order({
+class ProductCartModelOrderModel {
+  ProductCartModelOrderModel({
     this.id,
     this.customer,
     this.orderNumber,
@@ -97,47 +98,47 @@ class Order {
   List<OrderOptionModel>? orderOptions;
   List<ItemOrder>? items;
 
-  factory Order.fromJson(Map<String?, dynamic> json) => Order(
-    id: json["id"],
-    customer: Customer.fromJson(json["customer"]),
-    orderNumber: json["order_number"],
-    totalAmount: json["total_amount"].toDouble(),
-    orderNote: json["order_note"],
-    orderPointId: json["order_point_id"],
-    sessionPointId: json["session_point_id"],
-    paymentTypeId: json["payment_type_id"],
-    deliveryTypeId: json["delivery_type_id"],
-    customerAddress: CustomerAddressModel().fromJson(json["customer_address"]),
-    deliveryTimeId: json["delivery_time_id"],
-    deliveryDate: json["delivery_date"],
-    tipAmount: json["tip_amount"].toDouble(),
-    dealerId: json["dealer_id"],
-    clientPointId: json["client_point_id"],
-    orderStatus: OrderStatusModel.fromJson(json["order_status"]),
-    orderOptions: List<OrderOptionModel>.from(json["order_options"].map((x) => OrderOptionModel.fromJson(x))),
-    items: List<ItemOrder>.from(json["items"].map((x) => ItemOrder.fromJson(x))),
-  );
+  factory ProductCartModelOrderModel.fromJson(Map<String?, dynamic> json) => ProductCartModelOrderModel(
+        id: json["id"],
+        customer: Customer.fromJson(json["customer"]),
+        orderNumber: json["order_number"],
+        totalAmount: json["total_amount"].toDouble(),
+        orderNote: json["order_note"],
+        orderPointId: json["order_point_id"],
+        sessionPointId: json["session_point_id"],
+        paymentTypeId: json["payment_type_id"],
+        deliveryTypeId: json["delivery_type_id"],
+        customerAddress: CustomerAddressModel().fromJson(json["customer_address"]),
+        deliveryTimeId: json["delivery_time_id"],
+        deliveryDate: json["delivery_date"],
+        tipAmount: json["tip_amount"].toDouble(),
+        dealerId: json["dealer_id"],
+        clientPointId: json["client_point_id"],
+        orderStatus: OrderStatusModel.fromJson(json["order_status"]),
+        orderOptions: List<OrderOptionModel>.from(json["order_options"].map((x) => OrderOptionModel.fromJson(x))),
+        items: List<ItemOrder>.from(json["items"].map((x) => ItemOrder.fromJson(x))),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "id": id,
-    "customer": customer!.toJson(),
-    "order_number": orderNumber,
-    "total_amount": totalAmount,
-    "order_note": orderNote,
-    "order_point_id": orderPointId,
-    "session_point_id": sessionPointId,
-    "payment_type_id": paymentTypeId,
-    "delivery_type_id": deliveryTypeId,
-    "customer_address": customerAddress!.toJson(),
-    "delivery_time_id": deliveryTimeId,
-    "delivery_date": deliveryDate,
-    "tip_amount": tipAmount,
-    "dealer_id": dealerId,
-    "client_point_id": clientPointId,
-    "order_status": orderStatus!.toJson(),
-    "order_options": List<dynamic>.from(orderOptions!.map((x) => x.toJson())),
-    "items": List<dynamic>.from(items!.map((x) => x.toJson())),
-  };
+        "id": id,
+        "customer": customer!.toJson(),
+        "order_number": orderNumber,
+        "total_amount": totalAmount,
+        "order_note": orderNote,
+        "order_point_id": orderPointId,
+        "session_point_id": sessionPointId,
+        "payment_type_id": paymentTypeId,
+        "delivery_type_id": deliveryTypeId,
+        "customer_address": customerAddress!.toJson(),
+        "delivery_time_id": deliveryTimeId,
+        "delivery_date": deliveryDate,
+        "tip_amount": tipAmount,
+        "dealer_id": dealerId,
+        "client_point_id": clientPointId,
+        "order_status": orderStatus!.toJson(),
+        "order_options": List<dynamic>.from(orderOptions!.map((x) => x.toJson())),
+        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
+      };
 }
 
 class Customer {
@@ -154,20 +155,19 @@ class Customer {
   String? nickName;
 
   factory Customer.fromJson(Map<String?, dynamic> json) => Customer(
-    id: json["id"],
-    nameSurname: json["name_surname"],
-    sessionId: json["sessionId"],
-    nickName: json["nick_name"],
-  );
+        id: json["id"],
+        nameSurname: json["name_surname"],
+        sessionId: json["sessionId"],
+        nickName: json["nick_name"],
+      );
 
   Map<String?, dynamic> toJson() => {
-    "id": id,
-    "name_surname": nameSurname,
-    "sessionId": sessionId,
-    "nick_name": nickName,
-  };
+        "id": id,
+        "name_surname": nameSurname,
+        "sessionId": sessionId,
+        "nick_name": nickName,
+      };
 }
-
 
 /// List olup her biri bi ürünü temsil etmekte
 class ItemOrder {
@@ -197,28 +197,27 @@ class ItemOrder {
   String? timeoutAction;
 
   factory ItemOrder.fromJson(Map<String?, dynamic> json) => ItemOrder(
-    id: json["id"],
-    itemType: json["item_type"],
-    count: json["count"],
-    itemAmount: json["item_amount"].toDouble(),
-    totalAmount: json["total_amount"].toDouble(),
-    note: json["note"],
-    product: Product.fromJson(json["product"]),
-    promotionMenu: PromotionMenu.fromJson(json["promotion_menu"]),
-    timeoutAction: json["timeout_action"]
-  );
+      id: json["id"],
+      itemType: json["item_type"],
+      count: json["count"],
+      itemAmount: json["item_amount"].toDouble(),
+      totalAmount: json["total_amount"].toDouble(),
+      note: json["note"],
+      product: Product.fromJson(json["product"]),
+      promotionMenu: PromotionMenu.fromJson(json["promotion_menu"]),
+      timeoutAction: json["timeout_action"]);
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "item_type": itemType,
-    "count": count,
-    "item_amount": itemAmount,
-    "total_amount": totalAmount,
-    "note": note,
-    "product": product == null ? null :product!.toJson(),
-    "promotion_menu": promotionMenu == null ? null :promotionMenu!.toJson(),
-    "timeout_action": timeoutAction,
-  };
+        "id": id,
+        "item_type": itemType,
+        "count": count,
+        "item_amount": itemAmount,
+        "total_amount": totalAmount,
+        "note": note,
+        "product": product == null ? null : product!.toJson(),
+        "promotion_menu": promotionMenu == null ? null : promotionMenu!.toJson(),
+        "timeout_action": timeoutAction,
+      };
 }
 
 class Product {
@@ -233,17 +232,16 @@ class Product {
   List<Options>? options;
 
   factory Product.fromJson(Map<String?, dynamic> json) => Product(
-    itemId: json["item_id"],
-    productName: json["product_name"],
-    options: json["options"] == null ? [] :List<Options>.from(json["options"].map((x) => Options.fromJson(x))),
-
-  );
+        itemId: json["item_id"],
+        productName: json["product_name"],
+        options: json["options"] == null ? [] : List<Options>.from(json["options"].map((x) => Options.fromJson(x))),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "item_id": itemId,
-    "product_name": productName,
-    "options": options == null ? [] : List<dynamic>.from(options!.map((x) => x.toJson())),
-  };
+        "item_id": itemId,
+        "product_name": productName,
+        "options": options == null ? [] : List<dynamic>.from(options!.map((x) => x.toJson())),
+      };
 }
 
 class Options {
@@ -264,22 +262,22 @@ class Options {
   List<Items>? items;
 
   factory Options.fromJson(Map<String?, dynamic> json) => Options(
-    optionType: json["option_type"],
-    id: json["id"],
-    title: json["title"],
-    addingType: json["adding_type"],
-    totalPrice: json["total_price"].toDouble(),
-    items: List<Items>.from(json["items"].map((x) => Items.fromJson(x))),
-  );
+        optionType: json["option_type"],
+        id: json["id"],
+        title: json["title"],
+        addingType: json["adding_type"],
+        totalPrice: json["total_price"].toDouble(),
+        items: List<Items>.from(json["items"].map((x) => Items.fromJson(x))),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "option_type": optionType,
-    "id": id,
-    "title": title,
-    "adding_type": addingType,
-    "total_price": totalPrice,
-    "items": List<dynamic>.from(items!.map((x) => x.toJson())),
-  };
+        "option_type": optionType,
+        "id": id,
+        "title": title,
+        "adding_type": addingType,
+        "total_price": totalPrice,
+        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
+      };
 }
 
 class Items {
@@ -296,18 +294,18 @@ class Items {
   double? price;
 
   factory Items.fromJson(Map<String?, dynamic> json) => Items(
-    id: json["id"],
-    title: json["title"],
-    productId: json["product_id"],
-    price: json["price"].toDouble(),
-  );
+        id: json["id"],
+        title: json["title"],
+        productId: json["product_id"],
+        price: json["price"].toDouble(),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "product_id": productId,
-    "price": price,
-  };
+        "id": id,
+        "title": title,
+        "product_id": productId,
+        "price": price,
+      };
 }
 
 class PromotionMenu {
@@ -322,16 +320,16 @@ class PromotionMenu {
   List<Section>? sections;
 
   factory PromotionMenu.fromJson(Map<String?, dynamic> json) => PromotionMenu(
-    itemId: json["item_id"],
-    promotionName: json["promotion_name"],
-    sections: List<Section>.from(json["sections"].map((x) => Section.fromJson(x))),
-  );
+        itemId: json["item_id"],
+        promotionName: json["promotion_name"],
+        sections: List<Section>.from(json["sections"].map((x) => Section.fromJson(x))),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "item_id": itemId,
-    "promotion_name": promotionName,
-    "sections": List<dynamic>.from(sections!.map((x) => x.toJson())),
-  };
+        "item_id": itemId,
+        "promotion_name": promotionName,
+        "sections": List<dynamic>.from(sections!.map((x) => x.toJson())),
+      };
 }
 
 class Section {
@@ -346,16 +344,16 @@ class Section {
   Product? sectionItem;
 
   factory Section.fromJson(Map<String?, dynamic> json) => Section(
-    sectionId: json["section_id"],
-    sectionTitle: json["section_title"],
-    sectionItem: Product.fromJson(json["section_item"]),
-  );
+        sectionId: json["section_id"],
+        sectionTitle: json["section_title"],
+        sectionItem: Product.fromJson(json["section_item"]),
+      );
 
   Map<String?, dynamic> toJson() => {
-    "section_id": sectionId,
-    "section_title": sectionTitle,
-    "section_item": sectionItem!.toJson(),
-  };
+        "section_id": sectionId,
+        "section_title": sectionTitle,
+        "section_item": sectionItem!.toJson(),
+      };
 }
 
 class OrderOptionModel {
@@ -368,14 +366,12 @@ class OrderOptionModel {
   String? optionName;
 
   factory OrderOptionModel.fromJson(Map<String?, dynamic> json) => OrderOptionModel(
-    optionCode: json["option_code"],
-    optionName: json["option_name"],
-  );
+        optionCode: json["option_code"],
+        optionName: json["option_name"],
+      );
 
   Map<String?, dynamic> toJson() => {
-    "option_code": optionCode,
-    "option_name": optionName,
-  };
+        "option_code": optionCode,
+        "option_name": optionName,
+      };
 }
-
-
