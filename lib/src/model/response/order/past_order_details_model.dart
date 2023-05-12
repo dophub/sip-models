@@ -22,6 +22,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.status,
     this.items,
     this.campaigns,
+    this.tableServiceId,
   });
 
   int? id;
@@ -39,31 +40,29 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   StatusModel? status;
   List<OrderItem>? items;
   List<OrderCampaignsModel>? campaigns;
+  int? tableServiceId;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
-      id: json["id"],
-      numberOfService: json['number_of_service'],
-      title: json["title"],
-      orderNumber: json["order_number"],
-      totalAmount: json["total_amount"].toDouble(),
-      recordDate: DateTime.parse(json["record_date"]),
-      deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
-      orderPointId: json["order_point_id"],
-      deliveryTypeId: json["delivery_type_id"],
-      sessionPointId: json["session_point_id"],
-      dealer: DealerModel().fromJson(json["dealer"]),
-      payment: json["payment"] == null
-          ? PaymentDetailModel()
-          : PaymentDetailModel.fromJson(json["payment"]),
-      status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
-      items: json["items"] == null
-          ? []
-          : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
-      campaigns: json["campaigns"] == null
-          ? []
-          : List<OrderCampaignsModel>.from(
-              json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
+        id: json["id"],
+        numberOfService: json['number_of_service'],
+        title: json["title"],
+        orderNumber: json["order_number"],
+        totalAmount: json["total_amount"].toDouble(),
+        recordDate: DateTime.parse(json["record_date"]),
+        deliveryDate: json["delivery_date"] == null ? null : DateTime.parse(json["delivery_date"]),
+        orderPointId: json["order_point_id"],
+        deliveryTypeId: json["delivery_type_id"],
+        sessionPointId: json["session_point_id"],
+        dealer: DealerModel().fromJson(json["dealer"]),
+        payment: json["payment"] == null ? PaymentDetailModel() : PaymentDetailModel.fromJson(json["payment"]),
+        status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
+        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
+        campaigns: json["campaigns"] == null
+            ? []
+            : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
+        tableServiceId: json["table_service_id"],
+      );
 
   @override
   Map<String, dynamic> toJson() {
