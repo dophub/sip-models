@@ -69,7 +69,9 @@ enum GetBuilderId { onChangeServiceModel }
 /// [WAIT] Bekliyor
 /// [COMPLETE] Tamamlandı
 /// [INKITCHEN] Mutfakta
-enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, REVISION }
+/// [CANCEL] Ödeme yapılmadan önce iptal edilen ürünler
+/// [CANCEL2] Ödeme yapıldıktan sonra iptal edilen ürünler
+enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, CANCEL2, REVISION }
 
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil
