@@ -18,6 +18,7 @@ class DealerDetailModel {
     this.dealerTipShowTypeId,
     this.minTipPercent,
     this.tipsTable,
+    this.restaurantInWorkingHours,
   });
 
   int? dealerId;
@@ -34,6 +35,7 @@ class DealerDetailModel {
   String? dealerTipShowTypeId;
   int? minTipPercent;
   List<TipsTableModel>? tipsTable;
+  bool? restaurantInWorkingHours;
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -52,6 +54,7 @@ class DealerDetailModel {
         isTipsActive: json["is_tips_active"],
         dealerTipShowTypeId: json["dealer_tip_show_type_id"],
         minTipPercent: json["min_tip_percent"],
+        restaurantInWorkingHours: json["restaurant_in_working_hours"],
         tipsTable: json["tips_table"] == null
             ? []
             : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
