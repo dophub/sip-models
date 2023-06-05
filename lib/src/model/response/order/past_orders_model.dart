@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-import '../parameters/parameters_Model.dart';
+import '../../../../response.dart';
 
 class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   PastOrdersModel({
@@ -17,7 +17,8 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
     this.dealerId,
     this.orderPointId,
     this.paymentModelID,
-    this.serviceId
+    this.serviceId,
+    this.logoImage,
   });
 
   String? paymentModelID;
@@ -34,6 +35,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   StatusModel? status;
   int? dealerId;
   String? orderPointId;
+  ImagesModel? logoImage;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrdersModel(
@@ -51,6 +53,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
         status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
         dealerId: json["dealer_id"],
         orderPointId: json["order_point_id"],
+        logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
       );
 
   @override
