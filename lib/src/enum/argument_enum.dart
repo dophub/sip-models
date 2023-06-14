@@ -29,4 +29,4 @@ enum HybridActiveOrderDetailScreenArguments { serviceId, isPaymentMode }
 
 enum MarketplaceChoosePaymentScreenArguments { basketAmount, selectedCard }
 
-
+enum RegisterScreenArguments { registerScreenMode, telNo }
