@@ -14,7 +14,7 @@ class SessionHeaderModel {
     this.customerAddress,
     this.sessionPoint,
     this.clientType,
-    this.masterBrandId,
+    required this.masterBrandId,
     this.externalHeader = const {},
   });
 
