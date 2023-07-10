@@ -14,6 +14,7 @@ class SessionHeaderModel {
     this.customerAddress,
     this.sessionPoint,
     this.clientType,
+    this.masterBrandId,
     this.externalHeader = const {},
   });
 
@@ -24,6 +25,7 @@ class SessionHeaderModel {
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
   final ClientType? clientType;
+  final int? masterBrandId;
   final Map<String, String> externalHeader;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
@@ -41,6 +43,7 @@ class SessionHeaderModel {
       "latlng": address.latlng ?? '0,0',
       "panel": "d",
       "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
+      "master_brand_id": masterBrandId?.toString() ?? '',
     };
     _map.addAll(addMap);
     _map.addAll(externalHeader);
