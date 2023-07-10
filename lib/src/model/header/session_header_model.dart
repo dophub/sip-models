@@ -14,6 +14,7 @@ class SessionHeaderModel {
     this.customerAddress,
     this.sessionPoint,
     this.clientType,
+    this.externalHeader = const {},
   });
 
   final String token;
@@ -23,6 +24,7 @@ class SessionHeaderModel {
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
   final ClientType? clientType;
+  final Map<String, String> externalHeader;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddressModel();
@@ -41,6 +43,7 @@ class SessionHeaderModel {
       "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
     };
     _map.addAll(addMap);
+    _map.addAll(externalHeader);
     return _map;
   }
 }
