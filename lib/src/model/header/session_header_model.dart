@@ -43,7 +43,7 @@ class SessionHeaderModel {
       "latlng": address.latlng ?? '0,0',
       "panel": "d",
       "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
-      "master_brand_id": masterBrandId?.toString() ?? '0',
+      "masterbrandid": masterBrandId?.toString() ?? '0',
     };
     _map.addAll(addMap);
     _map.addAll(externalHeader);
