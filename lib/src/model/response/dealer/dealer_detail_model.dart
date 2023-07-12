@@ -19,6 +19,10 @@ class DealerDetailModel {
     this.minTipPercent,
     this.tipsTable,
     this.restaurantInWorkingHours,
+    this.valeIsActive,
+    this.reservationIsActive,
+    this.tableIsActive,
+    this.selfServiceIsActive,
   });
 
   int? dealerId;
@@ -36,6 +40,10 @@ class DealerDetailModel {
   int? minTipPercent;
   List<TipsTableModel>? tipsTable;
   bool? restaurantInWorkingHours;
+  bool? reservationIsActive; // rezervasyon açık kapalı
+  bool? tableIsActive; // masa modülü açık kapalı
+  bool? valeIsActive; // Vale modülü açık kapalı. (Kapalı ise vale butonu menüde görünmesin)
+  bool? selfServiceIsActive; // Self service aktif pasif
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -58,6 +66,10 @@ class DealerDetailModel {
         tipsTable: json["tips_table"] == null
             ? []
             : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
+        valeIsActive: json["vale_is_active"],
+        reservationIsActive: json["reservation_is_active"],
+        tableIsActive: json["table_is_active"],
+        selfServiceIsActive: json["self_service_is_active"],
       );
 }
 
