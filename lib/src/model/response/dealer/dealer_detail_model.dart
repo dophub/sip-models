@@ -23,6 +23,9 @@ class DealerDetailModel {
     this.reservationIsActive,
     this.tableIsActive,
     this.selfServiceIsActive,
+    this.bundleid,
+    this.associatedDomain,
+    this.deeplinkDomain,
   });
 
   int? dealerId;
@@ -44,6 +47,9 @@ class DealerDetailModel {
   bool? tableIsActive; // masa modülü açık kapalı
   bool? valeIsActive; // Vale modülü açık kapalı. (Kapalı ise vale butonu menüde görünmesin)
   bool? selfServiceIsActive; // Self service aktif pasif
+  String? bundleid;
+  String? associatedDomain;
+  String? deeplinkDomain;
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -70,6 +76,9 @@ class DealerDetailModel {
         reservationIsActive: json["reservation_is_active"],
         tableIsActive: json["table_is_active"],
         selfServiceIsActive: json["self_service_is_active"],
+        bundleid: json["bundleid"],
+        associatedDomain: json["associated_domain"],
+        deeplinkDomain: json["deeplink_domain"],
       );
 }
 
