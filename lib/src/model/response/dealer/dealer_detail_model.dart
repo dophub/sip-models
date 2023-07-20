@@ -26,6 +26,8 @@ class DealerDetailModel {
     this.bundleid,
     this.associatedDomain,
     this.deeplinkDomain,
+    this.isChangeableDeliveryType,
+    this.tableServiceAmount,
   });
 
   int? dealerId;
@@ -50,6 +52,8 @@ class DealerDetailModel {
   String? bundleid;
   String? associatedDomain;
   String? deeplinkDomain;
+  bool? isChangeableDeliveryType; // Masaya service var mı
+  double? tableServiceAmount; // MAsa service ücreti
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -79,6 +83,8 @@ class DealerDetailModel {
         bundleid: json["bundleid"],
         associatedDomain: json["associated_domain"],
         deeplinkDomain: json["deeplink_domain"],
+        isChangeableDeliveryType: json["is_changeable_delivery_type"],
+        tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
       );
 }
 
