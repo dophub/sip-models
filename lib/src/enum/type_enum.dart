@@ -44,8 +44,12 @@ enum SSOTypeId { google, apple }
 /// [MOVE_TABLE] Masa taşıması yapıldığında
 enum OrderSocketType { SERVICE, ORDER, MOVE_TABLE }
 
-
 /// [TableTipVisibilityType] Bahşiş gösterme şekli
 /// [INLINE] Direk ekranda gösterilecek
 /// [POPUP] Bottom sheet e gösterilecek
 enum TableTipVisibilityType { INLINE, POPUP }
+
+/// [TableServiceType] Self servis modulunde Masaya servis tipi
+/// [SS] Self service (kendin gidip alıyorsun)
+/// [TABLE] Masa ya servis (Garson masa ya servic ediyor)
+enum TableServiceType { SS, TABLE }
