@@ -69,8 +69,8 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
         totalAmountWithoutKdv:
             json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
-        tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
-        tableServiceAmountWithoutKdv: json["table_service_amount_without_kdv"]?.toDouble() ?? 0.0,
+        tableServiceAmount: json["table_service_amount"]?.toDouble(),
+        tableServiceAmountWithoutKdv: json["table_service_amount_without_kdv"]?.toDouble(),
         serviceDeliveryType: json["service_delivery_type"],
         orders:
             json["orders"] == null ? [] : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
