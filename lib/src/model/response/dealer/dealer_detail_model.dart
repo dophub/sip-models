@@ -26,6 +26,7 @@ class DealerDetailModel {
     this.bundleid,
     this.associatedDomain,
     this.deeplinkDomain,
+    this.isStickyQR,
     this.isChangeableDeliveryType,
     this.tableServiceAmount,
   });
@@ -52,6 +53,7 @@ class DealerDetailModel {
   String? bundleid;
   String? associatedDomain;
   String? deeplinkDomain;
+  bool? isStickyQR; // Self service active siparişler de QR gözüksün mü
   bool? isChangeableDeliveryType; // Masaya service var mı
   double? tableServiceAmount; // MAsa service ücreti
 
@@ -83,6 +85,7 @@ class DealerDetailModel {
         bundleid: json["bundleid"],
         associatedDomain: json["associated_domain"],
         deeplinkDomain: json["deeplink_domain"],
+        isStickyQR: json["is_sticky_qr"],
         isChangeableDeliveryType: json["is_changeable_delivery_type"],
         tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
       );
