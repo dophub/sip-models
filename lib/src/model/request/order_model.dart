@@ -61,8 +61,8 @@ class OrderModel extends IBaseModel<OrderModel> {
   int? customerId;
   String? orderNumber;
   OrderStatusModel? orderStatus;
-  double? totalAmount;
-  double? preTotalAmount;
+  double? totalAmount; // bahşiş + ürünlerin toplam fiyatı
+  double? preTotalAmount; // sadece ürünlerin toplam fiyatı
   double? preTotalAmountWithoutKdv;
   String? deliveryDate;
   String? orderPointId;

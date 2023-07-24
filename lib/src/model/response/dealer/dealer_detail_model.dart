@@ -1,7 +1,7 @@
 import '../other/food_category_model.dart';
 import '../other/images_model.dart';
 
-/// GR Kod okutulduğu zaman Api den dönen response
+/// QR Kod okutulduğu zaman Api den dönen response
 class DealerDetailModel {
   DealerDetailModel({
     this.dealerId,
@@ -29,6 +29,8 @@ class DealerDetailModel {
     this.isStickyQR,
     this.isChangeableDeliveryType,
     this.tableServiceAmount,
+    this.tableServiceExplainHeaderText,
+    this.tableServiceExplainText,
   });
 
   int? dealerId;
@@ -56,6 +58,8 @@ class DealerDetailModel {
   bool? isStickyQR; // Self service active siparişler de QR gözüksün mü
   bool? isChangeableDeliveryType; // Masaya service var mı
   double? tableServiceAmount; // MAsa service ücreti
+  double? tableServiceExplainHeaderText; // Sepette olan masaya service seçme kart ının başlığı
+  double? tableServiceExplainText; // Sepette olan masaya service seçme kart ının alt başlığı
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
@@ -88,6 +92,8 @@ class DealerDetailModel {
         isStickyQR: json["is_sticky_qr"],
         isChangeableDeliveryType: json["is_changeable_delivery_type"],
         tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
+        tableServiceExplainHeaderText: json["table_service_explain_header_text"],
+        tableServiceExplainText: json["table_service_explain_text"],
       );
 }
 
