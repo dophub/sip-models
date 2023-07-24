@@ -58,8 +58,8 @@ class DealerDetailModel {
   bool? isStickyQR; // Self service active siparişler de QR gözüksün mü
   bool? isChangeableDeliveryType; // Masaya service var mı
   double? tableServiceAmount; // MAsa service ücreti
-  double? tableServiceExplainHeaderText; // Sepette olan masaya service seçme kart ının başlığı
-  double? tableServiceExplainText; // Sepette olan masaya service seçme kart ının alt başlığı
+  String? tableServiceExplainHeaderText; // Sepette olan masaya service seçme kart ının başlığı
+  String? tableServiceExplainText; // Sepette olan masaya service seçme kart ının alt başlığı
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json) => DealerDetailModel(
         dealerId: json["dealer_id"],
