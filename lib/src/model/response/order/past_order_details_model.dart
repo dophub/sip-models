@@ -20,6 +20,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.orderPointId,
     this.deliveryTypeId,
     this.sessionPointId,
+    this.paymentModelId,
     this.dealer,
     this.payment,
     this.status,
@@ -45,6 +46,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   String? orderPointId;
   String? deliveryTypeId;
   String? sessionPointId;
+  String? paymentModelId;
   DealerModel? dealer;
   PaymentDetailModel? payment;
   StatusModel? status;
@@ -69,6 +71,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         orderPointId: json["order_point_id"],
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
+        paymentModelId: json["payment_model_id"],
         dealer: DealerModel().fromJson(json["dealer"]),
         payment: json["payment"] == null ? PaymentDetailModel() : PaymentDetailModel.fromJson(json["payment"]),
         status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
