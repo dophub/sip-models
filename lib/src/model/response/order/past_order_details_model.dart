@@ -12,6 +12,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.title,
     this.numberOfService,
     this.totalAmount,
+    this.preTotalAmount,
     this.tipAmount,
     this.recordDate,
     this.deliveryDate,
@@ -33,6 +34,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   String? title;
   String? orderNumber;
   double? totalAmount;
+  double? preTotalAmount;
   double? tableServiceAmount;
   String? serviceDeliveryTypeId;
   double? tipAmount;
@@ -55,6 +57,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         title: json["title"],
         orderNumber: json["order_number"],
         totalAmount: json["total_amount"].toDouble(),
+        preTotalAmount: json["pre_total_amount"].toDouble(),
         tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
         serviceDeliveryTypeId: json["service_delivery_type_id"],
         tipAmount: json["tip_amount"]?.toDouble() ?? 0.0,
