@@ -19,6 +19,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
     this.paymentModelID,
     this.serviceId,
     this.logoImage,
+    this.serviceDeliveryTypeId,
   });
 
   String? paymentModelID;
@@ -36,6 +37,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
   int? dealerId;
   String? orderPointId;
   ImagesModel? logoImage;
+  String? serviceDeliveryTypeId;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrdersModel(
@@ -54,6 +56,7 @@ class PastOrdersModel extends IBaseModel<PastOrdersModel> {
         dealerId: json["dealer_id"],
         orderPointId: json["order_point_id"],
         logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
+        serviceDeliveryTypeId: json["service_delivery_type_id"],
       );
 
   @override
