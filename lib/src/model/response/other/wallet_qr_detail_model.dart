@@ -4,7 +4,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
   String? id;
   String? code;
   double? amount;
-  DateTime? createDate;
+  String? createDate;
   String? updateDate;
   String? phoneNumber;
   int? mainBrandId;
@@ -28,7 +28,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
         id: json["id"],
         code: json["code"],
         amount: json["amount"]?.toDouble() ?? 0.0,
-        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
+        createDate: json["create_date"],
         updateDate: json["update_date"],
         phoneNumber: json["phone_number"],
         mainBrandId: json["main_brand_id"],
@@ -41,7 +41,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
         "id": id,
         "code": code,
         "amount": amount,
-        "create_date": createDate?.toIso8601String(),
+        "create_date": createDate,
         "update_date": updateDate,
         "phone_number": phoneNumber,
         "main_brand_id": mainBrandId,
