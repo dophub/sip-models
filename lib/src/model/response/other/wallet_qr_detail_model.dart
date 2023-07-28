@@ -9,6 +9,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
   String? phoneNumber;
   int? mainBrandId;
   bool? isActive;
+  int? transactionCount;
 
   WalletQrDetailModel({
     this.id,
@@ -19,6 +20,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
     this.phoneNumber,
     this.mainBrandId,
     this.isActive,
+    this.transactionCount,
   });
 
   @override
@@ -31,6 +33,7 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
         phoneNumber: json["phone_number"],
         mainBrandId: json["main_brand_id"],
         isActive: json["is_active"],
+        transactionCount: json["transaction_count"],
       );
 
   @override
@@ -43,5 +46,6 @@ class WalletQrDetailModel extends IBaseModel<WalletQrDetailModel> {
         "phone_number": phoneNumber,
         "main_brand_id": mainBrandId,
         "is_active": isActive,
+        "transaction_count": transactionCount,
       };
 }
