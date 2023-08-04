@@ -25,6 +25,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
     this.tableServiceAmount,
     this.tableServiceAmountWithoutKdv,
     this.serviceDeliveryType,
+    this.numberOfService,
   });
 
   int? serviceId;
@@ -47,6 +48,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
   double? tableServiceAmount; // Masa ya service ücreti
   double? tableServiceAmountWithoutKdv;
   String? serviceDeliveryType;
+  int? numberOfService;
   List<OrderModel>? orders;
 
   @override
@@ -72,6 +74,7 @@ class ServiceModel extends IBaseModel<ServiceModel> {
         tableServiceAmount: json["table_service_amount"]?.toDouble(),
         tableServiceAmountWithoutKdv: json["table_service_amount_without_kdv"]?.toDouble(),
         serviceDeliveryType: json["service_delivery_type"],
+        numberOfService: json["number_of_service"],
         orders:
             json["orders"] == null ? [] : List<OrderModel>.from(json["orders"].map((x) => OrderModel().fromJson(x))),
       );
