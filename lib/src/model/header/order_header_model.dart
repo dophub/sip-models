@@ -19,6 +19,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     CustomerAddressModel? customerAddress,
     ClientType? clientType,
     required int? masterBrandId,
+    required String appCode,
   }) : super(
           appId: appId,
           token: token,
@@ -27,6 +28,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           customerAddress: customerAddress,
           clientType: clientType,
           masterBrandId: masterBrandId,
+          appCode: appCode,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -38,6 +40,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     AppId appId, {
     ClientType? clientType,
     required int? masterBrandId,
+    required String appCode,
   }) =>
       OrderHeaderModel(
         token,
@@ -49,6 +52,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         tableId: tableId,
         clientType: clientType,
         masterBrandId: masterBrandId,
+        appCode: appCode,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -61,6 +65,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     AppId appId, {
     ClientType? clientType,
     required int? masterBrandId,
+    required String appCode,
   }) =>
       OrderHeaderModel(
         token,
@@ -72,6 +77,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         customerAddress: customerAddress,
         clientType: clientType,
         masterBrandId: masterBrandId,
+        appCode: appCode,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {
