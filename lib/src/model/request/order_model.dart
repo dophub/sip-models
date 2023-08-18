@@ -47,6 +47,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.callNumber,
     this.preTotalAmount,
     this.preTotalAmountWithoutKdv,
+    this.serviceDeliveryTypeId,
   });
 
   int? id;
@@ -83,48 +84,54 @@ class OrderModel extends IBaseModel<OrderModel> {
   double? totalCampaignDiscount;
   double? totalUsedCampaignBudget;
   List<OrderCampaignsModel>? campaigns;
+  String? serviceDeliveryTypeId;
 
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
-      id: json["id"],
-      items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
-      ssoId: json["sso_id"],
-      callNumber: json["callnumber"],
-      dealerId: json["dealer_id"],
-      nickName: json["nick_name"],
-      sessionId: json["sessionId"],
-      orderNote: json["order_note"],
-      tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
-      customerId: json["customer_id"],
-      orderNumber: json["order_number"],
-      orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
-      totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
-      preTotalAmount: json["pre_total_amount"] == null ? 0.0 : json["pre_total_amount"].toDouble(),
-      preTotalAmountWithoutKdv: json["pre_total_amount_without_kdv"] == null ? 0.0 : json["pre_total_amount_without_kdv"].toDouble(),
-      deliveryDate: json["delivery_date"],
-      orderPointId: json["order_point_id"],
-      clientPointId: json["client_point_id"],
-      courierInfo:
-          json['courier_info'] == null ? null : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
-      deliveryTypeId: json["delivery_type_id"],
-      sessionPointId: json["session_point_id"],
-      tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
-      totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
-      customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
-      recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
-      orderOptions: json["order_options"] ?? '',
-      customerAddress:
-          json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
-      paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
-      tableServiceId: json["table_service_id"],
-      isUseCampaign: json["is_use_campaign"],
-      beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
-      totalCampaignDiscount: json["total_campaign_discount"] == null ? 0.0 : json["total_campaign_discount"].toDouble(),
-      totalUsedCampaignBudget:
-          json["total_used_campaign_budget"] == null ? 0.0 : json["total_used_campaign_budget"].toDouble(),
-      campaigns: json["campaigns"] == null
-          ? []
-          : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))));
+        id: json["id"],
+        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
+        ssoId: json["sso_id"],
+        callNumber: json["callnumber"],
+        dealerId: json["dealer_id"],
+        nickName: json["nick_name"],
+        sessionId: json["sessionId"],
+        orderNote: json["order_note"],
+        tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
+        customerId: json["customer_id"],
+        orderNumber: json["order_number"],
+        orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
+        totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
+        preTotalAmount: json["pre_total_amount"] == null ? 0.0 : json["pre_total_amount"].toDouble(),
+        preTotalAmountWithoutKdv:
+            json["pre_total_amount_without_kdv"] == null ? 0.0 : json["pre_total_amount_without_kdv"].toDouble(),
+        deliveryDate: json["delivery_date"],
+        orderPointId: json["order_point_id"],
+        clientPointId: json["client_point_id"],
+        courierInfo:
+            json['courier_info'] == null ? null : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
+        deliveryTypeId: json["delivery_type_id"],
+        sessionPointId: json["session_point_id"],
+        tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
+        totalAmountWithoutKdv:
+            json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
+        customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
+        recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
+        orderOptions: json["order_options"] ?? '',
+        customerAddress:
+            json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
+        paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
+        tableServiceId: json["table_service_id"],
+        isUseCampaign: json["is_use_campaign"],
+        beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
+        totalCampaignDiscount:
+            json["total_campaign_discount"] == null ? 0.0 : json["total_campaign_discount"].toDouble(),
+        totalUsedCampaignBudget:
+            json["total_used_campaign_budget"] == null ? 0.0 : json["total_used_campaign_budget"].toDouble(),
+        campaigns: json["campaigns"] == null
+            ? []
+            : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
+        serviceDeliveryTypeId: json["service_delivery_type_id"],
+      );
 
   @override
   Map<String, dynamic> toJson() => {
@@ -161,6 +168,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "total_campaign_discount": totalCampaignDiscount,
         "total_used_campaign_budget": totalUsedCampaignBudget,
         "campaigns": campaigns,
+        "service_delivery_type_id": serviceDeliveryTypeId,
       };
 }
 
