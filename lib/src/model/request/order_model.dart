@@ -48,6 +48,11 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.preTotalAmount,
     this.preTotalAmountWithoutKdv,
     this.serviceDeliveryTypeId,
+    this.orderDeviceId,
+    this.tableName,
+    this.pleksiNumber,
+    this.numberOfService,
+    this.tableServiceAmount,
   });
 
   int? id;
@@ -85,6 +90,11 @@ class OrderModel extends IBaseModel<OrderModel> {
   double? totalUsedCampaignBudget;
   List<OrderCampaignsModel>? campaigns;
   String? serviceDeliveryTypeId;
+  String? orderDeviceId; // App Or Kiosk
+  String? tableName;
+  int? pleksiNumber;
+  int? numberOfService;
+  double? tableServiceAmount; // Masa ya service ücreti
 
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -131,6 +141,11 @@ class OrderModel extends IBaseModel<OrderModel> {
             ? []
             : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
+        orderDeviceId: json["order_device_id"],
+        tableName: json["table_name"],
+        pleksiNumber: json["pleksi_number"],
+        numberOfService: json["number_of_service"],
+        tableServiceAmount: json["table_service_amount"]?.toDouble(),
       );
 
   @override
@@ -169,6 +184,11 @@ class OrderModel extends IBaseModel<OrderModel> {
         "total_used_campaign_budget": totalUsedCampaignBudget,
         "campaigns": campaigns,
         "service_delivery_type_id": serviceDeliveryTypeId,
+        "order_device_id": orderDeviceId,
+        "table_name": tableName,
+        "pleksi_number": pleksiNumber,
+        "number_of_service": numberOfService,
+        "table_service_amount": tableServiceAmount,
       };
 }
 
