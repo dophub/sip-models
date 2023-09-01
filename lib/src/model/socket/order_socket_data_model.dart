@@ -11,6 +11,7 @@ class OrderSocketDataModel {
     this.dealerId,
     this.customerId,
     this.numberOfService,
+    this.isSync,
   });
 
   int? id;
@@ -22,6 +23,7 @@ class OrderSocketDataModel {
   int? dealerId;
   int? customerId;
   int? numberOfService;
+  bool? isSync; // Siparişim işletmede kullanılmakta 3 part pos a iletildi mi
 
   factory OrderSocketDataModel.fromJson(Map<String, dynamic> json) => OrderSocketDataModel(
         id: json["id"],
@@ -33,5 +35,6 @@ class OrderSocketDataModel {
         dealerId: json["dealer_id"],
         customerId: json["customer_id"],
         numberOfService: json['number_of_service'],
+        isSync: json['is_sync'],
       );
 }
