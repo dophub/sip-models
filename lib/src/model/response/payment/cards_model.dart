@@ -82,6 +82,9 @@ class CardModel extends ISectionsWidgetModel with IPaymentType {
   bool get getStatus => throw UnimplementedError();
 
   @override
+  String? get getImage => null;
+
+  @override
   set setStatus(bool value) {
     throw UnimplementedError();
   }

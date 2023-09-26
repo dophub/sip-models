@@ -50,6 +50,9 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> with ISectionsWidg
   double? get getPrice => null;
 
   @override
+  String? get getImage => null;
+
+  @override
   bool get getStatus => throw UnimplementedError();
 
   @override

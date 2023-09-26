@@ -1,5 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
+import '../../../enum/id_enum.dart';
 import '../other/images_model.dart';
 import '../other/price_model.dart';
 
@@ -87,6 +88,12 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
 
   @override
   bool get getStatus => isSelected;
+
+  @override
+  String get getImage => images!
+      .firstWhere((ImagesModel element) => element.imageSizeId == ImageSizeId.mobile_list_col.name,
+          orElse: () => ImagesModel()..imageUrl = '')
+      .imageUrl!;
 
   @override
   set setStatus(bool value) {}
@@ -195,6 +202,9 @@ class ItemModel extends ISectionsWidgetModel {
 
   @override
   bool get getStatus => isSelected;
+
+  @override
+  String? get getImage => null;
 
   @override
   set setStatus(bool value) {
@@ -306,6 +316,9 @@ class OptionModel extends ISectionsWidgetModel {
 
   @override
   bool get getStatus => isSelected;
+
+  @override
+  String? get getImage => null;
 
   @override
   set setStatus(bool value) {

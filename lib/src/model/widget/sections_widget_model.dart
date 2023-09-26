@@ -12,6 +12,7 @@ class SectionsWidgetModel {
 
 class SectionsWidgetModels extends ISectionsWidgetModel {
   late String? id;
+  String? imageUrl;
   late String name;
   bool status = false;
   late double? price;
@@ -20,6 +21,7 @@ class SectionsWidgetModels extends ISectionsWidgetModel {
     this.id,
     required this.name,
     this.price,
+    this.imageUrl,
   });
 
   @override
@@ -38,6 +40,9 @@ class SectionsWidgetModels extends ISectionsWidgetModel {
   set setStatus(bool value) {
     status = value;
   }
+
+  @override
+  String? get getImage => imageUrl;
 }
 
 abstract class ISectionsWidgetModel {
@@ -46,6 +51,8 @@ abstract class ISectionsWidgetModel {
   String get getName;
 
   bool get getStatus;
+
+  String? get getImage;
 
   double? get getPrice;
 

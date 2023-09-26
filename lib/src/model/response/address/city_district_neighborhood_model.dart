@@ -27,8 +27,7 @@ class CityDistrictNeighborhoodModel extends IBaseModel<CityDistrictNeighborhoodM
         districts: List<PlaceModel>.from(json["districts"].map((x) => PlaceModel().fromJson(x))),
         districtId: json["district_id"],
         districtName: json["district_name"],
-        neighborhoods:
-            List<PlaceModel>.from(json["neighborhoods"].map((x) => PlaceModel().fromJson(x))),
+        neighborhoods: List<PlaceModel>.from(json["neighborhoods"].map((x) => PlaceModel().fromJson(x))),
         cities: List<PlaceModel>.from(json["cities"].map((x) => PlaceModel().fromJson(x))),
       );
 
@@ -92,4 +91,7 @@ class PlaceModel extends IBaseModel<PlaceModel> with ISectionsWidgetModel {
   set setStatus(bool value) {
     throw UnimplementedError();
   }
+
+  @override
+  String? get getImage => null;
 }
