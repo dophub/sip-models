@@ -86,7 +86,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
   double? get getPrice => null;
 
   @override
-  bool get getStatus => throw UnimplementedError();
+  bool get getStatus => isSelected;
 
   @override
   set setStatus(bool value) {}
