@@ -162,6 +162,7 @@ class ItemModel extends ISectionsWidgetModel {
     this.isDefault,
     this.listOrder,
     this.productName,
+    this.imageUrl,
     this.isSelected = false,
   });
 
@@ -172,6 +173,7 @@ class ItemModel extends ISectionsWidgetModel {
   int? listOrder;
   String? productName;
   bool isSelected;
+  String? imageUrl;
 
   factory ItemModel.fromJson(Map<String, dynamic> json) => ItemModel(
         id: json["id"],
@@ -180,6 +182,7 @@ class ItemModel extends ISectionsWidgetModel {
         isDefault: json["is_default"],
         listOrder: json["list_order"],
         productName: json["product_name"],
+        imageUrl: json["image_url"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -189,6 +192,7 @@ class ItemModel extends ISectionsWidgetModel {
         "is_default": isDefault,
         "list_order": listOrder,
         "product_name": productName,
+        "image_url": imageUrl,
       };
 
   @override
@@ -204,7 +208,7 @@ class ItemModel extends ISectionsWidgetModel {
   bool get getStatus => isSelected;
 
   @override
-  String? get getImage => null;
+  String? get getImage => imageUrl;
 
   @override
   set setStatus(bool value) {
@@ -265,15 +269,17 @@ class OptionGroupModel {
 }
 
 class OptionModel extends ISectionsWidgetModel {
-  OptionModel(
-      {this.id,
-      this.isFree,
-      this.addPrice,
-      this.isDefault,
-      this.listOrder,
-      this.optionCode,
-      this.optionName,
-      this.isSelected = false});
+  OptionModel({
+    this.id,
+    this.isFree,
+    this.addPrice,
+    this.isDefault,
+    this.listOrder,
+    this.optionCode,
+    this.optionName,
+    this.imageUrl,
+    this.isSelected = false,
+  });
 
   int? id;
   bool? isFree;
@@ -283,6 +289,7 @@ class OptionModel extends ISectionsWidgetModel {
   String? optionCode;
   String? optionName;
   bool isSelected;
+  String? imageUrl;
 
   factory OptionModel.fromJson(Map<String, dynamic> json) => OptionModel(
         id: json["id"],
@@ -292,6 +299,7 @@ class OptionModel extends ISectionsWidgetModel {
         listOrder: json["list_order"],
         optionCode: json["option_code"],
         optionName: json["option_name"],
+        imageUrl: json["image_url"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -302,6 +310,7 @@ class OptionModel extends ISectionsWidgetModel {
         "list_order": listOrder,
         "option_code": optionCode,
         "option_name": optionName,
+        "image_url": imageUrl,
       };
 
   @override
@@ -318,7 +327,7 @@ class OptionModel extends ISectionsWidgetModel {
   bool get getStatus => isSelected;
 
   @override
-  String? get getImage => null;
+  String? get getImage => imageUrl;
 
   @override
   set setStatus(bool value) {
