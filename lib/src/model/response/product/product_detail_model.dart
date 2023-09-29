@@ -21,6 +21,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
     this.features,
     this.isSelected = false,
     this.itemType,
+    this.additionalPrice,
   });
 
   int? id;
@@ -37,6 +38,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
   List<FeatureModel>? features;
   bool isSelected;
   String? itemType;
+  double? additionalPrice;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductDetailModel(
@@ -58,6 +60,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
             ? []
             : List<FeatureModel>.from(json["features"].map((x) => FeatureModel.fromJson(x))),
         itemType: json["item_type"],
+        additionalPrice: json["additional_price"]?.toDouble(),
       );
 
   @override
@@ -75,6 +78,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
         "option_groups": optionGroups == null ? [] : List<dynamic>.from(optionGroups!.map((x) => x.toJson())),
         "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x.toJson())),
         "item_type": itemType,
+        "additional_price": additionalPrice,
       };
 
   @override
@@ -84,7 +88,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
   String get getName => productName!;
 
   @override
-  double? get getPrice => null;
+  double? get getPrice => additionalPrice;
 
   @override
   bool get getStatus => isSelected;
