@@ -59,5 +59,6 @@ class Category {
         categoryName: json["category_name"],
         menuListTypeId: json["menu_list_type_id"],
         imageUrl: json['image_url'],
+
       );
 }
