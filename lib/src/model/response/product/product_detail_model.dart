@@ -38,7 +38,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWi
   List<FeatureModel>? features;
   bool isSelected;
   String? itemType;
-  double? additionalPrice;
+  double? additionalPrice; // promosyonlu ürünlerde section fiyatıdır
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductDetailModel(
