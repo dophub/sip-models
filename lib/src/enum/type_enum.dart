@@ -2,7 +2,15 @@
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
-enum DeliveryType { TAKEOUT, GETIN, TABLE }
+enum DeliveryType {
+  TAKEOUT(PriceType.TAKEOUT),
+  GETIN(PriceType.GETIN),
+  TABLE(PriceType.TABLE);
+
+  final PriceType priceType;
+
+  const DeliveryType(this.priceType);
+}
 
 /// [ItemSeparatorType] List Item lar arasındaki boşluk türüdür
 /// [Space] Boşluk olsun
