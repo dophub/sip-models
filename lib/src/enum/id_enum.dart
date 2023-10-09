@@ -1,3 +1,5 @@
+import '../../enum.dart';
+
 /// [DeliveryTimeId] Teslimat zamanı
 /// [NOW] Şimdi
 /// [LATER] Daha sonra
@@ -23,7 +25,15 @@ enum PayTypeId { TOTAL, IND }
 /// [TAKEOUT] Adrese teslim
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
-enum OrderPoint { TAKEOUT, GETIN, TABLE }
+enum OrderPoint {
+  TAKEOUT(PriceType.TAKEOUT),
+  GETIN(PriceType.GETIN),
+  TABLE(PriceType.TABLE);
+
+  final PriceType priceType;
+
+  const OrderPoint(this.priceType);
+}
 
 /// [SessionPoint] Oturum yeri
 /// [RESTIN] Restoran içi
