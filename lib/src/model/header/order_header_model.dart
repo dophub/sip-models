@@ -39,7 +39,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     String tableId,
     AppId appId, {
     ClientType? clientType,
-    OrderPoint orderPoint = OrderPoint.TABLE,
+    OrderPoint? orderPoint,
     required int? masterBrandId,
     required String appCode,
   }) =>
@@ -48,7 +48,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         sessionId,
         dealerId,
         appId,
-        orderPoint,
+        orderPoint ?? OrderPoint.TABLE,
         sessionPoint,
         tableId: tableId,
         clientType: clientType,
