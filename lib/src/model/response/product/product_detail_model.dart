@@ -298,7 +298,7 @@ class OptionModel extends ISectionsWidgetModel {
   factory OptionModel.fromJson(Map<String, dynamic> json) => OptionModel(
         id: json["id"],
         isFree: json["is_free"],
-        addPrice: json["add_price"].toDouble(),
+        addPrice: json["add_price"]?.toDouble() ?? 0.0,
         isDefault: json["is_default"],
         listOrder: json["list_order"],
         optionCode: json["option_code"],
