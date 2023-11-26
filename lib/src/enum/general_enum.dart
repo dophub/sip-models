@@ -22,7 +22,7 @@ enum TakeOutOrderStatus {
   OUT_COMPLETE(6),
   OUT_CANCEL(7);
 
-  int level;
+  final int level;
   const TakeOutOrderStatus(this.level);
 }
 
