@@ -1,5 +1,3 @@
-
-
 import 'package:background_json_parser/background_json_parser.dart';
 
 class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
@@ -42,8 +40,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
   String? addressTypeId;
   String? addressTypeName;
   String? icon;
-  bool?
-      isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
+  bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
   int? distance;
 
   CustomerAddressModel copyWith() {

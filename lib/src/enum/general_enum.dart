@@ -13,14 +13,17 @@ enum AppEnvironment {
 /// [OUT_COMPLETE] Tamamlandı
 /// [OUT_CANCEL] İptal
 enum TakeOutOrderStatus {
-  OUT_TEMP,
-  OUT_WAIT,
-  OUT_ACCEPT,
-  OUT_KITCHEN,
-  OUT_ON_WAY,
-  OUT_DELIVERYOK,
-  OUT_COMPLETE,
-  OUT_CANCEL
+  OUT_TEMP(0),
+  OUT_WAIT(1),
+  OUT_ACCEPT(2),
+  OUT_KITCHEN(3),
+  OUT_ON_WAY(4),
+  OUT_DELIVERYOK(5),
+  OUT_COMPLETE(6),
+  OUT_CANCEL(7);
+
+  int level;
+  const TakeOutOrderStatus(this.level);
 }
 
 /// [GET_TEMP] Cihazda
