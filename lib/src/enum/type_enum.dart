@@ -52,4 +52,12 @@ enum TableTipVisibilityType { INLINE, POPUP }
 /// [TableServiceType] Self servis modulunde Masaya servis tipi
 /// [SS] Self service (kendin gidip alıyorsun)
 /// [TABLE] Masa ya servis (Garson masa ya servic ediyor)
-enum TableServiceType { SS, TABLE, GETIN }
+enum TableServiceType {
+  SS('Self Servis'),
+  TABLE('Masaya Servis'),
+  GETIN('Paket');
+
+  final String title;
+
+  const TableServiceType(this.title);
+}
