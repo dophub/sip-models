@@ -13,18 +13,20 @@ enum AppEnvironment {
 /// [OUT_COMPLETE] Tamamlandı
 /// [OUT_CANCEL] İptal
 enum TakeOutOrderStatus {
-  OUT_TEMP(0),
-  OUT_WAIT(1),
-  OUT_ACCEPT(2),
-  OUT_KITCHEN(3),
-  OUT_ON_WAY(4),
-  OUT_DELIVERYOK(5),
-  OUT_COMPLETE(6),
-  OUT_CANCEL(7);
+  OUT_TEMP('Cihazda', 0, 'Cihazda'),
+  OUT_WAIT('Onay Bekliyor', 1, 'Beklemede'),
+  OUT_ACCEPT('Onaylandı', 2, 'Onayla'),
+  OUT_KITCHEN('Hazırlanıyor', 3, 'Hazırlanıyor'),
+  OUT_ON_WAY('Yolda', 4, 'Yola Çıkart'),
+  OUT_DELIVERYOK('Teslim Edildi', 5, 'Teslim Et'),
+  OUT_COMPLETE('Tamamlandı', 6, 'Tamamla'),
+  OUT_CANCEL('İptal', 7, 'İptal Et');
 
   final int level;
+  final String event;
+  final String title;
 
-  const TakeOutOrderStatus(this.level);
+  const TakeOutOrderStatus(this.title, this.level, this.event);
 }
 
 /// [GET_TEMP] Cihazda
@@ -35,17 +37,19 @@ enum TakeOutOrderStatus {
 /// [GET_COMPLETE] Tamamlandı
 /// [GET_CANCEL] İptal
 enum GetInOrderStatus {
-  GET_TEMP(0),
-  GET_WAIT(1),
-  GET_ACCEPT(2),
-  GET_KITCHEN(3),
-  GET_READY(4),
-  GET_COMPLETE(5),
-  GET_CANCEL(6);
+  GET_TEMP('Cihazda', 0, 'Cihazda'),
+  GET_WAIT('Bekliyor', 1, 'Beklemede'),
+  GET_ACCEPT('Onaylandı', 2, 'Onayla'),
+  GET_KITCHEN('Hazırlanıyor', 3, 'Hazırlanıyor'),
+  GET_READY('Kasada Hazır', 4, 'Hazır'),
+  GET_COMPLETE('Tamamlandı', 5, 'Tamamla'),
+  GET_CANCEL('İptal', 6, 'İptal Et');
 
   final int level;
+  final String event;
+  final String title;
 
-  const GetInOrderStatus(this.level);
+  const GetInOrderStatus(this.title, this.level, this.event);
 }
 
 /// [IN_TEMP] Cihazda
@@ -55,7 +59,21 @@ enum GetInOrderStatus {
 /// [IN_TABLE] Masada
 /// [IN_COMPLETE] Tamamlandı
 /// [IN_CANCEL] İptal
-enum TableOrderStatus { IN_TEMP, IN_WAIT, IN_ACCEPT, IN_KITCHEN, IN_TABLE, IN_COMPLETE, IN_CANCEL }
+enum TableOrderStatus {
+  IN_TEMP('Cihazda',0, 'Cihazda'),
+  IN_WAIT('Bekliyor',0, 'Bekliyor'),
+  IN_ACCEPT('Onaylandı',0, 'Onayla'),
+  IN_KITCHEN('Hazırlanıyor',0, 'Hazırla'),
+  IN_TABLE('Masada',0, 'Masada'),
+  IN_COMPLETE('Tamamlandı',0, 'Tamamla'),
+  IN_CANCEL('İptal',0, 'İptal Et');
+
+  final int level;
+  final String event;
+  final String title;
+
+  const TableOrderStatus(this.title, this.level, this.event);
+}
 
 /// Service status id
 enum ServiceStatusEnum {
