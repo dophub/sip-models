@@ -23,6 +23,7 @@ enum TakeOutOrderStatus {
   OUT_CANCEL(7);
 
   final int level;
+
   const TakeOutOrderStatus(this.level);
 }
 
@@ -33,7 +34,19 @@ enum TakeOutOrderStatus {
 /// [GET_READY] Kasada Hazır
 /// [GET_COMPLETE] Tamamlandı
 /// [GET_CANCEL] İptal
-enum GetInOrderStatus { GET_TEMP, GET_WAIT, GET_ACCEPT, GET_KITCHEN, GET_READY, GET_COMPLETE, GET_CANCEL }
+enum GetInOrderStatus {
+  GET_TEMP(0),
+  GET_WAIT(1),
+  GET_ACCEPT(2),
+  GET_KITCHEN(3),
+  GET_READY(4),
+  GET_COMPLETE(5),
+  GET_CANCEL(6);
+
+  final int level;
+
+  const GetInOrderStatus(this.level);
+}
 
 /// [IN_TEMP] Cihazda
 /// [IN_WAIT],[WAIT] Bekliyor
@@ -43,18 +56,6 @@ enum GetInOrderStatus { GET_TEMP, GET_WAIT, GET_ACCEPT, GET_KITCHEN, GET_READY, 
 /// [IN_COMPLETE] Tamamlandı
 /// [IN_CANCEL] İptal
 enum TableOrderStatus { IN_TEMP, IN_WAIT, IN_ACCEPT, IN_KITCHEN, IN_TABLE, IN_COMPLETE, IN_CANCEL }
-
-/// [TimeoutAction] Dealer de Masa TimeOut durumu
-/// [None] Sepete Ilk eklemede ekleyeceğmiz durum
-/// [New] Yeni Service Başlatmak istiyorum
-/// [Add] Masaya açık olan service devam etmek istiyorum
-enum TimeoutAction { None, New, Add }
-
-/// [AddressTypeEnum] Adres türleri
-enum AddressTypeEnum { home, work, hotel, other }
-
-/// Http işlemerinde kullanılmakta
-enum HttpMethod { get, post, put, delete, update }
 
 /// Service status id
 enum ServiceStatusEnum {
@@ -69,3 +70,14 @@ enum ServiceStatusEnum {
   CLOSE, //"Kapatıldı"
 }
 
+/// [TimeoutAction] Dealer de Masa TimeOut durumu
+/// [None] Sepete Ilk eklemede ekleyeceğmiz durum
+/// [New] Yeni Service Başlatmak istiyorum
+/// [Add] Masaya açık olan service devam etmek istiyorum
+enum TimeoutAction { None, New, Add }
+
+/// [AddressTypeEnum] Adres türleri
+enum AddressTypeEnum { home, work, hotel, other }
+
+/// Http işlemerinde kullanılmakta
+enum HttpMethod { get, post, put, delete, update }
