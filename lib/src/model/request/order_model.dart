@@ -489,7 +489,7 @@ class OrderOption {
   String? title;
   String? addingType;
   String? optionType;
-  int? totalPrice;
+  double? totalPrice;
   int? sectionId;
   OrderSectionItem? sectionItem;
   String? sectionTitle;
@@ -502,7 +502,7 @@ class OrderOption {
         title: json["title"],
         addingType: json["adding_type"],
         optionType: json["option_type"],
-        totalPrice: json["total_price"],
+        totalPrice: json["total_price"]?.toDouble(),
         sectionId: json["section_id"],
         sectionItem: json["section_item"] == null ? null : OrderSectionItem.fromJson(json["section_item"]),
         sectionTitle: json["section_title"],
