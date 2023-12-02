@@ -1,8 +1,4 @@
-enum AppEnvironment {
-  Development,
-  Staging,
-  Production,
-}
+enum AppEnvironment { Development, Staging, Production }
 
 /// [OUT_TEMP] Cihazda
 /// [OUT_WAIT] Onay Bekliyor
@@ -17,10 +13,11 @@ enum TakeOutOrderStatus {
   OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor'),
   OUT_ACCEPT('Onaylandı', 2, 'Onaylandı'),
   OUT_KITCHEN('Hazırlanıyor', 3, 'Hazırlanıyor'),
-  OUT_ON_WAY('Yolda', 4, 'Yolda'),
-  OUT_DELIVERYOK('Teslim Edildi', 5, 'Teslim Edildi'),
-  OUT_COMPLETE('Tamamlandı', 6, 'Tamamlandı'),
-  OUT_CANCEL('İptal', 7, 'İptal');
+  OUT_READY('Hazırlandı', 4, 'Hazırlandı'),
+  OUT_ON_WAY('Yolda', 5, 'Yolda'),
+  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi'),
+  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı'),
+  OUT_CANCEL('İptal', 8, 'İptal');
 
   final int level;
   final String event;
@@ -60,13 +57,13 @@ enum GetInOrderStatus {
 /// [IN_COMPLETE] Tamamlandı
 /// [IN_CANCEL] İptal
 enum TableOrderStatus {
-  IN_TEMP('Cihazda',0, 'Cihazda'),
-  IN_WAIT('Bekliyor',0, 'Bekliyor'),
-  IN_ACCEPT('Onaylandı',0, 'Onaylandı'),
-  IN_KITCHEN('Hazırlanıyor',0, 'Hazırlanıyor'),
-  IN_TABLE('Masada',0, 'Masada'),
-  IN_COMPLETE('Tamamlandı',0, 'Tamamlandı'),
-  IN_CANCEL('İptal',0, 'İptal');
+  IN_TEMP('Cihazda', 0, 'Cihazda'),
+  IN_WAIT('Bekliyor', 0, 'Bekliyor'),
+  IN_ACCEPT('Onaylandı', 0, 'Onaylandı'),
+  IN_KITCHEN('Hazırlanıyor', 0, 'Hazırlanıyor'),
+  IN_TABLE('Masada', 0, 'Masada'),
+  IN_COMPLETE('Tamamlandı', 0, 'Tamamlandı'),
+  IN_CANCEL('İptal', 0, 'İptal');
 
   final int level;
   final String event;
