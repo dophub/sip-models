@@ -57,13 +57,13 @@ enum GetInOrderStatus {
 /// [IN_COMPLETE] Tamamlandı
 /// [IN_CANCEL] İptal
 enum TableOrderStatus {
-  IN_TEMP('Cihazda', 0, 'Cihazda'),
-  IN_WAIT('Bekliyor', 0, 'Bekliyor'),
-  IN_ACCEPT('Onaylandı', 0, 'Onaylandı'),
-  IN_KITCHEN('Hazırlanıyor', 0, 'Hazırlanıyor'),
-  IN_TABLE('Masada', 0, 'Masada'),
-  IN_COMPLETE('Tamamlandı', 0, 'Tamamlandı'),
-  IN_CANCEL('İptal', 0, 'İptal');
+  IN_TEMP('Cihazda', 1, 'Cihazda'),
+  IN_WAIT('Bekliyor', 2, 'Bekliyor'),
+  IN_ACCEPT('Onaylandı', 3, 'Onaylandı'),
+  IN_KITCHEN('Hazırlanıyor', 4, 'Hazırlanıyor'),
+  IN_TABLE('Masada', 5, 'Masada'),
+  IN_COMPLETE('Tamamlandı', 6, 'Tamamlandı'),
+  IN_CANCEL('İptal', 7, 'İptal');
 
   final int level;
   final String event;
@@ -74,15 +74,21 @@ enum TableOrderStatus {
 
 /// Service status id
 enum ServiceStatusEnum {
-  WAIT, //"Bekliyor"
-  IN_TABLE, //"Siparişler Masada"
-  IN_COMPLETE, //Tüm Siparişler Ödendi"
-  IN_KITCHEN, //"Hazırlanan Sipariş Var"
-  IN_TEMP, // "Gönderilecek Sipariş Var"
-  IN_WAIT, //"Onay Bekliyor"
-  IN_CANCEL, //"İptal Edildi"
-  IN_ACCEPT, //"Onaylandı"
-  CLOSE, //"Kapatıldı"
+  IN_TEMP('Cihazda', 1, 'Cihazda'),
+  IN_WAIT('Onay Bekliyor', 2, 'Onay Bekliyor'), //"Onay Bekliyor"
+  WAIT('Bekliyor', 3, 'Bekliyor'), //"Bekliyor"
+  IN_ACCEP('Onaylandı', 4, 'Onaylandı'), //"Onaylandı"
+  IN_KITCHEN('Hazırlanıyor', 5, 'Hazırlanıyor'), //"Hazırlanan Sipariş Var"
+  IN_TABLE('Masada', 6, 'Masada'), //"Siparişler Masada"
+  IN_COMPLETE('Tamamlandı', 7, 'Tamamlandı'), //Tüm Siparişler Ödendi"
+  IN_CANCEL('İptal Edildi', 8, 'İptal Edildi'), //"İptal Edildi"
+  CLOSE('Kapatıldı', 9, 'Kapatıldı'); //"Kapatıldı"
+
+  final int level;
+  final String event;
+  final String title;
+
+  const ServiceStatusEnum(this.title, this.level, this.event);
 }
 
 /// [TimeoutAction] Dealer de Masa TimeOut durumu
