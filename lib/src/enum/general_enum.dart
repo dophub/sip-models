@@ -11,10 +11,10 @@ enum AppEnvironment { Development, Staging, Production }
 enum TakeOutOrderStatus {
   OUT_TEMP('Cihazda', 0, 'Cihazda', false),
   OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor', true),
-  OUT_ACCEPT('Onaylandı', 2, 'Onaylandı', true),
-  OUT_KITCHEN('Hazırlanıyor', 3, 'Hazırlanıyor', true),
+  OUT_ACCEPT('Onaylandı', 2, 'Onayla', true),
+  OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true),
   OUT_READY('Hazırlandı', 4, 'Hazırlandı', true),
-  OUT_ON_WAY('Yolda', 5, 'Yolda', true),
+  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true),
   OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true),
   OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true),
   OUT_CANCEL('İptal', 8, 'İptal', false);
