@@ -18,7 +18,7 @@ enum TakeOutOrderStatus {
   OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true),
   OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true),
   OUT_CANCEL('İptal', 8, 'İptal', false),
-  OUT_REJECT('Reddedildi', 8, 'Reddedildi', false);
+  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false);
 
   final int level;
   final String event;
@@ -43,7 +43,7 @@ enum GetInOrderStatus {
   GET_READY('Kasada Hazır', 4, 'Kasada Hazır', true),
   GET_COMPLETE('Tamamlandı', 5, 'Tamamlandı', true),
   GET_CANCEL('İptal', 6, 'İptal', false),
-  GET_REJECT('Reddedildi', 6, 'Reddedildi', false);
+  GET_REJECT('Reddedildi', 7, 'Reddedildi', false);
 
   final int level;
   final String event;
