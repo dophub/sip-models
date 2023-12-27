@@ -104,7 +104,16 @@ enum ServiceStatusEnum {
 enum TimeoutAction { None, New, Add }
 
 /// [AddressTypeEnum] Adres türleri
-enum AddressTypeEnum { home, work, hotel, other }
+enum AddressTypeEnum {
+  home('Ev'),
+  work('İş'),
+  hotel('Otel'),
+  other('Diğer');
+
+  final String title;
+
+  const AddressTypeEnum(this.title);
+}
 
 /// Http işlemerinde kullanılmakta
 enum HttpMethod { get, post, put, delete, update }
