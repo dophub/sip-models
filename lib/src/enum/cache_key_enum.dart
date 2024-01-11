@@ -15,5 +15,4 @@ enum CacheKey {
   thePaycellPosIsMarched,
   userCode,
   workingMode,
-  isUserAdmin,
 }
