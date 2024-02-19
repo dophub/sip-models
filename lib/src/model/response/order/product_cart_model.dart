@@ -196,7 +196,7 @@ class ItemOrder {
   PromotionMenu? promotionMenu;
   String? note;
   String? timeoutAction;
-  String? customerAddressId;
+  int? customerAddressId;
 
   factory ItemOrder.fromJson(Map<String?, dynamic> json) => ItemOrder(
         id: json["id"],
