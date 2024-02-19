@@ -80,6 +80,32 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
       )._setMarketPlace(_deliveryType);
 
+  /// Restorant içinde oluşturulan siparişler (Get al ve paket)
+  factory OrderHeaderModel.toResTopOutOrder(
+    String token,
+    String sessionId,
+    int dealerId,
+    OrderPoint _orderPoint,
+    DeliveryType _deliveryType,
+    CustomerAddressModel? customerAddress,
+    AppId appId, {
+    ClientType? clientType,
+    required int? masterBrandId,
+    required String appCode,
+  }) =>
+      OrderHeaderModel(
+        token,
+        sessionId,
+        dealerId,
+        appId,
+        _orderPoint,
+        SessionPoint.RESTOP,
+        customerAddress: customerAddress,
+        clientType: clientType,
+        masterBrandId: masterBrandId,
+        appCode: appCode,
+      )._setMarketPlace(_deliveryType);
+
   Map<String, String> _toMap() => {
         "sessionid": sessionId,
         "dealerid": dealerId.toString(),
