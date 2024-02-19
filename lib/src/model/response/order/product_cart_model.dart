@@ -181,7 +181,7 @@ class ItemOrder {
     this.promotionMenu,
     this.note,
     this.timeoutAction,
-    this.customerAddressId,
+    this.customerAddressId = 0,
   });
 
   /// Order içinde itemleri ayırmak için olan id.
