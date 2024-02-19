@@ -181,6 +181,7 @@ class ItemOrder {
     this.promotionMenu,
     this.note,
     this.timeoutAction,
+    this.customerAddressId,
   });
 
   /// Order içinde itemleri ayırmak için olan id.
@@ -195,17 +196,20 @@ class ItemOrder {
   PromotionMenu? promotionMenu;
   String? note;
   String? timeoutAction;
+  String? customerAddressId;
 
   factory ItemOrder.fromJson(Map<String?, dynamic> json) => ItemOrder(
-      id: json["id"],
-      itemType: json["item_type"],
-      count: json["count"],
-      itemAmount: json["item_amount"].toDouble(),
-      totalAmount: json["total_amount"].toDouble(),
-      note: json["note"],
-      product: Product.fromJson(json["product"]),
-      promotionMenu: PromotionMenu.fromJson(json["promotion_menu"]),
-      timeoutAction: json["timeout_action"]);
+        id: json["id"],
+        itemType: json["item_type"],
+        count: json["count"],
+        itemAmount: json["item_amount"].toDouble(),
+        totalAmount: json["total_amount"].toDouble(),
+        note: json["note"],
+        product: Product.fromJson(json["product"]),
+        promotionMenu: PromotionMenu.fromJson(json["promotion_menu"]),
+        timeoutAction: json["timeout_action"],
+        customerAddressId: json["customer_address_id"],
+      );
 
   Map<String, dynamic> toJson() => {
         "id": id,
@@ -217,6 +221,7 @@ class ItemOrder {
         "product": product == null ? null : product!.toJson(),
         "promotion_menu": promotionMenu == null ? null : promotionMenu!.toJson(),
         "timeout_action": timeoutAction,
+        "customer_address_id": customerAddressId,
       };
 }
 
