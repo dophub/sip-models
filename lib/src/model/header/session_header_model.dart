@@ -17,11 +17,12 @@ class SessionHeaderModel {
     required this.masterBrandId,
     required this.appCode,
     this.externalHeader = const {},
+    this.lang,
   });
 
   final String token;
   final AppId appId;
-  final String lang = 'tr';
+  final String? lang;
   final OrderPoint? orderPoint;
   final SessionPoint? sessionPoint;
   final CustomerAddressModel? customerAddress;
@@ -38,7 +39,7 @@ class SessionHeaderModel {
       "clienttype": clientType?.name ?? ClientType.APP.name,
       "applicationname": appId.name,
       "authorization": 'Bearer $token',
-      "lang": lang,
+      "lang": lang ?? 'tr',
       "orderpoint": orderPoint == null ? '' : orderPoint!.name,
       "neighborhoodid": (address.neighborhoodId ?? 0).toString(),
       "addressid": (address.id ?? 0).toString(),
