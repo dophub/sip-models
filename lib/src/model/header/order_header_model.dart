@@ -20,6 +20,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     ClientType? clientType,
     required int? masterBrandId,
     required String appCode,
+    required String lang,
   }) : super(
           appId: appId,
           token: token,
@@ -29,6 +30,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           clientType: clientType,
           masterBrandId: masterBrandId,
           appCode: appCode,
+          lang: lang,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -41,6 +43,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     ClientType? clientType,
     required int? masterBrandId,
     required String appCode,
+    required String lang,
   }) =>
       OrderHeaderModel(
         token,
@@ -53,6 +56,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         clientType: clientType,
         masterBrandId: masterBrandId,
         appCode: appCode,
+        lang: lang,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -66,6 +70,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     ClientType? clientType,
     required int? masterBrandId,
     required String appCode,
+    required String lang,
   }) =>
       OrderHeaderModel(
         token,
@@ -78,6 +83,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         clientType: clientType,
         masterBrandId: masterBrandId,
         appCode: appCode,
+        lang: lang,
       )._setMarketPlace(_deliveryType);
 
   /// Restorant içinde oluşturulan siparişler (Get al ve paket)
@@ -92,6 +98,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     ClientType? clientType,
     required int? masterBrandId,
     required String appCode,
+    required String lang,
   }) =>
       OrderHeaderModel(
         token,
@@ -104,6 +111,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         clientType: clientType,
         masterBrandId: masterBrandId,
         appCode: appCode,
+        lang: lang,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {
