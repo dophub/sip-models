@@ -94,6 +94,13 @@ enum ClientPointId { MOBILE_APP, KIOSK }
 /// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
 enum ClientType { APP, KIOSK }
 
+/// [AppTypeForAvailabilitySocket] Cihazların acık durumunu alırken tipini belirlemek için kullanılmakta
+/// socket ve token alırken kullanılmakta
+/// [KIOSK] kiosk
+/// [POS] pos
+/// [APP] Kiosk ve pos olmayan cihazlar
+enum AppTypeForAvailabilitySocket { KIOSK, POS, APP }
+
 /// [CampaignTypeId] indirim türleri
 /// [PERCENT] % indirim-PERCENT
 /// [DISCOUNT] Sabit Oran İndirimi-DISCOUNT
