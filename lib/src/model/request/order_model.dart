@@ -53,6 +53,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.pleksiNumber,
     this.numberOfService,
     this.tableServiceAmount,
+    this.paymentModelId,
   });
 
   int? id;
@@ -95,6 +96,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   int? pleksiNumber;
   int? numberOfService;
   double? tableServiceAmount; // Masa ya service ücreti
+  String? paymentModelId;
 
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -146,6 +148,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         pleksiNumber: json["pleksi_number"],
         numberOfService: json["number_of_service"],
         tableServiceAmount: json["table_service_amount"]?.toDouble(),
+        paymentModelId: json["payment_model_id"],
       );
 
   @override
@@ -189,6 +192,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "pleksi_number": pleksiNumber,
         "number_of_service": numberOfService,
         "table_service_amount": tableServiceAmount,
+        "payment_model_id": paymentModelId,
       };
 }
 
