@@ -144,4 +144,11 @@ enum AppId { SIP, RI }
 /// [POST] Normal sipariş verme
 /// [PRE] Self Service
 /// [HYBRID] İlk Önce ödeme alan restoranlar
-enum PaymentModelID { POST, PRE, HYBRID }
+enum PaymentModelID {
+  POST('Masa'),
+  PRE('Self Servis');
+
+  final String title;
+
+  const PaymentModelID(this.title);
+}
