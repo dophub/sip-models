@@ -6,6 +6,7 @@
 enum CacheKey {
   userId,
   token,
+  tempToken,
   listMode,
   sessionId,
   address,
