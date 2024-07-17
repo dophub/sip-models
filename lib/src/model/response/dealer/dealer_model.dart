@@ -27,6 +27,7 @@ class DealerModel extends IBaseModel<DealerModel> {
   bool? openReservation;
   bool? openTable;
   bool? openVale;
+  String? address;
 
   /// Product Listesi Searchte kullanılıyor
   List<ProductModel>? products;
@@ -55,6 +56,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.openTable,
     this.openVale,
     this.products,
+    this.address,
   });
 
   @override
@@ -67,23 +69,17 @@ class DealerModel extends IBaseModel<DealerModel> {
         avgServiceTime: json['avg_service_time'],
         avgServiceTimeMin: json['avg_service_time_min'],
         avgServiceTimeMax: json['avg_service_time_max'],
-        minPackageAmount:
-            json['min_package_amount'] == null ? 0 : json['min_package_amount'].toDouble(),
+        minPackageAmount: json['min_package_amount'] == null ? 0 : json['min_package_amount'].toDouble(),
         distance: json['distance'],
-        logoImage:
-            json['logo_image'] != null ? ImagesModel.fromJson(json['logo_image']) : ImagesModel(),
-        listImage:
-            json['list_image'] != null ? ImagesModel.fromJson(json['list_image']) : ImagesModel(),
-        mobileCoverImage: json['mobile_cover_image'] != null
-            ? ImagesModel.fromJson(json['mobile_cover_image'])
-            : ImagesModel(),
+        logoImage: json['logo_image'] != null ? ImagesModel.fromJson(json['logo_image']) : ImagesModel(),
+        listImage: json['list_image'] != null ? ImagesModel.fromJson(json['list_image']) : ImagesModel(),
+        mobileCoverImage:
+            json['mobile_cover_image'] != null ? ImagesModel.fromJson(json['mobile_cover_image']) : ImagesModel(),
         latlng: json['latlng'],
-        workingHours:
-            json['working_hours'] != null ? WorkingHourModel.fromJson(json['working_hours']) : null,
+        workingHours: json['working_hours'] != null ? WorkingHourModel.fromJson(json['working_hours']) : null,
         foodCategories: json["food_categories"] == null
             ? null
-            : List<FoodCategories>.from(
-                json["food_categories"].map((x) => FoodCategories.fromJson(x))),
+            : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
         dealerCode: json["dealer_code"],
         mainBrandId: json["main_brand_id"],
         openMarketplace: json["open_marketplace"],
@@ -93,6 +89,7 @@ class DealerModel extends IBaseModel<DealerModel> {
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
+        address: json["address"],
       );
 
   @override
