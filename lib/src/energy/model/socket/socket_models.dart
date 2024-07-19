@@ -6,7 +6,7 @@ abstract class DEClientEvents {}
 
 abstract class DEClientMethods {}
 
-class DEBaseMessageModel with IBaseModel<DEBaseMessageModel> {
+class DEBaseMessageModel extends IBaseModel<DEBaseMessageModel> {
   String? uniqueId;
   String? action;
 
