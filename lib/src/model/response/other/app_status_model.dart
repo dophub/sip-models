@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class AppStatusModel extends IBaseModel<AppStatusModel> {
   AppStatusModel({
@@ -56,7 +57,11 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         travel: json["travel"],
         hotel: json["hotel"],
         energy: json["energy"],
-        forceUpdate: Platform.isIOS ? json["force_update_ios"] : json["force_update_android"],
+        forceUpdate: kIsWeb
+            ? false
+            : Platform.isIOS
+                ? json["force_update_ios"]
+                : json["force_update_android"],
       );
 
   @override
