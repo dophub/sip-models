@@ -5,34 +5,35 @@ import '../address/customer_address_model.dart';
 import '../order/past_order_details_model.dart';
 
 class DealerInfoModel extends IBaseModel<DealerInfoModel> {
-  DealerInfoModel(
-      {this.dealerId,
-      this.mainBrandId,
-      this.dealerName,
-      this.restaurantInWorkingHours,
-      this.restaurantInPackageService,
-      this.workingHours,
-      this.weeklyWorkingHours,
-      this.logoImage,
-      this.listImage,
-      this.rating,
-      this.rating2,
-      this.commentCount,
-      this.avgServiceTime,
-      this.avgServiceTimeMin,
-      this.avgServiceTimeMax,
-      this.minPackageAmount,
-      this.distance,
-      this.mobileCoverImage,
-      this.latlng,
-      this.openMarketplace,
-      this.openReservation,
-      this.openTable,
-      this.openVale,
-      this.socials,
-      this.webAddress,
-      this.foodCategories,
-      this.dealerAddress});
+  DealerInfoModel({
+    this.dealerId,
+    this.mainBrandId,
+    this.dealerName,
+    this.restaurantInWorkingHours,
+    this.restaurantInPackageService,
+    this.workingHours,
+    this.weeklyWorkingHours,
+    this.logoImage,
+    this.listImage,
+    this.rating,
+    this.rating2,
+    this.commentCount,
+    this.avgServiceTime,
+    this.avgServiceTimeMin,
+    this.avgServiceTimeMax,
+    this.minPackageAmount,
+    this.distance,
+    this.mobileCoverImage,
+    this.latlng,
+    this.openMarketplace,
+    this.openReservation,
+    this.openTable,
+    this.openVale,
+    this.socials,
+    this.webAddress,
+    this.foodCategories,
+    this.address,
+  });
 
   int? dealerId;
   int? mainBrandId;
@@ -60,7 +61,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
   SocialsModel? socials;
   String? webAddress;
   List<FoodCategory>? foodCategories;
-  CustomerAddressModel? dealerAddress;
+  String? address;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerInfoModel(
@@ -70,12 +71,10 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
         restaurantInWorkingHours: json["restaurant_in_working_hours"],
         restaurantInPackageService: json["restaurant_in_package_service"],
         workingHours: WorkingHourModel.fromJson(json["working_hours"]),
-        weeklyWorkingHours: List<WorkingHourModel>.from(
-            json["weekly_working_hours"].map((x) => WorkingHourModel.fromJson(x))),
-        logoImage:
-            json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
-        listImage:
-            json["list_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["list_image"]),
+        weeklyWorkingHours:
+            List<WorkingHourModel>.from(json["weekly_working_hours"].map((x) => WorkingHourModel.fromJson(x))),
+        logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
+        listImage: json["list_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["list_image"]),
         rating: json["rating"],
         rating2: json["rating2"],
         commentCount: json["comment_count"],
@@ -84,9 +83,8 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"],
         distance: json["distance"],
-        mobileCoverImage: json["mobile_cover_image"] == null
-            ? ImagesModel()
-            : ImagesModel.fromJson(json["mobile_cover_image"]),
+        mobileCoverImage:
+            json["mobile_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["mobile_cover_image"]),
         latlng: json["latlng"],
         openMarketplace: json["open_marketplace"],
         openReservation: json["open_reservation"],
@@ -97,8 +95,7 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
         foodCategories: json["food_categories"] == null
             ? []
             : List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
-        dealerAddress:
-            json["address"] == null ? null : CustomerAddressModel().fromJson(json["address"]),
+        address: json["address"] is String ? json["address"] : null,
       );
 
   @override
