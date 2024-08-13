@@ -13,7 +13,7 @@ export 'package:sip_models/src/ri/model/admin/get_payment_type_status_model.dart
 export 'package:sip_models/src/ri/model/admin/get_printer_workflow_detail_model.dart';
 export 'package:sip_models/src/ri/model/admin/get_printer_workflow_model.dart';
 export 'package:sip_models/src/ri/model/admin/get_zones_model.dart';
-export 'package:sip_models/src/ri/model/admin/neighborhood_model.dart';
+export 'package:sip_models/src/ri/model/admin/admin_neighborhood_model.dart';
 export 'package:sip_models/src/ri/model/admin/payment_pos_brands_model.dart';
 export 'package:sip_models/src/ri/model/admin/save_kiosk_setting_request_model.dart';
 export 'package:sip_models/src/ri/model/admin/static_working_hours_model.dart';
