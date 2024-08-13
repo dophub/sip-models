@@ -1,4 +1,3 @@
-library sip_enum;
 export 'src/enum/cache_key_enum.dart';
 export 'src/enum/general_enum.dart';
 export 'src/enum/id_enum.dart';

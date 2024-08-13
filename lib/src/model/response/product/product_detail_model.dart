@@ -5,7 +5,7 @@ import '../other/images_model.dart';
 import '../other/price_model.dart';
 
 /// ProductProfileScreende kullanılam ürün detay modelidir
-class ProductDetailModel extends IBaseModel<ProductDetailModel> with ISectionsWidgetModel {
+class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISectionsWidgetModel {
   ProductDetailModel({
     this.id,
     this.productName,

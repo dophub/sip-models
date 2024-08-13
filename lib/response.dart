@@ -1,4 +1,3 @@
-library response;
 
 export 'src/model/response/other/abstract_base_model.dart';
 export 'src/model/response/address/address_by_location.dart';

@@ -1,4 +1,3 @@
-library request;
 export 'src/model/request/event_log_model.dart';
 export 'src/model/request/payment/get_payment_id_model.dart';
 export 'src/model/request/get_waiter_to_table_model.dart';

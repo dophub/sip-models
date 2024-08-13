@@ -55,7 +55,7 @@ class Place {
       );
 }
 
-class PlaceModel extends IBaseModel<PlaceModel> with ISectionsWidgetModel {
+class PlaceModel extends IBaseModel<PlaceModel> implements ISectionsWidgetModel {
   PlaceModel({
     this.id,
     this.name,

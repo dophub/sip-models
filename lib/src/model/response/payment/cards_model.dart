@@ -25,7 +25,7 @@ class CardsModel {
       );
 }
 
-class CardModel extends ISectionsWidgetModel with IPaymentType {
+class CardModel extends ISectionsWidgetModel implements IPaymentType {
   CardModel({
     this.cardId,
     this.maskedCardNo,
@@ -90,7 +90,7 @@ class CardModel extends ISectionsWidgetModel with IPaymentType {
   }
 }
 
-class TurkcellMobilePayment with IPaymentType {
+class TurkcellMobilePayment implements IPaymentType {
   TurkcellMobilePayment({
     this.cardLogo,
     this.cardLimit,

@@ -167,10 +167,10 @@
       "name": "sip_models",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-07-19T19:16:21.346994Z",
+  "generated": "2024-08-13T08:13:56.348870Z",
   "generator": "pub",
   "generatorVersion": "3.4.1",
   "flutterRoot": "file:///Users/mustafaturkmen/src/flutter",
