@@ -1,4 +1,3 @@
-
 enum ApiLocalizationKeyEnum {
   DELIVERY_SS_TEXT, //	Teslimat tipi Self-Servis buton metni
   DELIVERY_TABLE_TEXT, //	Teslimat tipi Masaya Servis buton metni
@@ -24,4 +23,16 @@ enum PrinterFontSizeEnum {
   final int level;
 
   const PrinterFontSizeEnum(this.level);
+}
+
+enum PaymentTypeEnum {
+  CASH('Nakit'),
+  PAYCELLCARD('Kredi Kartı'),
+  PAYCELLCASH('Nakit'),
+  QRWALLET('QR Yükleme'),
+  CARD('Kredi Kartı');
+
+  final String title;
+
+  const PaymentTypeEnum(this.title);
 }
