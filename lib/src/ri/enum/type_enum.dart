@@ -4,9 +4,6 @@ enum OptionType { OPTION, FEATURE }
 
 enum Valet { IN_VALET, WAITING_FOR_GET, DONE }
 
-/// [SizeType] Uygulamanın farklı yerlerinde kullanılan boyut türleri
-enum SizeType { XS, S, L, XL }
-
 enum AllOrderTypeStatusEnum {
   //TABLE
   IN_TEMP('Cihazda'),
