@@ -55,7 +55,7 @@ export 'package:sip_models/src/ri/model/response/other/tip_list_response_model.d
 export 'package:sip_models/src/ri/model/response/other/tip_system_detail_response_model.dart';
 export 'package:sip_models/src/ri/model/response/other/update_branch_product_activation_model.dart';
 export 'package:sip_models/src/ri/model/response/paramaters/courier_model.dart';
-export 'package:sip_models/src/ri/model/response/paramaters/dealer_info_model.dart';
+export 'package:sip_models/src/ri/model/response/paramaters/ri_dealer_info_model.dart';
 export 'package:sip_models/src/ri/model/response/paramaters/order_cancel_model.dart';
 export 'package:sip_models/src/ri/model/response/paramaters/order_status_model.dart';
 export 'package:sip_models/src/ri/model/response/paramaters/parameters_model.dart';
