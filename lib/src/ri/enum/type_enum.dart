@@ -93,4 +93,4 @@ enum CancelPosPaymentTypeEnum {
 
 enum WorkingModeEnum { pos, admin }
 
-enum PrinterPaperType { mm58, mm80 }
+enum PrinterPaperTypeEnum { mm58, mm80 }

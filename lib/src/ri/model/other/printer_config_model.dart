@@ -11,7 +11,7 @@ class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
   String? vendorId;
   String? productId;
   bool? isBle;
-  PrinterPaperType paperSize;
+  PrinterPaperTypeEnum paperSize;
 
   PrinterConfigModel._({
     required this.typePrinter,
@@ -27,21 +27,21 @@ class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
   PrinterConfigModel.forNetwork({
     this.ipAddress,
     this.port,
-    this.paperSize = PrinterPaperType.mm80,
+    this.paperSize = PrinterPaperTypeEnum.mm80,
   }) : typePrinter = PrinterTypeEnum.NETWORK;
 
   PrinterConfigModel.forBluetooth({
     this.name,
     this.ipAddress,
     this.isBle = false,
-    this.paperSize = PrinterPaperType.mm80,
+    this.paperSize = PrinterPaperTypeEnum.mm80,
   }) : typePrinter = PrinterTypeEnum.BLUETOOTH;
 
   PrinterConfigModel.forUSB({
     this.name,
     this.vendorId,
     this.productId,
-    this.paperSize = PrinterPaperType.mm80,
+    this.paperSize = PrinterPaperTypeEnum.mm80,
   }) : typePrinter = PrinterTypeEnum.USB;
 
   @override
