@@ -2,13 +2,13 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../other/multi_item_picker_widget_model.dart';
 
-class DistrictModel extends IBaseModel<DistrictModel> implements IMultiItemPickerWidgetModel {
+class AdminDistrictModel extends IBaseModel<AdminDistrictModel> implements IMultiItemPickerWidgetModel {
   int? id;
   String? name;
   int? cityId;
   int? districtKey;
 
-  DistrictModel({
+  AdminDistrictModel({
     this.id,
     this.name,
     this.cityId,
@@ -16,7 +16,7 @@ class DistrictModel extends IBaseModel<DistrictModel> implements IMultiItemPicke
   });
 
   @override
-  fromJson(Map<String, dynamic> json) => DistrictModel(
+  fromJson(Map<String, dynamic> json) => AdminDistrictModel(
         id: json["id"],
         name: json["name"],
         cityId: json["city_id"],

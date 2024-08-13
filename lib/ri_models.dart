@@ -19,7 +19,7 @@ export 'package:sip_models/src/ri/model/response/courier/courier_order_model.dar
 export 'package:sip_models/src/ri/model/response/customer/add_local_customer_model.dart';
 export 'package:sip_models/src/ri/model/response/customer/customer_review_detail_model.dart';
 export 'package:sip_models/src/ri/model/response/customer/customer_reviews_list_model.dart';
-export 'package:sip_models/src/ri/model/response/district/district_model.dart';
+export 'package:sip_models/src/ri/model/response/district/admin_district_model.dart';
 export 'package:sip_models/src/ri/model/response/district/neighborhood_model.dart';
 export 'package:sip_models/src/ri/model/response/generate_secret/generate_secret_model.dart';
 export 'package:sip_models/src/ri/model/response/login/dealer_station_list_model.dart';
