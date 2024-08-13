@@ -9,9 +9,6 @@ enum DeliveryType { TAKEOUT, GETIN, TABLE }
 /// [Divider] Çizgi olsun
 enum ItemSeparatorType { Space, Divider }
 
-/// [SizeType] Uygulamanın farklı yerlerinde kullanılan boyut türleri
-enum SizeType { XS, S, L, XL }
-
 /// [PriceType] Fiyat Türleri
 /// [TABLE] => Masadan Ödeme
 /// [TAKEOUT] => Adrese Teslim
