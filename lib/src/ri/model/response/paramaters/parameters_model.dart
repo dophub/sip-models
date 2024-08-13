@@ -1,10 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/foundation.dart';
-import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
-
 import '../../../../../response.dart';
 import 'courier_model.dart';
-import 'ri_dealer_info_model.dart';
 import 'order_cancel_model.dart';
 import 'order_status_model.dart';
 import 'station_table_model.dart';
