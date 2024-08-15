@@ -2,7 +2,6 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../ri_enum.dart';
 
-
 class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
   PrinterTypeEnum typePrinter;
   String? name;

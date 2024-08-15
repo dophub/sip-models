@@ -1,6 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/foundation.dart';
 import '../../../../../response.dart';
+import '../../../../../ri_models.dart';
 import 'courier_model.dart';
 import 'order_cancel_model.dart';
 import 'order_status_model.dart';
@@ -237,6 +238,7 @@ class ParametersResponseDealerInfoModel {
     this.dealerPaymentPos,
     this.isAutoCancel,
     this.isSyncOrder,
+    this.localSettings,
   });
 
   int? dealerId;
@@ -266,6 +268,7 @@ class ParametersResponseDealerInfoModel {
   bool? isAutoCancel; // false ise iptal işlemi için SMS göndereceğiz
   bool?
       isSyncOrder; // true ise self servis ekranında satırda is_sync=false olduğunda kırmızı senklendirmeyi ve 15 sn sonra popup mesajını göstereceğiz. "false" ise hiç bir şey olmayacak.
+  PosStationLocalSettingsModel? localSettings;
 
   factory ParametersResponseDealerInfoModel.fromJson(Map<String, dynamic> json) => ParametersResponseDealerInfoModel(
         dealerId: json["dealer_id"],
@@ -299,37 +302,9 @@ class ParametersResponseDealerInfoModel {
                 json["dealer_payment_pos"]!.map((x) => DealerInfoPaymentPoModel.fromJson(x))),
         isAutoCancel: json['is_auto_cancel'],
         isSyncOrder: json['is_sync_order'],
+        localSettings:
+            json["local_settings"] == null ? null : PosStationLocalSettingsModel.fromJson(json["local_settings"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "dealer_id": dealerId,
-        "dealer_name": dealerName,
-        "dealer_code": dealerCode,
-        "district_id": districtId,
-        "neighborhood_id": neighborhoodId,
-        "latlng": latlng,
-        "open_vale": openVale,
-        "open_table": openTable,
-        "open_marketplace": openMarketplace,
-        "open_reservation": openReservation,
-        "marketplace_is_active": marketplaceIsActive,
-        "reservation_is_active": reservationIsActive,
-        "vale_is_active": valeIsActive,
-        "self_service_is_active": selfServiceIsActive,
-        "self_service_default_table": selfServiceDefaultTable,
-        "self_service_default_table_qrcode": selfServiceDefaultTableQrCode,
-        "dealer_pos": dealerPos == null ? [] : List<dynamic>.from(dealerPos!.map((x) => x.toJson())),
-        "logo_image": logoImage?.toJson(),
-        "brand_code": brandCode,
-        "brand_name": brandName,
-        "list_image": listImage?.toJson(),
-        "mobile_cover_image": mobileCoverImage?.toJson(),
-        "address": address?.toJson(),
-        "dealer_payment_pos":
-            dealerPaymentPos == null ? [] : List<dynamic>.from(dealerPaymentPos!.map((x) => x.toJson())),
-        'is_auto_cancel': isAutoCancel,
-        'is_sync_order': isSyncOrder,
-      };
 }
 
 class DealerInfoAddressModel {
