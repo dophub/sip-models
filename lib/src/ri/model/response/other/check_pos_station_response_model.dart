@@ -224,6 +224,7 @@ class PosStationLocalSettingsModel {
   String? onLandingButtonColor;
   int? screenWaitingSeconds;
   int? popupWaitingSeconds;
+  bool? isDepot;
 
   PosStationLocalSettingsModel({
     this.primaryColor,
@@ -237,6 +238,7 @@ class PosStationLocalSettingsModel {
     this.onBackgroundColor,
     this.landingButtonColor,
     this.onLandingButtonColor,
+    this.isDepot,
   });
 
   factory PosStationLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationLocalSettingsModel(
@@ -251,6 +253,7 @@ class PosStationLocalSettingsModel {
         onLandingButtonColor: json["on_landing_button_color"],
         screenWaitingSeconds: json["screen_waiting_seconds"],
         popupWaitingSeconds: json["popup_waiting_seconds"],
+        isDepot: json["is_depot"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -265,6 +268,7 @@ class PosStationLocalSettingsModel {
         "on_landing_button_color": onLandingButtonColor,
         "screen_waiting_seconds": screenWaitingSeconds,
         "popup_waiting_seconds": popupWaitingSeconds,
+        "is_depot": isDepot,
       };
 }
 
