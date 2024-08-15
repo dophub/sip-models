@@ -26,7 +26,7 @@ enum PayTypeId { TOTAL, IND }
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
 enum OrderPoint {
-  TAKEOUT(PriceType.TAKEOUT, 'Eve Teslim'),
+  TAKEOUT(PriceType.TAKEOUT, 'Adrese Teslim'),
   GETIN(PriceType.GETIN, 'Gel Al'),
   TABLE(PriceType.TABLE, 'Restorant İçi');
 
