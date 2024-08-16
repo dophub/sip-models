@@ -1,6 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 import 'package:sip_models/src/model/response/address/customer_address_model.dart';
+import '../../../../../ri_models.dart';
 import 'report_app2app_payment_result_model.dart';
 
 class PrinterQueueResponseModel extends IBaseModel<PrinterQueueResponseModel> {
@@ -42,6 +43,32 @@ class PrinterQueueResponseModel extends IBaseModel<PrinterQueueResponseModel> {
   List<PrinterLineAndStyleModel>? headers;
   List<PrinterLineAndStyleModel>? footers;
   String? paperSize;
+
+  toKitchenOrderModel() => KitchenOrderModel(
+        orderId: id,
+        kitchenId: '',
+        firstName: printData!.orders!.firstOrNull?.nickName ?? '',
+        lastName: '',
+        orderDate: printData!.orders!.firstOrNull?.recordDate,
+        products: printData!.orders!.firstOrNull?.items!
+                .map((e) => KitchenOrderProductModel(
+                      productName: e.itemTitle,
+                      productId: e.id,
+                      itemTypeId: e.itemTypeId,
+                      count: e.count,
+                      itemNote: e.itemNote,
+                      options: e.options,
+                    ))
+                .toList() ??
+            [],
+        orderInfo: KitchenOrderInfoModel(
+          numberOfService: printData!.numberOfService,
+          tableName: printData!.tableInfo!.tableName,
+          orderPointId: printData!.orders?.firstOrNull?.orderPointId ?? '',
+          paymentModelId: paymentModelId,
+        ),
+        serviceDeliveryTypeId: printData!.serviceDeliveryType,
+      );
 
   @override
   PrinterQueueResponseModel fromJson(Map<String, dynamic> json) => PrinterQueueResponseModel(

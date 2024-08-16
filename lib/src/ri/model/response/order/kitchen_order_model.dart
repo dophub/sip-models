@@ -10,7 +10,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   String? lastName;
   DateTime? orderDate;
   List<KitchenOrderProductModel>? products;
-  _KitchenOrderInfoModel? orderInfo;
+  KitchenOrderInfoModel? orderInfo;
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
   String? serviceDeliveryTypeId;
 
@@ -32,7 +32,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         firstName: json["first_name"],
         lastName: json["last_name"],
         orderDate: DateTime.parse(json["order_date"]),
-        orderInfo: _KitchenOrderInfoModel.fromJson(json["order_info"]),
+        orderInfo: KitchenOrderInfoModel.fromJson(json["order_info"]),
         products: json["products"] == null
             ? []
             : List<KitchenOrderProductModel>.from(
@@ -55,20 +55,20 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
       };
 }
 
-class _KitchenOrderInfoModel {
+class KitchenOrderInfoModel {
   int? numberOfService;
   String? tableName;
   String? orderPointId;
   String? paymentModelId;
 
-  _KitchenOrderInfoModel({
+  KitchenOrderInfoModel({
     this.numberOfService,
     this.tableName,
     this.orderPointId,
     this.paymentModelId,
   });
 
-  factory _KitchenOrderInfoModel.fromJson(Map<String, dynamic> json) => _KitchenOrderInfoModel(
+  factory KitchenOrderInfoModel.fromJson(Map<String, dynamic> json) => KitchenOrderInfoModel(
         numberOfService: json["number_of_service"],
         tableName: json["table_name"],
         orderPointId: json["order_point_id"],
