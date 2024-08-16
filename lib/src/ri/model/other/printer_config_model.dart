@@ -46,7 +46,8 @@ class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => PrinterConfigModel._(
-        typePrinter: PrinterTypeEnum.values.firstWhereOrNull((PrinterTypeEnum e) => e.name == json["typePrinter"]) ??
+        typePrinter: PrinterTypeEnum.values
+                .firstWhereOrNull((PrinterTypeEnum e) => e.name.toUpperCase() == json["typePrinter"].toUpperCase()) ??
             PrinterTypeEnum.NETWORK,
         name: json["name"],
         ipAddress: json["ipAddress"],
