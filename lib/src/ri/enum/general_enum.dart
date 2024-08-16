@@ -36,3 +36,16 @@ enum PaymentTypeEnum {
 
   const PaymentTypeEnum(this.title);
 }
+
+enum PrintTemplateIdEnum {
+  KITCHEN('Mutfak order printer.'),
+  TABLE('Masa order printer'),
+  TAKEOUT('Sipariş order printer'),
+  DEMO('Demo order printer'),
+  SELFSERVICE('selfservis order printer'),
+  GETIN('GelAl order printer');
+
+  final String title;
+
+  const PrintTemplateIdEnum(this.title);
+}
