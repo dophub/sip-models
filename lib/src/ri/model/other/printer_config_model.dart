@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:collection/collection.dart';
 
 import '../../../../ri_enum.dart';
 
@@ -45,14 +46,17 @@ class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => PrinterConfigModel._(
-        typePrinter: json["typePrinter"],
+        typePrinter: PrinterTypeEnum.values.firstWhereOrNull((PrinterTypeEnum e) => e.name == json["typePrinter"]) ??
+            PrinterTypeEnum.NETWORK,
         name: json["name"],
         ipAddress: json["ipAddress"],
         port: json["port"],
         vendorId: json["vendorId"],
         productId: json["productId"],
         isBle: json["isBle"],
-        paperSize: json["paper_size"],
+        paperSize: json["paper_size"] == PrinterPaperTypeEnum.mm58.name
+            ? PrinterPaperTypeEnum.mm58
+            : PrinterPaperTypeEnum.mm80,
       );
 
   @override
@@ -65,7 +69,7 @@ class PrinterConfigModel extends IBaseModel<PrinterConfigModel> {
       "vendorId": vendorId,
       "productId": productId,
       "isBle": isBle,
-      "paper_size": paperSize,
+      "paper_size": paperSize.name,
     };
     map.removeWhere((key, value) => value == null);
     return map;
