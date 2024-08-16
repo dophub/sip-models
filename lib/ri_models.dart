@@ -9,7 +9,7 @@ export 'package:sip_models/src/ri/model/request/close_table_req_model.dart';
 export 'package:sip_models/src/ri/model/request/food_status_update_request_model.dart';
 export 'package:sip_models/src/ri/model/request/local_customer_model.dart';
 export 'package:sip_models/src/ri/model/request/order_reject_req_model.dart';
-export 'package:sip_models/src/ri/model/request/pay_by_paycell_sunmi_model.dart';
+export 'package:sip_models/src/kiosk/general/pay_by_paycell_sunmi_model.dart';
 export 'package:sip_models/src/ri/model/request/update_dealer_district_request_model.dart';
 export 'package:sip_models/src/ri/model/request/update_payment_type_request_model.dart';
 export 'package:sip_models/src/ri/model/request/update_price_model_req.dart';
