@@ -54,6 +54,7 @@ class CheckPosStationResponseInfoModel {
     this.kioskShowMobilePhoneScreen,
     this.defaultKisokBanner,
     this.dealerKioskBanner,
+    this.posStationsLocalSettings,
   });
 
   int? id;
@@ -84,6 +85,7 @@ class CheckPosStationResponseInfoModel {
   String? dealerKioskBanner;
   bool? kioskShowMobilePhoneScreen;
   Map<String, Map<String, String>?>? dealerContents; // localization Map<LanguageCode,Map<Kay,value>>
+  PosStationsLocalSettingsModel? posStationsLocalSettings; // istasyon bazlı kisok ayarları
 
   /// close_order_read_new_qr = Kasada qr okumada önceki sipariş kapatılıyor mu
   /// jump_to_case_button_in_kiosk = kiosk ekranında Kasa ekranına hızlı geçiş olacak mı?
@@ -113,40 +115,42 @@ class CheckPosStationResponseInfoModel {
     }
 
     return CheckPosStationResponseInfoModel(
-      id: json["id"],
-      title: json["title"],
-      deviceSerial: json["device_serial"],
-      createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
-      isActive: json["is_active"],
-      dealerId: json["dealer_id"],
-      posPrinters: json["pos_printers"] == null
-          ? []
-          : List<PosPrinterModel>.from(json["pos_printers"]!.map((x) => PosPrinterModel.fromJson(x))),
-      terminalId: json["terminalid"],
-      kioskLandingImage: json['kiosk_landing_image'],
-      kioskIsAutoAccept: json['kiosk_is_auto_accept'],
-      kioskAutoAcceptTime: json['kiosk_auto_accept_time'],
-      closeOrderReadNewQr: json["close_order_read_new_qr"],
-      kioskMobilePhoneIsRequire: json["kiosk_mobile_phone_is_require"],
-      jumpToCaseButtonInKiosk: json["jump_to_case_button_in_kiosk"],
-      showCashButtonIn: json["show_cash_button_in"],
-      isKioskChangeableDeliveryType: json["is_kiosk_changeable_delivery_type"],
-      isKioskPleksiScreen: json["is_kiosk_pleksi_screen"],
-      isChangeableOrderPoint: json["is_changeable_order_point"],
-      tableServiceAmount: json["table_service_amount"],
-      isChangeableDeliverySSType: json["is_changeable_delivery_ss_type"],
-      isChangeableDeliveryTableType: json["is_changeable_delivery_table_type"],
-      setOrderPointId: json["set_order_point_id"],
-      defaultKisokBanner: json["default_kisok_banner"],
-      dealerKioskBanner: json["dealer_kiosk_banner"],
-      kioskShowMobilePhoneScreen: json["kiosk_show_mobile_phone_screen"],
-      localSettings:
-          json["local_settings"] == null ? null : PosStationLocalSettingsModel.fromJson(json["local_settings"]),
-      kioskImages: json["kiosk_images"] == null
-          ? []
-          : List<KioskImageModel>.from(json["kiosk_images"].map((x) => KioskImageModel.fromJson(x))),
-      dealerContents: temp,
-    );
+        id: json["id"],
+        title: json["title"],
+        deviceSerial: json["device_serial"],
+        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
+        isActive: json["is_active"],
+        dealerId: json["dealer_id"],
+        posPrinters: json["pos_printers"] == null
+            ? []
+            : List<PosPrinterModel>.from(json["pos_printers"]!.map((x) => PosPrinterModel.fromJson(x))),
+        terminalId: json["terminalid"],
+        kioskLandingImage: json['kiosk_landing_image'],
+        kioskIsAutoAccept: json['kiosk_is_auto_accept'],
+        kioskAutoAcceptTime: json['kiosk_auto_accept_time'],
+        closeOrderReadNewQr: json["close_order_read_new_qr"],
+        kioskMobilePhoneIsRequire: json["kiosk_mobile_phone_is_require"],
+        jumpToCaseButtonInKiosk: json["jump_to_case_button_in_kiosk"],
+        showCashButtonIn: json["show_cash_button_in"],
+        isKioskChangeableDeliveryType: json["is_kiosk_changeable_delivery_type"],
+        isKioskPleksiScreen: json["is_kiosk_pleksi_screen"],
+        isChangeableOrderPoint: json["is_changeable_order_point"],
+        tableServiceAmount: json["table_service_amount"],
+        isChangeableDeliverySSType: json["is_changeable_delivery_ss_type"],
+        isChangeableDeliveryTableType: json["is_changeable_delivery_table_type"],
+        setOrderPointId: json["set_order_point_id"],
+        defaultKisokBanner: json["default_kisok_banner"],
+        dealerKioskBanner: json["dealer_kiosk_banner"],
+        kioskShowMobilePhoneScreen: json["kiosk_show_mobile_phone_screen"],
+        localSettings:
+            json["local_settings"] == null ? null : PosStationLocalSettingsModel.fromJson(json["local_settings"]),
+        kioskImages: json["kiosk_images"] == null
+            ? []
+            : List<KioskImageModel>.from(json["kiosk_images"].map((x) => KioskImageModel.fromJson(x))),
+        dealerContents: temp,
+        posStationsLocalSettings: json['pos_stations_local_settings'] == null
+            ? null
+            : PosStationsLocalSettingsModel.fromJson(json['pos_stations_local_settings']));
   }
 }
 
@@ -321,5 +325,21 @@ class DealerContentModel {
         "content": content,
         "lang_id": langId,
         "content_type_id": contentTypeId,
+      };
+}
+
+class PosStationsLocalSettingsModel {
+  int? categoryProductColumnCount;
+
+  PosStationsLocalSettingsModel({
+    required this.categoryProductColumnCount,
+  });
+
+  factory PosStationsLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationsLocalSettingsModel(
+        categoryProductColumnCount: json["category_product_column_count"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "category_product_column_count": categoryProductColumnCount,
       };
 }
