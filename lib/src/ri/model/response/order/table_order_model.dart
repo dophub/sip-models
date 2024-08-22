@@ -21,6 +21,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
     this.sessionPoint,
     this.tableDetail,
     this.paymentModelId,
+    this.clientPointId,
   }) {
     super.id = id;
   }
@@ -38,6 +39,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   MarketplaceOrderOrderPointModel? sessionPoint;
   _TableDetailModel? tableDetail;
   String? paymentModelId;
+  String? clientPointId;
 
   @override
   Map<String, dynamic> toJson() => throw UnimplementedError();
@@ -61,18 +63,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
             json["session_point"] == null ? null : MarketplaceOrderOrderPointModel.fromJson(json["session_point"]),
         tableDetail: json["tabledetail"] == null ? null : _TableDetailModel.fromJson(json["tabledetail"]),
         paymentModelId: json["payment_model_id"],
-        // orderPointId: json["order_point_id"],
-        // orderPoint: json["order_point"],
-        // customerAddress: json["customer_address"],
-        // neigborhoodName: json["neigborhood_name"],
-        // districtName: json["district_name"],
-        // orderNote: json["order_note"],
-        // paymentTypeId: json["payment_type_id"],
-        // title: json["title"],
-
-        // orderNumber: json["order_number"],
-        // totalAmount: json["total_amount"]?.toDouble(),
-        // recordDate: json["record_date"] == null ? null : DateTime.parse(json["record_date"]),
+        clientPointId: json["client_point_id"],
       );
 }
 
