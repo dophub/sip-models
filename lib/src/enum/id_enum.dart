@@ -87,7 +87,26 @@ enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, CANCEL2, REVISION }
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil
 /// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
-enum ClientPointId { MOBILE_APP, KIOSK }
+enum ClientPointId {
+  MOBILE_APP('Mobil Uygulama'),
+  KIOSK('KIOSK');
+
+  final String title;
+
+  const ClientPointId(this.title);
+}
+
+/// [ThirdPartClientPointId] 3 part siparişler
+enum ThirdPartClientPointId {
+  GETIR('Getir'),
+  TRENDYOL('Trendyol Yemek'),
+  YEMEKSEPETI('YemekSepet'),
+  MIGROSYEMEK('Migros Yemek');
+
+  final String title;
+
+  const ThirdPartClientPointId(this.title);
+}
 
 /// [ClientType] Platform
 /// [APP] Mobil
