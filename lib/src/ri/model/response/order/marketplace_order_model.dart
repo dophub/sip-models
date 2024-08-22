@@ -23,6 +23,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
   MarketplaceOrderOrderPointModel? sessionPoint;
   String? infoPhoneNumber;
   String? neighborhoodName;
+  String? clientPointId;
 
   MarketplaceOrderModel({
     this.items,
@@ -45,6 +46,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
     this.sessionPoint,
     this.infoPhoneNumber,
     this.neighborhoodName,
+    this.clientPointId,
   }) {
     super.id = orderId;
   }
@@ -71,6 +73,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
         sessionPoint: MarketplaceOrderOrderPointModel.fromJson(json["session_point"]),
         infoPhoneNumber: json["info_phone_number"],
         neighborhoodName: json["neighborhood_name"],
+        clientPointId: json["client_point_id"],
       );
 
   @override
@@ -95,6 +98,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
         "session_point": sessionPoint?.toJson(),
         "info_phone_number": infoPhoneNumber,
         "neighborhood_name": neighborhoodName,
+        "client_point_id": clientPointId,
       };
 }
 
