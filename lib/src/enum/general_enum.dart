@@ -9,23 +9,24 @@ enum AppEnvironment { Development, Staging, Production }
 /// [OUT_COMPLETE] Tamamlandı
 /// [OUT_CANCEL] İptal
 enum TakeOutOrderStatus {
-  OUT_TEMP('Cihazda', 0, 'Cihazda', false),
-  OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor', true),
-  OUT_ACCEPT('Onaylandı', 2, 'Onayla', true),
-  OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true),
-  OUT_READY('Hazırlandı', 4, 'Hazırlandı', true),
-  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true),
-  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true),
-  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true),
-  OUT_CANCEL('İptal', 8, 'İptal', false),
-  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false);
+  OUT_TEMP('Cihazda', 0, 'Cihazda', false, Duration(seconds: 0)),
+  OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor', true, Duration(seconds: 0)),
+  OUT_ACCEPT('Onaylandı', 2, 'Onayla', true, Duration(seconds: 0)),
+  OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true, Duration(seconds: 0)),
+  OUT_READY('Hazırlandı', 4, 'Hazırlandı', true, Duration(seconds: 4)),
+  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(seconds: 4)),
+  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(seconds: 9)),
+  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(seconds: 9)),
+  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(seconds: 9)),
+  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(seconds: 9));
 
   final int level;
   final String event;
   final String title;
   final bool visibleForUser;
+  final Duration duration; // oluşturma tarihinden itibaren ne kadar süre sonra bu statusa geçilebilir
 
-  const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser);
+  const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser, this.duration);
 }
 
 /// [GET_TEMP] Cihazda
