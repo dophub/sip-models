@@ -9,16 +9,16 @@ enum AppEnvironment { Development, Staging, Production }
 /// [OUT_COMPLETE] Tamamlandı
 /// [OUT_CANCEL] İptal
 enum TakeOutOrderStatus {
-  OUT_TEMP('Cihazda', 0, 'Cihazda', false, Duration(seconds: 0)),
-  OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor', true, Duration(seconds: 0)),
-  OUT_ACCEPT('Onaylandı', 2, 'Onayla', true, Duration(seconds: 0)),
-  OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true, Duration(seconds: 0)),
-  OUT_READY('Hazırlandı', 4, 'Hazırlandı', true, Duration(seconds: 4)),
-  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(seconds: 4)),
-  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(seconds: 9)),
-  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(seconds: 9)),
-  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(seconds: 9)),
-  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(seconds: 9));
+  OUT_TEMP('Cihazda', 0, 'Cihazda', false, Duration(minutes: 0)),
+  OUT_WAIT('Onay Bekliyor', 1, 'Onay Bekliyor', true, Duration(minutes: 0)),
+  OUT_ACCEPT('Onaylandı', 2, 'Onayla', true, Duration(minutes: 0)),
+  OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true, Duration(minutes: 0)),
+  OUT_READY('Hazırlandı', 4, 'Hazırlandı', true, Duration(minutes: 4)),
+  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(minutes: 4)),
+  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(minutes: 9)),
+  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 9)),
+  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 9)),
+  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 9));
 
   final int level;
   final String event;
