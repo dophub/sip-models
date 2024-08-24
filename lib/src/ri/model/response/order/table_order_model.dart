@@ -23,6 +23,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
     this.paymentModelId,
     this.clientPointId,
     this.totalAmount,
+    this.addressName,
   }) {
     super.id = id;
   }
@@ -41,7 +42,8 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   _TableDetailModel? tableDetail;
   String? paymentModelId;
   String? clientPointId;
-  double? totalAmount;
+  double? totalAmount; // sadece RI depo kullanılmakta
+  String? addressName; // sadece RI depo kullanılmakta
 
   @override
   Map<String, dynamic> toJson() => throw UnimplementedError();
@@ -66,7 +68,6 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         tableDetail: json["tabledetail"] == null ? null : _TableDetailModel.fromJson(json["tabledetail"]),
         paymentModelId: json["payment_model_id"],
         clientPointId: json["client_point_id"],
-        totalAmount: json["total_amount"],
       );
 }
 
