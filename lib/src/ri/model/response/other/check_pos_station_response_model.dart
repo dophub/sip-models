@@ -166,6 +166,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
     this.isCheckWriting,
     this.isPaySlipWriting,
     this.paperSize,
+    this.localPrinterId,
   });
 
   int? id;
@@ -178,6 +179,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   String? printerTypeId;
   int? port;
   String? paperSize;
+  int? localPrinterId;
 
   factory PosPrinterModel.fromJson(Map<String, dynamic> json) => PosPrinterModel(
         id: json["id"],
@@ -190,6 +192,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
         printerTypeId: json["printer_type_id"],
         port: json["port"],
         paperSize: json["paper_size"],
+        localPrinterId: json["local_printer_id"],
       );
 
   @override
@@ -207,6 +210,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
         "printer_type_id": printerTypeId,
         "port": port,
         "paper_size": paperSize,
+        "local_printer_id": localPrinterId,
       };
 
   @override
