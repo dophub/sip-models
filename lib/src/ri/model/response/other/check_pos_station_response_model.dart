@@ -170,6 +170,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
     this.isCheckWriting,
     this.isPaySlipWriting,
     this.paperSize,
+    this.isKioskPaymentPrinter,
   });
 
   int? id;
@@ -182,6 +183,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   String? printerTypeId;
   int? port;
   String? paperSize;
+  bool? isKioskPaymentPrinter; // kioskta ödeme yapıldıktan sonra fiş hangi yazıcıdan çıksın (Kiosk dahili yazıcı için yapıldı)
 
   factory PosPrinterModel.fromJson(Map<String, dynamic> json) => PosPrinterModel(
         id: json["id"],
@@ -194,6 +196,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
         printerTypeId: json["printer_type_id"],
         port: json["port"],
         paperSize: json["paper_size"],
+        isKioskPaymentPrinter: json["is_kiosk_payment_printer"],
       );
 
   @override
@@ -211,6 +214,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
         "printer_type_id": printerTypeId,
         "port": port,
         "paper_size": paperSize,
+        "is_kiosk_payment_printer": isKioskPaymentPrinter,
       };
 
   @override
