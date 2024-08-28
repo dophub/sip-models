@@ -2,6 +2,7 @@ export 'package:sip_models/src/ri/model/firebase/firebase_notification_model.dar
 export 'package:sip_models/src/ri/model/other/multi_item_picker_widget_model.dart';
 export 'package:sip_models/src/ri/model/other/printer_config_model.dart';
 export 'package:sip_models/src/ri/model/request/active_orders_req_model.dart';
+export 'package:sip_models/src/ri/model/request/get_report_types_model.dart';
 export 'package:sip_models/src/ri/model/request/assign_courrier_req_model.dart';
 export 'package:sip_models/src/ri/model/request/cancel_payment_pos_request_model.dart';
 export 'package:sip_models/src/ri/model/request/close_kiosk_order_req_model.dart';
