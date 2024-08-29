@@ -23,11 +23,11 @@ enum TakeOutOrderStatus {
   final int level;
   final String event;
   final String title;
-  final String depotTitle;
+  final String depotEvent;
   final bool visibleForUser;
   final Duration duration; // oluşturma tarihinden itibaren ne kadar süre sonra bu statusa geçilebilir
 
-  const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser, this.duration, this.depotTitle);
+  const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser, this.duration, this.depotEvent);
 }
 
 /// [GET_TEMP] Cihazda
