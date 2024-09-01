@@ -89,6 +89,7 @@ class KitchenOrderProductModel {
   String? itemTypeId;
   int? count;
   String? itemNote;
+  String? statusId;
   List<OrderOption>? options;
 
   KitchenOrderProductModel({
@@ -98,6 +99,7 @@ class KitchenOrderProductModel {
     this.count,
     this.itemNote,
     this.options,
+    this.statusId,
   });
 
   PrinterQueueResponseOrderOrderItemModel toPrinterQueueResponseOrderOrderItemModel() =>
@@ -122,6 +124,7 @@ class KitchenOrderProductModel {
       itemTypeId: json["item_type_id"],
       count: json["count"],
       itemNote: json["item_note"],
+      statusId: json["status_id"],
       options: List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
     );
   }
@@ -132,6 +135,7 @@ class KitchenOrderProductModel {
         "item_type_id": itemTypeId,
         "count": count,
         "item_note": itemNote,
+        "status_id": statusId,
         "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
       };
 }
