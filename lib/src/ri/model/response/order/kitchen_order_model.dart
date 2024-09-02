@@ -43,7 +43,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
                 ),
               ),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
-        courier: KitchenOrderCourierModel.fromJson(json["courier"]),
+        courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
       );
 
   @override
