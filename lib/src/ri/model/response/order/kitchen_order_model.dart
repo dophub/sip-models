@@ -13,6 +13,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   KitchenOrderInfoModel? orderInfo;
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
   String? serviceDeliveryTypeId;
+  KitchenOrderCourierModel? courier;
 
   KitchenOrderModel({
     this.orderId,
@@ -23,6 +24,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
     this.products,
     this.orderInfo,
     this.serviceDeliveryTypeId,
+    this.courier,
   });
 
   @override
@@ -41,6 +43,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
                 ),
               ),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
+        courier: KitchenOrderCourierModel.fromJson(json["courier"]),
       );
 
   @override
@@ -52,6 +55,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         "order_date": orderDate?.toIso8601String(),
         "order_info": orderInfo?.toJson(),
         "products": List<dynamic>.from(products!.map((x) => x.toJson())),
+        "courier": courier?.toJson(),
       };
 }
 
@@ -80,6 +84,26 @@ class KitchenOrderInfoModel {
         "table_name": tableName,
         "order_point_id": orderPointId,
         "payment_model_id": paymentModelId,
+      };
+}
+
+class KitchenOrderCourierModel {
+  int? id;
+  String? nameSurname;
+
+  KitchenOrderCourierModel({
+    this.id,
+    this.nameSurname,
+  });
+
+  factory KitchenOrderCourierModel.fromJson(Map<String, dynamic> json) => KitchenOrderCourierModel(
+        id: json["id"],
+        nameSurname: json["name_surname"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name_surname": nameSurname,
       };
 }
 
