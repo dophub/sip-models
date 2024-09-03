@@ -8,6 +8,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   String? kitchenId;
   String? firstName;
   String? lastName;
+  String? addressName;
   DateTime? orderDate;
   List<KitchenOrderProductModel>? products;
   KitchenOrderInfoModel? orderInfo;
@@ -20,6 +21,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
     this.kitchenId,
     this.firstName,
     this.lastName,
+    this.addressName,
     this.orderDate,
     this.products,
     this.orderInfo,
@@ -33,6 +35,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         kitchenId: json["kitchen_id"],
         firstName: json["first_name"],
         lastName: json["last_name"],
+        addressName: json["address_name"],
         orderDate: DateTime.parse(json["order_date"]),
         orderInfo: KitchenOrderInfoModel.fromJson(json["order_info"]),
         products: json["products"] == null
@@ -52,6 +55,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         "kitchen_id": kitchenId,
         "first_name": firstName,
         "last_name": lastName,
+        "address_name": addressName,
         "order_date": orderDate?.toIso8601String(),
         "order_info": orderInfo?.toJson(),
         "products": List<dynamic>.from(products!.map((x) => x.toJson())),
