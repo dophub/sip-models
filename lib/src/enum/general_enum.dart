@@ -30,6 +30,23 @@ enum TakeOutOrderStatus {
   const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser, this.duration, this.depotEvent);
 }
 
+enum OrderStatusGroup {
+  TEMP('Cihazda'),
+  WAIT('Onay Bekliyor'),
+  ACCEPT('Onaylandı'),
+  KITCHEN('Hazırlanıyor'),
+  READY('Hazırlandı'),
+  ON_WAY('Yolda'),
+  DELIVERYOK('Teslim Edildi'),
+  COMPLETE('Tamamlandı'),
+  CANCEL('İptal'),
+  REJECT('Reddedildi');
+
+  final String title;
+
+  const OrderStatusGroup(this.title);
+}
+
 /// [GET_TEMP] Cihazda
 /// [GET_WAIT] Bekliyor
 /// [GET_ACCEPT] Onaylandı
