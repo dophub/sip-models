@@ -15,17 +15,17 @@ enum TakeOutOrderStatus {
   OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true, Duration(minutes: 0), 'Depoya Gönder'),
   OUT_READY('Hazırlandı', 4, 'Hazırlandı', true, Duration(minutes: 4), 'Hazırlandı'),
   OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(minutes: 4), 'sevkiyata Verildi'),
-  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(minutes: 9), 'Teslim Edildi'),
-  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 9), 'Tamamlandı'),
-  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 9), 'İptal'),
-  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 9), 'Reddedildi');
+  OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(minutes: 4), 'Teslim Edildi'),
+  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 4), 'Tamamlandı'),
+  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 4), 'İptal'),
+  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 4), 'Reddedildi');
 
   final int level;
   final String event;
   final String title;
   final String depotEvent;
   final bool visibleForUser;
-  final Duration duration; // oluşturma tarihinden itibaren ne kadar süre sonra bu statusa geçilebilir
+  final Duration duration; // güncelleme tarihinden itibaren ne kadar süre sonra bu statusa geçilebilir
 
   const TakeOutOrderStatus(this.title, this.level, this.event, this.visibleForUser, this.duration, this.depotEvent);
 }
