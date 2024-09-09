@@ -17,8 +17,8 @@ enum TakeOutOrderStatus {
   OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(minutes: 4), 'sevkiyata Verildi'),
   OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(minutes: 5), 'Teslim Edildi'),
   OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 5), 'Tamamlandı'),
-  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 5), 'İptal'),
-  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 5), 'Reddedildi');
+  OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 0), 'İptal'),
+  OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 0), 'Reddedildi');
 
   final int level;
   final String event;
