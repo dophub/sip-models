@@ -14,9 +14,9 @@ enum TakeOutOrderStatus {
   OUT_ACCEPT('Onaylandı', 2, 'Onayla', true, Duration(minutes: 0), 'Onayla'),
   OUT_KITCHEN('Hazırlanıyor', 3, 'Mutfağa Gönder', true, Duration(minutes: 0), 'Depoya Gönder'),
   OUT_READY('Hazırlandı', 4, 'Hazırlandı', true, Duration(minutes: 4), 'Hazırlandı'),
-  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(minutes: 4), 'sevkiyata Verildi'),
+  OUT_ON_WAY('Yolda', 5, 'Kuryeye Verildi', true, Duration(minutes: 0), 'sevkiyata Verildi'),
   OUT_DELIVERYOK('Teslim Edildi', 6, 'Teslim Edildi', true, Duration(minutes: 5), 'Teslim Edildi'),
-  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 5), 'Tamamlandı'),
+  OUT_COMPLETE('Tamamlandı', 7, 'Tamamlandı', true, Duration(minutes: 0), 'Tamamlandı'),
   OUT_CANCEL('İptal', 8, 'İptal', false, Duration(minutes: 0), 'İptal'),
   OUT_REJECT('Reddedildi', 9, 'Reddedildi', false, Duration(minutes: 0), 'Reddedildi');
 
