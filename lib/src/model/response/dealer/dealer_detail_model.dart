@@ -65,7 +65,7 @@ class DealerDetailModel {
   String? tableServiceExplainText; // Sepette olan masaya service seçme kart ının alt başlığı
   bool? isAppActive; // dijital menu uygulamasında uygulamada aç buttonu active değil mi
 
-  factory DealerDetailModel.fromJson(String qr, Map<String, dynamic> json) => DealerDetailModel(
+  factory DealerDetailModel.fromJson(Map<String, dynamic> json, {required String qr}) => DealerDetailModel(
         qr: qr,
         dealerId: json["dealer_id"],
         mainBrandId: json["main_brand_id"],
