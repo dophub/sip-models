@@ -1,6 +1,6 @@
 import 'package:sip_models/ri_models.dart';
 
-class CourierModel implements IMultiItemPickerWidgetModel{
+class CourierModel implements IMultiItemPickerWidgetModel {
   int? id;
   String? name;
   String? surname;
@@ -23,5 +23,5 @@ class CourierModel implements IMultiItemPickerWidgetModel{
   bool selectedValue = false;
 
   @override
-  String get title => name ?? '';
+  String get title => (name ?? '') + ' ' + (surname ?? '');
 }
