@@ -16,15 +16,14 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
   String? convertFullname;
   _CourierOrderAddressModel? address;
 
-
   @override
   fromJson(Map json) => CourierOrderModel(
-    orderId: json['order_id'],
-    convertFullname: json['convert_fullname'],
-    orderNote: json['order_note'],
-    paymentType: json['payment_info'],
-    address: _CourierOrderAddressModel.fromMap(json['address']),
-  );
+        orderId: json['order_id'],
+        convertFullname: json['convert_fullname'],
+        orderNote: json['order_note'],
+        paymentType: json['payment_info'],
+        address: _CourierOrderAddressModel.fromMap(json['address']),
+      );
 
   @override
   Map<String, dynamic> toJson() {
@@ -35,6 +34,7 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
 class _CourierOrderAddressModel {
   _CourierOrderAddressModel({
     required this.address,
+    required this.addressName,
     required this.addressRoute,
     required this.buildingNumber,
     required this.floor,
@@ -43,6 +43,7 @@ class _CourierOrderAddressModel {
   });
 
   String address;
+  String addressName;
   String addressRoute;
   String buildingNumber;
   String floor;
@@ -50,20 +51,22 @@ class _CourierOrderAddressModel {
   String latlng;
 
   factory _CourierOrderAddressModel.fromMap(Map<String, dynamic> json) => _CourierOrderAddressModel(
-    address: json['address'],
-    addressRoute: json['address_route'],
-    buildingNumber: json['building_number'],
-    floor: json['floor'],
-    flatNumber: json['flat_number'],
-    latlng: json['latlng'],
-  );
+        address: json['address'],
+        addressName: json['address_name'],
+        addressRoute: json['address_route'],
+        buildingNumber: json['building_number'],
+        floor: json['floor'],
+        flatNumber: json['flat_number'],
+        latlng: json['latlng'],
+      );
 
   Map<String, dynamic> toMap() => {
-    'address': address,
-    'address_route': addressRoute,
-    'building_number': buildingNumber,
-    'floor': floor,
-    'flat_number': flatNumber,
-    'latlng': latlng,
-  };
+        'address': address,
+        'address_name': addressName,
+        'address_route': addressRoute,
+        'building_number': buildingNumber,
+        'floor': floor,
+        'flat_number': flatNumber,
+        'latlng': latlng,
+      };
 }
