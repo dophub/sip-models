@@ -18,6 +18,7 @@ class SessionHeaderModel {
     required this.appCode,
     this.externalHeader = const {},
     required this.lang,
+    this.clientPointId,
   });
 
   final String token;
@@ -30,12 +31,13 @@ class SessionHeaderModel {
   final int? masterBrandId;
   final Map<String, String> externalHeader;
   final String appCode;
+  final ClientPointId? clientPointId;
 
   Map<String, String> createHeader({Map<String, String> addMap = const {}}) {
     final address = customerAddress ?? CustomerAddressModel();
     final Map<String, String> _map = {
       "content-type": "application/json",
-      "clientpoint": ClientPointId.MOBILE_APP.name,
+      "clientpoint": clientPointId?.name ?? ClientPointId.MOBILE_APP.name,
       "clienttype": clientType?.name ?? ClientType.APP.name,
       "applicationname": appId.name,
       "authorization": 'Bearer $token',

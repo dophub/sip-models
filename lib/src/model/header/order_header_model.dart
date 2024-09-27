@@ -21,6 +21,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required int? masterBrandId,
     required String appCode,
     required String lang,
+    ClientPointId? clientPointId,
   }) : super(
           appId: appId,
           token: token,
@@ -31,6 +32,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           masterBrandId: masterBrandId,
           appCode: appCode,
           lang: lang,
+          clientPointId: clientPointId,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -44,6 +46,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required int? masterBrandId,
     required String appCode,
     required String lang,
+    ClientPointId? clientPointId,
   }) =>
       OrderHeaderModel(
         token,
@@ -57,6 +60,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         masterBrandId: masterBrandId,
         appCode: appCode,
         lang: lang,
+        clientPointId: clientPointId,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -71,6 +75,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required int? masterBrandId,
     required String appCode,
     required String lang,
+    ClientPointId? clientPointId,
   }) =>
       OrderHeaderModel(
         token,
@@ -84,6 +89,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         masterBrandId: masterBrandId,
         appCode: appCode,
         lang: lang,
+        clientPointId: clientPointId,
       )._setMarketPlace(_deliveryType);
 
   /// Restorant içinde oluşturulan siparişler (Get al ve paket)
@@ -99,6 +105,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required int? masterBrandId,
     required String appCode,
     required String lang,
+    ClientPointId? clientPointId,
   }) =>
       OrderHeaderModel(
         token,
@@ -112,6 +119,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         masterBrandId: masterBrandId,
         appCode: appCode,
         lang: lang,
+        clientPointId: clientPointId,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {
