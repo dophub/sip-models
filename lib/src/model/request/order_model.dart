@@ -54,6 +54,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.numberOfService,
     this.tableServiceAmount,
     this.paymentModelId,
+    this.infoPhoneNumber,
   });
 
   int? id;
@@ -97,6 +98,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   int? numberOfService;
   double? tableServiceAmount; // Masa ya service ücreti
   String? paymentModelId;
+  String? infoPhoneNumber;
 
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -149,6 +151,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         numberOfService: json["number_of_service"],
         tableServiceAmount: json["table_service_amount"]?.toDouble(),
         paymentModelId: json["payment_model_id"],
+        infoPhoneNumber: json["info_phone_number"],
       );
 
   @override
@@ -175,8 +178,8 @@ class OrderModel extends IBaseModel<OrderModel> {
         "session_point_id": sessionPointId,
         "tip_amount_without_kdv": tipAmountWithoutKdv,
         "total_amount_without_kdv": totalAmountWithoutKdv,
-        "customer": customer == null ? null : customer!.toJson(),
-        "record_date": recordDate == null ? null : recordDate!.toIso8601String(),
+        "customer": customer?.toJson(),
+        "record_date": recordDate?.toIso8601String(),
         "order_options": orderOptions,
         "customer_address": customerAddress!.toJson(),
         "payment_info": paymentInfo!.toJson(),
@@ -193,6 +196,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "number_of_service": numberOfService,
         "table_service_amount": tableServiceAmount,
         "payment_model_id": paymentModelId,
+        "info_phone_number": infoPhoneNumber,
       };
 }
 
