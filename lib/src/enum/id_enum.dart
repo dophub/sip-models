@@ -100,7 +100,7 @@ enum ClientPointId {
 enum ThirdPartClientPointId {
   GETIR('Getir'),
   TRENDYOL('Trendyol Yemek'),
-  YEMEKSEPETI('YemekSepet'),
+  YEMEKSEPETI('YemekSepeti'),
   MIGROSYEMEK('Migros Yemek');
 
   final String title;
