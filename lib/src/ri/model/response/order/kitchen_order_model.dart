@@ -15,6 +15,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
   String? serviceDeliveryTypeId;
   KitchenOrderCourierModel? courier;
+  _DealerModel? dealer;// hangi işletmeye sipariş verilmiş
 
   KitchenOrderModel({
     this.orderId,
@@ -27,6 +28,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
     this.orderInfo,
     this.serviceDeliveryTypeId,
     this.courier,
+    this.dealer,
   });
 
   @override
@@ -47,6 +49,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
               ),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
         courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
+        dealer: json['dealer'] == null ? null : _DealerModel.fromMap(json['dealer']),
       );
 
   @override
@@ -60,6 +63,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         "order_info": orderInfo?.toJson(),
         "products": List<dynamic>.from(products!.map((x) => x.toJson())),
         "courier": courier?.toJson(),
+        "dealer": dealer?.toJson(),
       };
 }
 
@@ -165,5 +169,25 @@ class KitchenOrderProductModel {
         "item_note": itemNote,
         "status_id": statusId,
         "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
+      };
+}
+
+class _DealerModel {
+  _DealerModel({
+    this.dealerId,
+    this.dealerName,
+  });
+
+  final int? dealerId;
+  final String? dealerName;
+
+  factory _DealerModel.fromMap(Map<String, dynamic> json) => _DealerModel(
+        dealerId: json['dealer_id'],
+        dealerName: json['dealer_name'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'dealer_id': dealerId,
+        'dealer_name': dealerName,
       };
 }

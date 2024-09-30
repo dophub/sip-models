@@ -8,6 +8,7 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
     this.convertFullname,
     this.address,
     this.paymentType,
+    this.dealer,
   });
 
   int? orderId;
@@ -15,6 +16,7 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
   PaymentInfo? paymentType;
   String? convertFullname;
   _CourierOrderAddressModel? address;
+  _DealerModel? dealer;// hangi işletmeye sipariş verilmiş
 
   @override
   fromJson(Map json) => CourierOrderModel(
@@ -23,6 +25,7 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
         orderNote: json['order_note'],
         paymentType: json['payment_info'],
         address: _CourierOrderAddressModel.fromMap(json['address']),
+        dealer: json['dealer'] == null ? null : _DealerModel.fromMap(json['dealer']),
       );
 
   @override
@@ -68,5 +71,25 @@ class _CourierOrderAddressModel {
         'floor': floor,
         'flat_number': flatNumber,
         'latlng': latlng,
+      };
+}
+
+class _DealerModel {
+  _DealerModel({
+    this.dealerId,
+    this.dealerName,
+  });
+
+  final int? dealerId;
+  final String? dealerName;
+
+  factory _DealerModel.fromMap(Map<String, dynamic> json) => _DealerModel(
+        dealerId: json['dealer_id'],
+        dealerName: json['dealer_name'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'dealer_id': dealerId,
+        'dealer_name': dealerName,
       };
 }
