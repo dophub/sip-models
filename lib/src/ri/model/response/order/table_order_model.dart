@@ -1,5 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
+import 'package:sip_models/src/ri/model/other/order_dealer_info_model.dart';
 import '../../../../../response.dart';
 import '../../../../enum/id_enum.dart';
 import 'marketplace_order_model.dart';
@@ -44,7 +45,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   String? clientPointId;
   double? totalAmount; // sadece RI depo kullanılmakta
   String? addressName; // sadece RI depo kullanılmakta
-  DealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
+  OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   @override
   Map<String, dynamic> toJson() => throw UnimplementedError();
@@ -69,7 +70,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         tableDetail: json["tabledetail"] == null ? null : _TableDetailModel.fromJson(json["tabledetail"]),
         paymentModelId: json["payment_model_id"],
         clientPointId: json["client_point_id"],
-        dealer: json['dealer'] == null ? null : DealerInfoModel().fromJson(json['dealer']),
+        dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
       );
 }
 

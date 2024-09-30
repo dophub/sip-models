@@ -1,7 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/enum/id_enum.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
-import '../../../../../response.dart';
+import '../../other/order_dealer_info_model.dart';
 import '../other/printer_queue_response_model.dart';
 
 class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
@@ -16,7 +16,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
   String? serviceDeliveryTypeId;
   KitchenOrderCourierModel? courier;
-  DealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
+  OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   KitchenOrderModel({
     this.orderId,
@@ -50,7 +50,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
               ),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
         courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
-        dealer: json['dealer'] == null ? null : DealerInfoModel().fromJson(json['dealer']),
+        dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
       );
 
   @override
