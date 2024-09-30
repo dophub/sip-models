@@ -1,6 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/enum/id_enum.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
+import '../../../../../response.dart';
 import '../other/printer_queue_response_model.dart';
 
 class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
@@ -15,7 +16,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
   String? serviceDeliveryTypeId;
   KitchenOrderCourierModel? courier;
-  _DealerModel? dealer;// hangi işletmeye sipariş verilmiş
+  DealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   KitchenOrderModel({
     this.orderId,
@@ -49,7 +50,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
               ),
         serviceDeliveryTypeId: json["service_delivery_type_id"],
         courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
-        dealer: json['dealer'] == null ? null : _DealerModel.fromMap(json['dealer']),
+        dealer: json['dealer'] == null ? null : DealerInfoModel().fromJson(json['dealer']),
       );
 
   @override
@@ -169,25 +170,5 @@ class KitchenOrderProductModel {
         "item_note": itemNote,
         "status_id": statusId,
         "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
-      };
-}
-
-class _DealerModel {
-  _DealerModel({
-    this.dealerId,
-    this.dealerName,
-  });
-
-  final int? dealerId;
-  final String? dealerName;
-
-  factory _DealerModel.fromMap(Map<String, dynamic> json) => _DealerModel(
-        dealerId: json['dealer_id'],
-        dealerName: json['dealer_name'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'dealer_id': dealerId,
-        'dealer_name': dealerName,
       };
 }

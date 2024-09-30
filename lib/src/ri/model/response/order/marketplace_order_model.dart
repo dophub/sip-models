@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/response.dart';
 
 import 'table_order_model.dart';
 
@@ -24,7 +25,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
   String? infoPhoneNumber;
   String? neighborhoodName;
   String? clientPointId;
-  _DealerModel? dealer; // hangi işletmeye sipariş verilmiş
+  DealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   MarketplaceOrderModel({
     this.items,
@@ -76,7 +77,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
         infoPhoneNumber: json["info_phone_number"],
         neighborhoodName: json["neighborhood_name"],
         clientPointId: json["client_point_id"],
-        dealer: json['dealer'] == null ? null : _DealerModel.fromMap(json['dealer']),
+        dealer: json['dealer'] == null ? null : DealerInfoModel().fromJson(json['dealer']),
       );
 
   @override
@@ -187,25 +188,5 @@ class MarketplaceOrderOrderPointModel {
   Map<String, dynamic> toJson() => {
         "code": code,
         "name": name,
-      };
-}
-
-class _DealerModel {
-  _DealerModel({
-    this.dealerId,
-    this.dealerName,
-  });
-
-  final int? dealerId;
-  final String? dealerName;
-
-  factory _DealerModel.fromMap(Map<String, dynamic> json) => _DealerModel(
-        dealerId: json['dealer_id'],
-        dealerName: json['dealer_name'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'dealer_id': dealerId,
-        'dealer_name': dealerName,
       };
 }

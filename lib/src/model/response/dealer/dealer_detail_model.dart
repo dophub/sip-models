@@ -181,6 +181,19 @@ class WorkingHourModel {
         courierEnd: json["courier_end"],
         courierStart: json["courier_start"],
       );
+
+  Map<String, dynamic> toJson() {
+    return {
+      "end": end,
+      "start": start,
+      "title": title,
+      "status": status,
+      "courier": courier,
+      "dayofweek": dayOfWeek,
+      "courier_end": courierEnd,
+      "courier_start": courierStart,
+    };
+  }
 }
 
 class TipsTableModel {

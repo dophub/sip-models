@@ -99,7 +99,35 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
 
   @override
   Map<String, dynamic> toJson() {
-    throw UnimplementedError();
+    return {
+      "dealer_id": dealerId,
+      "main_brand_id": mainBrandId,
+      "dealer_name": dealerName,
+      "restaurant_in_working_hours": restaurantInWorkingHours,
+      "restaurant_in_package_service": restaurantInPackageService,
+      "working_hours": workingHours?.toJson(),
+      "weekly_working_hours": weeklyWorkingHours?.map((x) => x.toJson()).toList(),
+      "logo_image": logoImage?.toJson(),
+      "list_image": listImage?.toJson(),
+      "rating": rating,
+      "rating2": rating2,
+      "comment_count": commentCount,
+      "avg_service_time": avgServiceTime,
+      "avg_service_time_min": avgServiceTimeMin,
+      "avg_service_time_max": avgServiceTimeMax,
+      "min_package_amount": minPackageAmount,
+      "distance": distance,
+      "mobile_cover_image": mobileCoverImage?.toJson(),
+      "latlng": latlng,
+      "open_marketplace": openMarketplace,
+      "open_reservation": openReservation,
+      "open_table": openTable,
+      "open_vale": openVale,
+      "socials": socials?.toJson(),
+      "web_address": webAddress,
+      "food_categories": foodCategories?.map((x) => x.toJson()).toList(),
+      "address": address,
+    };
   }
 }
 
@@ -137,4 +165,18 @@ class SocialsModel {
         whatsapp: json["whatsapp"],
         instagram: json["instagram"],
       );
+
+  Map<String, dynamic> toJson() {
+    return {
+      "bip": bip,
+      "email": email,
+      "phone": phone,
+      "twitter": twitter,
+      "youtube": youtube,
+      "facebook": facebook,
+      "linkedin": linkedin,
+      "whatsapp": whatsapp,
+      "instagram": instagram,
+    };
+  }
 }

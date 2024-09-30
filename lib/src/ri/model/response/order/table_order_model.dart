@@ -1,7 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
-import 'package:sip_models/src/model/response/other/images_model.dart';
-import 'package:sip_models/src/model/response/product/product_detail_model.dart';
+import '../../../../../response.dart';
 import '../../../../enum/id_enum.dart';
 import 'marketplace_order_model.dart';
 
@@ -45,7 +44,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   String? clientPointId;
   double? totalAmount; // sadece RI depo kullanılmakta
   String? addressName; // sadece RI depo kullanılmakta
-  _DealerModel? dealer; // hangi işletmeye sipariş verilmiş
+  DealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   @override
   Map<String, dynamic> toJson() => throw UnimplementedError();
@@ -70,7 +69,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         tableDetail: json["tabledetail"] == null ? null : _TableDetailModel.fromJson(json["tabledetail"]),
         paymentModelId: json["payment_model_id"],
         clientPointId: json["client_point_id"],
-        dealer: json['dealer'] == null ? null : _DealerModel.fromMap(json['dealer']),
+        dealer: json['dealer'] == null ? null : DealerInfoModel().fromJson(json['dealer']),
       );
 }
 
@@ -190,25 +189,5 @@ class _TableDetailModel {
         "table_name": tableName,
         "service_number": serviceNumber,
         "payment_model_id": paymentModelId,
-      };
-}
-
-class _DealerModel {
-  _DealerModel({
-    this.dealerId,
-    this.dealerName,
-  });
-
-  final int? dealerId;
-  final String? dealerName;
-
-  factory _DealerModel.fromMap(Map<String, dynamic> json) => _DealerModel(
-        dealerId: json['dealer_id'],
-        dealerName: json['dealer_name'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'dealer_id': dealerId,
-        'dealer_name': dealerName,
       };
 }

@@ -107,6 +107,15 @@ class FoodCategory {
         categoryName: json["category_name"],
         categoryCode: json['category_code'],
       );
+
+  Map<String, dynamic> toJson() {
+    return {
+      "image": image?.toJson(),
+      "is_default": isDefault,
+      "category_name": categoryName,
+      "category_code": categoryCode,
+    };
+  }
 }
 
 class PaymentDetailModel {
