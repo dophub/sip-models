@@ -1,7 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
 
-
 class AddLocalCustomerModel extends IBaseModel<AddLocalCustomerModel> {
   final String? message;
   final String? code;
@@ -31,11 +30,12 @@ class AddLocalCustomerModel extends IBaseModel<AddLocalCustomerModel> {
 class AddLocalCustomerDataModel extends IBaseModel<AddLocalCustomerDataModel> {
   final AddLocalCustomerAddressModel? address;
   final List<AddLocalCustomerAddressModel>? addresses;
+  final String? ssoId;
+  final int? id;
   String? firstName;
   String? lastName;
   String? mobilePhone;
-  final String? ssoId;
-  final int? id;
+  AddLocalCustomerAddressModel? selectedAddress; // kullanıcının seçtiği adres
 
   AddLocalCustomerDataModel({
     this.addresses,
