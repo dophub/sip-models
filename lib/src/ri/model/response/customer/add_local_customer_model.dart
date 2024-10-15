@@ -145,10 +145,11 @@ class AddLocalCustomerAddressModel extends IBaseModel<AddLocalCustomerAddressMod
         districtId: json["district_id"],
         neighborhoodId: json["neighborhood_id"],
         isActive: json["is_active"],
-        city: AddLocalCustomerCityModel.fromJson(json["city"]),
-        district: AddLocalCustomerDistrictModel.fromJson(json["district"]),
-        neighborhood: AddLocalCustomerNeighborhoodModel.fromJson(json["neighborhood"]),
-        addressType: AddressType.fromJson(json["address_type"]),
+        city: json["city"] == null ? null : AddLocalCustomerCityModel.fromJson(json["city"]),
+        district: json["district"] == null ? null : AddLocalCustomerDistrictModel.fromJson(json["district"]),
+        neighborhood:
+            json["neighborhood"] == null ? null : AddLocalCustomerNeighborhoodModel.fromJson(json["neighborhood"]),
+        addressType: json["address_type"] == null ? null : AddressType.fromJson(json["address_type"]),
       );
 
   @override
