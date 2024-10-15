@@ -169,10 +169,10 @@ class AddLocalCustomerAddressModel extends IBaseModel<AddLocalCustomerAddressMod
         "district_id": districtId,
         "neighborhood_id": neighborhoodId,
         "is_active": isActive,
-        "city": city!.toJson(),
-        "district": district!.toJson(),
-        "neighborhood": neighborhood!.toJson(),
-        "address_type": addressType!.toJson(),
+        "city": city?.toJson(),
+        "district": district?.toJson(),
+        "neighborhood": neighborhood?.toJson(),
+        "address_type": addressType?.toJson(),
       };
 }
 
