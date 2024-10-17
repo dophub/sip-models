@@ -10,6 +10,8 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
   bool? autoConfirm;
   String? brandCode;
   List<IntegrationItemModel>? items;
+  int? brandId;
+  int? dealerId;
 
   MarketplaceIntegrationDetailModel({
     this.id,
@@ -20,6 +22,8 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
     this.secretKey,
     this.autoConfirm,
     this.brandCode,
+    this.brandId,
+    this.dealerId,
     this.items,
   });
 
@@ -33,6 +37,8 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
         secretKey: json["secret_key"],
         autoConfirm: json["auto_confirm"],
         brandCode: json["brand_code"],
+        brandId: json["brand_id"],
+        dealerId: json["dealer_id"],
         items: json["items"] == null
             ? []
             : List<IntegrationItemModel>.from(json["items"]!.map((x) => IntegrationItemModel.fromJson(x))),
@@ -48,6 +54,8 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
         "secret_key": secretKey,
         "auto_confirm": autoConfirm,
         "brand_code": brandCode,
+        "brand_id": brandId,
+        "dealer_id": dealerId,
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
       };
 }
