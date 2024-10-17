@@ -73,6 +73,7 @@ export 'package:sip_models/src/ri/model/response/user_info/current_user_model.da
 export 'package:sip_models/src/ri/model/response/user_info/user_model.dart';
 export 'package:sip_models/src/ri/model/response/valet/valet_get_list_response_model.dart';
 export 'package:sip_models/src/ri/model/response/valet/valet_vehicle_update_model.dart';
-export 'package:sip_models/src/ri/model/response/marketplace_integration/integration_model.dart';
-export 'package:sip_models/src/ri/model/response/marketplace_integration/integration_detail_model.dart';
+export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_model.dart';
+export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_detail_model.dart';
+export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_product_model.dart';
 export 'package:sip_models/src/ri/model/socket/service_channel_socket_model.dart';

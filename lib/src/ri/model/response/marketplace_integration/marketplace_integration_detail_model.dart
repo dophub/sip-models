@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class IntegrationDetailModel extends IBaseModel<IntegrationDetailModel> {
+class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegrationDetailModel> {
   final int? id;
   final String? integrationCode;
   final bool? isActive;
@@ -11,7 +11,7 @@ class IntegrationDetailModel extends IBaseModel<IntegrationDetailModel> {
   final String? brandCode;
   final List<IntegrationItemModel>? items;
 
-  IntegrationDetailModel({
+  MarketplaceIntegrationDetailModel({
     this.id,
     this.integrationCode,
     this.isActive,
@@ -24,7 +24,7 @@ class IntegrationDetailModel extends IBaseModel<IntegrationDetailModel> {
   });
 
   @override
-  fromJson(Map<String, dynamic> json) => IntegrationDetailModel(
+  fromJson(Map<String, dynamic> json) => MarketplaceIntegrationDetailModel(
         id: json["id"],
         integrationCode: json["integration_code"],
         isActive: json["is_active"],
