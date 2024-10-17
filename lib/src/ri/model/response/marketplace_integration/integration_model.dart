@@ -1,16 +1,16 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class IntegrationModel extends IBaseModel<IntegrationModel> {
-  String code;
-  String name;
-  String integrationCode;
-  bool integrationStatus;
+  String? code;
+  String? name;
+  String? integrationCode;
+  bool? integrationStatus;
 
   IntegrationModel({
-    required this.code,
-    required this.name,
-    required this.integrationCode,
-    required this.integrationStatus,
+    this.code,
+    this.name,
+    this.integrationCode,
+    this.integrationStatus,
   });
 
   @override
