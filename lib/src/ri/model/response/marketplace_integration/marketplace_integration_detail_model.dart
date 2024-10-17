@@ -53,12 +53,12 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
 }
 
 class IntegrationItemModel {
-  final int? id;
-  final String? code;
-  final String? title;
-  final String? type;
-  final String? integrationCode;
-  final bool? integrationStatus;
+  int? id;
+  String? code;
+  String? title;
+  String? type;
+  String? integrationCode;
+  bool? integrationStatus;
 
   IntegrationItemModel({
     this.id,
