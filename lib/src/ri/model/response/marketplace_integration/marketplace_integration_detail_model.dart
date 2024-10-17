@@ -1,15 +1,15 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegrationDetailModel> {
-  final int? id;
-  final String? integrationCode;
-  final bool? isActive;
-  final String? integrationTypeId;
-  final String? apiKey;
-  final String? secretKey;
-  final bool? autoConfirm;
-  final String? brandCode;
-  final List<IntegrationItemModel>? items;
+  int? id;
+  String? integrationCode;
+  bool? isActive;
+  String? integrationTypeId;
+  String? apiKey;
+  String? secretKey;
+  bool? autoConfirm;
+  String? brandCode;
+  List<IntegrationItemModel>? items;
 
   MarketplaceIntegrationDetailModel({
     this.id,
