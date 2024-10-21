@@ -1,17 +1,18 @@
 import 'package:background_json_parser/background_json_parser.dart';
-import '../other/multi_item_picker_widget_model.dart';
+
+import '../../../../../ri_models.dart';
 
 class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrationProductModel>
     implements IMultiItemPickerWidgetModel {
   final String? id;
-  final String? _title;
+  late final String? _title;
   final double? price;
 
   MarketplaceIntegrationProductModel({
     this.id,
-    String title,
     this.price,
-  }){
+    String? title,
+  }) {
     _title = title;
   }
 
