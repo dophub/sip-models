@@ -1,15 +1,18 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrationProductModel> {
+class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrationProductModel>
+    implements IMultiItemPickerWidgetModel {
   final String? id;
-  final String? title;
+  final String? _title;
   final double? price;
 
   MarketplaceIntegrationProductModel({
     this.id,
-    this.title,
+    String title,
     this.price,
-  });
+  }){
+    _title = title;
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => MarketplaceIntegrationProductModel(
@@ -24,4 +27,10 @@ class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrati
         "title": title,
         "price": price,
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => _title ?? '';
 }
