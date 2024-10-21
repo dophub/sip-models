@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import '../other/multi_item_picker_widget_model.dart';
 
 class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrationProductModel>
     implements IMultiItemPickerWidgetModel {
