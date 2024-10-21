@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/src/ri/model/other/multi_item_picker_widget_model.dart';
 
 class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegrationDetailModel> {
   int? id;
@@ -60,10 +61,10 @@ class MarketplaceIntegrationDetailModel extends IBaseModel<MarketplaceIntegratio
       };
 }
 
-class IntegrationItemModel {
+class IntegrationItemModel implements IMultiItemPickerWidgetModel {
   int? id;
   String? code;
-  String? title;
+  String? _title;
   String? type;
   String? integrationCode;
   bool? integrationStatus;
@@ -71,11 +72,13 @@ class IntegrationItemModel {
   IntegrationItemModel({
     this.id,
     this.code,
-    this.title,
+    String? title,
     this.type,
     this.integrationCode,
     this.integrationStatus,
-  });
+  }) {
+    _title = title;
+  }
 
   factory IntegrationItemModel.fromJson(Map<String, dynamic> json) => IntegrationItemModel(
         id: json["id"],
@@ -94,4 +97,10 @@ class IntegrationItemModel {
         "integration_code": integrationCode,
         "integration_status": integrationStatus,
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => _title ?? '';
 }
