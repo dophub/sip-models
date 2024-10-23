@@ -1,4 +1,3 @@
-
 export 'src/model/response/other/abstract_base_model.dart';
 export 'src/model/response/address/address_by_location.dart';
 export 'src/model/response/address/customer_address_model.dart';
@@ -28,6 +27,8 @@ export 'src/model/response/other/waiter_request_model.dart';
 export 'src/model/response/payment/post_payment_model.dart';
 export 'src/model/response/payment/paycell_contract_model.dart';
 export 'src/model/response/payment/payment_types_model.dart';
+export 'src/model/response/payment/wallet_model.dart';
+export 'src/model/response/payment/wallet_movement_model.dart';
 export 'src/model/response/other/error_model.dart';
 export 'src/model/response/other/waiter_info_model.dart';
 export 'src/model/response/dealer/dealer_info_model.dart';

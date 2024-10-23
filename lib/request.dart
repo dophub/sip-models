@@ -4,6 +4,8 @@ export 'src/model/request/get_waiter_to_table_model.dart';
 export 'src/model/request/order_model.dart';
 export 'src/model/request/payment/post_payment_model_by_new_card.dart';
 export 'src/model/request/payment/post_payment_model_by_saved_card.dart';
+export 'src/model/request/payment/update_wallet_model.dart';
+export 'src/model/request/payment/pay_by_wallet_model.dart';
 export 'src/model/request/post_rating_and_comment.dart';
 export 'src/model/request/create_reservation_model.dart';
 export 'src/model/request/auth/verification_model.dart';
