@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class WalletMovementModel extends IBaseModel<WalletMovementModel> {
+class CreateWalletModel extends IBaseModel<CreateWalletModel> {
   final int? customerGroupId;
   final String? type;
   final String? title;
@@ -13,7 +13,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   final int? currencyId;
   final int? siparisimPlus;
 
-  WalletMovementModel({
+  CreateWalletModel({
     this.customerGroupId,
     this.type,
     this.title,
@@ -28,7 +28,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   });
 
   @override
-  fromJson(Map<String, dynamic> json) => WalletMovementModel(
+  fromJson(Map<String, dynamic> json) => CreateWalletModel(
         customerGroupId: json["customer_group_id"],
         type: json["type"],
         title: json["title"],
