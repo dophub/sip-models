@@ -60,4 +60,24 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
         "message": message,
         "dealer_id": dealerId,
       };
+
+  String get tableName => 'close_kiosk_order';
+
+  String get getTableCreateQuery => '''
+      CREATE TABLE $tableName (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        payment_type TEXT,
+        bank_ref_no TEXT,
+        provision_no TEXT,
+        rrn TEXT,
+        amount INTEGER,
+        bin TEXT,
+        card_number TEXT,
+        deviceid TEXT,
+        service_id INTEGER,
+        status TEXT,
+        message TEXT,
+        dealer_id INTEGER
+      )
+    ''';
 }
