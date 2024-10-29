@@ -65,10 +65,9 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
 
   String get getTableCreateQuery => '''
       CREATE TABLE $tableName (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        provision_no TEXT PRIMARY KEY,
         payment_type TEXT,
         bank_ref_no TEXT,
-        provision_no TEXT,
         rrn TEXT,
         amount INTEGER,
         bin TEXT,
