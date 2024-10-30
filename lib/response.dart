@@ -27,6 +27,7 @@ export 'src/model/response/other/waiter_request_model.dart';
 export 'src/model/response/payment/post_payment_model.dart';
 export 'src/model/response/payment/paycell_contract_model.dart';
 export 'src/model/response/payment/payment_types_model.dart';
+export 'src/model/response/payment/wallet_group_model.dart';
 export 'src/model/response/payment/wallet_model.dart';
 export 'src/model/response/payment/wallet_movement_model.dart';
 export 'src/model/response/other/error_model.dart';
