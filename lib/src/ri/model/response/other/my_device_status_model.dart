@@ -28,7 +28,7 @@ class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> {
 
 class MyDeviceStatusDataModel {
   final bool? status;
-  final Type? type;
+  final String? type;
   final int? dealerId;
   final String? id;
   final String? createdAt;
