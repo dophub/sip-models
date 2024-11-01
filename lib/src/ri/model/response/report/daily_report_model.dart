@@ -63,6 +63,7 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
 
 class DailyReportOrderItemModel implements IReportModel {
   String? orderItem;
+  String? clientPoint;
   @override
   int? count;
   @override
@@ -70,18 +71,21 @@ class DailyReportOrderItemModel implements IReportModel {
 
   DailyReportOrderItemModel({
     this.orderItem,
+    this.clientPoint,
     this.count,
     this.turnover,
   });
 
   factory DailyReportOrderItemModel.fromJson(Map<String, dynamic> json) => DailyReportOrderItemModel(
         orderItem: json["orderItem"],
+        clientPoint: json["clientPoint"],
         count: json["count"],
         turnover: json["turnover"].toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
         "orderItem": orderItem,
+        "clientPoint": clientPoint,
         "count": count,
         "turnover": turnover,
       };
