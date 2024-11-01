@@ -8,6 +8,7 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
   List<DailyReportStatusTypeModel>? statusTypes;
   List<DailyReportOrderSourceModel>? orderSources;
   List<DailyReportOrderItemModel>? orderItems;
+  List<DailyReportOrderItemModel>? clientPoints;
 
   DailyReportModel({
     this.count,
@@ -17,6 +18,7 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
     this.statusTypes,
     this.orderSources,
     this.orderItems,
+    this.clientPoints,
   });
 
   @override
@@ -40,6 +42,10 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
             ? []
             : List<DailyReportOrderItemModel>.from(
                 json["orderItems"].map((x) => DailyReportOrderItemModel.fromJson(x))),
+        clientPoints: json["clientPoints"] == null
+            ? []
+            : List<DailyReportOrderItemModel>.from(
+                json["clientPoints"].map((x) => DailyReportOrderItemModel.fromJson(x))),
       );
 
   @override
@@ -51,6 +57,7 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
         "statusTypes": List<dynamic>.from(statusTypes!.map((x) => x.toJson())),
         "orderSources": List<dynamic>.from(orderSources!.map((x) => x.toJson())),
         "orderItems": List<dynamic>.from(orderItems!.map((x) => x.toJson())),
+        "clientPoints": List<dynamic>.from(clientPoints!.map((x) => x.toJson())),
       };
 }
 
