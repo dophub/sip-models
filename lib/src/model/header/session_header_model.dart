@@ -17,7 +17,7 @@ class SessionHeaderModel {
     this.sessionPoint,
     this.clientType,
     required this.masterBrandId,
-    required this.masterBrandsId,
+    required this.brandsId,
     required this.appCode,
     this.externalHeader = const {},
     required this.lang,
@@ -32,7 +32,7 @@ class SessionHeaderModel {
   final CustomerAddressModel? customerAddress;
   final ClientType? clientType;
   final int? masterBrandId;
-  final List<int>? masterBrandsId;
+  final List<int>? brandsId;
   final Map<String, String> externalHeader;
   final String appCode;
   final ClientPointId? clientPointId;
@@ -53,7 +53,7 @@ class SessionHeaderModel {
       "panel": "d",
       "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
       "masterbrandid": masterBrandId?.toString() ?? '0',
-      "masterbrandsid": jsonEncode(masterBrandsId ?? []),
+      "brandsid": jsonEncode(brandsId ?? []),
       "appcode": appCode,
     };
     _map.addAll(addMap);

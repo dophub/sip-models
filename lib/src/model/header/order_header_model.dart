@@ -22,7 +22,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? masterBrandsId,
+    required List<int>? brandsId,
   }) : super(
           appId: appId,
           token: token,
@@ -34,7 +34,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           appCode: appCode,
           lang: lang,
           clientPointId: clientPointId,
-          masterBrandsId: masterBrandsId,
+          brandsId: brandsId,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -49,7 +49,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? masterBrandsId,
+    required List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -64,7 +64,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
-        masterBrandsId: masterBrandsId,
+        brandsId: brandsId,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -80,7 +80,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? masterBrandsId,
+    required List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -95,7 +95,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
-        masterBrandsId: masterBrandsId,
+        brandsId: brandsId,
       )._setMarketPlace(_deliveryType);
 
   /// Restorant içinde oluşturulan siparişler (Get al ve paket)
@@ -112,7 +112,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? masterBrandsId,
+    required List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -127,7 +127,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
-        masterBrandsId: masterBrandsId,
+        brandsId: brandsId,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {
