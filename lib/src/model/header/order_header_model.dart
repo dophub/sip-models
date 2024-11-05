@@ -22,6 +22,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
+    required List<int>? masterBrandsId,
   }) : super(
           appId: appId,
           token: token,
@@ -33,6 +34,7 @@ class OrderHeaderModel extends SessionHeaderModel {
           appCode: appCode,
           lang: lang,
           clientPointId: clientPointId,
+          masterBrandsId: masterBrandsId,
         );
 
   factory OrderHeaderModel.toDealer(
@@ -47,6 +49,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
+    required List<int>? masterBrandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -61,6 +64,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
+        masterBrandsId: masterBrandsId,
       )._setDealer();
 
   factory OrderHeaderModel.toMarketPlace(
@@ -76,6 +80,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
+    required List<int>? masterBrandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -90,6 +95,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
+        masterBrandsId: masterBrandsId,
       )._setMarketPlace(_deliveryType);
 
   /// Restorant içinde oluşturulan siparişler (Get al ve paket)
@@ -106,6 +112,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
+    required List<int>? masterBrandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -120,6 +127,7 @@ class OrderHeaderModel extends SessionHeaderModel {
         appCode: appCode,
         lang: lang,
         clientPointId: clientPointId,
+        masterBrandsId: masterBrandsId,
       )._setMarketPlace(_deliveryType);
 
   Map<String, String> _toMap() => {

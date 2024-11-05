@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:sip_models/src/enum/id_enum.dart';
 
 import '../response/address/customer_address_model.dart';
@@ -15,6 +17,7 @@ class SessionHeaderModel {
     this.sessionPoint,
     this.clientType,
     required this.masterBrandId,
+    required this.masterBrandsId,
     required this.appCode,
     this.externalHeader = const {},
     required this.lang,
@@ -29,6 +32,7 @@ class SessionHeaderModel {
   final CustomerAddressModel? customerAddress;
   final ClientType? clientType;
   final int? masterBrandId;
+  final List<int>? masterBrandsId;
   final Map<String, String> externalHeader;
   final String appCode;
   final ClientPointId? clientPointId;
@@ -49,6 +53,7 @@ class SessionHeaderModel {
       "panel": "d",
       "sessionpoint": sessionPoint == null ? '' : sessionPoint!.name,
       "masterbrandid": masterBrandId?.toString() ?? '0',
+      "masterbrandsid": jsonEncode(masterBrandsId ?? []),
       "appcode": appCode,
     };
     _map.addAll(addMap);
