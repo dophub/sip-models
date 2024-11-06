@@ -1,23 +1,23 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class WalletModel extends IBaseModel<WalletModel> {
-  final String? id;
-  final String? typeId;
-  final String? number;
-  final WalletCustomersModel? customers;
-  final String? title;
-  final WalletCurrencyModel? currency;
-  final double? balance;
-  final double? minimumBalance;
-  final double? dailyAmountLimit;
-  final double? weeklyAmountLimit;
-  final double? monthlyAmountLimit;
-  final double? dailyUsingLimit;
-  final WalletCustomerGroupModel? customerGroup;
-  final bool? isActive;
-  final int? createdAt;
-  final int? updatedAt;
-  final int? expiredDate;
+  String? id;
+  String? typeId;
+  String? number;
+  WalletCustomersModel? customers;
+  String? title;
+  WalletCurrencyModel? currency;
+  double? balance;
+  double? minimumBalance;
+  double? dailyAmountLimit;
+  double? weeklyAmountLimit;
+  double? monthlyAmountLimit;
+  double? dailyUsingLimit;
+  WalletCustomerGroupModel? customerGroup;
+  bool? isActive;
+  int? createdAt;
+  int? updatedAt;
+  int? expiredDate;
 
   WalletModel({
     this.id,
