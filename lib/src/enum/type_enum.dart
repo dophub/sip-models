@@ -33,7 +33,7 @@ enum OptionType { OPTION, FEATURE }
 /// [online] KrediKartı VS..
 enum PaymentOnlineType { offline, online }
 
-enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS , WEB}
+enum DeviceType { IOS, ANDROID, WINDOWS, FUCHSIA, MACOS, WEB }
 
 /// [SSOTypeId] Google veya apple ile gieiş yapıldığında türünü belirlemekte
 enum SSOTypeId { google, apple }
@@ -61,3 +61,8 @@ enum TableServiceType {
 
   const TableServiceType(this.title);
 }
+
+/// [WalletType] Self servis modulunde Masaya servis tipi
+/// [PrePaid] Önceden Ödemeli
+/// [PostPaid] Sonradan ödemeli
+enum WalletType { PrePaid, PostPaid }
