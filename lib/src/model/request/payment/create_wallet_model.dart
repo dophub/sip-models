@@ -11,7 +11,6 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
   final int? dailyUsingLimit;
   final int? customerId;
   final String? currencyId;
-  final int? siparisimPlus;
 
   CreateWalletModel({
     this.customerGroupId,
@@ -24,7 +23,6 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
     this.dailyUsingLimit,
     this.customerId,
     this.currencyId,
-    this.siparisimPlus,
   });
 
   @override
@@ -39,7 +37,6 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
         dailyUsingLimit: json["daily_using_limit"],
         customerId: json["customer_id"],
         currencyId: json["currency_id"],
-        siparisimPlus: json["siparisim_plus"],
       );
 
   @override
@@ -54,6 +51,5 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
         "daily_using_limit": dailyUsingLimit,
         "customer_id": customerId,
         "currency_id": currencyId,
-        "siparisim_plus": siparisimPlus,
       };
 }
