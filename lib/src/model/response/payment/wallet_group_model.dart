@@ -1,14 +1,14 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class WalletGroupModel extends IBaseModel<WalletGroupModel> {
-  final WalletGroupCustomerModel customerGroup;
-  final WalletGroupBrandModel mainBrand;
-  final int id;
+  final WalletGroupCustomerModel? customerGroup;
+  final WalletGroupBrandModel? mainBrand;
+  final int? id;
 
   WalletGroupModel({
-    required this.customerGroup,
-    required this.mainBrand,
-    required this.id,
+    this.customerGroup,
+    this.mainBrand,
+    this.id,
   });
 
   @override
@@ -20,8 +20,8 @@ class WalletGroupModel extends IBaseModel<WalletGroupModel> {
 
   @override
   Map<String, dynamic> toJson() => {
-        "customer_group": customerGroup.toJson(),
-        "main_brand": mainBrand.toJson(),
+        "customer_group": customerGroup?.toJson(),
+        "main_brand": mainBrand?.toJson(),
         "id": id,
       };
 }
