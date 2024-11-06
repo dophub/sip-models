@@ -9,8 +9,8 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
   final int? weeklyAmountLimit;
   final int? monthlyAmountLimit;
   final int? dailyUsingLimit;
-  final String? customerId;
-  final int? currencyId;
+  final int? customerId;
+  final String? currencyId;
   final int? siparisimPlus;
 
   CreateWalletModel({
