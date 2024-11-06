@@ -1,65 +1,88 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class WalletGroupModel extends IBaseModel<WalletGroupModel> {
-  final WalletGroupCustomerModel? customerGroup;
-  final WalletGroupBrandModel? mainBrand;
   final int? id;
+  final String? title;
+  final String? type;
+  final List<CustomerGroupMatch>? customerGroupMatch;
 
   WalletGroupModel({
-    this.customerGroup,
-    this.mainBrand,
     this.id,
+    this.title,
+    this.type,
+    this.customerGroupMatch,
   });
 
   @override
   fromJson(Map<String, dynamic> json) => WalletGroupModel(
-        customerGroup: WalletGroupCustomerModel.fromJson(json["customer_group"]),
-        mainBrand: WalletGroupBrandModel.fromJson(json["main_brand"]),
         id: json["id"],
+        title: json["title"],
+        type: json["type"],
+        customerGroupMatch: json["customer_group_match"] == null
+            ? null
+            : List<CustomerGroupMatch>.from(json["customer_group_match"].map((x) => CustomerGroupMatch.fromJson(x))),
       );
 
   @override
   Map<String, dynamic> toJson() => {
-        "customer_group": customerGroup?.toJson(),
-        "main_brand": mainBrand?.toJson(),
         "id": id,
+        "title": title,
+        "type": type,
+        "customer_group_match":
+            customerGroupMatch == null ? null : List<dynamic>.from(customerGroupMatch!.map((x) => x.toJson())),
       };
 }
 
-class WalletGroupCustomerModel {
-  final int id;
-  final String title;
-  final String type;
+class CustomerGroupMatch {
+  final MainBrand? mainBrand;
+  final Dealer? dealer;
 
-  WalletGroupCustomerModel({
-    required this.id,
-    required this.title,
-    required this.type,
+  CustomerGroupMatch({
+    this.mainBrand,
+    this.dealer,
   });
 
-  factory WalletGroupCustomerModel.fromJson(Map<String, dynamic> json) => WalletGroupCustomerModel(
+  factory CustomerGroupMatch.fromJson(Map<String, dynamic> json) => CustomerGroupMatch(
+        mainBrand: json["main_brand"] == null ? null : MainBrand.fromJson(json["main_brand"]),
+        dealer: json["dealer"] == null ? null : Dealer.fromJson(json["dealer"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "main_brand": mainBrand?.toJson(),
+        "dealer": dealer?.toJson(),
+      };
+}
+
+class Dealer {
+  final int? id;
+  final String? dealerName;
+
+  Dealer({
+    this.id,
+    this.dealerName,
+  });
+
+  factory Dealer.fromJson(Map<String, dynamic> json) => Dealer(
         id: json["id"],
-        title: json["title"],
-        type: json["type"],
+        dealerName: json["dealer_name"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "title": title,
-        "type": type,
+        "dealer_name": dealerName,
       };
 }
 
-class WalletGroupBrandModel {
-  final int id;
-  final String brandName;
+class MainBrand {
+  final int? id;
+  final String? brandName;
 
-  WalletGroupBrandModel({
-    required this.id,
-    required this.brandName,
+  MainBrand({
+    this.id,
+    this.brandName,
   });
 
-  factory WalletGroupBrandModel.fromJson(Map<String, dynamic> json) => WalletGroupBrandModel(
+  factory MainBrand.fromJson(Map<String, dynamic> json) => MainBrand(
         id: json["id"],
         brandName: json["brand_name"],
       );
