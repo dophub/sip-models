@@ -8,7 +8,7 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
   final double? dailyAmountLimit;
   final double? weeklyAmountLimit;
   final double? monthlyAmountLimit;
-  final int? dailyUsingLimit;
+  final double? dailyUsingLimit;
   final int? customerId;
   final String? currencyId;
 
@@ -34,7 +34,7 @@ class CreateWalletModel extends IBaseModel<CreateWalletModel> {
         dailyAmountLimit: json["daily_amount_limit"]?.toDouble(),
         weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
         monthlyAmountLimit: json["mountly_amount_limiti"]?.toDouble(),
-        dailyUsingLimit: json["daily_using_limit"],
+        dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
         customerId: json["customer_id"],
         currencyId: json["currency_id"],
       );

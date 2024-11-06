@@ -12,7 +12,7 @@ class WalletModel extends IBaseModel<WalletModel> {
   final double? dailyAmountLimit;
   final double? weeklyAmountLimit;
   final double? monthlyAmountLimit;
-  final int? dailyUsingLimit;
+  final double? dailyUsingLimit;
   final WalletCustomerGroupModel? customerGroup;
   final bool? isActive;
   final int? createdAt;
@@ -52,7 +52,7 @@ class WalletModel extends IBaseModel<WalletModel> {
         dailyAmountLimit: json["daily_amount_limit"]?.toDouble(),
         weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
         monthlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
-        dailyUsingLimit: json["daily_using_limit"],
+        dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
         customerGroup:
             json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
         isActive: json["is_active"],
