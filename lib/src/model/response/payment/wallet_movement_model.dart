@@ -60,7 +60,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
         id: json["id"],
         transactionId: json["transaction_id"],
         sourceId: json["source_id"],
-        amount: json["amount"],
+        amount: json["amount"].toDouble(),
         paymentMethod: json["payment_method"],
         status: json["status"],
         trackId: json["track_id"],
