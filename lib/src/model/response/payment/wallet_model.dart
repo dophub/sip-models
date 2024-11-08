@@ -1,6 +1,8 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class WalletModel extends IBaseModel<WalletModel> {
+import '../../../../response.dart';
+
+class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   String? id;
   String? typeId;
   String? number;

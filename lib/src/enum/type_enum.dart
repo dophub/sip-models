@@ -72,7 +72,12 @@ enum WalletType { PrePaid, PostPaid }
 /// [SERVICE] servis ödemesi
 /// [WALLET_IN] Yükleme
 /// [WALLET_OUT] harcama
-enum WalletSourceType { ORDER, SERVICE, WALLET_IN, WALLET_OUT }
+enum WalletSourceType {
+  ORDER,
+  SERVICE,
+  WALLET_IN,
+  WALLET_OUT,
+}
 
 /// [WalletSourceType] Cüzdan hareket tipi
 /// [COMPLETED] Başarılı
@@ -80,4 +85,10 @@ enum WalletSourceType { ORDER, SERVICE, WALLET_IN, WALLET_OUT }
 /// [FAIL] Başarısız
 /// [WAIT] Bekelmede
 /// [ERROR] Hata
-enum WalletMovementStatus { COMPLETED, SUCCESS, FAIL, WAIT, ERROR }
+enum WalletMovementStatus {
+  COMPLETED,
+  SUCCESS,
+  FAIL,
+  WAIT,
+  ERROR,
+}
