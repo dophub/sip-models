@@ -62,7 +62,22 @@ enum TableServiceType {
   const TableServiceType(this.title);
 }
 
-/// [WalletType] Self servis modulunde Masaya servis tipi
+/// [WalletType] çüzdan tip
 /// [PrePaid] Önceden Ödemeli
 /// [PostPaid] Sonradan ödemeli
 enum WalletType { PrePaid, PostPaid }
+
+/// [WalletSourceType] Cüzdan hareket tipi
+/// [ORDER] sipariş ödemesi
+/// [SERVICE] servis ödemesi
+/// [WALLET_IN] Yükleme
+/// [WALLET_OUT] harcama
+enum WalletSourceType { ORDER, SERVICE, WALLET_IN, WALLET_OUT }
+
+/// [WalletSourceType] Cüzdan hareket tipi
+/// [COMPLETED] Başarılı
+/// [SUCCESS] Başarılı
+/// [FAIL] Başarısız
+/// [WAIT] Bekelmede
+/// [ERROR] Hata
+enum WalletMovementStatus { COMPLETED, SUCCESS, FAIL, WAIT, ERROR }
