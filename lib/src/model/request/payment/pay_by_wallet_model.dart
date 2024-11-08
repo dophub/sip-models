@@ -3,7 +3,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 class PayByWalletModel extends IBaseModel<PayByWalletModel> {
   final String? orderType;
   final int? orderId;
-  final int? orderAmount;
+  final double? orderAmount;
   final String? walletId;
   final String? currencyId;
   final String? orderPoint;
@@ -21,7 +21,7 @@ class PayByWalletModel extends IBaseModel<PayByWalletModel> {
   fromJson(Map<String, dynamic> json) => PayByWalletModel(
         orderType: json["order_type"],
         orderId: json["order_id"],
-        orderAmount: json["order_amount"],
+        orderAmount: json["order_amount"]?.toDouble(),
         walletId: json["wallet_id"],
         currencyId: json["currency_id"],
         orderPoint: json["orderpoint"],
