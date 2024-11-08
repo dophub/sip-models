@@ -4,7 +4,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   final int? id;
   final String? transactionId;
   final String? sourceId;
-  final int? amount;
+  final double? amount;
   final String? paymentMethod;
   final String? status;
   final int? trackId;
