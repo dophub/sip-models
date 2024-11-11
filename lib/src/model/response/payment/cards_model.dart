@@ -70,7 +70,7 @@ class CardModel implements IPaymentType {
       );
 
   @override
-  String get getName => alias! + ' - ' + maskedCardNo!;
+  String get getName => '${alias!} - ${maskedCardNo!}';
 }
 
 class TurkcellMobilePayment implements IPaymentType {
