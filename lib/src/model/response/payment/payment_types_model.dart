@@ -1,9 +1,8 @@
 import 'package:background_json_parser/background_json_parser.dart';
-import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 
 import '../../../../response.dart';
 
-class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements ISectionsWidgetModel, IPaymentType {
+class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymentType {
   PaymentTypesModel({
     this.paymentTypeCode,
     this.paymentType,
@@ -41,22 +40,5 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements ISectio
   }
 
   @override
-  String get getId => throw UnimplementedError();
-
-  @override
   String get getName => paymentType!;
-
-  @override
-  double? get getPrice => null;
-
-  @override
-  String? get getImage => null;
-
-  @override
-  bool get getStatus => throw UnimplementedError();
-
-  @override
-  set setStatus(bool value) {
-    throw UnimplementedError();
-  }
 }

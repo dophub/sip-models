@@ -83,6 +83,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         "updated_at": updatedAt,
         "expired_date": expiredDate,
       };
+
+  @override
+  String get getName => title ?? '';
 }
 
 class WalletCurrencyModel {

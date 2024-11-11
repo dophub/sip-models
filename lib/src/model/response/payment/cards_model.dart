@@ -1,6 +1,6 @@
-import 'package:sip_models/src/model/widget/sections_widget_model.dart';
-
-abstract class IPaymentType {}
+abstract class IPaymentType {
+  String get getName;
+}
 
 /// Paycell kullanıcı kayıtlı kartları çekmek için kullanılmakta
 class CardsModel {
@@ -25,7 +25,7 @@ class CardsModel {
       );
 }
 
-class CardModel extends ISectionsWidgetModel implements IPaymentType {
+class CardModel implements IPaymentType {
   CardModel({
     this.cardId,
     this.maskedCardNo,
@@ -70,24 +70,7 @@ class CardModel extends ISectionsWidgetModel implements IPaymentType {
       );
 
   @override
-  String get getId => throw UnimplementedError();
-
-  @override
   String get getName => alias! + ' - ' + maskedCardNo!;
-
-  @override
-  double? get getPrice => null;
-
-  @override
-  bool get getStatus => throw UnimplementedError();
-
-  @override
-  String? get getImage => null;
-
-  @override
-  set setStatus(bool value) {
-    throw UnimplementedError();
-  }
 }
 
 class TurkcellMobilePayment implements IPaymentType {
@@ -124,4 +107,7 @@ class TurkcellMobilePayment implements IPaymentType {
         "contract_show": contractShow,
         "contract_url": contractUrl,
       };
+
+  @override
+  String get getName => '';
 }
