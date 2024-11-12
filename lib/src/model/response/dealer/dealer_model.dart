@@ -22,12 +22,12 @@ class DealerModel extends IBaseModel<DealerModel> {
   WorkingHourModel? workingHours;
   List<FoodCategories>? foodCategories;
   String? dealerCode;
-  int? mainBrandId;
   bool? openMarketplace;
   bool? openReservation;
   bool? openTable;
   bool? openVale;
   String? address;
+  DealerMainBrandModel? mainBrand;
 
   /// Product Listesi Searchte kullanılıyor
   List<ProductModel>? products;
@@ -50,13 +50,13 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.workingHours,
     this.foodCategories,
     this.dealerCode,
-    this.mainBrandId,
     this.openMarketplace,
     this.openReservation,
     this.openTable,
     this.openVale,
     this.products,
     this.address,
+    this.mainBrand,
   });
 
   @override
@@ -81,7 +81,6 @@ class DealerModel extends IBaseModel<DealerModel> {
             ? null
             : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
         dealerCode: json["dealer_code"],
-        mainBrandId: json["main_brand_id"],
         openMarketplace: json["open_marketplace"],
         openReservation: json["open_reservation"],
         openTable: json["open_table"],
@@ -90,12 +89,33 @@ class DealerModel extends IBaseModel<DealerModel> {
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
         address: json["address"],
+        mainBrand: json["main_brand"] == null ? null : DealerMainBrandModel.fromJson(json["main_brand"]),
       );
 
   @override
   Map<String, dynamic> toJson() {
     throw UnimplementedError();
   }
+}
+
+class DealerMainBrandModel {
+  final int id;
+  final String brandName;
+
+  DealerMainBrandModel({
+    required this.id,
+    required this.brandName,
+  });
+
+  factory DealerMainBrandModel.fromJson(Map<String, dynamic> json) => DealerMainBrandModel(
+        id: json["id"],
+        brandName: json["brand_name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "brand_name": brandName,
+      };
 }
 
 class FoodCategories {

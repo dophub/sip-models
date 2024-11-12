@@ -82,6 +82,7 @@ class ProductModel extends IBaseModel<ProductModel> {
     this.count = 0,
     this.campaigns,
     this.isSell,
+    this.mainBrandId,
   });
 
   int? id;
@@ -100,6 +101,7 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
   List<CampaignModel>? campaigns;
   bool? isSell;
+  int? mainBrandId;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductModel(
@@ -120,6 +122,7 @@ class ProductModel extends IBaseModel<ProductModel> {
             ? []
             : List<CampaignModel>.from(json["campaigns"].map((x) => CampaignModel.fromJson(x))),
         isSell: json["is_sell"],
+        mainBrandId: json["main_brand_id"],
       );
 
   @override
@@ -138,5 +141,6 @@ class ProductModel extends IBaseModel<ProductModel> {
         "campaigns": campaigns == null ? null : List<dynamic>.from(campaigns!.map((x) => x.toJson())),
         "count": count,
         "is_sell": isSell,
+        "main_brand_id": mainBrandId,
       };
 }
