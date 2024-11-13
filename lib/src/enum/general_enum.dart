@@ -136,3 +136,9 @@ enum AddressTypeEnum {
 
 /// Http işlemerinde kullanılmakta
 enum HttpMethod { get, post, put, delete, update }
+
+/// Zorunlu güncelleme olduğu alacağı aksiyon
+/// [LOGOUT] Çıkış yap
+enum ForceUpdateAction {
+  LOGOUT,
+}
