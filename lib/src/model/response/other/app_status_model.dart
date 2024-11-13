@@ -10,7 +10,6 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.payment,
     this.reservation,
     this.newMember,
-    this.binc,
     this.iosVersion,
     this.androidVersion,
     this.iosAppLink,
@@ -21,6 +20,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.travel,
     this.hotel,
     this.energy,
+    this.forceUpdateAction,
   });
 
   bool? marketplace;
@@ -28,7 +28,6 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? payment;
   bool? reservation;
   bool? newMember;
-  bool? binc;
   String? iosVersion;
   String? androidVersion;
   String? iosAppLink;
@@ -39,6 +38,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? travel;
   bool? hotel;
   bool? energy;
+  bool? forceUpdateAction;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -47,7 +47,6 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         payment: json["payment"],
         reservation: json["reservation"],
         newMember: json["new_member"],
-        binc: json["binc"],
         iosVersion: json["ios_version"],
         androidVersion: json["android_version"],
         iosAppLink: json["ios_app_link"],
@@ -57,6 +56,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         travel: json["travel"],
         hotel: json["hotel"],
         energy: json["energy"],
+        forceUpdateAction: json["force_update_action"],
         forceUpdate: kIsWeb
             ? false
             : Platform.isIOS
