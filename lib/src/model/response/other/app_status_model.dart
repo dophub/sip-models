@@ -38,7 +38,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? travel;
   bool? hotel;
   bool? energy;
-  bool? forceUpdateAction;
+  String? forceUpdateAction;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
