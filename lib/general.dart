@@ -1,2 +1,2 @@
 
-export 'src/general/request/CreateRedirectModel.dart';
+export 'src/general/request/create_redirect_model.dart';
