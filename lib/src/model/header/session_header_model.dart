@@ -17,7 +17,7 @@ class SessionHeaderModel {
     this.sessionPoint,
     this.clientType,
     required this.masterBrandId,
-    this.brandsId,
+    required this.brandsId,
     required this.appCode,
     this.externalHeader = const {},
     required this.lang,
