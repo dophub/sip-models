@@ -17,7 +17,7 @@ class PaginationModel<T extends IBaseModel> extends IBaseModel<PaginationModel> 
 
   @override
   PaginationModel<T> fromJson(Map<String, dynamic> json) {
-    data = json["data"]?.map((e) => fromJson(e)).toList().cast<T>();
+    data = json["data"]?.map((e) => _modelParser.fromJson(e)).toList().cast<T>();
     page = json["page"];
     limit = json["limit"];
     totalCount = json["total_count"];
