@@ -22,7 +22,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? brandsId,
+    List<int>? brandsId,
   }) : super(
           appId: appId,
           token: token,
@@ -49,7 +49,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? brandsId,
+    List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -80,7 +80,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? brandsId,
+    List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
@@ -112,7 +112,7 @@ class OrderHeaderModel extends SessionHeaderModel {
     required String appCode,
     required String lang,
     ClientPointId? clientPointId,
-    required List<int>? brandsId,
+    List<int>? brandsId,
   }) =>
       OrderHeaderModel(
         token,
