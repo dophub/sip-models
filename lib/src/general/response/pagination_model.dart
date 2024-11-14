@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class PaginationModel<T extends IBaseModel> extends IBaseModel {
+class PaginationModel<T extends IBaseModel> extends IBaseModel<PaginationModel> {
   late final T _modelParser;
   List<T>? data;
   int? page;
