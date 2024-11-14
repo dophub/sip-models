@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> {
+class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> implements IFilter {
   final int? brandId;
   final String? brandName;
   final List<MyDeviceStatusDataModel>? data;
@@ -15,7 +15,9 @@ class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> {
   fromJson(Map<String, dynamic> json) => MyDeviceStatusModel(
         brandId: json["brand_id"],
         brandName: json["brand_name"],
-        data: json["data"] == null ? [] : List<MyDeviceStatusDataModel>.from(json["data"]!.map((x) => MyDeviceStatusDataModel.fromJson(x))),
+        data: json["data"] == null
+            ? []
+            : List<MyDeviceStatusDataModel>.from(json["data"]!.map((x) => MyDeviceStatusDataModel.fromJson(x))),
       );
 
   @override
@@ -24,6 +26,13 @@ class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> {
         "brand_name": brandName,
         "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
       };
+
+  @override
+  Map<String, String> get filter => {'Marka': brandName!};
+}
+
+abstract class IFilter {
+  Map<String, String> get filter;
 }
 
 class MyDeviceStatusDataModel {
