@@ -28,11 +28,11 @@ class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> implements IFi
       };
 
   @override
-  Map<String, MapEntry<String, bool>> get filter => {'Marka': MapEntry(brandName!, false)};
+  late Map<String, MapEntry<String, bool>> filter = {'Marka': MapEntry(brandName!, false)};
 }
 
 abstract class IFilter {
-  Map<String, MapEntry<String, bool>> get filter;
+  late Map<String, MapEntry<String, bool>> filter;
 }
 
 class MyDeviceStatusDataModel {
