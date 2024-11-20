@@ -4,10 +4,10 @@
 enum ListMode { line, grid }
 
 /// [RegisterScreenMode] Register ekranında kullanılmakta
-/// [Update] Eski Kullanıcı Bilgiler Güncellenecek
-/// [Insert] Yeni Kullanıcı Bilgiler Insert Edilecek
-/// Google,Apple ..vs ile giriş yapıldığında
-enum RegisterScreenMode { insert, sso }
+/// [insert] Yeni Kullanıcı Bilgiler Insert Edilecek
+/// [sso] Google,Apple ..vs ile giriş yapıldığında
+/// [waitUser] kullanıcı kiosktan insert edilipte waitte olduğu zaman
+enum RegisterScreenMode { insert, sso, waitUser }
 
 /// [OtpVerificationScreenMode] Verification ekranında kullanılmakta
 /// [register] Register de gönderilen OTP yi onaylamak için
