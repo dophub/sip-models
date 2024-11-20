@@ -36,6 +36,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
     this.userSsoId,
     this.transactionId,
     this.otpCode,
+    this.recordClientPointId,
   });
 
   int? id;
@@ -52,6 +53,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
   String? userSsoId;
   String? transactionId;
   String? otpCode;
+  String? recordClientPointId;
 
   @override
   fromJson(Map<String, dynamic> json) {
@@ -69,6 +71,7 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
     userSsoId = json["user_sso_id"];
     transactionId = json["transaction_id"];
     otpCode = json["otp_code"];
+    recordClientPointId = json["record_client_point_id"];
     return this;
   }
 
@@ -88,5 +91,6 @@ class UserInfoModel extends IBaseModel<UserInfoModel> {
         "user_sso_id": userSsoId,
         "transaction_id": transactionId,
         "otp_code": otpCode,
+        "record_client_point_id": recordClientPointId,
       };
 }
