@@ -183,7 +183,8 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   String? printerTypeId;
   int? port;
   String? paperSize;
-  bool? isKioskPaymentPrinter; // kioskta ödeme yapıldıktan sonra fiş hangi yazıcıdan çıksın (Kiosk dahili yazıcı için yapıldı)
+  bool?
+      isKioskPaymentPrinter; // kioskta ödeme yapıldıktan sonra fiş hangi yazıcıdan çıksın (Kiosk dahili yazıcı için yapıldı)
 
   factory PosPrinterModel.fromJson(Map<String, dynamic> json) => PosPrinterModel(
         id: json["id"],
@@ -237,6 +238,7 @@ class PosStationLocalSettingsModel {
   int? screenWaitingSeconds;
   int? popupWaitingSeconds;
   bool? isDepot;
+  bool? useDefaultPaymentType;
 
   PosStationLocalSettingsModel({
     this.primaryColor,
@@ -251,6 +253,7 @@ class PosStationLocalSettingsModel {
     this.landingButtonColor,
     this.onLandingButtonColor,
     this.isDepot,
+    this.useDefaultPaymentType,
   });
 
   factory PosStationLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationLocalSettingsModel(
@@ -266,6 +269,7 @@ class PosStationLocalSettingsModel {
         screenWaitingSeconds: json["screen_waiting_seconds"],
         popupWaitingSeconds: json["popup_waiting_seconds"],
         isDepot: json["is_depot"],
+        useDefaultPaymentType: json["use_default_payment_type"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -281,6 +285,7 @@ class PosStationLocalSettingsModel {
         "screen_waiting_seconds": screenWaitingSeconds,
         "popup_waiting_seconds": popupWaitingSeconds,
         "is_depot": isDepot,
+        "use_default_payment_type": useDefaultPaymentType,
       };
 }
 
