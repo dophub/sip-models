@@ -7,7 +7,7 @@ enum ApiStatus { success, fail, loading, wait, init }
 
 enum CustomerStatusId { COMPLETE, WAIT }
 
-enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut, NotFound, Found, BadRequest }
+enum BaseModelStatus { Ok, Error, Action, UnprocessableEntity, TimeOut, NotFound, Found, BadRequest, Gone }
 
 /// WebView Ödeme callback query parameters enum
 enum PaymentQueryParametersStatus { COMPLETED, ERROR, WAITING, FAIL, SUCCESS }
