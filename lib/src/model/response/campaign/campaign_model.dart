@@ -16,6 +16,7 @@ class CampaignModel extends IBaseModel<CampaignModel> {
     this.campaignProductResult,
     this.campaignDiscountPercent,
     this.notUseBannerForTemplate,
+    this.isOtpRequired,
     this.limitNumberOfOrderTypeId,
   });
 
@@ -31,6 +32,7 @@ class CampaignModel extends IBaseModel<CampaignModel> {
   CampaignProductResultModel? campaignProductResult;
   double? campaignDiscountPercent;
   bool? notUseBannerForTemplate;
+  bool? isOtpRequired;
   String? limitNumberOfOrderTypeId;
 
   @override
@@ -40,9 +42,8 @@ class CampaignModel extends IBaseModel<CampaignModel> {
 
   factory CampaignModel.fromJson(Map<dynamic, dynamic> json) => CampaignModel(
         id: json["id"],
-        banners: json["banners"] == null
-            ? []
-            : List<ImagesModel>.from(json["banners"].map((x) => ImagesModel.fromJson(x))),
+        banners:
+            json["banners"] == null ? [] : List<ImagesModel>.from(json["banners"].map((x) => ImagesModel.fromJson(x))),
         dealerId: json["dealer_id"],
         spotTitle: json["spot_title"],
         description: json["description"],
@@ -55,6 +56,7 @@ class CampaignModel extends IBaseModel<CampaignModel> {
             : CampaignProductResultModel.fromJson(json["campaign_product_result"]),
         campaignDiscountPercent: json["campaign_discount_percent"].toDouble(),
         notUseBannerForTemplate: json["not_use_banner_for_template"],
+        isOtpRequired: json["is_otp_required"],
         limitNumberOfOrderTypeId: json["limit_number_of_order_type_id"],
       );
 
@@ -87,8 +89,7 @@ class CampaignProductResultModel {
   int? productId;
   int? campaignDiscountPercent;
 
-  factory CampaignProductResultModel.fromJson(Map<String, dynamic> json) =>
-      CampaignProductResultModel(
+  factory CampaignProductResultModel.fromJson(Map<String, dynamic> json) => CampaignProductResultModel(
         newPrice: json['new_price'] == null ? null : json["new_price"].toDouble(),
         productId: json["product_id"],
         campaignDiscountPercent: json["campaign_discount_percent"],
