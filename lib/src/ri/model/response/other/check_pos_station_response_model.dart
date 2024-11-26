@@ -41,7 +41,6 @@ class CheckPosStationResponseInfoModel {
     this.kioskMobilePhoneIsRequire,
     this.jumpToCaseButtonInKiosk,
     this.showCashButtonIn,
-    this.showWalletButtonIn,
     this.isKioskChangeableDeliveryType,
     this.isChangeableOrderPoint,
     this.isKioskPleksiScreen,
@@ -74,7 +73,6 @@ class CheckPosStationResponseInfoModel {
   bool? kioskMobilePhoneIsRequire;
   bool? jumpToCaseButtonInKiosk;
   bool? showCashButtonIn;
-  bool? showWalletButtonIn;
   bool? isKioskChangeableDeliveryType; // kisok masaya service seçme ekranı açık mı
   bool? isKioskPleksiScreen; // Masa Numarası girme ekranı açık mı
   bool? isChangeableOrderPoint; // Paket service açık mı değil mi
@@ -136,7 +134,6 @@ class CheckPosStationResponseInfoModel {
       kioskMobilePhoneIsRequire: json["kiosk_mobile_phone_is_require"],
       jumpToCaseButtonInKiosk: json["jump_to_case_button_in_kiosk"],
       showCashButtonIn: json["show_cash_button_in"],
-      showWalletButtonIn: json["show_wallet_button_in"],
       isKioskChangeableDeliveryType: json["is_kiosk_changeable_delivery_type"],
       isKioskPleksiScreen: json["is_kiosk_pleksi_screen"],
       isChangeableOrderPoint: json["is_changeable_order_point"],
@@ -242,6 +239,7 @@ class PosStationLocalSettingsModel {
   int? popupWaitingSeconds;
   bool? isDepot;
   bool? useDefaultPaymentType;
+  bool? showWalletButtonIn;
 
   PosStationLocalSettingsModel({
     this.primaryColor,
@@ -257,6 +255,7 @@ class PosStationLocalSettingsModel {
     this.onLandingButtonColor,
     this.isDepot,
     this.useDefaultPaymentType,
+    this.showWalletButtonIn,
   });
 
   factory PosStationLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationLocalSettingsModel(
@@ -273,6 +272,7 @@ class PosStationLocalSettingsModel {
         popupWaitingSeconds: json["popup_waiting_seconds"],
         isDepot: json["is_depot"],
         useDefaultPaymentType: json["use_default_payment_type"],
+        showWalletButtonIn: json["show_wallet_button_in"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -289,6 +289,7 @@ class PosStationLocalSettingsModel {
         "popup_waiting_seconds": popupWaitingSeconds,
         "is_depot": isDepot,
         "use_default_payment_type": useDefaultPaymentType,
+        "show_wallet_button_in": showWalletButtonIn,
       };
 }
 
