@@ -30,7 +30,8 @@ enum PaymentTypeEnum {
   PAYCELLCARD('Kredi Kartı'),
   PAYCELLCASH('Nakit'),
   QRWALLET('QR Yükleme'),
-  CARD('Kredi Kartı');
+  CARD('Kredi Kartı'),
+  WALLETONLINE('Cüzdan');
 
   final String title;
 
