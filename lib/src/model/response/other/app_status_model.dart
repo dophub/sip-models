@@ -20,6 +20,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.travel,
     this.hotel,
     this.energy,
+    this.wallet,
     this.forceUpdateAction,
   });
 
@@ -38,6 +39,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? travel;
   bool? hotel;
   bool? energy;
+  bool? wallet;
   String? forceUpdateAction;
 
   @override
@@ -56,6 +58,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         travel: json["travel"],
         hotel: json["hotel"],
         energy: json["energy"],
+        wallet: json["wallet"],
         forceUpdateAction: json["force_update_action"],
         forceUpdate: kIsWeb
             ? false
