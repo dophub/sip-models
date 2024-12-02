@@ -1,16 +1,16 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class OrderStatusHistoryModel extends IBaseModel<OrderStatusHistoryModel> {
-  final OrderStatusHistoryStatusModel prevOrderStatus;
-  final OrderStatusHistoryStatusModel currentOrderStatus;
-  final DateTime updateDate;
-  final OrderStatusHistoryUserModel orderHistoryCustomer;
+  final OrderStatusHistoryStatusModel? prevOrderStatus;
+  final OrderStatusHistoryStatusModel? currentOrderStatus;
+  final DateTime? updateDate;
+  final OrderStatusHistoryUserModel? orderHistoryCustomer;
 
   OrderStatusHistoryModel({
-    required this.prevOrderStatus,
-    required this.currentOrderStatus,
-    required this.updateDate,
-    required this.orderHistoryCustomer,
+    this.prevOrderStatus,
+    this.currentOrderStatus,
+    this.updateDate,
+    this.orderHistoryCustomer,
   });
 
   @override
@@ -23,16 +23,16 @@ class OrderStatusHistoryModel extends IBaseModel<OrderStatusHistoryModel> {
 
   @override
   Map<String, dynamic> toJson() => {
-        "prev_order_status": prevOrderStatus.toJson(),
-        "current_order_status": currentOrderStatus.toJson(),
-        "update_date": updateDate.toIso8601String(),
-        "order_history_customer": orderHistoryCustomer.toJson(),
+        "prev_order_status": prevOrderStatus?.toJson(),
+        "current_order_status": currentOrderStatus?.toJson(),
+        "update_date": updateDate?.toIso8601String(),
+        "order_history_customer": orderHistoryCustomer?.toJson(),
       };
 }
 
 class OrderStatusHistoryStatusModel {
-  final String code;
-  final String name;
+  final String? code;
+  final String? name;
 
   OrderStatusHistoryStatusModel({
     required this.code,
@@ -51,8 +51,8 @@ class OrderStatusHistoryStatusModel {
 }
 
 class OrderStatusHistoryUserModel {
-  final String firstname;
-  final String lastname;
+  final String? firstname;
+  final String? lastname;
 
   OrderStatusHistoryUserModel({
     required this.firstname,
