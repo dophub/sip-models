@@ -50,11 +50,11 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         tableIsActive: json["table_is_active"],
         selfServiceIsActive: json["self_service_is_active"],
         delay: json["delay"] ?? 0,
-        openMarketplace: json["open_marketplace"] ?? 0,
-        openReservation: json["open_reservation"] ?? 0,
-        openTable: json["open_table"] ?? 0,
-        openVale: json["open_vale"] ?? 0,
-        openSelfService: json["open_self_service"] ?? 0,
+        openMarketplace: json["open_marketplace"],
+        openReservation: json["open_reservation"],
+        openTable: json["open_table"],
+        openVale: json["open_vale"],
+        openSelfService: json["open_self_service"],
       );
 
   RestaurantServiceTypeStatusModel copyWith({
