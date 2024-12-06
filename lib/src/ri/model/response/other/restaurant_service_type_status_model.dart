@@ -8,6 +8,11 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     this.tableIsActive,
     this.selfServiceIsActive,
     this.delay = 0,
+    this.openMarketplace,
+    this.openReservation,
+    this.openTable,
+    this.openVale,
+    this.openSelfService,
   });
 
   bool? marketplaceIsActive;
@@ -16,6 +21,11 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
   bool? tableIsActive;
   bool? selfServiceIsActive;
   int? delay;
+  bool? openMarketplace;
+  bool? openReservation;
+  bool? openTable;
+  bool? openVale;
+  bool? openSelfService;
 
   @override
   Map<String, dynamic> toJson() => {
@@ -24,7 +34,12 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         "vale_is_active": valeIsActive,
         "table_is_active": tableIsActive,
         "self_service_is_active": selfServiceIsActive,
-        "delay": delay
+        "delay": delay,
+        "open_marketplace": openMarketplace,
+        "open_reservation": openReservation,
+        "open_table": openTable,
+        "open_vale": openVale,
+        "open_self_service": openSelfService,
       };
 
   @override
@@ -35,6 +50,11 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         tableIsActive: json["table_is_active"],
         selfServiceIsActive: json["self_service_is_active"],
         delay: json["delay"] ?? 0,
+        openMarketplace: json["open_marketplace"] ?? 0,
+        openReservation: json["open_reservation"] ?? 0,
+        openTable: json["open_table"] ?? 0,
+        openVale: json["open_vale"] ?? 0,
+        openSelfService: json["open_self_service"] ?? 0,
       );
 
   RestaurantServiceTypeStatusModel copyWith({
@@ -44,14 +64,24 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     bool? tableIsActive,
     bool? selfServiceIsActive,
     int? delay,
+    bool? openMarketplace,
+    bool? openReservation,
+    bool? openTable,
+    bool? openVale,
+    bool? openSelfService,
   }) {
     return RestaurantServiceTypeStatusModel(
       valeIsActive: valeIsActive ?? this.valeIsActive,
       reservationIsActive: reservationIsActive ?? this.reservationIsActive,
       marketplaceIsActive: marketplaceIsActive ?? this.marketplaceIsActive,
       selfServiceIsActive: selfServiceIsActive ?? this.selfServiceIsActive,
-      tableIsActive:  tableIsActive ?? this.tableIsActive,
+      tableIsActive: tableIsActive ?? this.tableIsActive,
       delay: delay ?? this.delay,
+      openMarketplace: openMarketplace ?? this.openMarketplace,
+      openReservation: openReservation ?? this.openReservation,
+      openTable: openTable ?? this.openTable,
+      openVale: openVale ?? this.openVale,
+      openSelfService: openSelfService ?? this.openSelfService,
     );
   }
 }
