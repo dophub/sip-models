@@ -26,6 +26,7 @@ class DealerModel extends IBaseModel<DealerModel> {
   bool? openReservation;
   bool? openTable;
   bool? openVale;
+  bool? marketplaceIsActive;
   String? address;
   DealerMainBrandModel? mainBrand;
 
@@ -54,6 +55,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.openReservation,
     this.openTable,
     this.openVale,
+    this.marketplaceIsActive,
     this.products,
     this.address,
     this.mainBrand,
@@ -85,6 +87,7 @@ class DealerModel extends IBaseModel<DealerModel> {
         openReservation: json["open_reservation"],
         openTable: json["open_table"],
         openVale: json["open_vale"],
+        marketplaceIsActive: json["marketplace_is_active"],
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
