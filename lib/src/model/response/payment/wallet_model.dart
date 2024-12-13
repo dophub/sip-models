@@ -20,6 +20,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   int? createdAt;
   int? updatedAt;
   int? expiredDate;
+  int? customerId; // Sadece RI
+  String? customerName; // Sadece RI
+  String? mobilePhone; // Sadece RI
 
   WalletModel({
     this.id,
@@ -39,6 +42,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
     this.createdAt,
     this.updatedAt,
     this.expiredDate,
+    this.customerId,
+    this.customerName,
+    this.mobilePhone,
   });
 
   @override
@@ -61,6 +67,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         expiredDate: json["expired_date"],
+        customerId: json["customer_id"],
+        customerName: json["customer_name"],
+        mobilePhone: json["mobile_phone"],
       );
 
   @override
@@ -82,6 +91,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         "created_at": createdAt,
         "updated_at": updatedAt,
         "expired_date": expiredDate,
+        "customer_id": customerId,
+        "customer_name": customerName,
+        "mobile_phone": mobilePhone,
       };
 
   @override
