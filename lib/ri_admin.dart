@@ -5,7 +5,7 @@ export 'package:sip_models/src/ri/model/admin/brand_parameter_model.dart';
 export 'package:sip_models/src/ri/model/admin/brand_user_model.dart';
 export 'package:sip_models/src/ri/model/admin/call_waiter_status_model.dart';
 export 'package:sip_models/src/ri/model/admin/city_model.dart';
-export 'package:sip_models/src/ri/model/admin/data_by_page_model.dart';
+export 'package:sip_models/src/ri/model/admin/pagination_model.dart';
 export 'package:sip_models/src/ri/model/admin/district_model.dart';
 export 'package:sip_models/src/ri/model/admin/get_dealer_info_model.dart';
 export 'package:sip_models/src/ri/model/admin/get_payment_pos_model.dart';

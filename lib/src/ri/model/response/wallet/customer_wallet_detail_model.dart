@@ -1,5 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
+
+
 class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
   String? id;
   String? customerName;
