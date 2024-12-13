@@ -56,7 +56,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
         walletAddressMatch: json["wallet_address_match"] == null
             ? []
             : List<CustomerWalletDetailWalletAddressMatchModel>.from(
-                json["wallet_address_match"]!.map((x) => CustomerWalletDetailWalletAddressMatchModel.fromJson(x))),
+                json["wallet_address_match"]!.map((x) => CustomerWalletDetailWalletAddressMatchModel().fromJson(x))),
       );
 
   @override
@@ -149,7 +149,7 @@ class CustomerWalletDetailModelTransactionModel {
       };
 }
 
-class CustomerWalletDetailWalletAddressMatchModel {
+class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWalletDetailWalletAddressMatchModel> {
   int? id;
   String? walletId;
   int? addressId;
@@ -164,8 +164,8 @@ class CustomerWalletDetailWalletAddressMatchModel {
     this.customerId,
   });
 
-  factory CustomerWalletDetailWalletAddressMatchModel.fromJson(Map<String, dynamic> json) =>
-      CustomerWalletDetailWalletAddressMatchModel(
+  @override
+  fromJson(Map<String, dynamic> json) => CustomerWalletDetailWalletAddressMatchModel(
         id: json["id"],
         walletId: json["wallet_id"],
         addressId: json["address_id"],
@@ -173,6 +173,7 @@ class CustomerWalletDetailWalletAddressMatchModel {
         customerId: json["customer_id"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "wallet_id": walletId,
