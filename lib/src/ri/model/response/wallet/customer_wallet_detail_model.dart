@@ -154,12 +154,14 @@ class CustomerWalletDetailWalletAddressMatchModel {
   String? walletId;
   int? addressId;
   String? addressName;
+  String? customerId;
 
   CustomerWalletDetailWalletAddressMatchModel({
     this.id,
     this.walletId,
     this.addressId,
     this.addressName,
+    this.customerId,
   });
 
   factory CustomerWalletDetailWalletAddressMatchModel.fromJson(Map<String, dynamic> json) =>
@@ -168,6 +170,7 @@ class CustomerWalletDetailWalletAddressMatchModel {
         walletId: json["wallet_id"],
         addressId: json["address_id"],
         addressName: json["address_name"],
+        customerId: json["customer_id"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -175,5 +178,6 @@ class CustomerWalletDetailWalletAddressMatchModel {
         "wallet_id": walletId,
         "address_id": addressId,
         "address_name": addressName,
+        "customer_id": customerId,
       };
 }
