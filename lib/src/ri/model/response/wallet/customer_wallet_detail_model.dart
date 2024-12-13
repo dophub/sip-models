@@ -1,4 +1,6 @@
-class CustomerWalletDetailModel {
+import 'package:background_json_parser/background_json_parser.dart';
+
+class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
   String? id;
   String? customerName;
   String? mobilePhone;
@@ -31,7 +33,8 @@ class CustomerWalletDetailModel {
     this.walletAddressMatch,
   });
 
-  factory CustomerWalletDetailModel.fromJson(Map<String, dynamic> json) => CustomerWalletDetailModel(
+  @override
+  fromJson(Map<String, dynamic> json) => CustomerWalletDetailModel(
         id: json["id"],
         customerName: json["customer_name"],
         mobilePhone: json["mobile_phone"],
@@ -56,6 +59,7 @@ class CustomerWalletDetailModel {
                 json["wallet_address_match"]!.map((x) => CustomerWalletDetailWalletAddressMatchModel.fromJson(x))),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "customer_name": customerName,
