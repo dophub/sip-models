@@ -1,13 +1,13 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class PaginationModel<T extends IBaseModel> {
+class DataByPageModel<T extends IBaseModel> {
   int? page;
   final int? limit;
   final List<T>? data;
   final int? totalCount;
   final int? prevPage;
 
-  PaginationModel({
+  DataByPageModel({
     this.page,
     this.limit,
     this.data,
@@ -15,7 +15,7 @@ class PaginationModel<T extends IBaseModel> {
     this.prevPage,
   });
 
-  factory PaginationModel.fromJson(T modelType, Map<String, dynamic> json) => PaginationModel(
+  factory DataByPageModel.fromJson(T modelType, Map<String, dynamic> json) => DataByPageModel(
         page: json["page"],
         limit: json["limit"],
         data: json["data"]?.map((e) => modelType.fromJson(e)).toList().cast<T>(),
