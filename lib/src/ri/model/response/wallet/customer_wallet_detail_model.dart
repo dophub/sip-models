@@ -111,7 +111,7 @@ class CustomerWalletDetailModelTransactionModel {
   String? transactionId;
   double? amount;
   String? currency;
-  DateTime? createdAt;
+  int? createdAt;
   String? notes;
   String? paymentTags;
   String? type;
@@ -133,7 +133,7 @@ class CustomerWalletDetailModelTransactionModel {
         transactionId: json["transaction_id"],
         amount: json["amount"]?.toDouble(),
         currency: json["currency"],
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        createdAt: json["created_at"],
         notes: json["notes"],
         paymentTags: json["payment_tags"],
         type: json["type"],
@@ -144,7 +144,7 @@ class CustomerWalletDetailModelTransactionModel {
         "transaction_id": transactionId,
         "amount": amount,
         "currency": currency,
-        "created_at": createdAt?.toIso8601String(),
+        "created_at": createdAt,
         "notes": notes,
         "payment_tags": paymentTags,
         "type": type,
