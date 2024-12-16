@@ -10,7 +10,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
   String? typeId;
   double? balance;
   String? currencyId;
-  DateTime? expiredDate;
+  int? expiredDate;
   bool? isActive;
   CustomerWalletDetailCustomerGroupModel? customerGroup;
   List<CustomerWalletDetailModelTransactionModel>? transactions;
@@ -44,7 +44,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
         typeId: json["type_id"],
         balance: json["balance"]?.toDouble(),
         currencyId: json["currency_id"],
-        expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
+        expiredDate: json["expired_date"],
         isActive: json["is_active"],
         customerGroup: json["customer_group"] == null
             ? null
@@ -70,7 +70,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
         "type_id": typeId,
         "balance": balance,
         "currency_id": currencyId,
-        "expired_date": expiredDate?.toIso8601String(),
+        "expired_date": expiredDate,
         "is_active": isActive,
         "customer_group": customerGroup?.toJson(),
         "transactions": transactions == null ? [] : List<dynamic>.from(transactions!.map((x) => x.toJson())),
