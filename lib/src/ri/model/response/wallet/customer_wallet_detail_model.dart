@@ -2,12 +2,13 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../../ri_models.dart';
 
-class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
+class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
   String? id;
   String? customerName;
   String? mobilePhone;
   int? customerId;
   String? number;
+  String? title;
   String? typeId;
   double? balance;
   String? currencyId;
@@ -16,7 +17,6 @@ class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
   CustomerWalletDetailCustomerGroupModel? customerGroup;
   List<CustomerWalletDetailModelTransactionModel>? transactions;
   List<CustomerWalletDetailWalletAddressMatchModel>? walletAddressMatch;
-  String? _title;
 
   CustomerWalletDetailModel({
     this.id,
@@ -24,7 +24,7 @@ class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
     this.mobilePhone,
     this.customerId,
     this.number,
-    String? title,
+    this.title,
     this.typeId,
     this.balance,
     this.currencyId,
@@ -33,10 +33,9 @@ class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
     this.customerGroup,
     this.transactions,
     this.walletAddressMatch,
-  }) {
-    _title = title;
-  }
+  });
 
+  @override
   fromJson(Map<String, dynamic> json) => CustomerWalletDetailModel(
         id: json["id"],
         customerName: json["customer_name"],
@@ -62,13 +61,14 @@ class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
                 json["wallet_address_match"]!.map((x) => CustomerWalletDetailWalletAddressMatchModel().fromJson(x))),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "customer_name": customerName,
         "mobile_phone": mobilePhone,
         "customer_id": customerId,
         "number": number,
-        "title": _title,
+        "title": title,
         "type_id": typeId,
         "balance": balance,
         "currency_id": currencyId,
@@ -79,12 +79,6 @@ class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
         "wallet_address_match":
             walletAddressMatch == null ? [] : List<dynamic>.from(walletAddressMatch!.map((x) => x.toJson())),
       };
-
-  @override
-  bool selectedValue = false;
-
-  @override
-  String get title => _title ?? '';
 }
 
 class CustomerWalletDetailCustomerGroupModel {
@@ -157,7 +151,8 @@ class CustomerWalletDetailModelTransactionModel {
       };
 }
 
-class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWalletDetailWalletAddressMatchModel> {
+class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWalletDetailWalletAddressMatchModel>
+    implements IMultiItemPickerWidgetModel {
   int? id;
   String? walletId;
   int? addressId;
@@ -189,4 +184,10 @@ class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWal
         "address_name": addressName,
         "customer_id": customerId,
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => addressName ?? '';
 }
