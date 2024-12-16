@@ -1,12 +1,13 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
+import '../../../../../ri_models.dart';
+
+class CustomerWalletDetailModel implements IMultiItemPickerWidgetModel {
   String? id;
   String? customerName;
   String? mobilePhone;
   int? customerId;
   String? number;
-  String? title;
   String? typeId;
   double? balance;
   String? currencyId;
@@ -15,6 +16,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
   CustomerWalletDetailCustomerGroupModel? customerGroup;
   List<CustomerWalletDetailModelTransactionModel>? transactions;
   List<CustomerWalletDetailWalletAddressMatchModel>? walletAddressMatch;
+  String? _title;
 
   CustomerWalletDetailModel({
     this.id,
@@ -22,7 +24,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
     this.mobilePhone,
     this.customerId,
     this.number,
-    this.title,
+    String? title,
     this.typeId,
     this.balance,
     this.currencyId,
@@ -31,9 +33,10 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
     this.customerGroup,
     this.transactions,
     this.walletAddressMatch,
-  });
+  }) {
+    _title = title;
+  }
 
-  @override
   fromJson(Map<String, dynamic> json) => CustomerWalletDetailModel(
         id: json["id"],
         customerName: json["customer_name"],
@@ -59,14 +62,13 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
                 json["wallet_address_match"]!.map((x) => CustomerWalletDetailWalletAddressMatchModel().fromJson(x))),
       );
 
-  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "customer_name": customerName,
         "mobile_phone": mobilePhone,
         "customer_id": customerId,
         "number": number,
-        "title": title,
+        "title": _title,
         "type_id": typeId,
         "balance": balance,
         "currency_id": currencyId,
@@ -77,6 +79,12 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
         "wallet_address_match":
             walletAddressMatch == null ? [] : List<dynamic>.from(walletAddressMatch!.map((x) => x.toJson())),
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => _title ?? '';
 }
 
 class CustomerWalletDetailCustomerGroupModel {
