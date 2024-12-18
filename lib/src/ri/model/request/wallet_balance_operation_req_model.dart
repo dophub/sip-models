@@ -1,7 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationReqModel> {
-  int? balance;
+  double? balance;
   String? currencyId;
   String? walletId;
   String? notes;
