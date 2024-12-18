@@ -17,7 +17,7 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
 
   @override
   fromJson(Map<String, dynamic> json) => WalletBalanceOperationReqModel(
-        balance: json["balance"],
+        balance: json["balance"]?.toDouble(),
         currencyId: json["currencyId"],
         walletId: json["walletId"],
         notes: json["notes"],
