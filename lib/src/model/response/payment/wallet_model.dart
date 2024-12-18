@@ -21,7 +21,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   int? updatedAt;
   int? expiredDate;
   int? customerId; // Sadece RI
-  int? currencyId; // Sadece RI
+  String? currencyId; // Sadece RI
   String? customerName; // Sadece RI
   String? mobilePhone; // Sadece RI
 
