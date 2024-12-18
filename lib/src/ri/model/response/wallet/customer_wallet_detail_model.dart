@@ -165,7 +165,7 @@ class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWal
   String? walletId;
   int? addressId;
   String? addressName;
-  String? customerId;
+  int? customerId;
 
   CustomerWalletDetailWalletAddressMatchModel({
     this.id,
