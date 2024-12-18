@@ -1,0 +1,35 @@
+import 'package:background_json_parser/background_json_parser.dart';
+
+class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationReqModel> {
+  int? balance;
+  String? currencyId;
+  String? walletId;
+  String? notes;
+  bool? increase;
+
+  WalletBalanceOperationReqModel({
+    this.balance,
+    this.currencyId,
+    this.walletId,
+    this.notes,
+    this.increase,
+  });
+
+  @override
+  fromJson(Map<String, dynamic> json) => WalletBalanceOperationReqModel(
+        balance: json["balance"],
+        currencyId: json["currencyId"],
+        walletId: json["walletId"],
+        notes: json["notes"],
+        increase: json["increase"],
+      );
+
+  @override
+  Map<String, dynamic> toJson() => {
+        "balance": balance,
+        "currencyId": currencyId,
+        "walletId": walletId,
+        "notes": notes,
+        "increase": increase,
+      };
+}
