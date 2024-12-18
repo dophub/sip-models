@@ -21,6 +21,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   int? updatedAt;
   int? expiredDate;
   int? customerId; // Sadece RI
+  int? currencyId; // Sadece RI
   String? customerName; // Sadece RI
   String? mobilePhone; // Sadece RI
 
@@ -43,6 +44,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
     this.updatedAt,
     this.expiredDate,
     this.customerId,
+    this.currencyId,
     this.customerName,
     this.mobilePhone,
   });
@@ -68,6 +70,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         updatedAt: json["updated_at"],
         expiredDate: json["expired_date"],
         customerId: json["customer_id"],
+        currencyId: json["currency_id"],
         customerName: json["customer_name"],
         mobilePhone: json["mobile_phone"],
       );
@@ -92,6 +95,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         "updated_at": updatedAt,
         "expired_date": expiredDate,
         "customer_id": customerId,
+        "currency_id": currencyId,
         "customer_name": customerName,
         "mobile_phone": mobilePhone,
       };
