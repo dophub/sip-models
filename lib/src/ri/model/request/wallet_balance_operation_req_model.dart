@@ -24,7 +24,7 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
         walletId: json["walletId"],
         notes: json["notes"],
         increase: json["increase"],
-    paymentTags: json["payment_tags"],
+        paymentTags: json["payment_tags"],
       );
 
   @override

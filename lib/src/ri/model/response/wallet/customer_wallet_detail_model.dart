@@ -2,13 +2,13 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../../ri_models.dart';
 
-class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
+class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> implements IMultiItemPickerWidgetModel {
   String? id;
   String? customerName;
   String? mobilePhone;
   int? customerId;
   String? number;
-  String? title;
+  String? _title;
   String? typeId;
   double? balance;
   String? currencyId;
@@ -24,7 +24,7 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
     this.mobilePhone,
     this.customerId,
     this.number,
-    this.title,
+    String? title,
     this.typeId,
     this.balance,
     this.currencyId,
@@ -33,7 +33,9 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
     this.customerGroup,
     this.transactions,
     this.walletAddressMatch,
-  });
+  }) {
+    _title = title;
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => CustomerWalletDetailModel(
@@ -79,6 +81,12 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> {
         "wallet_address_match":
             walletAddressMatch == null ? [] : List<dynamic>.from(walletAddressMatch!.map((x) => x.toJson())),
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => _title ?? '';
 }
 
 class CustomerWalletDetailCustomerGroupModel {
