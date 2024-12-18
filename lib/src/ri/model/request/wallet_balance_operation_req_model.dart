@@ -6,6 +6,7 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
   String? walletId;
   String? notes;
   bool? increase;
+  String? paymentTags;
 
   WalletBalanceOperationReqModel({
     this.balance,
@@ -13,6 +14,7 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
     this.walletId,
     this.notes,
     this.increase,
+    this.paymentTags,
   });
 
   @override
@@ -22,6 +24,7 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
         walletId: json["walletId"],
         notes: json["notes"],
         increase: json["increase"],
+    paymentTags: json["payment_tags"],
       );
 
   @override
@@ -31,5 +34,6 @@ class WalletBalanceOperationReqModel extends IBaseModel<WalletBalanceOperationRe
         "walletId": walletId,
         "notes": notes,
         "increase": increase,
+        "payment_tags": paymentTags,
       };
 }
