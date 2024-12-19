@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-import '../../../../../ri_models.dart';
+import '../../../../ri_models.dart';
 
 class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> implements IMultiItemPickerWidgetModel {
   String? id;

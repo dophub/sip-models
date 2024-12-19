@@ -15,7 +15,6 @@ export 'package:sip_models/src/ri/model/request/update_payment_type_request_mode
 export 'package:sip_models/src/ri/model/request/update_price_model_req.dart';
 export 'package:sip_models/src/ri/model/request/update_product_request_model.dart';
 export 'package:sip_models/src/ri/model/request/update_tip_system_request_model.dart';
-export 'package:sip_models/src/ri/model/request/wallet_balance_operation_req_model.dart';
 export 'package:sip_models/src/ri/model/response/courier/courier_order_model.dart';
 export 'package:sip_models/src/ri/model/response/customer/add_local_customer_model.dart';
 export 'package:sip_models/src/ri/model/response/customer/customer_review_detail_model.dart';
@@ -79,4 +78,3 @@ export 'package:sip_models/src/ri/model/response/marketplace_integration/marketp
 export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_detail_model.dart';
 export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_product_model.dart';
 export 'package:sip_models/src/ri/model/socket/service_channel_socket_model.dart';
-export 'package:sip_models/src/ri/model/response/wallet/customer_wallet_detail_model.dart';
