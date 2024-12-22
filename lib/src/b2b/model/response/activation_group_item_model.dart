@@ -3,6 +3,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 class ActivationGroupItemModel extends IBaseModel<ActivationGroupItemModel> {
   int? id;
   String? itemTypeId;
+  String? type; // type ve itemTypeId aynı parametre farklı endpointlerde kullanılmakta
   String? name;
   int? productId;
   int? promotionMenuId;
@@ -12,6 +13,7 @@ class ActivationGroupItemModel extends IBaseModel<ActivationGroupItemModel> {
   ActivationGroupItemModel({
     this.id,
     this.itemTypeId,
+    this.type,
     this.name,
     this.productId,
     this.promotionMenuId,
@@ -23,6 +25,7 @@ class ActivationGroupItemModel extends IBaseModel<ActivationGroupItemModel> {
   fromJson(Map<String, dynamic> json) => ActivationGroupItemModel(
         id: json["id"],
         itemTypeId: json["item_type_id"],
+        type: json["type"],
         name: json["name"],
         productId: json["product_id"],
         promotionMenuId: json["promotion_menu_id"],
@@ -34,6 +37,7 @@ class ActivationGroupItemModel extends IBaseModel<ActivationGroupItemModel> {
   Map<String, dynamic> toJson() => {
         "id": id,
         "item_type_id": itemTypeId,
+        "type": type,
         "product_id": productId,
         "name": name,
         "promotion_menu_id": promotionMenuId,
