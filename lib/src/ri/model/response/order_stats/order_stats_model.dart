@@ -15,11 +15,11 @@ class OrderStatsModel extends IBaseModel<OrderStatsModel> {
   @override
   fromJson(Map<String, dynamic> json) => OrderStatsModel(
         todayOrderCounts:
-            json["today_order_counts"] == null ? null : OrderStatsOrderCountsModel.fromJson(json["today_order_counts"]),
+            json["today_order_counts"] == null ? null : OrderStatsOrderCountsModel().fromJson(json["today_order_counts"]),
         weekOrderCounts:
-            json["week_order_counts"] == null ? null : OrderStatsOrderCountsModel.fromJson(json["week_order_counts"]),
+            json["week_order_counts"] == null ? null : OrderStatsOrderCountsModel().fromJson(json["week_order_counts"]),
         monthOrderCounts:
-            json["month_order_counts"] == null ? null : OrderStatsOrderCountsModel.fromJson(json["month_order_counts"]),
+            json["month_order_counts"] == null ? null : OrderStatsOrderCountsModel().fromJson(json["month_order_counts"]),
       );
 
   @override
