@@ -6,6 +6,7 @@ class OrderCountModel {
   double? tipAmount;
   int? takeOutCount;
   int? selfServiceCount;
+  int? orderPendingCount;
 
   OrderCountModel({
     this.getinCount,
@@ -15,6 +16,7 @@ class OrderCountModel {
     this.takeOutCount,
     this.selfServiceCount,
     this.tipAmount,
+    this.orderPendingCount,
   });
 
   factory OrderCountModel.fromJson(Map<String, dynamic> json) {
@@ -25,7 +27,8 @@ class OrderCountModel {
       tipAmount: json['total_tip_amount']?.toDouble(),
       totalAmount: json['total_amount']?.toDouble(),
       takeOutCount: json['take_out_count'],
-      selfServiceCount: json['self_service_count']
+      selfServiceCount: json['self_service_count'],
+      orderPendingCount: json['order_pending_count'],
     );
   }
 
@@ -35,6 +38,7 @@ class OrderCountModel {
         'total_count': totalCount,
         'total_amount': totalAmount,
         'take_out_count': takeOutCount,
-        "self_service_count":selfServiceCount
+        "self_service_count": selfServiceCount,
+        "order_pending_count": orderPendingCount
       };
 }
