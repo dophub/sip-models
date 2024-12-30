@@ -7,8 +7,13 @@ class ActiveOrdersCountModel extends IBaseModel<ActiveOrdersCountModel> {
   int? orderPendingCount;
   int? selfServiceCount;
 
-  ActiveOrdersCountModel(
-      {this.tableCount, this.takeOutCount, this.orderPendingCount, this.getinCount, this.selfServiceCount});
+  ActiveOrdersCountModel({
+    this.tableCount,
+    this.takeOutCount,
+    this.orderPendingCount,
+    this.getinCount,
+    this.selfServiceCount,
+  });
 
   @override
   fromJson(Map<String, dynamic> json) {

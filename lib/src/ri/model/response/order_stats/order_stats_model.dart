@@ -30,7 +30,7 @@ class OrderStatsModel extends IBaseModel<OrderStatsModel> {
       };
 }
 
-class OrderStatsOrderCountsModel {
+class OrderStatsOrderCountsModel extends IBaseModel<OrderStatsOrderCountsModel> {
   List<OrderStatsDealerDataModel>? dealerData;
   OrderCountModel? totalData;
 
@@ -39,7 +39,8 @@ class OrderStatsOrderCountsModel {
     this.totalData,
   });
 
-  factory OrderStatsOrderCountsModel.fromJson(Map<String, dynamic> json) => OrderStatsOrderCountsModel(
+  @override
+  fromJson(Map<String, dynamic> json) => OrderStatsOrderCountsModel(
         dealerData: json["dealer_data"] == null
             ? []
             : List<OrderStatsDealerDataModel>.from(
@@ -47,6 +48,7 @@ class OrderStatsOrderCountsModel {
         totalData: json["total_data"] == null ? null : OrderCountModel.fromJson(json["total_data"]),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "dealer_data": dealerData == null ? [] : List<dynamic>.from(dealerData!.map((x) => x.toJson())),
         "total_data": totalData?.toJson(),
