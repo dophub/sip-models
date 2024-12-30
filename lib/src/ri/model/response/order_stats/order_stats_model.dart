@@ -1,6 +1,7 @@
+import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/ri/model/response/order_stats/order_count_model.dart';
 
-class OrderStatsModel {
+class OrderStatsModel extends IBaseModel<OrderStatsModel> {
   OrderStatsOrderCountsModel? todayOrderCounts;
   OrderStatsOrderCountsModel? weekOrderCounts;
   OrderStatsOrderCountsModel? monthOrderCounts;
@@ -11,7 +12,8 @@ class OrderStatsModel {
     this.monthOrderCounts,
   });
 
-  factory OrderStatsModel.fromJson(Map<String, dynamic> json) => OrderStatsModel(
+  @override
+  fromJson(Map<String, dynamic> json) => OrderStatsModel(
         todayOrderCounts:
             json["today_order_counts"] == null ? null : OrderStatsOrderCountsModel.fromJson(json["today_order_counts"]),
         weekOrderCounts:
@@ -20,6 +22,7 @@ class OrderStatsModel {
             json["month_order_counts"] == null ? null : OrderStatsOrderCountsModel.fromJson(json["month_order_counts"]),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "today_order_counts": todayOrderCounts?.toJson(),
         "week_order_counts": weekOrderCounts?.toJson(),
