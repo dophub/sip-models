@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:background_json_parser/background_json_parser.dart';
 
 class ByDealerModel<T extends IBaseModel<T>> {
@@ -9,8 +11,11 @@ class ByDealerModel<T extends IBaseModel<T>> {
     this.totalData,
   });
 
-  factory ByDealerModel.fromJson(T model, Map<String, dynamic> json) => ByDealerModel<T>(
-        dealerData: json["dealer_data"] == null ? [] : model.jsonParser(json["dealer_data"]),
-        totalData: json["total_data"] == null ? [] : model.jsonParser(json["dealer_data"]),
-      );
+  factory ByDealerModel.fromJson(T model, String json) {
+    final map = jsonDecode(json);
+    return ByDealerModel<T>(
+      dealerData: map["dealer_data"] == null ? [] : model.jsonParser(map["dealer_data"]),
+      totalData: map["total_data"] == null ? [] : model.jsonParser(map["dealer_data"]),
+    );
+  }
 }
