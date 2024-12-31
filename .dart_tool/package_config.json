@@ -9,7 +9,7 @@
     },
     {
       "name": "background_json_parser",
-      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/background_json_parser-1.0.5",
+      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/background_json_parser-1.0.6",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -170,7 +170,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-12-31T14:27:03.615300Z",
+  "generated": "2024-12-31T15:13:24.082432Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/mustafaturkmen/src/flutter",
