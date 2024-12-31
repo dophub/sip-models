@@ -38,6 +38,7 @@ export 'package:sip_models/src/ri/model/response/order_stats/order_count_model.d
 export 'package:sip_models/src/ri/model/response/order_stats/order_stats_model.dart';
 export 'package:sip_models/src/ri/model/response/other/active_orders_count_model.dart';
 export 'package:sip_models/src/ri/model/response/other/branch_product_activation_model.dart';
+export 'package:sip_models/src/ri/model/response/other/by_dealer_model.dart';
 export 'package:sip_models/src/ri/model/response/other/categories_response_model.dart';
 export 'package:sip_models/src/ri/model/response/other/check_pos_station_response_model.dart';
 export 'package:sip_models/src/ri/model/response/other/dealer_service_address_model.dart';
