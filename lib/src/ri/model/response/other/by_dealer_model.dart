@@ -16,7 +16,7 @@ class ByDealerModel<T extends IBaseModel<T>> {
     return ByDealerModel<T>(
       dealerData: map["dealer_data"] == null
           ? null
-          : (map["dealer_data"] as List).map((e) => ByDealerDataModel<T>.fromJson(model, map["dealer_data"])).toList(),
+          : (map["dealer_data"] as List).map((e) => ByDealerDataModel<T>.fromJson(model, e)).toList(),
       totalData: map["total_data"] == null ? [] : model.jsonParser(map["dealer_data"]),
     );
   }
