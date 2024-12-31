@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  background_json_parser: any
+  background_json_parser:
+    path: ../json_parser
   collection: any
 
 dev_dependencies:
