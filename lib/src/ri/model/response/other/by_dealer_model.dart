@@ -29,8 +29,7 @@ class ByDealerDataModel<T extends IBaseModel<T>> {
     this.dealerData,
   });
 
-  factory ByDealerDataModel.fromJson(T model, String json) {
-    final map = jsonDecode(json);
+  factory ByDealerDataModel.fromJson(T model, Map<String, dynamic> map) {
     return ByDealerDataModel(
       dealer: map["dealer"] == null ? null : ByDealerDealerModel.fromJson(map["dealer"]),
       dealerData: map["dealer_data"] == null ? null : model.jsonParser(map["dealer_data"]),
