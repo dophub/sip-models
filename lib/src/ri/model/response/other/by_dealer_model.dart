@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:background_json_parser/background_json_parser.dart';
 
+import '../../../../../ri_models.dart';
+
 class ByDealerModel<T extends IBaseModel<T>> {
   List<ByDealerDataModel<T>>? dealerData;
   List<T>? totalData;
@@ -22,7 +24,7 @@ class ByDealerModel<T extends IBaseModel<T>> {
   }
 }
 
-class ByDealerDataModel<T extends IBaseModel<T>> {
+class ByDealerDataModel<T extends IBaseModel<T>> implements IMultiItemPickerWidgetModel {
   ByDealerDealerModel? dealer;
   List<T>? dealerData;
 
@@ -37,6 +39,12 @@ class ByDealerDataModel<T extends IBaseModel<T>> {
       dealerData: map["dealer_data"] == null ? [] : model.jsonParserByMap(map["dealer_data"]),
     );
   }
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => dealer?.name ?? '';
 }
 
 class ByDealerDealerModel {
