@@ -1,11 +1,14 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:collection/collection.dart';
+import 'package:sip_models/ri_models.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
 import 'package:sip_models/src/ri/model/other/order_dealer_info_model.dart';
+import 'package:sip_models/src/ri/model/other/printer_config_model.dart';
 import '../../../../../response.dart';
 import '../../../../enum/id_enum.dart';
 import 'marketplace_order_model.dart';
 
-class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelExtent {
+class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelExtent implements IFilter {
   TableOrderModel({
     int? id,
     this.infoPhoneNumber,
@@ -75,6 +78,13 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         clientPointId: json["client_point_id"],
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
       );
+
+  @override
+  late Map<String, MapEntry<String, bool>> filter = {
+    'Sipariş Türü': MapEntry(paymentModelId ?? '', false),
+    'Restoran içi sipariş türü': MapEntry(orderPointId ?? '', false),
+    'Servis türü': MapEntry(serviceDeliveryTypeId ?? '', false),
+  };
 }
 
 class TableOrderItemModel {

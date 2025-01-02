@@ -24,7 +24,7 @@ class ByDealerModel<T extends IBaseModel<T>> {
   }
 }
 
-class ByDealerDataModel<T extends IBaseModel<T>> implements IMultiItemPickerWidgetModel {
+class ByDealerDataModel<T extends IBaseModel<T>> {
   ByDealerDealerModel? dealer;
   List<T>? dealerData;
 
@@ -40,11 +40,6 @@ class ByDealerDataModel<T extends IBaseModel<T>> implements IMultiItemPickerWidg
     );
   }
 
-  @override
-  bool selectedValue = false;
-
-  @override
-  String get title => dealer?.name ?? '';
 }
 
 class ByDealerDealerModel {
