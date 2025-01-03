@@ -8,7 +8,7 @@ import '../../../../../response.dart';
 import '../../../../enum/id_enum.dart';
 import 'marketplace_order_model.dart';
 
-class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelExtent implements IFilter {
+class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelExtent {
   TableOrderModel({
     int? id,
     this.infoPhoneNumber,
@@ -78,16 +78,6 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         clientPointId: json["client_point_id"],
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
       );
-
-  @override
-  late Map<String, MapEntry<String, bool>>? unUniqueFilter = {
-    'Sipariş Türü': MapEntry(paymentModelId ?? '', false),
-    'Restoran içi sipariş türü': MapEntry(orderPointId ?? '', false),
-    'Servis türü': MapEntry(serviceDeliveryTypeId ?? '', false),
-  };
-
-  @override
-  Map<String, MapEntry<String, bool>>? filter;
 }
 
 class TableOrderItemModel {
