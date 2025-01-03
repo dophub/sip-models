@@ -1,6 +1,4 @@
-import 'package:background_json_parser/background_json_parser.dart';
-
-class OrderCountModel extends IBaseModel<OrderCountModel> {
+class OrderCountModel {
   int? getinCount;
   int? tableCount;
   int? totalCount;
@@ -21,8 +19,7 @@ class OrderCountModel extends IBaseModel<OrderCountModel> {
     this.orderPendingCount,
   });
 
-  @override
-  fromJson(Map<String, dynamic> json) {
+  factory OrderCountModel.fromJson(Map<String, dynamic> json) {
     return OrderCountModel(
       getinCount: json['getin_count'],
       tableCount: json['table_count'],
@@ -35,7 +32,6 @@ class OrderCountModel extends IBaseModel<OrderCountModel> {
     );
   }
 
-  @override
   Map<String, dynamic> toJson() => {
         'getin_count': getinCount,
         'table_count': tableCount,
