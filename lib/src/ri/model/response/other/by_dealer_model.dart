@@ -51,12 +51,12 @@ class ByDealerDealerModel {
   });
 
   factory ByDealerDealerModel.fromJson(Map<String, dynamic> json) => ByDealerDealerModel(
-        id: json["id"],
+        id: json["dealer_id"],
         name: json["dealer_name"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "dealer_id": id,
         "dealer_name": name,
       };
 }
