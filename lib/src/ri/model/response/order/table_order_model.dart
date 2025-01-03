@@ -80,11 +80,14 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
       );
 
   @override
-  late Map<String, MapEntry<String, bool>> filter = {
+  late Map<String, MapEntry<String, bool>>? unUniqueFilter = {
     'Sipariş Türü': MapEntry(paymentModelId ?? '', false),
     'Restoran içi sipariş türü': MapEntry(orderPointId ?? '', false),
     'Servis türü': MapEntry(serviceDeliveryTypeId ?? '', false),
   };
+
+  @override
+  Map<String, MapEntry<String, bool>>? filter;
 }
 
 class TableOrderItemModel {

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:background_json_parser/background_json_parser.dart';
 
-import '../../../../../ri_models.dart';
 
 class ByDealerModel<T extends IBaseModel<T>> {
   List<ByDealerDataModel<T>>? dealerData;
