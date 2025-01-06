@@ -18,10 +18,12 @@ class PaginationModel<T extends IBaseModel> extends IBaseModel<PaginationModel> 
 
   @override
   PaginationModel<T> fromJson(Map<String, dynamic> json) {
-    if (json["data"] is List) {
-      dataList = _modelParser.jsonParserByMap(json["data"]);
-    } else {
-      data = _modelParser.jsonParserByMap(json["data"]);
+    if (json["data"] != null) {
+      if (json["data"] is List) {
+        dataList = _modelParser.jsonParserByMap(json["data"]);
+      } else {
+        data = _modelParser.jsonParserByMap(json["data"]);
+      }
     }
     page = json["page"];
     limit = json["limit"];
