@@ -22,7 +22,6 @@ class PaginationModel<T extends IBaseModel> extends IBaseModel<PaginationModel> 
       dataList = _modelParser.jsonParserByMap(json["data"]);
     } else {
       data = _modelParser.jsonParserByMap(json["data"]);
-      ;
     }
     page = json["page"];
     limit = json["limit"];

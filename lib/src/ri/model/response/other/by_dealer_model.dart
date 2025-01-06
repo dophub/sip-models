@@ -1,24 +1,30 @@
-import 'dart:convert';
-
 import 'package:background_json_parser/background_json_parser.dart';
 
-class ByDealerModel<T extends IBaseModel<T>> {
+class ByDealerModel<T extends IBaseModel<T>> extends IBaseModel<ByDealerModel> {
   List<ByDealerDataModel<T>>? dealerData;
   List<T>? totalData;
+  late T _parserModel;
 
-  ByDealerModel({
+  ByDealerModel(
+    T model, {
     this.dealerData,
     this.totalData,
-  });
+  }) {
+    _parserModel = model;
+  }
 
-  factory ByDealerModel.fromJson(T model, String json) {
-    final map = jsonDecode(json);
-    return ByDealerModel<T>(
-      dealerData: map["dealer_data"] == null
-          ? null
-          : (map["dealer_data"] as List).map((e) => ByDealerDataModel<T>.fromJson(model, e)).toList(),
-      totalData: map["total_data"] == null ? [] : model.jsonParserByMap(map["total_data"]),
-    );
+  @override
+  ByDealerModel<IBaseModel> fromJson(Map<String, dynamic> json) {
+    dealerData = json["dealer_data"] == null
+        ? null
+        : (json["dealer_data"] as List).map((e) => ByDealerDataModel<T>.fromJson(_parserModel, e)).toList();
+    totalData = json["total_data"] == null ? [] : _parserModel.jsonParserByMap(json["total_data"]);
+    return this;
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
   }
 }
 
