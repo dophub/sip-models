@@ -12,10 +12,11 @@ class DealerStationListModel extends IBaseModel<DealerStationListModel> implemen
 
   @override
   fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    dealerName = json['dealer_name'];
-    listImage = json['list_image'] != null ? ImagesModel.fromJson(json['list_image']) : null;
-    return this;
+    return DealerStationListModel(
+      id: json['id'],
+      dealerName: json['dealer_name'],
+      listImage: json['list_image'] != null ? ImagesModel.fromJson(json['list_image']) : null,
+    );
   }
 
   @override
