@@ -1,7 +1,9 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/response/other/images_model.dart';
 
-class DealerStationListModel extends IBaseModel<DealerStationListModel> {
+import '../../../../../ri_models.dart';
+
+class DealerStationListModel extends IBaseModel<DealerStationListModel> implements IMultiItemPickerWidgetModel {
   int? id;
   String? dealerName;
   ImagesModel? listImage;
@@ -26,4 +28,10 @@ class DealerStationListModel extends IBaseModel<DealerStationListModel> {
     }
     return data;
   }
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => dealerName ?? '';
 }
