@@ -14,7 +14,7 @@ class ByDealerModel<T extends IBaseModel<T>> extends IBaseModel<ByDealerModel> {
   }
 
   @override
-  ByDealerModel<IBaseModel> fromJson(Map<String, dynamic> json) {
+  ByDealerModel<T> fromJson(Map<String, dynamic> json) {
     dealerData = json["dealer_data"] == null
         ? null
         : (json["dealer_data"] as List).map((e) => ByDealerDataModel<T>.fromJson(_parserModel, e)).toList();
