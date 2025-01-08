@@ -11,7 +11,7 @@ class UpdatePriceRequestModel {
 
   Map<String, dynamic> toJson() => {
         "product_id": productId,
-        "prices": prices.map((e) => e.toJson()),
+        "prices":List<dynamic>.from(prices.map((x) => x.toJson())),
         "item_type_id": itemTypeId,
       };
 }
