@@ -19,6 +19,14 @@ class DealerStationListModel extends IBaseModel<DealerStationListModel> implemen
     );
   }
 
+  DealerStationListModel copyWith() {
+    return DealerStationListModel(
+      id: id,
+      dealerName: dealerName,
+      listImage: listImage,
+    );
+  }
+
   @override
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
