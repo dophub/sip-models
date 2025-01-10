@@ -124,6 +124,7 @@ class PrinterQueueResponsePrintDataModel {
     this.serviceDeliveryType,
     this.tableServiceAmount,
     this.paymentModelId,
+    this.dealerInfo,
   });
 
   List<PrinterQuequeResponseOrderModel>? orders;
@@ -147,6 +148,7 @@ class PrinterQueueResponsePrintDataModel {
   String? paymentType;
   double? tableServiceAmount;
   String? paymentModelId;
+  PrinterQueueDealerInfoModel? dealerInfo;
 
   factory PrinterQueueResponsePrintDataModel.fromJson(Map<String, dynamic> json) => PrinterQueueResponsePrintDataModel(
         orders: json["orders"] == null
@@ -173,6 +175,7 @@ class PrinterQueueResponsePrintDataModel {
         serviceDeliveryType: json["service_delivery_type"],
         tableServiceAmount: json["table_service_amount"]?.toDouble(),
         paymentModelId: json["payment_model_id"],
+        dealerInfo: json["dealer_info"] == null ? null : PrinterQueueDealerInfoModel.fromJson(json["dealer_info"]),
       );
 }
 
@@ -288,6 +291,30 @@ class _PaymentInfoModel {
         "name": name,
         "type": type,
         "is_online_payment": isOnlinePayment,
+      };
+}
+
+class PrinterQueueDealerInfoModel {
+  int? id;
+  String? address;
+  String? dealerName;
+
+  PrinterQueueDealerInfoModel({
+    this.id,
+    this.address,
+    this.dealerName,
+  });
+
+  factory PrinterQueueDealerInfoModel.fromJson(Map<String, dynamic> json) => PrinterQueueDealerInfoModel(
+        id: json["id"],
+        address: json["address"],
+        dealerName: json["dealer_name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "address": address,
+        "dealer_name": dealerName,
       };
 }
 
