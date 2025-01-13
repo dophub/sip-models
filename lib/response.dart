@@ -22,6 +22,7 @@ export 'src/model/response/other/rating_group.dart';
 export 'src/model/response/other/response_error_model.dart';
 export 'src/model/response/order/service_model.dart';
 export 'src/model/response/auth/token_model.dart';
+export 'src/model/response/auth/user_discount_card_model.dart';
 export 'src/model/response/auth/user_info_model.dart';
 export 'src/model/response/other/waiter_request_model.dart';
 export 'src/model/response/payment/post_payment_model.dart';
