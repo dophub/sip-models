@@ -8,6 +8,7 @@ export 'src/model/response/address/city_district_neighborhood_model.dart';
 export 'src/model/response/dealer/dealer_detail_model.dart';
 export 'src/model/response/other/default_model.dart';
 export 'src/model/response/dealer/dealer_model.dart';
+export 'src/model/response/dealer/get_near_dealer_by_latlng_model.dart';
 export 'src/model/response/other/images_model.dart';
 export 'src/model/response/order/last_orders_model.dart';
 export 'src/model/response/other/menu_detail_model.dart';
