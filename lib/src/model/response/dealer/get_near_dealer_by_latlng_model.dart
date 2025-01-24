@@ -7,6 +7,7 @@ class GetNearDealerByLatLngModel extends IBaseModel<GetNearDealerByLatLngModel> 
   double? distance;
   String? distanceType;
   bool? distanceRequired;
+  String? qrCode;
 
   GetNearDealerByLatLngModel({
     this.id,
@@ -15,6 +16,7 @@ class GetNearDealerByLatLngModel extends IBaseModel<GetNearDealerByLatLngModel> 
     this.distance,
     this.distanceType,
     this.distanceRequired,
+    this.qrCode,
   });
 
   @override
@@ -25,6 +27,7 @@ class GetNearDealerByLatLngModel extends IBaseModel<GetNearDealerByLatLngModel> 
         distance: json["distance"]?.toDouble(),
         distanceType: json["distance_type"],
         distanceRequired: json["distance_required"],
+        qrCode: json["qr_code"],
       );
 
   @override
@@ -35,5 +38,6 @@ class GetNearDealerByLatLngModel extends IBaseModel<GetNearDealerByLatLngModel> 
         "distance": distance,
         "distance_type": distanceType,
         "distance_required": distanceRequired,
+        "qr_code": qrCode,
       };
 }
