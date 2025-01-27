@@ -32,6 +32,9 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
     this.webAddress,
     this.foodCategories,
     this.address,
+    this.city,
+    this.district,
+    this.neighborhood,
   });
 
   int? dealerId;
@@ -61,6 +64,9 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
   String? webAddress;
   List<FoodCategory>? foodCategories;
   String? address;
+  String? city;
+  String? district;
+  String? neighborhood;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => DealerInfoModel(
@@ -95,6 +101,9 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
             ? []
             : List<FoodCategory>.from(json["food_categories"].map((x) => FoodCategory.fromJson(x))),
         address: json["address"] is String ? json["address"] : null,
+        city: json["city"],
+        district: json["district"],
+        neighborhood: json["neighborhood"],
       );
 
   @override
@@ -127,6 +136,9 @@ class DealerInfoModel extends IBaseModel<DealerInfoModel> {
       "web_address": webAddress,
       "food_categories": foodCategories?.map((x) => x.toJson()).toList(),
       "address": address,
+      "city": city,
+      "district": district,
+      "neighborhood": neighborhood,
     };
   }
 }
@@ -180,4 +192,3 @@ class SocialsModel {
     };
   }
 }
-
