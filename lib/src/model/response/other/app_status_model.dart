@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import '../../../../response.dart';
+
 class AppStatusModel extends IBaseModel<AppStatusModel> {
   AppStatusModel({
     this.marketplace,
@@ -22,6 +24,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.energy,
     this.wallet,
     this.forceUpdateAction,
+    this.mobileStartCover,
   });
 
   bool? marketplace;
@@ -41,6 +44,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? energy;
   bool? wallet;
   String? forceUpdateAction;
+  ImagesModel? mobileStartCover;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -60,6 +64,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         energy: json["energy"],
         wallet: json["wallet"],
         forceUpdateAction: json["force_update_action"],
+        mobileStartCover: json["mobile_start_cover"] == null ? null : ImagesModel.fromJson(json["mobile_start_cover"]),
         forceUpdate: kIsWeb
             ? false
             : Platform.isIOS
