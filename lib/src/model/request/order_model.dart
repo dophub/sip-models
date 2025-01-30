@@ -25,6 +25,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.orderNumber,
     this.orderStatus,
     this.totalAmount,
+    this.serviceTotalAmount,
     this.deliveryDate,
     this.orderPointId,
     this.clientPointId,
@@ -70,6 +71,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   String? orderNumber;
   OrderStatusModel? orderStatus;
   double? totalAmount; // bahşiş + ürünlerin toplam fiyatı
+  double? serviceTotalAmount;
   double? preTotalAmount; // sadece ürünlerin toplam fiyatı
   double? preTotalAmountWithoutKdv;
   String? deliveryDate;
@@ -115,6 +117,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         orderNumber: json["order_number"],
         orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
         totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
+        serviceTotalAmount: json["service_total_amount"]?.toDouble(),
         preTotalAmount: json["pre_total_amount"] == null ? 0.0 : json["pre_total_amount"].toDouble(),
         preTotalAmountWithoutKdv:
             json["pre_total_amount_without_kdv"] == null ? 0.0 : json["pre_total_amount_without_kdv"].toDouble(),
@@ -169,6 +172,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "order_number": orderNumber,
         "order_status": orderStatus!.toJson(),
         "total_amount": totalAmount,
+        "service_total_amount": serviceTotalAmount,
         "pre_total_amount": preTotalAmount,
         "pre_total_amount_without_kdv": preTotalAmountWithoutKdv,
         "delivery_date": deliveryDate,
