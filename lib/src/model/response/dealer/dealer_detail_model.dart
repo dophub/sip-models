@@ -14,6 +14,7 @@ class DealerDetailModel {
     this.menus,
     this.categories,
     this.listImage,
+    this.qrCoverImage,
     this.mobileCoverImage,
     this.isTipsActive,
     this.dealerTipShowTypeId,
@@ -45,6 +46,7 @@ class DealerDetailModel {
   List<FoodCategoryModel>? categories;
   ImagesModel? logoImage;
   ImagesModel? listImage;
+  ImagesModel? qrCoverImage;
   ImagesModel? mobileCoverImage;
   bool? isTipsActive;
   String? dealerTipShowTypeId;
@@ -74,6 +76,7 @@ class DealerDetailModel {
         workingHours: WorkingHourModel.fromJson(json["working_hours"]),
         logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
         listImage: json["list_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["list_image"]),
+        qrCoverImage: json["qr_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["qr_cover_image"]),
         mobileCoverImage:
             json["mobile_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["mobile_cover_image"]),
         menus: json["menus"] == null ? [] : List<MenuModel>.from(json["menus"].map((x) => MenuModel.fromJson(x))),
