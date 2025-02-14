@@ -1,1 +1,1 @@
-enum PaycellIntegrationType { PAYCELLSIPPOS, PAYCELLWEB2APP }
+enum PaycellIntegrationType { PAYCELLSIPPOS, PAYCELLWEB2APP, PAVOPOS }
