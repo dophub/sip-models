@@ -25,6 +25,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.wallet,
     this.forceUpdateAction,
     this.mobileStartCover,
+    this.mainBrandIds,
   });
 
   bool? marketplace;
@@ -45,6 +46,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   bool? wallet;
   String? forceUpdateAction;
   ImagesModel? mobileStartCover;
+  List<int>? mainBrandIds;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -65,6 +67,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
         wallet: json["wallet"],
         forceUpdateAction: json["force_update_action"],
         mobileStartCover: json["mobile_start_cover"] == null ? null : ImagesModel.fromJson(json["mobile_start_cover"]),
+        mainBrandIds: json["main_brand_ids"] == null ? null : List<int>.from(json["main_brand_ids"].map((x) => x)),
         forceUpdate: kIsWeb
             ? false
             : Platform.isIOS
