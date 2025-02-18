@@ -35,7 +35,7 @@ abstract class IFilter {
   late Map<String, MapEntry<String, bool>> filter;
 }
 
-class MyDeviceStatusDataModel {
+class MyDeviceStatusDataModel implements IFilter {
   final bool? status;
   final String? type;
   final int? dealerId;
@@ -85,6 +85,15 @@ class MyDeviceStatusDataModel {
         "title": title,
         "options": options?.toJson(),
       };
+
+  @override
+  late Map<String, MapEntry<String, bool>> filter = {
+    'Marka': MapEntry(brandName!, false),
+    'Cihaz Tipi': MapEntry(type!, false),
+    'Durum': MapEntry(status == true ? 'Açık' : 'Kapalı', false),
+    if (options != null) 'Bağlı Cihaz (Tip)': MapEntry(options!.type!, false),
+    if (options != null) 'Bağlı Cihaz (Durum)': MapEntry(options!.status == true ? 'Açık' : 'Kapalı', false),
+  };
 }
 
 class MyDeviceStatusOptionsModel {
