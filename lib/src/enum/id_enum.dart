@@ -113,7 +113,7 @@ enum ThirdPartClientPointId {
 /// [ClientType] Platform
 /// [APP] Mobil
 /// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
-enum ClientType { APP, KIOSK }
+enum ClientType { APP, KIOSK, POS }
 
 /// [AppTypeForAvailabilitySocket] Cihazların acık durumunu alırken tipini belirlemek için kullanılmakta
 /// socket ve token alırken kullanılmakta
