@@ -91,8 +91,8 @@ class MyDeviceStatusDataModel implements IFilter {
     'Marka': MapEntry(brandName!, false),
     'Cihaz Tipi': MapEntry(type!, false),
     'Durum': MapEntry(status == true ? 'Açık' : 'Kapalı', false),
-    if (options != null) 'Bağlı Cihaz (Tip)': MapEntry(options!.type!, false),
-    if (options != null) 'Bağlı Cihaz (Durum)': MapEntry(options!.status == true ? 'Açık' : 'Kapalı', false),
+    'Bağlı Cihaz (Tip)': MapEntry(options?.type ?? '', false),
+    'Bağlı Cihaz (Durum)': MapEntry(options?.status == true ? 'Açık' : 'Kapalı', false),
   };
 }
 
