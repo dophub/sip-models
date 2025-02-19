@@ -3,7 +3,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 class MyDeviceStatusModel extends IBaseModel<MyDeviceStatusModel> implements IFilter {
   final int? brandId;
   final String? brandName;
-  final List<MyDeviceStatusDataModel>? data;
+  List<MyDeviceStatusDataModel>? data;
 
   MyDeviceStatusModel({
     this.brandId,
