@@ -27,11 +27,13 @@ enum PrinterFontSizeEnum {
 
 enum PaymentTypeEnum {
   CASH('Nakit'),
-  PAYCELLCARD('Kredi Kartı'),
-  PAYCELLCASH('Nakit'),
+  PAYCELLCARD('Paycell Kredi Kartı'),
+  PAYCELLCASH('Paycell Nakit'),
   QRWALLET('QR Yükleme'),
   CARD('Kredi Kartı'),
-  WALLETONLINE('Cüzdan');
+  WALLETONLINE('Cüzdan'),
+  PAVOCARD('Pavo Kredi Kartı'),
+  PAVOCASH('Pavo Nakit');
 
   final String title;
 
