@@ -13,6 +13,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     this.openTable,
     this.openVale,
     this.openSelfService,
+    this.openGetin,
+    this.getinIsActive,
   });
 
   bool? marketplaceIsActive;
@@ -26,6 +28,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
   bool? openTable;
   bool? openVale;
   bool? openSelfService;
+  bool? openGetin;
+  bool? getinIsActive;
 
   @override
   Map<String, dynamic> toJson() => {
@@ -40,6 +44,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         "open_table": openTable,
         "open_vale": openVale,
         "open_self_service": openSelfService,
+        "open_getin": openGetin,
+        "getin_is_active": getinIsActive,
       };
 
   @override
@@ -55,33 +61,7 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         openTable: json["open_table"],
         openVale: json["open_vale"],
         openSelfService: json["open_self_service"],
+        openGetin: json["open_getin"],
+        getinIsActive: json["getin_is_active"],
       );
-
-  RestaurantServiceTypeStatusModel copyWith({
-    bool? valeIsActive,
-    bool? reservationIsActive,
-    bool? marketplaceIsActive,
-    bool? tableIsActive,
-    bool? selfServiceIsActive,
-    int? delay,
-    bool? openMarketplace,
-    bool? openReservation,
-    bool? openTable,
-    bool? openVale,
-    bool? openSelfService,
-  }) {
-    return RestaurantServiceTypeStatusModel(
-      valeIsActive: valeIsActive ?? this.valeIsActive,
-      reservationIsActive: reservationIsActive ?? this.reservationIsActive,
-      marketplaceIsActive: marketplaceIsActive ?? this.marketplaceIsActive,
-      selfServiceIsActive: selfServiceIsActive ?? this.selfServiceIsActive,
-      tableIsActive: tableIsActive ?? this.tableIsActive,
-      delay: delay ?? this.delay,
-      openMarketplace: openMarketplace ?? this.openMarketplace,
-      openReservation: openReservation ?? this.openReservation,
-      openTable: openTable ?? this.openTable,
-      openVale: openVale ?? this.openVale,
-      openSelfService: openSelfService ?? this.openSelfService,
-    );
-  }
 }
