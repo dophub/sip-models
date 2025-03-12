@@ -8,6 +8,7 @@ import '../../../../response.dart';
 class AppStatusModel extends IBaseModel<AppStatusModel> {
   AppStatusModel({
     this.marketplace,
+    this.getin,
     this.qr,
     this.payment,
     this.reservation,
@@ -29,6 +30,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   });
 
   bool? marketplace;
+  bool? getin;
   bool? qr;
   bool? payment;
   bool? reservation;
@@ -51,6 +53,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
         marketplace: json["marketplace"],
+        getin: json["getin"],
         qr: json["qr"],
         payment: json["payment"],
         reservation: json["reservation"],
