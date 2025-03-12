@@ -64,4 +64,36 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         openGetin: json["open_getin"],
         getinIsActive: json["getin_is_active"],
       );
+
+  RestaurantServiceTypeStatusModel copyWith({
+    bool? valeIsActive,
+    bool? reservationIsActive,
+    bool? marketplaceIsActive,
+    bool? tableIsActive,
+    bool? selfServiceIsActive,
+    int? delay,
+    bool? openMarketplace,
+    bool? openReservation,
+    bool? openTable,
+    bool? openVale,
+    bool? openSelfService,
+    bool? openGetin,
+    bool? getinIsActive,
+  }) {
+    return RestaurantServiceTypeStatusModel(
+      valeIsActive: valeIsActive ?? this.valeIsActive,
+      reservationIsActive: reservationIsActive ?? this.reservationIsActive,
+      marketplaceIsActive: marketplaceIsActive ?? this.marketplaceIsActive,
+      selfServiceIsActive: selfServiceIsActive ?? this.selfServiceIsActive,
+      tableIsActive: tableIsActive ?? this.tableIsActive,
+      delay: delay ?? this.delay,
+      openMarketplace: openMarketplace ?? this.openMarketplace,
+      openReservation: openReservation ?? this.openReservation,
+      openTable: openTable ?? this.openTable,
+      openVale: openVale ?? this.openVale,
+      openSelfService: openSelfService ?? this.openSelfService,
+      openGetin: openGetin ?? this.openGetin,
+      getinIsActive: getinIsActive ?? this.getinIsActive,
+    );
+  }
 }
