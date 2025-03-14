@@ -15,6 +15,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     this.openSelfService,
     this.openGetin,
     this.getinIsActive,
+    this.openTakeout,
+    this.takeoutIsActive,
   });
 
   bool? marketplaceIsActive;
@@ -30,6 +32,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
   bool? openSelfService;
   bool? openGetin;
   bool? getinIsActive;
+  bool? openTakeout;
+  bool? takeoutIsActive;
 
   @override
   Map<String, dynamic> toJson() => {
@@ -46,6 +50,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         "open_self_service": openSelfService,
         "open_getin": openGetin,
         "getin_is_active": getinIsActive,
+        "open_takeout": openTakeout,
+        "takeout_is_active": takeoutIsActive,
       };
 
   @override
@@ -63,6 +69,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
         openSelfService: json["open_self_service"],
         openGetin: json["open_getin"],
         getinIsActive: json["getin_is_active"],
+        openTakeout: json["open_takeout"],
+        takeoutIsActive: json["takeout_is_active"],
       );
 
   RestaurantServiceTypeStatusModel copyWith({
