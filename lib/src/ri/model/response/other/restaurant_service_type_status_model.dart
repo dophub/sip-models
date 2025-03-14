@@ -87,6 +87,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     bool? openSelfService,
     bool? openGetin,
     bool? getinIsActive,
+    bool? takeoutIsActive,
+    bool? openTakeout,
   }) {
     return RestaurantServiceTypeStatusModel(
       valeIsActive: valeIsActive ?? this.valeIsActive,
@@ -102,6 +104,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
       openSelfService: openSelfService ?? this.openSelfService,
       openGetin: openGetin ?? this.openGetin,
       getinIsActive: getinIsActive ?? this.getinIsActive,
+      takeoutIsActive: takeoutIsActive ?? this.takeoutIsActive,
+      openTakeout: openTakeout ?? this.openTakeout,
     );
   }
 }
