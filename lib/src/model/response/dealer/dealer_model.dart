@@ -90,7 +90,7 @@ class DealerModel extends IBaseModel<DealerModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => DealerModel(
-        id: json["id"],
+        id: json["dealer_id"] ?? json["id"],
         dealerName: json["dealer_name"],
         rating: json['rating'],
         rating2: json['rating2'],
