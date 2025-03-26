@@ -36,7 +36,8 @@ class DealerModel extends IBaseModel<DealerModel> {
   int? avgServiceTime;
   int? avgServiceTimeMin;
   int? avgServiceTimeMax;
-  int? minPackageAmount;
+  double? minPackageAmount;
+  ImagesModel? logoImage;
   ImagesModel? listImage;
   ImagesModel? mobileCoverImage;
   List<WorkingHourModel>? weeklyWorkingHours;
@@ -64,6 +65,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.neighbourhoodId,
     this.neighborhood,
     this.orderLines,
+    this.logoImage,
     this.socialMedia,
     this.address,
     this.openMarketplace,
@@ -121,7 +123,8 @@ class DealerModel extends IBaseModel<DealerModel> {
         avgServiceTime: json["avg_service_time"],
         avgServiceTimeMin: json["avg_service_time_min"],
         avgServiceTimeMax: json["avg_service_time_max"],
-        minPackageAmount: json["min_package_amount"],
+        minPackageAmount: json["min_package_amount"]?.toDouble(),
+        logoImage: json['logo_image'] != null ? null : ImagesModel.fromJson(json['logo_image']),
         listImage: json["list_image"] == null ? null : ImagesModel.fromJson(json["list_image"]),
         mobileCoverImage: json["mobile_cover_image"] == null ? null : ImagesModel.fromJson(json["mobile_cover_image"]),
         weeklyWorkingHours: json["weekly_working_hours"] == null
