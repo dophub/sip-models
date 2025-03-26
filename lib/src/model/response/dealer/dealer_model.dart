@@ -124,7 +124,7 @@ class DealerModel extends IBaseModel<DealerModel> {
         avgServiceTimeMin: json["avg_service_time_min"],
         avgServiceTimeMax: json["avg_service_time_max"],
         minPackageAmount: json["min_package_amount"]?.toDouble(),
-        logoImage: json['logo_image'] != null ? null : ImagesModel.fromJson(json['logo_image']),
+        logoImage: json['logo_image'] == null ? null : ImagesModel.fromJson(json['logo_image']),
         listImage: json["list_image"] == null ? null : ImagesModel.fromJson(json["list_image"]),
         mobileCoverImage: json["mobile_cover_image"] == null ? null : ImagesModel.fromJson(json["mobile_cover_image"]),
         weeklyWorkingHours: json["weekly_working_hours"] == null
