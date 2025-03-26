@@ -3,6 +3,7 @@ import 'package:sip_models/src/model/request/order_model.dart';
 
 import '../dealer/dealer_model.dart';
 
+
 class LastOrdersModel extends IBaseModel<LastOrdersModel> {
   LastOrdersModel({
     this.id,

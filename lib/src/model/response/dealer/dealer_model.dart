@@ -2,6 +2,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/model/response/dealer/dealer_info_model.dart';
 
 import '../other/images_model.dart';
+import '../other/menu_detail_model.dart';
 import 'dealer_detail_model.dart';
 
 class DealerModel extends IBaseModel<DealerModel> {
@@ -43,6 +44,9 @@ class DealerModel extends IBaseModel<DealerModel> {
   List<FoodCategories>? foodCategories;
   DealerMainBrandModel? mainBrand;
 
+  /// Product Listesi Searchte kullanılıyor
+  List<ProductModel>? products;
+
   DealerModel({
     this.id,
     this.dealerName,
@@ -81,6 +85,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.workingHours,
     this.foodCategories,
     this.mainBrand,
+    this.products,
   });
 
   @override
@@ -127,6 +132,9 @@ class DealerModel extends IBaseModel<DealerModel> {
             ? null
             : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
         mainBrand: json["main_brand"] == null ? null : DealerMainBrandModel.fromJson(json["main_brand"]),
+        products: json["products"] == null
+            ? []
+            : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
       );
 
   @override
