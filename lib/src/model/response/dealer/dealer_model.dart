@@ -30,6 +30,10 @@ class DealerModel extends IBaseModel<DealerModel> {
   bool? getinIsActive;
   bool? openTakeout;
   bool? takeoutIsActive;
+  bool? openSelfService;
+  bool? selfServiceIsActive;
+  bool? openTable;
+  bool? tableIsActive;
   bool? openReservation;
   bool? openVale;
   int? commentCount;
@@ -74,6 +78,10 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.getinIsActive,
     this.openTakeout,
     this.takeoutIsActive,
+    this.openSelfService,
+    this.selfServiceIsActive,
+    this.openTable,
+    this.tableIsActive,
     this.openReservation,
     this.openVale,
     this.commentCount,
@@ -117,6 +125,10 @@ class DealerModel extends IBaseModel<DealerModel> {
         getinIsActive: json["getin_is_active"],
         openTakeout: json["open_takeout"],
         takeoutIsActive: json["takeout_is_active"],
+        openSelfService: json["open_self_service"],
+        selfServiceIsActive: json["self_service_is_active"],
+        openTable: json["open_table"],
+        tableIsActive: json["table_is_active"],
         openReservation: json["open_reservation"],
         openVale: json["open_vale"],
         commentCount: json["comment_count"],
