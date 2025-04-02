@@ -26,14 +26,15 @@ enum PayTypeId { TOTAL, IND }
 /// [GETIN] Gel al servis
 /// [TABLE] Masaya
 enum OrderPoint {
-  TAKEOUT(PriceType.TAKEOUT, 'Adrese Teslim'),
-  GETIN(PriceType.GETIN, 'Gel Al'),
-  TABLE(PriceType.TABLE, 'Restorant İçi');
+  TAKEOUT(PriceType.TAKEOUT, 'Adrese Teslim', DeliveryType.TAKEOUT),
+  GETIN(PriceType.GETIN, 'Gel Al', DeliveryType.GETIN),
+  TABLE(PriceType.TABLE, 'Restorant İçi', DeliveryType.TABLE);
 
   final PriceType priceType;
+  final DeliveryType deliveryType;
   final String title;
 
-  const OrderPoint(this.priceType, this.title);
+  const OrderPoint(this.priceType, this.title, this.deliveryType);
 }
 
 /// [SessionPoint] Oturum yeri
