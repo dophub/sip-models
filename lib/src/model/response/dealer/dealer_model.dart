@@ -48,6 +48,7 @@ class DealerModel extends IBaseModel<DealerModel> {
   WorkingHourModel? workingHours;
   List<FoodCategories>? foodCategories;
   DealerMainBrandModel? mainBrand;
+  bool? isOutOfTakeoutZone; // gönderilen latlng hizmet durumu
 
   /// Product Listesi Searchte kullanılıyor
   List<ProductModel>? products;
@@ -95,6 +96,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.workingHours,
     this.foodCategories,
     this.mainBrand,
+    this.isOutOfTakeoutZone,
     this.products,
   });
 
@@ -147,6 +149,7 @@ class DealerModel extends IBaseModel<DealerModel> {
             ? null
             : List<FoodCategories>.from(json["food_categories"].map((x) => FoodCategories.fromJson(x))),
         mainBrand: json["main_brand"] == null ? null : DealerMainBrandModel.fromJson(json["main_brand"]),
+        isOutOfTakeoutZone: json["is_out_of_takeout_zone"],
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
