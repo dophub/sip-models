@@ -28,6 +28,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.forceUpdateAction,
     this.mobileStartCover,
     this.mainBrandIds,
+    this.defaultLatLng,
   });
 
   bool? marketplace;
@@ -51,6 +52,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   String? forceUpdateAction;
   ImagesModel? mobileStartCover;
   List<int>? mainBrandIds;
+  String? defaultLatLng;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -79,6 +81,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
             : Platform.isIOS
                 ? json["force_update_ios"]
                 : json["force_update_android"],
+        defaultLatLng: json["default_latlng"],
       );
 
   @override
