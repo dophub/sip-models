@@ -87,7 +87,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         addressTypeName: json["address_type_name"],
         icon: json["icon"],
         isAvailable: json["is_available"],
-        distance: json["distance"].toDouble(),
+        distance: json["distance"]?.toDouble(),
       );
 
   @override
