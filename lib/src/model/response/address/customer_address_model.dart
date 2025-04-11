@@ -41,7 +41,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
   String? addressTypeName;
   String? icon;
   bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
-  int? distance;
+  double? distance;
 
   CustomerAddressModel copyWith() {
     return CustomerAddressModel(
@@ -87,7 +87,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         addressTypeName: json["address_type_name"],
         icon: json["icon"],
         isAvailable: json["is_available"],
-        distance: json["distance"],
+        distance: json["distance"].toDouble(),
       );
 
   @override
