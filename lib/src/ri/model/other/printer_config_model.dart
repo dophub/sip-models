@@ -7,13 +7,15 @@ class IPPrinterModel extends IBaseModel<IPPrinterModel> implements IPrinterModel
   int? port;
 
   @override
-  PrinterPaperTypeEnum paperSize;
+  late PrinterPaperTypeEnum paperSize;
 
   IPPrinterModel({
     this.ipAddress,
     this.port,
-    this.paperSize = PrinterPaperTypeEnum.mm80,
-  });
+    required PrinterPaperTypeEnum? paperSize,
+  }) {
+    this.paperSize = paperSize ?? PrinterPaperTypeEnum.mm80;
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => IPPrinterModel(
