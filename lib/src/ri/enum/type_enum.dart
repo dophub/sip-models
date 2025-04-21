@@ -56,7 +56,7 @@ enum CustomerReviews { OK, NOTR, NOK }
 
 enum PaycellDeviceStatusesEnum { FREE, BUSY, NOT_INSTALLED }
 
-enum PrinterTypeEnum { LOCAL, NETWORK, USB, BLUETOOTH }
+enum PrinterTypeEnum { LOCAL, NETWORK, USB }
 
 enum TipViewTypeEnum { INLINE, POPUP }
 
