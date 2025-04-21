@@ -2,7 +2,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../ri_enum.dart';
 
-class IPPrinterModel extends IBaseModel<IPPrinterModel> implements PrinterModel {
+class IPPrinterModel extends IBaseModel<IPPrinterModel> implements IPrinterModel {
   String? ipAddress;
   int? port;
 
@@ -36,7 +36,7 @@ class IPPrinterModel extends IBaseModel<IPPrinterModel> implements PrinterModel 
   }
 }
 
-class USBPrinterModel extends IBaseModel<USBPrinterModel> implements PrinterModel {
+class USBPrinterModel extends IBaseModel<USBPrinterModel> implements IPrinterModel {
   String? name;
   String? vendorId;
   String? productId;
@@ -73,6 +73,6 @@ class USBPrinterModel extends IBaseModel<USBPrinterModel> implements PrinterMode
   }
 }
 
-abstract class PrinterModel {
+abstract class IPrinterModel {
   PrinterPaperTypeEnum get paperSize;
 }
