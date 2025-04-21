@@ -12,7 +12,7 @@ class IPPrinterModel extends IBaseModel<IPPrinterModel> implements IPrinterModel
   IPPrinterModel({
     this.ipAddress,
     this.port,
-    required PrinterPaperTypeEnum? paperSize,
+    PrinterPaperTypeEnum? paperSize,
   }) {
     this.paperSize = paperSize ?? PrinterPaperTypeEnum.mm80;
   }
