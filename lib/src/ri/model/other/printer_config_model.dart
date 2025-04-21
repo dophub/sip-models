@@ -51,12 +51,25 @@ class USBPrinterModel extends IBaseModel<USBPrinterModel> implements IPrinterMod
     this.paperSize = PrinterPaperTypeEnum.mm58,
   });
 
-  @override
-  fromJson(Map<String, dynamic> json, {PrinterPaperTypeEnum? paperSize}) => USBPrinterModel(
+  factory USBPrinterModel.fromJson(
+    Map<String, dynamic> json, {
+    PrinterPaperTypeEnum paperSize = PrinterPaperTypeEnum.mm80,
+  }) =>
+      USBPrinterModel(
         name: json["name"],
         vendorId: json["vendorId"],
         productId: json["productId"],
-        paperSize: paperSize ?? PrinterPaperTypeEnum.mm80,
+        paperSize: paperSize,
+      );
+
+  @override
+  fromJson(Map<String, dynamic> json) => USBPrinterModel(
+        name: json["name"],
+        vendorId: json["vendorId"],
+        productId: json["productId"],
+        paperSize: json["paper_size"] == PrinterPaperTypeEnum.mm58.name
+            ? PrinterPaperTypeEnum.mm58
+            : PrinterPaperTypeEnum.mm80,
       );
 
   @override
