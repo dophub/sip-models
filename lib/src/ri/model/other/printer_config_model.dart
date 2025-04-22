@@ -9,6 +9,9 @@ class IPPrinterModel extends IPrinterModel<IPPrinterModel> {
   @override
   late PrinterPaperTypeEnum paperSize;
 
+  @override
+  PrinterTypeEnum type = PrinterTypeEnum.NETWORK;
+
   IPPrinterModel({
     this.ipAddress,
     this.port,
@@ -32,6 +35,7 @@ class IPPrinterModel extends IPrinterModel<IPPrinterModel> {
       "ipAddress": ipAddress,
       "port": port,
       "paper_size": paperSize.name,
+      "type": type.name,
     };
     map.removeWhere((key, value) => value == null);
     return map;
@@ -45,6 +49,9 @@ class USBPrinterModel extends IPrinterModel<USBPrinterModel> {
 
   @override
   PrinterPaperTypeEnum paperSize;
+
+  @override
+  PrinterTypeEnum type = PrinterTypeEnum.USB;
 
   USBPrinterModel({
     this.name,
@@ -81,11 +88,14 @@ class USBPrinterModel extends IPrinterModel<USBPrinterModel> {
       "vendorId": vendorId,
       "productId": productId,
       "paper_size": paperSize.name,
+      "type": type.name,
     };
     return map;
   }
 }
 
 abstract class IPrinterModel<T> extends IBaseModel<T> {
+  PrinterTypeEnum get type;
+
   PrinterPaperTypeEnum get paperSize;
 }
