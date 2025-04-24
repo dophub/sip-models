@@ -24,7 +24,7 @@ class IPPrinterModel extends IPrinterModel<IPPrinterModel> {
   fromJson(Map<String, dynamic> json) => IPPrinterModel(
         ipAddress: json["ipAddress"],
         port: json["port"],
-        paperSize: json["paper_size"] == PrinterPaperTypeEnum.mm58.name
+        paperSize: json["paperSize"] == PrinterPaperTypeEnum.mm58.name
             ? PrinterPaperTypeEnum.mm58
             : PrinterPaperTypeEnum.mm80,
       );
@@ -34,7 +34,7 @@ class IPPrinterModel extends IPrinterModel<IPPrinterModel> {
     final map = {
       "ipAddress": ipAddress,
       "port": port,
-      "paper_size": paperSize.name,
+      "paperSize": paperSize.name,
       "type": type.name,
     };
     map.removeWhere((key, value) => value == null);
@@ -76,7 +76,7 @@ class USBPrinterModel extends IPrinterModel<USBPrinterModel> {
         name: json["name"],
         vendorId: json["vendorId"],
         productId: json["productId"],
-        paperSize: json["paper_size"] == PrinterPaperTypeEnum.mm58.name
+        paperSize: json["paperSize"] == PrinterPaperTypeEnum.mm58.name
             ? PrinterPaperTypeEnum.mm58
             : PrinterPaperTypeEnum.mm80,
       );
@@ -87,7 +87,7 @@ class USBPrinterModel extends IPrinterModel<USBPrinterModel> {
       "name": name,
       "vendorId": vendorId,
       "productId": productId,
-      "paper_size": paperSize.name,
+      "paperSize": paperSize.name,
       "type": type.name,
     };
     return map;
