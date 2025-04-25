@@ -57,7 +57,7 @@ class USBPrinterModel extends IPrinterModel<USBPrinterModel> {
     this.name,
     this.vendorId,
     this.productId,
-    this.paperSize = PrinterPaperTypeEnum.mm58,
+    this.paperSize = PrinterPaperTypeEnum.mm80,
   });
 
   factory USBPrinterModel.fromJson(
