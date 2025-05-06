@@ -240,7 +240,7 @@ class PosStationLocalSettingsModel {
   bool? isDepot;
   bool? useDefaultPaymentType;
   bool? showWalletButtonIn;
-  int? kioskLandingBannerTransitionDuration;
+  int? kioskLandingBannerTransitionDuration; // saniye cinsinden kisok banner geçiş süresi
 
   PosStationLocalSettingsModel({
     this.primaryColor,
