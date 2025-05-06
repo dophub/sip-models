@@ -240,6 +240,7 @@ class PosStationLocalSettingsModel {
   bool? isDepot;
   bool? useDefaultPaymentType;
   bool? showWalletButtonIn;
+  int? kioskLandingBannerTransitionDuration;
 
   PosStationLocalSettingsModel({
     this.primaryColor,
@@ -256,6 +257,7 @@ class PosStationLocalSettingsModel {
     this.isDepot,
     this.useDefaultPaymentType,
     this.showWalletButtonIn,
+    this.kioskLandingBannerTransitionDuration,
   });
 
   factory PosStationLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationLocalSettingsModel(
@@ -273,6 +275,7 @@ class PosStationLocalSettingsModel {
         isDepot: json["is_depot"],
         useDefaultPaymentType: json["use_default_payment_type"],
         showWalletButtonIn: json["show_wallet_button_in"],
+        kioskLandingBannerTransitionDuration: json["kiosk_landing_banner_transition_duration"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -290,6 +293,7 @@ class PosStationLocalSettingsModel {
         "is_depot": isDepot,
         "use_default_payment_type": useDefaultPaymentType,
         "show_wallet_button_in": showWalletButtonIn,
+        "kiosk_landing_banner_transition_duration": kioskLandingBannerTransitionDuration,
       };
 }
 
