@@ -204,6 +204,7 @@ class PrinterQuequeResponseOrderModel {
     this.customerAddress,
     this.deliveryTypeId,
     this.sessionPointId,
+    this.invoiceSuccessLink,
     this.tableServiceId,
     this.tipAmountWithoutKdv,
     this.totalAmountWithoutKdv,
@@ -232,6 +233,7 @@ class PrinterQuequeResponseOrderModel {
   CustomerAddressModel? customerAddress;
   String? deliveryTypeId;
   String? sessionPointId;
+  String? invoiceSuccessLink;
   int? tableServiceId;
   double? tipAmountWithoutKdv;
   double? totalAmountWithoutKdv;
@@ -264,6 +266,7 @@ class PrinterQuequeResponseOrderModel {
         clientPointId: json["client_point_id"],
         deliveryTypeId: json["delivery_type_id"],
         sessionPointId: json["session_point_id"],
+        invoiceSuccessLink: json["invoice_success_link"],
         tableServiceId: json["table_service_id"],
         tipAmountWithoutKdv: json["tip_amount_without_kdv"]?.toDouble(),
         totalAmountWithoutKdv: json["total_amount_without_kdv"]?.toDouble(),
