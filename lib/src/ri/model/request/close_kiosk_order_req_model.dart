@@ -14,6 +14,7 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
     this.status,
     this.message,
     this.dealerId,
+    this.invoiceSuccessLink,
   });
 
   String? paymentType;
@@ -28,6 +29,7 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
   String? status;
   String? message;
   int? dealerId;
+  String? invoiceSuccessLink;
 
   @override
   fromJson(Map<String, dynamic> json) => CloseKioskOrderReqModel(
@@ -43,6 +45,7 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
         status: json["status"],
         message: json["message"],
         dealerId: json["dealer_id"],
+        invoiceSuccessLink: json["invoice_success_link"],
       );
 
   @override
@@ -59,6 +62,7 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
         "status": status,
         "message": message,
         "dealer_id": dealerId,
+        "invoice_success_link": invoiceSuccessLink,
       };
 
   String get tableName => 'close_kiosk_order';
