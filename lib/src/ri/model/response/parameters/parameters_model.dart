@@ -239,6 +239,7 @@ class ParametersResponseDealerInfoModel {
     this.logoImage,
     this.brandCode,
     this.brandName,
+    this.qrLink,
     this.listImage,
     this.mobileCoverImage,
     this.address,
@@ -268,6 +269,7 @@ class ParametersResponseDealerInfoModel {
   ImagesModel? logoImage;
   String? brandCode;
   String? brandName;
+  String? qrLink;
   ImagesModel? listImage;
   ImagesModel? mobileCoverImage;
   DealerInfoAddressModel? address;
@@ -300,6 +302,7 @@ class ParametersResponseDealerInfoModel {
         logoImage: json["logo_image"] == null ? null : ImagesModel.fromJson(json["logo_image"]),
         brandCode: json["brand_code"],
         brandName: json["brand_name"],
+        qrLink: json["qr_link"],
         listImage: json["list_image"] == null ? null : ImagesModel.fromJson(json["list_image"]),
         mobileCoverImage: json["mobile_cover_image"] == null ? null : ImagesModel.fromJson(json["mobile_cover_image"]),
         address: json["address"] == null ? null : DealerInfoAddressModel.fromJson(json["address"]),
