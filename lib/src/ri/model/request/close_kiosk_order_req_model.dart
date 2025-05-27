@@ -65,6 +65,21 @@ class CloseKioskOrderReqModel extends IBaseModel<CloseKioskOrderReqModel> {
         "invoice_success_link": invoiceSuccessLink,
       };
 
+  Map<String, dynamic> toSqLiteJson() => {
+        "payment_type": paymentType,
+        "bank_ref_no": bankRefNo,
+        "provision_no": provisionNo,
+        "rrn": rrn,
+        "amount": amount,
+        "bin": bin,
+        "card_number": cardNumber,
+        "deviceid": deviceid,
+        "service_id": serviceId,
+        "status": status,
+        "message": message,
+        "dealer_id": dealerId,
+      };
+
   String get tableName => 'close_kiosk_order';
 
   String get getTableCreateQuery => '''
