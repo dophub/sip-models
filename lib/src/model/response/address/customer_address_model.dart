@@ -21,6 +21,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
     this.icon,
     this.isAvailable,
     this.distance,
+    this.streetName,
   });
 
   int? id;
@@ -42,6 +43,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
   String? icon;
   bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
   double? distance;
+  String? streetName;
 
   CustomerAddressModel copyWith() {
     return CustomerAddressModel(
@@ -64,6 +66,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
       icon: icon,
       isAvailable: isAvailable,
       distance: distance,
+      streetName: streetName,
     );
   }
 
@@ -88,6 +91,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         icon: json["icon"],
         isAvailable: json["is_available"],
         distance: json["distance"]?.toDouble(),
+        streetName: json["street_name"],
       );
 
   @override
@@ -111,5 +115,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         "icon": icon,
         "is_available": isAvailable,
         "distance": distance,
+        "street_name": streetName,
       };
 }
