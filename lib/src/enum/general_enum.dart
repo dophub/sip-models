@@ -37,7 +37,7 @@ enum OrderStatusGroup {
   KITCHEN('Hazırlanıyor'),
   READY('Hazırlandı'),
   ON_WAY('Yolda'),
-  DELIVERYOK('Teslim Edildi'),
+  OK('Teslim Edildi'),
   COMPLETE('Tamamlandı'),
   CANCEL('İptal'),
   REJECT('Reddedildi');
