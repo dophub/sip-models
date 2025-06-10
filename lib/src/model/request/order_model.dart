@@ -213,22 +213,26 @@ class OrderStatusModel {
     this.orderStatusCode,
     this.orderStatusName,
     this.isCompleteOrder,
+    this.orderStatusGroupId,
   });
 
   String? orderStatusCode;
   String? orderStatusName;
   bool? isCompleteOrder;
+  String? orderStatusGroupId;
 
   factory OrderStatusModel.fromJson(Map<dynamic, dynamic> json) => OrderStatusModel(
         orderStatusCode: json["order_status_code"],
         orderStatusName: json["order_status_name"],
         isCompleteOrder: json['is_complete_order'],
+        orderStatusGroupId: json['order_status_group_id'],
       );
 
   Map<String, dynamic> toJson() => {
         "order_status_code": orderStatusCode,
         "order_status_name": orderStatusName,
-        'is_complete_order': isCompleteOrder
+        'is_complete_order': isCompleteOrder,
+        'order_status_group_id': orderStatusGroupId
       };
 }
 
