@@ -40,6 +40,7 @@ enum OrderStatusGroup {
   OK('Teslim Edildi'),
   COMPLETE('Tamamlandı'),
   CANCEL('İptal'),
+  CANCEL2('İptal'),
   REJECT('Reddedildi');
 
   final String title;
