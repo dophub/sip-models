@@ -28,6 +28,7 @@ class PostPayModel {
     this.currencyId,
     this.walletId,
     this.dealerId,
+    this.deliveryDate,
   });
 
   int? orderId;
@@ -41,6 +42,7 @@ class PostPayModel {
   String? currencyId;
   String? walletId;
   int? dealerId;
+  String? deliveryDate;
 
   Map<String, dynamic> toJson() => {
         "payment_method": paymentMethod,
@@ -54,5 +56,6 @@ class PostPayModel {
         "currency_id": currencyId,
         "wallet_id": walletId,
         "dealer_id": dealerId,
+        "delivery_date": deliveryDate,
       };
 }

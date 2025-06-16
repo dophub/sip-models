@@ -10,6 +10,7 @@ class PayByWalletModel extends IBaseModel<PayByWalletModel> {
   final String? orderNote;
   final String? transactionId;
   final String? otpCode;
+  final String? deliveryDate;
 
   PayByWalletModel({
     this.orderType,
@@ -21,6 +22,7 @@ class PayByWalletModel extends IBaseModel<PayByWalletModel> {
     this.orderNote,
     this.transactionId,
     this.otpCode,
+    this.deliveryDate,
   });
 
   @override
@@ -34,6 +36,7 @@ class PayByWalletModel extends IBaseModel<PayByWalletModel> {
         orderNote: json["order_note"],
         transactionId: json["transaction_id"],
         otpCode: json["otp_code"],
+        deliveryDate: json["delivery_date"],
       );
 
   @override
@@ -47,5 +50,6 @@ class PayByWalletModel extends IBaseModel<PayByWalletModel> {
         "order_note": orderNote,
         "transaction_id": transactionId,
         "otp_code": otpCode,
+        "delivery_date": deliveryDate,
       };
 }
