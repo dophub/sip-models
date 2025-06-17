@@ -58,6 +58,8 @@ class LoginDealerInfoModel implements IMultiItemPickerWidgetModel {
       };
 
   @override
+  bool? get isDisable => false;
+  @override
   bool selectedValue = false;
 
   @override

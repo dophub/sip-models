@@ -32,6 +32,8 @@ class DealerServiceAddressModel extends IBaseModel<DealerServiceAddressModel> im
       };
 
   @override
+  bool? get isDisable => false;
+  @override
   bool selectedValue = false;
 
   @override
@@ -71,6 +73,8 @@ class DealerServiceAddressDistrictModel implements IMultiItemPickerWidgetModel {
       };
 
   @override
+  bool? get isDisable => false;
+  @override
   bool selectedValue = false;
 
   @override
@@ -105,6 +109,8 @@ class DealerServiceAddressNeighborhoodModel implements IMultiItemPickerWidgetMod
         "neighborhood_key": neighborhoodKey,
       };
 
+  @override
+  bool? get isDisable => false;
   @override
   bool selectedValue = false;
 

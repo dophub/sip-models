@@ -31,4 +31,7 @@ class CityModel extends IBaseModel<CityModel> implements IMultiItemPickerWidgetM
 
   @override
   String get title => name ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

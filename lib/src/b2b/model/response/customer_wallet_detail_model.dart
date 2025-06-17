@@ -87,6 +87,9 @@ class CustomerWalletDetailModel extends IBaseModel<CustomerWalletDetailModel> im
 
   @override
   String get title => _title ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class CustomerWalletDetailCustomerGroupModel {
@@ -198,4 +201,7 @@ class CustomerWalletDetailWalletAddressMatchModel extends IBaseModel<CustomerWal
 
   @override
   String get title => addressName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

@@ -125,4 +125,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
 
   @override
   String get title => '${addressName ?? ''}\n${address ?? ''}';
+
+  @override
+  bool? get isDisable => isAvailable;
 }

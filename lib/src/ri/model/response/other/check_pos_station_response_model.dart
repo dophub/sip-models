@@ -219,6 +219,8 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
       };
 
   @override
+  bool? get isDisable => false;
+  @override
   bool selectedValue = false;
 
   @override

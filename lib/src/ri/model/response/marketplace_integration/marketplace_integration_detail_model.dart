@@ -102,5 +102,8 @@ class IntegrationItemModel implements IMultiItemPickerWidgetModel {
   bool selectedValue = false;
 
   @override
+  bool? get isDisable => false;
+
+  @override
   String get title => _title ?? '';
 }

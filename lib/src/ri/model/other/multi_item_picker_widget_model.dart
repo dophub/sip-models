@@ -12,12 +12,17 @@ class MultiItemPickerWidgetModel implements IMultiItemPickerWidgetModel {
   String get title => _title;
 
   @override
+  bool? get isDisable => false;
+
+  @override
   set selectedValue(bool value) {
     _selectedValue = value;
   }
 }
 
 abstract class IMultiItemPickerWidgetModel {
+  bool? get isDisable;
+
   String get title;
 
   bool get selectedValue;

@@ -47,5 +47,8 @@ class SuggestedProductModel extends IBaseModel<SuggestedProductModel> implements
   bool selectedValue = false;
 
   @override
+  bool? get isDisable => false;
+
+  @override
   String get title => name ?? productName ?? categoryName ?? '';
 }

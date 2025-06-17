@@ -36,4 +36,7 @@ class AdminNeighborhoodModel extends IBaseModel<AdminNeighborhoodModel> implemen
 
   @override
   String get title => name ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

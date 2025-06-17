@@ -39,6 +39,9 @@ class DealerStationListModel extends IBaseModel<DealerStationListModel> implemen
   }
 
   @override
+  bool? get isDisable => false;
+
+  @override
   bool selectedValue = false;
 
   @override

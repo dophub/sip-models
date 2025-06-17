@@ -83,4 +83,7 @@ class GetPaymentTypeStatusModel extends IBaseModel<GetPaymentTypeStatusModel> im
   set selectedValue(bool value) {
     isActive = value;
   }
+
+  @override
+  bool? get isDisable => false;
 }

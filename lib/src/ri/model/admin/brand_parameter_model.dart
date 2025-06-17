@@ -126,6 +126,9 @@ class BrandParameterCatalogAndPricesModel implements IMultiItemPickerWidgetModel
 
   @override
   String get title => catalogs!.catalogName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class BrandParameterCatalogModel {
@@ -176,4 +179,7 @@ class BrandParameterPriceListModel implements IMultiItemPickerWidgetModel {
 
   @override
   String get title => priceListName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

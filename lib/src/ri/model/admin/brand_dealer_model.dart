@@ -52,6 +52,9 @@ class BrandDealerModel extends IBaseModel<BrandDealerModel> implements IMultiIte
 
   @override
   String get title => dealerName!;
+
+  @override
+  bool? get isDisable => false;
 }
 
 class _BrandDealerCityModel {

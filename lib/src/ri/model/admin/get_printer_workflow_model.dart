@@ -75,6 +75,9 @@ class _GetPrinterWorkflowDealerStationModel implements IMultiItemPickerWidgetMod
 
   @override
   String get title => stationName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class _GetPrinterWorkflowStatusPointModel implements IMultiItemPickerWidgetModel {
@@ -107,6 +110,9 @@ class _GetPrinterWorkflowStatusPointModel implements IMultiItemPickerWidgetModel
 
   @override
   String get title => orderPointName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class _StatusPointOrderStatusModel implements IMultiItemPickerWidgetModel {
@@ -133,6 +139,9 @@ class _StatusPointOrderStatusModel implements IMultiItemPickerWidgetModel {
 
   @override
   String get title => orderStatusName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class _GetPrinterWorkflowPaymentModel implements IMultiItemPickerWidgetModel {
@@ -159,6 +168,9 @@ class _GetPrinterWorkflowPaymentModel implements IMultiItemPickerWidgetModel {
 
   @override
   String get title => modelName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class GetPrinterWorkflowPosStationPrinterModel implements IMultiItemPickerWidgetModel {
@@ -198,6 +210,9 @@ class GetPrinterWorkflowPosStationPrinterModel implements IMultiItemPickerWidget
 
   @override
   String get title => printerName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }
 
 class _GetPrinterWorkflowPrinterTemplateModel implements IMultiItemPickerWidgetModel {
@@ -224,6 +239,8 @@ class _GetPrinterWorkflowPrinterTemplateModel implements IMultiItemPickerWidgetM
   bool selectedValue = false;
 
   @override
-  // TODO: implement title
   String get title => templateName ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

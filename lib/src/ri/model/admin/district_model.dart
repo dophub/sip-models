@@ -36,4 +36,7 @@ class AdminDistrictModel extends IBaseModel<AdminDistrictModel> implements IMult
 
   @override
   String get title => name ?? '';
+
+  @override
+  bool? get isDisable => false;
 }

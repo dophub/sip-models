@@ -40,5 +40,8 @@ class PaymentPosBrandsModel extends IBaseModel<PaymentPosBrandsModel> implements
   bool selectedValue = false;
 
   @override
+  bool? get isDisable => false;
+
+  @override
   String get title => brandName ?? brandCode ?? '';
 }

@@ -33,5 +33,8 @@ class MarketplaceIntegrationProductModel extends IBaseModel<MarketplaceIntegrati
   bool selectedValue = false;
 
   @override
+  bool? get isDisable => false;
+
+  @override
   String get title => _title ?? '';
 }
