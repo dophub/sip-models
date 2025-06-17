@@ -1,6 +1,8 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
+import '../../../ri/model/other/multi_item_picker_widget_model.dart';
+
+class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements IMultiItemPickerWidgetModel {
   CustomerAddressModel({
     this.id,
     this.floor,
@@ -117,4 +119,10 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> {
         "distance": distance,
         "street_name": streetName,
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  String get title => '${addressName ?? ''}\n${address ?? ''}';
 }
