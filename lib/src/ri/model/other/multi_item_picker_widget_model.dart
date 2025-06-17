@@ -1,9 +1,12 @@
 class MultiItemPickerWidgetModel implements IMultiItemPickerWidgetModel {
   final String _title;
   bool _selectedValue;
+  bool? _isDisable;
   dynamic value;
 
-  MultiItemPickerWidgetModel(this._title, this._selectedValue, {this.value});
+  MultiItemPickerWidgetModel(this._title, this._selectedValue, {this.value, bool? isDisable}) {
+    _isDisable = isDisable;
+  }
 
   @override
   bool get selectedValue => _selectedValue;
@@ -12,7 +15,7 @@ class MultiItemPickerWidgetModel implements IMultiItemPickerWidgetModel {
   String get title => _title;
 
   @override
-  bool? get isDisable => false;
+  bool? get isDisable => _isDisable;
 
   @override
   set selectedValue(bool value) {
