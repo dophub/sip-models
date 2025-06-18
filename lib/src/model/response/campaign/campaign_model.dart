@@ -18,6 +18,8 @@ class CampaignModel extends IBaseModel<CampaignModel> {
     this.notUseBannerForTemplate,
     this.isOtpRequired,
     this.limitNumberOfOrderTypeId,
+    this.dealers,
+    this.orderPoints,
   });
 
   int? id;
@@ -34,6 +36,8 @@ class CampaignModel extends IBaseModel<CampaignModel> {
   bool? notUseBannerForTemplate;
   bool? isOtpRequired;
   String? limitNumberOfOrderTypeId;
+  List<CampaignDealerModel>? dealers;
+  List<String>? orderPoints;
 
   @override
   CampaignModel fromJson(Map<dynamic, dynamic> json) {
@@ -57,7 +61,8 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         campaignDiscountPercent: json["campaign_discount_percent"].toDouble(),
         notUseBannerForTemplate: json["not_use_banner_for_template"],
         isOtpRequired: json["is_otp_required"],
-        limitNumberOfOrderTypeId: json["limit_number_of_order_type_id"],
+        dealers: json["dealers"] == null ? [] : List<CampaignDealerModel>.from(json["dealers"]!.map((x) => CampaignDealerModel.fromJson(x))),
+        orderPoints: json["order_points"] == null ? [] : List<String>.from(json["order_points"]!.map((x) => x)),
       );
 
   @override
@@ -75,6 +80,8 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         "campaign_discount_percent": campaignDiscountPercent,
         "not_use_banner_for_template": notUseBannerForTemplate,
         "limit_number_of_order_type_id": limitNumberOfOrderTypeId,
+        "dealers": dealers == null ? [] : List<dynamic>.from(dealers!.map((x) => x.toJson())),
+        "order_points": orderPoints == null ? [] : List<dynamic>.from(orderPoints!.map((x) => x)),
       };
 }
 
@@ -99,5 +106,25 @@ class CampaignProductResultModel {
         "new_price": newPrice,
         "product_id": productId,
         "campaign_discount_percent": campaignDiscountPercent,
+      };
+}
+
+class CampaignDealerModel {
+  int? id;
+  String? name;
+
+  CampaignDealerModel({
+    required this.id,
+    required this.name,
+  });
+
+  factory CampaignDealerModel.fromJson(Map<String, dynamic> json) => CampaignDealerModel(
+        id: json["id"],
+        name: json["name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
       };
 }
