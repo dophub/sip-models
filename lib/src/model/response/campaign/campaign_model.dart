@@ -20,7 +20,6 @@ class CampaignModel extends IBaseModel<CampaignModel> {
     this.limitNumberOfOrderTypeId,
     this.dealers,
     this.orderPoints,
-    this.banner,
   });
 
   int? id;
@@ -39,7 +38,6 @@ class CampaignModel extends IBaseModel<CampaignModel> {
   String? limitNumberOfOrderTypeId;
   List<CampaignDealerModel>? dealers;
   List<String>? orderPoints;
-  String? banner;
 
   @override
   CampaignModel fromJson(Map<dynamic, dynamic> json) {
@@ -66,8 +64,7 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         dealers: json["dealers"] == null
             ? []
             : List<CampaignDealerModel>.from(json["dealers"]!.map((x) => CampaignDealerModel.fromJson(x))),
-        orderPoints: json["order_points"] == null ? [] : List<String>.from(json["order_points"]!.map((x) => x)),
-        banner: json["banner"],
+        orderPoints: json["order_points"] == null ? null : List<String>.from(json["order_points"]!.map((x) => x)),
       );
 
   @override
@@ -87,7 +84,6 @@ class CampaignModel extends IBaseModel<CampaignModel> {
         "limit_number_of_order_type_id": limitNumberOfOrderTypeId,
         "dealers": dealers == null ? [] : List<dynamic>.from(dealers!.map((x) => x.toJson())),
         "order_points": orderPoints == null ? [] : List<dynamic>.from(orderPoints!.map((x) => x)),
-        "banner": banner,
       };
 }
 
