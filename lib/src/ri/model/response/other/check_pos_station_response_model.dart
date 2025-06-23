@@ -231,6 +231,7 @@ class PosStationLocalSettingsModel {
   String? primaryColor;
   String? onPrimaryColor;
   String? secondaryColor;
+  String? onSecondaryColor;
   String? backgroundColor;
   String? onBackgroundColor;
   String? buttonColor;
@@ -248,6 +249,7 @@ class PosStationLocalSettingsModel {
     this.primaryColor,
     this.onPrimaryColor,
     this.secondaryColor,
+    this.onSecondaryColor,
     this.backgroundColor,
     this.buttonColor,
     this.onButtonColor,
@@ -266,6 +268,7 @@ class PosStationLocalSettingsModel {
         primaryColor: json["primary_color"],
         onPrimaryColor: json["on_primary_color"],
         secondaryColor: json["secondary_color"],
+        onSecondaryColor: json["on_secondary_color"],
         backgroundColor: json["background_color"],
         onBackgroundColor: json["on_background_color"],
         buttonColor: json["button_color"],
@@ -284,6 +287,7 @@ class PosStationLocalSettingsModel {
         "primary_color": primaryColor,
         "on_primary_color": onPrimaryColor,
         "secondary_color": secondaryColor,
+        "on_secondary_color": onSecondaryColor,
         "background_color": backgroundColor,
         "on_background_color": onBackgroundColor,
         "button_color": buttonColor,
