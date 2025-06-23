@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../other/images_model.dart';
 import '../other/menu_detail_model.dart';
@@ -37,12 +38,9 @@ class PromotionMenuDetailModel extends IBaseModel<PromotionMenuDetailModel> {
         promotionMenuName: json["promotion_menu_name"],
         shortDescription: json["short_description"],
         description: json["description"],
-        images: json["images"] == null
-            ? []
-            : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
-        price: json["price"] == null
-            ? []
-            : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
+        images:
+            json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
+        price: json["price"] == null ? [] : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
         sections: json["sections"] == null
             ? []
             : List<SectionModel>.from(json["sections"].map((x) => SectionModel.fromJson(x))),
@@ -57,6 +55,7 @@ class PromotionMenuDetailModel extends IBaseModel<PromotionMenuDetailModel> {
 /// Promosyon ürünleri Sectionidir
 class SectionModel {
   SectionModel({
+    this.globalKey,
     this.id,
     this.products,
     this.listOrder,
@@ -66,6 +65,7 @@ class SectionModel {
     this.isSelected = false,
   });
 
+  GlobalKey? globalKey;
   int? id;
   List<ProductDetailModel>? products;
   int? listOrder;
@@ -78,8 +78,7 @@ class SectionModel {
         id: json["id"],
         products: json["products"] == null
             ? []
-            : List<ProductDetailModel>.from(
-                json["products"].map((x) => ProductDetailModel().fromJson(x))),
+            : List<ProductDetailModel>.from(json["products"].map((x) => ProductDetailModel().fromJson(x))),
         listOrder: json["list_order"],
         description: json["description"],
         sectionName: json["section_name"],

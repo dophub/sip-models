@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:flutter/material.dart' show GlobalKey;
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
 import '../../../enum/id_enum.dart';
 import '../other/images_model.dart';
@@ -106,6 +107,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISect
 /// Ürün özelikleri her biri bi üründür
 class FeatureModel {
   FeatureModel({
+    this.globalKey,
     this.id,
     this.items,
     this.maxCount,
@@ -119,6 +121,7 @@ class FeatureModel {
     this.isSelected = false,
   });
 
+  GlobalKey? globalKey;
   int? id;
   List<ItemModel>? items;
   int? maxCount;
@@ -223,6 +226,7 @@ class ItemModel extends ISectionsWidgetModel {
 /// Ürün opsiyonlarını temsil etmekte
 class OptionGroupModel {
   OptionGroupModel({
+    this.globalKey,
     this.id,
     this.options,
     this.maxCount,
@@ -235,6 +239,7 @@ class OptionGroupModel {
     this.isSelected = false,
   });
 
+  GlobalKey? globalKey;
   int? id;
   List<OptionModel>? options;
   int? maxCount;
