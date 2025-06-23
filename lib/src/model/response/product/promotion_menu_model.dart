@@ -55,7 +55,6 @@ class PromotionMenuDetailModel extends IBaseModel<PromotionMenuDetailModel> {
 /// Promosyon ürünleri Sectionidir
 class SectionModel {
   SectionModel({
-    this.globalKey,
     this.id,
     this.products,
     this.listOrder,
@@ -65,7 +64,7 @@ class SectionModel {
     this.isSelected = false,
   });
 
-  GlobalKey? globalKey;
+  GlobalKey globalKey = GlobalKey();
   int? id;
   List<ProductDetailModel>? products;
   int? listOrder;

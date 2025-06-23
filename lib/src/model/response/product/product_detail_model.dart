@@ -107,7 +107,6 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISect
 /// Ürün özelikleri her biri bi üründür
 class FeatureModel {
   FeatureModel({
-    this.globalKey,
     this.id,
     this.items,
     this.maxCount,
@@ -121,7 +120,7 @@ class FeatureModel {
     this.isSelected = false,
   });
 
-  GlobalKey? globalKey;
+  GlobalKey globalKey = GlobalKey();
   int? id;
   List<ItemModel>? items;
   int? maxCount;
@@ -226,7 +225,6 @@ class ItemModel extends ISectionsWidgetModel {
 /// Ürün opsiyonlarını temsil etmekte
 class OptionGroupModel {
   OptionGroupModel({
-    this.globalKey,
     this.id,
     this.options,
     this.maxCount,
@@ -239,7 +237,7 @@ class OptionGroupModel {
     this.isSelected = false,
   });
 
-  GlobalKey? globalKey;
+  GlobalKey globalKey = GlobalKey();
   int? id;
   List<OptionModel>? options;
   int? maxCount;
