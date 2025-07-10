@@ -8,7 +8,7 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
   CourierOrderModel({
     this.orderId,
     this.orderNote,
-    this.convertFullname,
+    this.customerFullname,
     this.address,
     this.paymentType,
     this.dealer,
@@ -17,14 +17,14 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
   int? orderId;
   String? orderNote;
   PaymentInfo? paymentType;
-  String? convertFullname;
+  String? customerFullname;
   _CourierOrderAddressModel? address;
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
 
   @override
   fromJson(Map json) => CourierOrderModel(
         orderId: json['order_id'],
-        convertFullname: json['convert_fullname'],
+        customerFullname: json['customer_fullname'],
         orderNote: json['order_note'],
         paymentType: json['payment_info'],
         address: _CourierOrderAddressModel.fromMap(json['address']),
