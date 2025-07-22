@@ -308,12 +308,14 @@ class KioskImageModel {
   String? langId;
   int? dealerId;
   String? imageUrl;
+  KioskImageTime? imageTime;
 
   KioskImageModel({
     this.id,
     this.langId,
     this.dealerId,
     this.imageUrl,
+    this.imageTime,
   });
 
   factory KioskImageModel.fromJson(Map<String, dynamic> json) => KioskImageModel(
@@ -321,6 +323,7 @@ class KioskImageModel {
         langId: json["lang_id"],
         dealerId: json["dealer_id"],
         imageUrl: json["image_url"],
+        imageTime: json["image_time"] == null ? null : KioskImageTime.fromJson(json["image_time"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -328,6 +331,48 @@ class KioskImageModel {
         "lang_id": langId,
         "dealer_id": dealerId,
         "image_url": imageUrl,
+        "image_time": imageTime?.toJson(),
+      };
+}
+
+class KioskImageTime {
+  int? id;
+  String? name;
+  String? endTime;
+  List<String>? weekdays;
+  String? startTime;
+  String? frequencyId;
+  DateTime? oneTimeDate;
+
+  KioskImageTime({
+    this.id,
+    this.name,
+    this.endTime,
+    this.weekdays,
+    this.startTime,
+    this.frequencyId,
+    this.oneTimeDate,
+  });
+
+  factory KioskImageTime.fromJson(Map<String, dynamic> json) => KioskImageTime(
+        id: json["id"],
+        name: json["name"],
+        endTime: json["end_time"],
+        weekdays: json["weekdays"] == null ? [] : List<String>.from(json["weekdays"]!.map((x) => x)),
+        startTime: json["start_time"],
+        frequencyId: json["frequency_id"],
+        oneTimeDate: json["one_time_date"] == null ? null : DateTime.tryParse(json["one_time_date"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "end_time": endTime,
+        "weekdays": weekdays == null ? [] : List<dynamic>.from(weekdays!.map((x) => x)),
+        "start_time": startTime,
+        "frequency_id": frequencyId,
+        "one_time_date":
+            "${oneTimeDate!.year.toString().padLeft(4, '0')}-${oneTimeDate!.month.toString().padLeft(2, '0')}-${oneTimeDate!.day.toString().padLeft(2, '0')}",
       };
 }
 
