@@ -1,14 +1,14 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-
 class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
-  RatingAndCommentModel(
-      {this.subject,
-      this.comment,
-      this.ratings,
-      this.createDate,
-      this.orderId,
-      this.fullName});
+  RatingAndCommentModel({
+    this.subject,
+    this.comment,
+    this.ratings,
+    this.createDate,
+    this.orderId,
+    this.fullName,
+  });
 
   String? subject;
   String? comment;
@@ -21,8 +21,7 @@ class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
   Map<String, dynamic> toJson() => {
         "subject": subject,
         "comment": comment,
-        "create_date":
-            createDate == null ? null : createDate!.toIso8601String(),
+        "create_date": createDate?.toIso8601String(),
         "ratings": List<dynamic>.from(ratings!.map((x) => x.toJson())),
         "order_id": orderId,
         "full_name": fullName,
@@ -34,9 +33,7 @@ class RatingAndCommentModel extends IBaseModel<RatingAndCommentModel> {
             ? null
             : List<RatingModel>.from(json["ratings"].map((x) => RatingModel.fromJson(x))),
         subject: json["subject"],
-        createDate: json["create_date"] == null
-            ? null
-            : DateTime.parse(json["create_date"]),
+        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
         comment: json["comment"],
         orderId: json["order_id"],
         fullName: json["full_name"],

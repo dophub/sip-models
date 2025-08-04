@@ -1,8 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/response.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
-import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
-import '../dealer/dealer_model.dart';
-import '../other/images_model.dart';
 
 /// Dealer model id => dealer_id
 class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
@@ -29,6 +27,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.tableServiceId,
     this.tableServiceAmount,
     this.serviceDeliveryTypeId,
+    this.orderComment,
+    this.orderRating,
   });
 
   int? id;
@@ -53,6 +53,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   List<OrderItem>? items;
   List<OrderCampaignsModel>? campaigns;
   int? tableServiceId;
+  List<PastOrderDetailsOrderCommentModel>? orderComment;
+  List<PastOrderDetailsRatingModel>? orderRating;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
@@ -80,6 +82,14 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
             ? []
             : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
         tableServiceId: json["table_service_id"],
+        orderComment: json["order_comment"] == null
+            ? []
+            : List<PastOrderDetailsOrderCommentModel>.from(
+                json["order_comment"]!.map((x) => PastOrderDetailsOrderCommentModel.fromJson(x))),
+        orderRating: json["order_rating"] == null
+            ? []
+            : List<PastOrderDetailsRatingModel>.from(
+                json["order_rating"]!.map((x) => PastOrderDetailsRatingModel.fromJson(x))),
       );
 
   @override
@@ -131,4 +141,72 @@ class PaymentDetailModel {
         code: json["code"],
         title: json["title"],
       );
+}
+
+class PastOrderDetailsOrderCommentModel {
+  int? id;
+  String? commentText;
+  String? subject;
+  bool? isPublish;
+  DateTime? createDate;
+  int? orderId;
+
+  PastOrderDetailsOrderCommentModel({
+    this.id,
+    this.commentText,
+    this.subject,
+    this.isPublish,
+    this.createDate,
+    this.orderId,
+  });
+
+  factory PastOrderDetailsOrderCommentModel.fromJson(Map<String, dynamic> json) => PastOrderDetailsOrderCommentModel(
+        id: json["id"],
+        commentText: json["comment_text"],
+        subject: json["subject"],
+        isPublish: json["is_publish"],
+        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
+        orderId: json["order_id"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "comment_text": commentText,
+        "subject": subject,
+        "is_publish": isPublish,
+        "create_date": createDate?.toIso8601String(),
+        "order_id": orderId,
+      };
+}
+
+class PastOrderDetailsRatingModel {
+  int? id;
+  int? ratingValue;
+  DateTime? createDate;
+  int? orderId;
+  String? ratingCategoryId;
+
+  PastOrderDetailsRatingModel({
+    this.id,
+    this.ratingValue,
+    this.createDate,
+    this.orderId,
+    this.ratingCategoryId,
+  });
+
+  factory PastOrderDetailsRatingModel.fromJson(Map<String, dynamic> json) => PastOrderDetailsRatingModel(
+        id: json["id"],
+        ratingValue: json["rating_value"],
+        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
+        orderId: json["order_id"],
+        ratingCategoryId: json["rating_category_id"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "rating_value": ratingValue,
+        "create_date": createDate?.toIso8601String(),
+        "order_id": orderId,
+        "rating_category_id": ratingCategoryId,
+      };
 }
