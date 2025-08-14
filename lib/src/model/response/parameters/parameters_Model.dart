@@ -17,7 +17,8 @@ class ParametersModel extends IBaseModel<ParametersModel> {
   List<OrderBy>? orderBy;
 
   @override
-  fromJson(Map<dynamic, dynamic> json) => ParametersModel(
+  fromJson(Map<dynamic, dynamic> json) =>
+      ParametersModel(
         addressType: json["address_type"] == null
             ? []
             : List<AddressType>.from(json["address_type"].map((x) => AddressType.fromJson(x))),
@@ -47,13 +48,15 @@ class AddressType {
   String? addressTypeName;
   String? icon;
 
-  factory AddressType.fromJson(Map<String, dynamic> json) => AddressType(
+  factory AddressType.fromJson(Map<String, dynamic> json) =>
+      AddressType(
         addressTypeCode: json["address_type_code"],
         addressTypeName: json["address_type_name"],
         icon: json["icon"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "address_type_code": addressTypeCode,
         "address_type_name": addressTypeName,
         "icon": icon,
@@ -69,12 +72,14 @@ class OrderBy {
   String? title;
   String? code;
 
-  factory OrderBy.fromJson(Map<String, dynamic> json) => OrderBy(
+  factory OrderBy.fromJson(Map<String, dynamic> json) =>
+      OrderBy(
         title: json["title"],
         code: json["code"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "title": title,
         "code": code,
       };
@@ -95,7 +100,8 @@ class StatusModel {
   bool? isStartLevel;
   bool? isCompleteOrder;
 
-  factory StatusModel.fromJson(Map<String, dynamic> json) => StatusModel(
+  factory StatusModel.fromJson(Map<String, dynamic> json) =>
+      StatusModel(
         code: json["code"],
         title: json["title"],
         orderStatusGroupId: json["order_status_group_id"],
@@ -113,6 +119,7 @@ class PaymentType {
     this.imageUrl,
     this.isWriteSlip,
     required this.isSelected,
+    this.gmpIsActive,
   });
 
   String paymentTypeCode;
@@ -122,18 +129,22 @@ class PaymentType {
   bool isOnlinePayment;
   bool? isWriteSlip;
   bool isSelected;
+  bool? gmpIsActive;
 
-  factory PaymentType.fromJson(Map<String, dynamic> json) => PaymentType(
+  factory PaymentType.fromJson(Map<String, dynamic> json) =>
+      PaymentType(
         paymentTypeCode: json["payment_type_code"],
         paymentType: json["payment_type"],
         isActive: json["is_active"],
         isOnlinePayment: json["is_online_payment"],
         imageUrl: json['image_url'],
         isWriteSlip: json['is_write_slip'],
+        gmpIsActive: json['gmp_is_active'],
         isSelected: false,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "payment_type_code": paymentTypeCode,
         "payment_type": paymentType,
         "is_active": isActive,
@@ -141,9 +152,11 @@ class PaymentType {
         "is_online_payment": isOnlinePayment,
         'is_selected': isSelected,
         "is_write_slip": isWriteSlip
+        "gmp_is_active": gmpIsActive
       };
 
-  PaymentType copyWith() => PaymentType(
+  PaymentType copyWith() =>
+      PaymentType(
         paymentTypeCode: paymentTypeCode,
         paymentType: paymentType,
         isActive: isActive,
@@ -151,5 +164,6 @@ class PaymentType {
         isOnlinePayment: isOnlinePayment,
         isSelected: isSelected,
         isWriteSlip: isWriteSlip,
+        gmpIsActive: gmpIsActive,
       );
 }
