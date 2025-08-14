@@ -1,15 +1,17 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class PhysicalPosModel extends IBaseModel<PhysicalPosModel> {
+import '../../../../../ri_models.dart';
+
+class PhysicalPosModel extends IBaseModel<PhysicalPosModel> implements IMultiItemPickerWidgetModel {
   String? id;
-  String? title;
+  String? name;
   String? serialNo;
   String? gateway;
   bool? status;
 
   PhysicalPosModel({
     this.id,
-    this.title,
+    this.name,
     this.serialNo,
     this.gateway,
     this.status,
@@ -18,7 +20,7 @@ class PhysicalPosModel extends IBaseModel<PhysicalPosModel> {
   @override
   fromJson(Map<String, dynamic> json) => PhysicalPosModel(
         id: json["id"],
-        title: json["title"],
+        name: json["title"],
         serialNo: json["serial_no"],
         gateway: json["gateway"],
         status: json["status"],
@@ -27,9 +29,18 @@ class PhysicalPosModel extends IBaseModel<PhysicalPosModel> {
   @override
   Map<String, dynamic> toJson() => {
         "id": id,
-        "title": title,
+        "title": name,
         "serial_no": serialNo,
         "gateway": gateway,
         "status": status,
       };
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  bool? get isDisable => false;
+
+  @override
+  String get title => name ?? '-';
 }
