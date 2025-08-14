@@ -151,7 +151,7 @@ class PaymentType {
         'image_url': imageUrl,
         "is_online_payment": isOnlinePayment,
         'is_selected': isSelected,
-        "is_write_slip": isWriteSlip
+        "is_write_slip": isWriteSlip,
         "gmp_is_active": gmpIsActive
       };
 
