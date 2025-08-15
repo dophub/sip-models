@@ -81,3 +81,4 @@ export 'package:sip_models/src/ri/model/response/marketplace_integration/marketp
 export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_detail_model.dart';
 export 'package:sip_models/src/ri/model/response/marketplace_integration/marketplace_integration_product_model.dart';
 export 'package:sip_models/src/ri/model/socket/service_channel_socket_model.dart';
+export 'package:sip_models/src/ri/model/socket/order_pay_socket_event_model.dart';
