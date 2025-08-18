@@ -1,11 +1,12 @@
 class OrderPaySocketEventModel {
   String? type;
-  int? sourceId;
+  String? sourceId;
   String? sourceType;
   String? transactionId;
   String? message;
   OrderPaySocketEventOrderModel? order;
   OrderPaySocketEventServiceModel? service;
+  OrderPaySocketEventTransactionModel? transaction;
 
   OrderPaySocketEventModel({
     this.type,
@@ -15,6 +16,7 @@ class OrderPaySocketEventModel {
     this.message,
     this.order,
     this.service,
+    this.transaction,
   });
 
   factory OrderPaySocketEventModel.fromJson(Map<String, dynamic> json) => OrderPaySocketEventModel(
@@ -25,6 +27,8 @@ class OrderPaySocketEventModel {
         message: json["message"],
         order: json["order"] == null ? null : OrderPaySocketEventOrderModel.fromJson(json["order"]),
         service: json["service"] == null ? null : OrderPaySocketEventServiceModel.fromJson(json["service"]),
+        transaction:
+            json["transaction"] == null ? null : OrderPaySocketEventTransactionModel.fromJson(json["transaction"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,6 +39,7 @@ class OrderPaySocketEventModel {
         "message": message,
         "order": order?.toJson(),
         "service": service?.toJson(),
+        "transaction": transaction?.toJson(),
       };
 }
 
@@ -134,5 +139,50 @@ class OrderPaySocketEventServiceModel {
         "service_status_id": serviceStatusId,
         "table_service_amount": tableServiceAmount,
         "orders": orders == null ? [] : List<dynamic>.from(orders!.map((x) => x.toJson())),
+      };
+}
+
+class OrderPaySocketEventTransactionModel {
+  String? transactionId;
+  String? trackId;
+  String? sourceId;
+  String? sourceTypeId;
+  int? amount;
+  String? status;
+  String? message;
+  String? paymentCodeId;
+
+  OrderPaySocketEventTransactionModel({
+    this.transactionId,
+    this.trackId,
+    this.sourceId,
+    this.sourceTypeId,
+    this.amount,
+    this.status,
+    this.message,
+    this.paymentCodeId,
+  });
+
+  factory OrderPaySocketEventTransactionModel.fromJson(Map<String, dynamic> json) =>
+      OrderPaySocketEventTransactionModel(
+        transactionId: json["transaction_id"],
+        trackId: json["track_id"],
+        sourceId: json["source_id"],
+        sourceTypeId: json["source_type_id"],
+        amount: json["amount"],
+        status: json["status"],
+        message: json["message"],
+        paymentCodeId: json["payment_code_id"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "transaction_id": transactionId,
+        "track_id": trackId,
+        "source_id": sourceId,
+        "source_type_id": sourceTypeId,
+        "amount": amount,
+        "status": status,
+        "message": message,
+        "payment_code_id": paymentCodeId,
       };
 }
