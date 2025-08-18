@@ -2,6 +2,7 @@ class OrderPaySocketEventModel {
   String? type;
   int? sourceId;
   String? sourceType;
+  String? transactionId;
   String? message;
   OrderPaySocketEventOrderModel? order;
   OrderPaySocketEventServiceModel? service;
@@ -10,6 +11,7 @@ class OrderPaySocketEventModel {
     this.type,
     this.sourceId,
     this.sourceType,
+    this.transactionId,
     this.message,
     this.order,
     this.service,
@@ -19,6 +21,7 @@ class OrderPaySocketEventModel {
         type: json["type"],
         sourceId: json["sourceId"],
         sourceType: json["sourceType"],
+        transactionId: json["transaction_id"],
         message: json["message"],
         order: json["order"] == null ? null : OrderPaySocketEventOrderModel.fromJson(json["order"]),
         service: json["service"] == null ? null : OrderPaySocketEventServiceModel.fromJson(json["service"]),
@@ -28,6 +31,7 @@ class OrderPaySocketEventModel {
         "type": type,
         "sourceId": sourceId,
         "sourceType": sourceType,
+        "transaction_id": transactionId,
         "message": message,
         "order": order?.toJson(),
         "service": service?.toJson(),
