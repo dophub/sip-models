@@ -58,6 +58,7 @@ export 'package:sip_models/src/ri/model/response/other/tip_list_response_model.d
 export 'package:sip_models/src/ri/model/response/other/tip_system_detail_response_model.dart';
 export 'package:sip_models/src/ri/model/response/other/update_branch_product_activation_model.dart';
 export 'package:sip_models/src/ri/model/response/other/physical_pos_model.dart';
+export 'package:sip_models/src/ri/model/response/other/start_payment_transaction_model.dart';
 export 'package:sip_models/src/ri/model/response/parameters/courier_model.dart';
 export 'package:sip_models/src/ri/model/response/parameters/order_cancel_model.dart';
 export 'package:sip_models/src/ri/model/response/parameters/order_status_model.dart';
