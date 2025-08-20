@@ -11,7 +11,6 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
   String? serialNo;
   String? ip;
   StartPaymentTransactionPaymentInfoModel? paymentInfo;
-  String? request;
   DateTime? reportDate;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -36,7 +35,6 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
     this.serialNo,
     this.ip,
     this.paymentInfo,
-    this.request,
     this.reportDate,
     this.createdAt,
     this.updatedAt,
@@ -62,8 +60,9 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         trackId: json["track_id"],
         serialNo: json["serial_no"],
         ip: json["ip"],
-        paymentInfo: json["payment_info"] == null ? null : StartPaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
-        request: json["request"],
+        paymentInfo: json["payment_info"] == null
+            ? null
+            : StartPaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
         reportDate: json["report_date"] == null ? null : DateTime.parse(json["report_date"]),
         createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
         updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
@@ -90,7 +89,6 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         "serial_no": serialNo,
         "ip": ip,
         "payment_info": paymentInfo?.toJson(),
-        "request": request,
         "report_date": reportDate?.toIso8601String(),
         "created_at": createdAt?.toIso8601String(),
         "updated_at": updatedAt?.toIso8601String(),
@@ -105,8 +103,6 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         "payment_tags_id": paymentTagsId,
       };
 }
-
-
 
 class StartPaymentTransactionPaymentInfoModel {
   String? ip;
@@ -131,10 +127,14 @@ class StartPaymentTransactionPaymentInfoModel {
     this.isFullPayment,
   });
 
-  factory StartPaymentTransactionPaymentInfoModel.fromJson(Map<String, dynamic> json) => StartPaymentTransactionPaymentInfoModel(
+  factory StartPaymentTransactionPaymentInfoModel.fromJson(Map<String, dynamic> json) =>
+      StartPaymentTransactionPaymentInfoModel(
         ip: json["ip"],
         user: json["user"] == null ? null : StartPaymentTransactionUserModel.fromJson(json["user"]),
-        items: json["items"] == null ? [] : List<StartPaymentTransactionItemModel>.from(json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
+        items: json["items"] == null
+            ? []
+            : List<StartPaymentTransactionItemModel>.from(
+                json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
         amount: json["amount"],
         serialNo: json["serial_no"],
         sourceId: json["source_id"],
