@@ -241,22 +241,26 @@ class PaymentInfo {
     this.type,
     this.name,
     this.isOnlinePayment,
+    this.gmpIsActive,
   });
 
   String? type;
   String? name;
   bool? isOnlinePayment;
+  bool? gmpIsActive;
 
   factory PaymentInfo.fromJson(Map<String, dynamic> json) => PaymentInfo(
         type: json["type"],
         name: json["name"],
         isOnlinePayment: json["is_online_payment"],
+        gmpIsActive: json["gmp_is_active"],
       );
 
   Map<String, dynamic> toJson() => {
         "type": type,
         "name": name,
         "is_online_payment": isOnlinePayment,
+        "gmp_is_active": gmpIsActive,
       };
 }
 
