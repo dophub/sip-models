@@ -33,7 +33,8 @@ enum PaymentTypeEnum {
   CARD('Kredi Kartı'),
   WALLETONLINE('Cüzdan'),
   PAVOCARD('Pavo Kredi Kartı'),
-  PAVOCASH('Pavo Nakit');
+  PAVOCASH('Pavo Nakit'),
+  PAYCELLQR('Paycell QR');
 
   final String title;
 
