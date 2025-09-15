@@ -243,6 +243,7 @@ class PosStationLocalSettingsModel {
   bool? isDepot;
   bool? useDefaultPaymentType;
   bool? showWalletButtonIn;
+  bool? showPaycellQRButtonIn;
   int? kioskLandingBannerTransitionDuration; // saniye cinsinden kisok banner geçiş süresi
 
   PosStationLocalSettingsModel({
@@ -261,6 +262,7 @@ class PosStationLocalSettingsModel {
     this.isDepot,
     this.useDefaultPaymentType,
     this.showWalletButtonIn,
+    this.showPaycellQRButtonIn,
     this.kioskLandingBannerTransitionDuration,
   });
 
@@ -280,6 +282,7 @@ class PosStationLocalSettingsModel {
         isDepot: json["is_depot"],
         useDefaultPaymentType: json["use_default_payment_type"],
         showWalletButtonIn: json["show_wallet_button_in"],
+        showPaycellQRButtonIn: json["show_paycell_qr_button_in"],
         kioskLandingBannerTransitionDuration: json["kiosk_landing_banner_transition_duration"],
       );
 
@@ -299,6 +302,7 @@ class PosStationLocalSettingsModel {
         "is_depot": isDepot,
         "use_default_payment_type": useDefaultPaymentType,
         "show_wallet_button_in": showWalletButtonIn,
+        "show_paycell_qr_button_in": showPaycellQRButtonIn,
         "kiosk_landing_banner_transition_duration": kioskLandingBannerTransitionDuration,
       };
 }
