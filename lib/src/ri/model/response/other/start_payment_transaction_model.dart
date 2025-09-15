@@ -21,6 +21,7 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
   int? paymentTypeId;
   String? sourceTypeId;
   bool? invoicestatus;
+  bool? isPosTriggering;
   String? paymentCodeId;
   String? paymentTagsId;
 
@@ -45,12 +46,14 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
     this.paymentTypeId,
     this.sourceTypeId,
     this.invoicestatus,
+    this.isPosTriggering,
     this.paymentCodeId,
     this.paymentTagsId,
   });
 
   @override
-  fromJson(Map<String, dynamic> json) => StartPaymentTransactionModel(
+  fromJson(Map<String, dynamic> json) =>
+      StartPaymentTransactionModel(
         id: json["id"],
         transactionId: json["transaction_id"],
         sourceId: json["source_id"],
@@ -73,12 +76,14 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         paymentTypeId: json["payment_type_id"],
         sourceTypeId: json["source_type_id"],
         invoicestatus: json["invoicestatus"],
+        isPosTriggering: json["is_pos_triggering"],
         paymentCodeId: json["payment_code_id"],
         paymentTagsId: json["payment_tags_id"],
       );
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "id": id,
         "transaction_id": transactionId,
         "source_id": sourceId,
@@ -99,6 +104,7 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         "payment_type_id": paymentTypeId,
         "source_type_id": sourceTypeId,
         "invoicestatus": invoicestatus,
+        "is_pos_triggering": isPosTriggering,
         "payment_code_id": paymentCodeId,
         "payment_tags_id": paymentTagsId,
       };
@@ -134,7 +140,7 @@ class StartPaymentTransactionPaymentInfoModel {
         items: json["items"] == null
             ? []
             : List<StartPaymentTransactionItemModel>.from(
-                json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
+            json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
         amount: json["amount"],
         serialNo: json["serial_no"],
         sourceId: json["source_id"],
@@ -143,7 +149,8 @@ class StartPaymentTransactionPaymentInfoModel {
         isFullPayment: json["is_full_payment"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "ip": ip,
         "user": user?.toJson(),
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
@@ -165,12 +172,14 @@ class StartPaymentTransactionItemModel {
     this.count,
   });
 
-  factory StartPaymentTransactionItemModel.fromJson(Map<String, dynamic> json) => StartPaymentTransactionItemModel(
+  factory StartPaymentTransactionItemModel.fromJson(Map<String, dynamic> json) =>
+      StartPaymentTransactionItemModel(
         id: json["id"],
         count: json["count"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "id": id,
         "count": count,
       };
@@ -211,7 +220,8 @@ class StartPaymentTransactionUserModel {
     this.userDealerId,
   });
 
-  factory StartPaymentTransactionUserModel.fromJson(Map<String, dynamic> json) => StartPaymentTransactionUserModel(
+  factory StartPaymentTransactionUserModel.fromJson(Map<String, dynamic> json) =>
+      StartPaymentTransactionUserModel(
         exp: json["exp"],
         iat: json["iat"],
         client: json["client"],
@@ -229,7 +239,8 @@ class StartPaymentTransactionUserModel {
         userDealerId: json["user_dealer_id"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "exp": exp,
         "iat": iat,
         "client": client,
