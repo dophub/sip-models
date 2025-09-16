@@ -726,6 +726,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   String? status;
   int? dealerId;
   String? paymentCodeId;
+  String? message;
 
   PaymentTransactionModel({
     this.id,
@@ -733,6 +734,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
     this.status,
     this.dealerId,
     this.paymentCodeId,
+    this.message,
   });
 
   @override
@@ -742,6 +744,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
     status = json["status"];
     dealerId = json["dealer_id"];
     paymentCodeId = json["payment_code_id"];
+    message = json["message"];
     return this;
   }
 
@@ -751,6 +754,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         status: json["status"],
         dealerId: json["dealer_id"],
         paymentCodeId: json["payment_code_id"],
+        message: json["message"],
       );
 
   @override
@@ -760,5 +764,6 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         "status": status,
         "dealer_id": dealerId,
         "payment_code_id": paymentCodeId,
+        "message": message,
       };
 }
