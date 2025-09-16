@@ -12,6 +12,52 @@ import 'isletme_courier_info.dart';
 /// Sepette ürün ekleme request inde kullanılan order model
 /// Order Masteri temsil etmekte
 class OrderModel extends IBaseModel<OrderModel> {
+  int? id;
+  List<OrderItem>? items;
+  String? ssoId;
+  int? dealerId;
+  String? callNumber;
+  String? nickName;
+  String? sessionId;
+  String? orderNote;
+  double? tipAmount;
+  int? customerId;
+  String? orderNumber;
+  OrderStatusModel? orderStatus;
+  double? totalAmount; // bahşiş + ürünlerin toplam fiyatı
+  double? serviceTotalAmount;
+  double? preTotalAmount; // sadece ürünlerin toplam fiyatı
+  double? preTotalAmountWithoutKdv;
+  String? deliveryDate;
+  String? orderPointId;
+  String? clientPointId;
+  String? deliveryTypeId;
+  String? sessionPointId;
+  double? tipAmountWithoutKdv;
+  double? totalAmountWithoutKdv;
+  OrderCustomerModel? customer;
+  DateTime? recordDate;
+  String? orderOptions;
+  CourierInfo? courierInfo;
+  CustomerAddressModel? customerAddress;
+  int? tableServiceId;
+  PaymentInfo? paymentInfo;
+  bool? isUseCampaign;
+  double? beforeCampaignTotal;
+  double? totalCampaignDiscount;
+  double? totalUsedCampaignBudget;
+  List<OrderCampaignsModel>? campaigns;
+  String? serviceDeliveryTypeId;
+  String? orderDeviceId; // App Or Kiosk
+  String? tableName;
+  int? pleksiNumber;
+  int? numberOfService;
+  double? tableServiceAmount; // Masa ya service ücreti
+  String? paymentModelId;
+  String? infoPhoneNumber;
+  String? invoiceSuccessLink;
+  List<PaymentTransactionModel>? paymentTransactions;
+
   OrderModel({
     this.id,
     this.items,
@@ -57,52 +103,8 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.paymentModelId,
     this.infoPhoneNumber,
     this.invoiceSuccessLink,
+    this.paymentTransactions,
   });
-
-  int? id;
-  List<OrderItem>? items;
-  String? ssoId;
-  int? dealerId;
-  String? callNumber;
-  String? nickName;
-  String? sessionId;
-  String? orderNote;
-  double? tipAmount;
-  int? customerId;
-  String? orderNumber;
-  OrderStatusModel? orderStatus;
-  double? totalAmount; // bahşiş + ürünlerin toplam fiyatı
-  double? serviceTotalAmount;
-  double? preTotalAmount; // sadece ürünlerin toplam fiyatı
-  double? preTotalAmountWithoutKdv;
-  String? deliveryDate;
-  String? orderPointId;
-  String? clientPointId;
-  String? deliveryTypeId;
-  String? sessionPointId;
-  double? tipAmountWithoutKdv;
-  double? totalAmountWithoutKdv;
-  OrderCustomerModel? customer;
-  DateTime? recordDate;
-  String? orderOptions;
-  CourierInfo? courierInfo;
-  CustomerAddressModel? customerAddress;
-  int? tableServiceId;
-  PaymentInfo? paymentInfo;
-  bool? isUseCampaign;
-  double? beforeCampaignTotal;
-  double? totalCampaignDiscount;
-  double? totalUsedCampaignBudget;
-  List<OrderCampaignsModel>? campaigns;
-  String? serviceDeliveryTypeId;
-  String? orderDeviceId; // App Or Kiosk
-  String? tableName;
-  int? pleksiNumber;
-  int? numberOfService;
-  double? tableServiceAmount; // Masa ya service ücreti
-  String? paymentModelId;
-  String? infoPhoneNumber;
-  String? invoiceSuccessLink;
 
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
@@ -158,6 +160,9 @@ class OrderModel extends IBaseModel<OrderModel> {
         paymentModelId: json["payment_model_id"],
         infoPhoneNumber: json["info_phone_number"],
         invoiceSuccessLink: json["invoice_success_link"],
+        paymentTransactions: json["payment_transactions"] == null
+            ? []
+            : List<PaymentTransactionModel>.from(json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x))),
       );
 
   @override
@@ -205,6 +210,8 @@ class OrderModel extends IBaseModel<OrderModel> {
         "payment_model_id": paymentModelId,
         "info_phone_number": infoPhoneNumber,
         "invoice_success_link": invoiceSuccessLink,
+        "payment_transactions":
+            paymentTransactions == null ? [] : List<dynamic>.from(paymentTransactions!.map((x) => x.toJson())),
       };
 }
 
@@ -709,5 +716,37 @@ class OrderCampaignsModel {
         "spot_title": spotTitle,
         "id": id,
         "campaign_amount": campaignAmount,
+      };
+}
+
+class PaymentTransactionModel {
+  int? id;
+  int? amount;
+  String? status;
+  int? dealerId;
+  String? paymentCodeId;
+
+  PaymentTransactionModel({
+    this.id,
+    this.amount,
+    this.status,
+    this.dealerId,
+    this.paymentCodeId,
+  });
+
+  factory PaymentTransactionModel.fromJson(Map<String, dynamic> json) => PaymentTransactionModel(
+        id: json["id"],
+        amount: json["amount"],
+        status: json["status"],
+        dealerId: json["dealer_id"],
+        paymentCodeId: json["payment_code_id"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "amount": amount,
+        "status": status,
+        "dealer_id": dealerId,
+        "payment_code_id": paymentCodeId,
       };
 }
