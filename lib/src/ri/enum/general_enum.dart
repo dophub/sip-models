@@ -43,6 +43,17 @@ enum PaymentTypeEnum {
   const PaymentTypeEnum(this.title);
 }
 
+enum PaymentTransactionsStatusEnum {
+  COMPLETED('Başarılı'),
+  WAIT('Bekleniyor'),
+  PENDING('Onayda'),
+  ERROR('Başarısız');
+
+  final String title;
+
+  const PaymentTransactionsStatusEnum(this.title);
+}
+
 enum PrintTemplateIdEnum {
   KITCHEN('Mutfak order printer.'),
   TABLE('Masa order printer'),
