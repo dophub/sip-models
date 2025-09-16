@@ -34,7 +34,9 @@ enum PaymentTypeEnum {
   WALLETONLINE('Cüzdan'),
   PAVOCARD('Pavo Kredi Kartı'),
   PAVOCASH('Pavo Nakit'),
-  PAYCELLQR('Paycell QR');
+  PAYCELLQR('Paycell QR'),
+  CASHPOS('Fiziki POS Nakit'),
+  CARDPOS('Fiziki POS Kredi Kartı');
 
   final String title;
 
