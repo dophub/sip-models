@@ -162,7 +162,8 @@ class OrderModel extends IBaseModel<OrderModel> {
         invoiceSuccessLink: json["invoice_success_link"],
         paymentTransactions: json["payment_transactions"] == null
             ? []
-            : List<PaymentTransactionModel>.from(json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x))),
+            : List<PaymentTransactionModel>.from(
+                json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x))),
       );
 
   @override
@@ -719,7 +720,7 @@ class OrderCampaignsModel {
       };
 }
 
-class PaymentTransactionModel {
+class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   int? id;
   double? amount;
   String? status;
@@ -734,6 +735,16 @@ class PaymentTransactionModel {
     this.paymentCodeId,
   });
 
+  @override
+  PaymentTransactionModel fromJson(Map<String, dynamic> json) {
+    id = json["id"];
+    amount = json["amount"]?.toDouble();
+    status = json["status"];
+    dealerId = json["dealer_id"];
+    paymentCodeId = json["payment_code_id"];
+    return this;
+  }
+
   factory PaymentTransactionModel.fromJson(Map<String, dynamic> json) => PaymentTransactionModel(
         id: json["id"],
         amount: json["amount"]?.toDouble(),
@@ -742,6 +753,7 @@ class PaymentTransactionModel {
         paymentCodeId: json["payment_code_id"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "amount": amount,
