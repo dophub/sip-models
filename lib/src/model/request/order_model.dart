@@ -721,7 +721,7 @@ class OrderCampaignsModel {
 
 class PaymentTransactionModel {
   int? id;
-  int? amount;
+  double? amount;
   String? status;
   int? dealerId;
   String? paymentCodeId;
@@ -736,7 +736,7 @@ class PaymentTransactionModel {
 
   factory PaymentTransactionModel.fromJson(Map<String, dynamic> json) => PaymentTransactionModel(
         id: json["id"],
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         status: json["status"],
         dealerId: json["dealer_id"],
         paymentCodeId: json["payment_code_id"],
