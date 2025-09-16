@@ -4,7 +4,7 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
   int? id;
   String? transactionId;
   String? sourceId;
-  String? amount;
+  double? amount;
   String? paymentMethod;
   String? status;
   String? trackId;
@@ -57,7 +57,7 @@ class StartPaymentTransactionModel extends IBaseModel<StartPaymentTransactionMod
         id: json["id"],
         transactionId: json["transaction_id"],
         sourceId: json["source_id"],
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         paymentMethod: json["payment_method"],
         status: json["status"],
         trackId: json["track_id"],
