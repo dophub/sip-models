@@ -44,10 +44,12 @@ enum PaymentTypeEnum {
 }
 
 enum PaymentTransactionsStatusEnum {
-  COMPLETED('Başarılı'),
-  WAIT('Bekleniyor'),
-  PENDING('Onayda'),
-  ERROR('Başarısız');
+  COMPLETED("Tamamlandı"),
+  WAITING("Beklemede"),
+  PENDING("İşlem Sürüyor"),
+  ERROR("Hata"),
+  CANCEL("İptal Edildi"),
+  REFUND("İade Edildi");
 
   final String title;
 
