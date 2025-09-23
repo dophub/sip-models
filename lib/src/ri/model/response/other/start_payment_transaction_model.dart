@@ -114,7 +114,7 @@ class StartPaymentTransactionPaymentInfoModel {
   String? ip;
   StartPaymentTransactionUserModel? user;
   List<StartPaymentTransactionItemModel>? items;
-  int? amount;
+  double? amount;
   String? serialNo;
   String? sourceId;
   String? sourceType;
@@ -141,7 +141,7 @@ class StartPaymentTransactionPaymentInfoModel {
             ? []
             : List<StartPaymentTransactionItemModel>.from(
             json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         serialNo: json["serial_no"],
         sourceId: json["source_id"],
         sourceType: json["source_type"],
@@ -154,7 +154,7 @@ class StartPaymentTransactionPaymentInfoModel {
         "ip": ip,
         "user": user?.toJson(),
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
-        "amount": amount,
+        "amount": amount?.toDouble(),
         "serial_no": serialNo,
         "source_id": sourceId,
         "source_type": sourceType,
