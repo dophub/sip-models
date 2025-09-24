@@ -9,6 +9,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? walletId;
   String? content;
   String? serialNo;
+  String? reasonCode;
   List<StartPaymentItemModel>? items;
 
   StartPaymentModel({
@@ -21,6 +22,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.content,
     this.serialNo,
     this.items,
+    this.reasonCode,
   });
 
   @override
@@ -33,6 +35,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         walletId: json["wallet_id"],
         content: json["content"],
         serialNo: json["serial_no"],
+        reasonCode: json["reason_code"],
         items: json["items"] == null
             ? []
             : List<StartPaymentItemModel>.from(json["items"]!.map((x) => StartPaymentItemModel.fromJson(x))),
@@ -48,6 +51,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "wallet_id": walletId,
         "content": content,
         "serial_no": serialNo,
+        "reason_code": reasonCode,
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
       };
 }
