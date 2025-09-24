@@ -17,6 +17,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   String? serviceDeliveryTypeId;
   KitchenOrderCourierModel? courier;
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
+  bool isSelected = false;
 
   KitchenOrderModel({
     this.orderId,
