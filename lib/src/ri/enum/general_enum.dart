@@ -36,7 +36,8 @@ enum PaymentTypeEnum {
   PAVOCASH('Pavo Nakit'),
   PAYCELLQR('Paycell QR'),
   CASHPOS('Fiziki POS Nakit'),
-  CARDPOS('Fiziki POS Kredi Kartı');
+  CARDPOS('Fiziki POS Kredi Kartı'),
+  NKOLAY('NKolay Online');
 
   final String title;
 
