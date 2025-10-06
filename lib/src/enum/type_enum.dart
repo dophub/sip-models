@@ -92,3 +92,8 @@ enum WalletMovementStatus {
   WAIT,
   ERROR,
 }
+
+
+
+/// Ödeme tipi
+enum PaymentSourceType { ORDER, SERVICE }
