@@ -11,6 +11,9 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? serialNo;
   String? reasonCode;
   List<StartPaymentItemModel>? items;
+  bool? use3D;
+  StartPaymentCardDetailModel? cardDetails;
+  String? cardId;
 
   StartPaymentModel({
     this.paymentType,
@@ -23,6 +26,9 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.serialNo,
     this.items,
     this.reasonCode,
+    this.use3D,
+    this.cardDetails,
+    this.cardId,
   });
 
   @override
@@ -39,6 +45,9 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         items: json["items"] == null
             ? []
             : List<StartPaymentItemModel>.from(json["items"]!.map((x) => StartPaymentItemModel.fromJson(x))),
+        use3D: json["use_3d"],
+        cardDetails: json["card_details"] == null ? null : StartPaymentCardDetailModel.fromJson(json["card_details"]),
+        cardId: json["card_id"],
       );
 
   @override
@@ -53,6 +62,45 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "serial_no": serialNo,
         "reason_code": reasonCode,
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+        "use_3d": use3D,
+        "card_details": cardDetails?.toJson(),
+        "card_id": cardId,
+      };
+}
+
+class StartPaymentCardDetailModel {
+  String? nameSurname;
+  String? month;
+  int? year;
+  int? cvv;
+  String? cardNumber;
+  bool? cardSave;
+
+  StartPaymentCardDetailModel({
+    this.nameSurname,
+    this.month,
+    this.year,
+    this.cvv,
+    this.cardNumber,
+    this.cardSave,
+  });
+
+  factory StartPaymentCardDetailModel.fromJson(Map<String, dynamic> json) => StartPaymentCardDetailModel(
+        nameSurname: json["name_surname"],
+        month: json["month"],
+        year: json["year"],
+        cvv: json["cvv"],
+        cardNumber: json["card_number"],
+        cardSave: json["card_save"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name_surname": nameSurname,
+        "month": month,
+        "year": year,
+        "cvv": cvv,
+        "card_number": cardNumber,
+        "card_save": cardSave,
       };
 }
 
