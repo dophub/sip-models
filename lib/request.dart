@@ -12,3 +12,4 @@ export 'src/model/request/auth/verification_model.dart';
 export 'src/model/request/dealer_search_request_model.dart';
 export 'src/model/request/comment_and_complaint_model.dart';
 export 'src/model/request/delete_account_model.dart';
+export 'package:sip_models/src/general/request/start_payment_model.dart';
