@@ -74,6 +74,7 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
   bool? isPosTriggering;
   String? paymentCodeId;
   String? paymentTagsId;
+  String? walletId;
 
   StartPaymentResponseTransactionModel({
     this.id,
@@ -99,6 +100,7 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
     this.isPosTriggering,
     this.paymentCodeId,
     this.paymentTagsId,
+    this.walletId,
   });
 
   @override
@@ -128,6 +130,7 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
         isPosTriggering: json["is_pos_triggering"],
         paymentCodeId: json["payment_code_id"],
         paymentTagsId: json["payment_tags_id"],
+        walletId: json["wallet_id"],
       );
 
   @override
@@ -155,6 +158,7 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
         "is_pos_triggering": isPosTriggering,
         "payment_code_id": paymentCodeId,
         "payment_tags_id": paymentTagsId,
+        "wallet_id": walletId,
       };
 }
 
