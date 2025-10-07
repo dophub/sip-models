@@ -25,6 +25,11 @@ class CardsModel {
       );
 }
 
+class NewCard implements IPaymentType {
+  @override
+  String get getName => '';
+}
+
 class CardModel implements IPaymentType {
   CardModel({
     this.cardId,
