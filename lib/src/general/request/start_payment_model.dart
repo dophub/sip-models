@@ -72,7 +72,7 @@ class StartPaymentCardDetailModel {
   String? nameSurname;
   String? month;
   String? year;
-  int? cvv;
+  String? cvv;
   String? cardNumber;
   bool? cardSave;
 
