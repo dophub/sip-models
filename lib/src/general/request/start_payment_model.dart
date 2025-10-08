@@ -71,7 +71,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
 class StartPaymentCardDetailModel {
   String? nameSurname;
   String? month;
-  int? year;
+  String? year;
   int? cvv;
   String? cardNumber;
   bool? cardSave;
