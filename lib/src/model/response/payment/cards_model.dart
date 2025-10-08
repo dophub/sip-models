@@ -1,3 +1,6 @@
+import 'package:sip_models/ri_enum.dart';
+import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
+
 abstract class IPaymentType {
   String get getName;
 }
@@ -26,8 +29,12 @@ class CardsModel {
 }
 
 class NewCard implements IPaymentType {
+  final PaymentTypeEnum paymentType;
+
+  NewCard(this.paymentType);
+
   @override
-  String get getName => '';
+  String get getName => paymentType.title;
 }
 
 class CardModel implements IPaymentType {
