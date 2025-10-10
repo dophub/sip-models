@@ -29,6 +29,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
     this.mobileStartCover,
     this.mainBrandIds,
     this.defaultLatLng,
+    this.virtualPaymentTypeCode,
   });
 
   bool? marketplace;
@@ -53,6 +54,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
   ImagesModel? mobileStartCover;
   List<int>? mainBrandIds;
   String? defaultLatLng;
+  String? virtualPaymentTypeCode;
 
   @override
   AppStatusModel fromJson(Map<String, dynamic> json) => AppStatusModel(
@@ -82,6 +84,7 @@ class AppStatusModel extends IBaseModel<AppStatusModel> {
                 ? json["force_update_ios"]
                 : json["force_update_android"],
         defaultLatLng: json["default_latlng"],
+        virtualPaymentTypeCode: json["virtual_payment_type_code"],
       );
 
   @override
