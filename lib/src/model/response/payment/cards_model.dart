@@ -21,7 +21,8 @@ class CardsModel {
 
   factory CardsModel.fromJson(Map<String, dynamic> json) => CardsModel(
         eulaId: json["eulaId"],
-        cardList: List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
+        cardList:
+            json["cardList"] == null ? null : List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
         turkcellMobilePayment:
             json['mobilePayment'] == null ? null : TurkcellMobilePayment.fromJson(json['mobilePayment']),
         payeCard: json['payeCard'] == null ? null : CardModel.fromJson(json['payeCard']),
@@ -48,7 +49,6 @@ class CardModel implements IPaymentType {
     this.showEulaId,
     this.isThreeDValidated,
     this.isOtpValidated,
-    this.activationDate,
     this.cardType,
     this.cardLogo,
   });
@@ -62,7 +62,6 @@ class CardModel implements IPaymentType {
   bool? showEulaId;
   bool? isThreeDValidated;
   bool? isOtpValidated;
-  DateTime? activationDate;
   String? cardType;
   String? cardLogo;
 
@@ -76,7 +75,6 @@ class CardModel implements IPaymentType {
         showEulaId: json["showEulaId"],
         isThreeDValidated: json["isThreeDValidated"],
         isOtpValidated: json["isOTPValidated"],
-        activationDate: DateTime.parse(json["activationDate"]),
         cardType: json["cardType"],
         cardLogo: json["card_logo"],
       );
