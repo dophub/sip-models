@@ -22,8 +22,7 @@ class CardsModel {
 
   factory CardsModel.fromJson(Map<String, dynamic> json) => CardsModel(
         eulaId: json["eulaId"],
-        cardList:
-            json["cardList"] == null ? null : List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
+        cardList: json["cardList"] == null ? null : CardModel().jsonParser(json['cardList']),
         turkcellMobilePayment:
             json['mobilePayment'] == null ? null : TurkcellMobilePayment.fromJson(json['mobilePayment']),
         payeCard: json['payeCard'] == null ? null : CardModel().jsonParser(json['payeCard']),
