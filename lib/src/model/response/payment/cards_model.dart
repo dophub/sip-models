@@ -1,3 +1,4 @@
+import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/ri_enum.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
 
@@ -25,7 +26,7 @@ class CardsModel {
             json["cardList"] == null ? null : List<CardModel>.from(json["cardList"].map((x) => CardModel.fromJson(x))),
         turkcellMobilePayment:
             json['mobilePayment'] == null ? null : TurkcellMobilePayment.fromJson(json['mobilePayment']),
-        payeCard: json['payeCard'] == null ? null : CardModel.fromJson(json['payeCard']),
+        payeCard: json['payeCard'] == null ? null : CardModel().jsonParser(json['payeCard']),
       );
 }
 
@@ -38,7 +39,7 @@ class NewCard implements IPaymentType {
   String get getName => paymentType.title;
 }
 
-class CardModel implements IPaymentType {
+class CardModel extends IBaseModel<CardModel> implements IPaymentType {
   CardModel({
     this.cardId,
     this.maskedCardNo,
@@ -71,8 +72,8 @@ class CardModel implements IPaymentType {
   String? virtualTypeName;
   String? virtualId;
 
-
-  factory CardModel.fromJson(Map<String, dynamic> json) => CardModel(
+  @override
+  fromJson(Map<String, dynamic> json) => CardModel(
         cardId: json["cardId"],
         maskedCardNo: json["maskedCardNo"],
         alias: json["alias"],
@@ -91,6 +92,11 @@ class CardModel implements IPaymentType {
 
   @override
   String get getName => '${alias!} - ${maskedCardNo!}';
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 class TurkcellMobilePayment implements IPaymentType {
