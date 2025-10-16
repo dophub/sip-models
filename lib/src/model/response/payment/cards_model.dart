@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:sip_models/response.dart';
 import 'package:sip_models/ri_enum.dart';
 import 'package:sip_models/src/model/response/parameters/parameters_Model.dart';
 
@@ -30,12 +31,12 @@ class CardsModel {
 }
 
 class NewCard implements IPaymentType {
-  final PaymentTypeEnum paymentType;
+  final PaymentTypesModel paymentType;
 
   NewCard(this.paymentType);
 
   @override
-  String get getName => paymentType.title;
+  String get getName => paymentType.getName;
 }
 
 class CardModel extends IBaseModel<CardModel> implements IPaymentType {
