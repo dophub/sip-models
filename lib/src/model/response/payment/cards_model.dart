@@ -51,6 +51,9 @@ class CardModel implements IPaymentType {
     this.isOtpValidated,
     this.cardType,
     this.cardLogo,
+    this.virtualType,
+    this.virtualTypeName,
+    this.virtualId,
   });
 
   String? cardId;
@@ -64,6 +67,10 @@ class CardModel implements IPaymentType {
   bool? isOtpValidated;
   String? cardType;
   String? cardLogo;
+  String? virtualType;
+  String? virtualTypeName;
+  String? virtualId;
+
 
   factory CardModel.fromJson(Map<String, dynamic> json) => CardModel(
         cardId: json["cardId"],
@@ -77,6 +84,9 @@ class CardModel implements IPaymentType {
         isOtpValidated: json["isOTPValidated"],
         cardType: json["cardType"],
         cardLogo: json["card_logo"],
+        virtualType: json["virtual_type"],
+        virtualTypeName: json["virtual_type_name"],
+        virtualId: json["virtual_id"],
       );
 
   @override
