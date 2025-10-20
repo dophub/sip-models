@@ -5,6 +5,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   bool? isFullPayment;
   String? sourceType;
   String? sourceId;
+  String? targetOrderId;
   double? amount;
   String? walletId;
   String? content;
@@ -20,6 +21,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.isFullPayment,
     this.sourceType,
     this.sourceId,
+    this.targetOrderId,
     this.amount,
     this.walletId,
     this.content,
@@ -37,6 +39,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         isFullPayment: json["is_full_payment"],
         sourceType: json["source_type"],
         sourceId: json["source_id"],
+        targetOrderId: json["target_order_id"],
         amount: json["amount"]?.toDouble(),
         walletId: json["wallet_id"],
         content: json["content"],
@@ -56,6 +59,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "is_full_payment": isFullPayment,
         "source_type": sourceType,
         "source_id": sourceId,
+        "target_order_id": targetOrderId,
         "amount": amount,
         "wallet_id": walletId,
         "content": content,
