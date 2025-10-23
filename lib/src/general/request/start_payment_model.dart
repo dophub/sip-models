@@ -15,6 +15,8 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   bool? use3D;
   StartPaymentCardDetailModel? cardDetails;
   String? cardId;
+  String? deliveryDate;
+  String? orderNote;
 
   StartPaymentModel({
     this.paymentType,
@@ -31,6 +33,8 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.use3D,
     this.cardDetails,
     this.cardId,
+    this.deliveryDate,
+    this.orderNote,
   });
 
   @override
@@ -51,6 +55,8 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         use3D: json["use_3d"],
         cardDetails: json["card_details"] == null ? null : StartPaymentCardDetailModel.fromJson(json["card_details"]),
         cardId: json["card_id"],
+        deliveryDate: json["delivery_date"],
+        orderNote: json["order_note"],
       );
 
   @override
@@ -69,6 +75,8 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "use_3d": use3D,
         "card_details": cardDetails?.toJson(),
         "card_id": cardId,
+        "delivery_date": deliveryDate,
+        "order_note": orderNote,
       };
 }
 
