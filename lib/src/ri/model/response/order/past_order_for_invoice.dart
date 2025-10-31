@@ -14,6 +14,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
     this.status,
     this.address,
     this.tableInfo,
+    this.isUseCampaign,
   });
 
   int? id;
@@ -28,6 +29,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
   Status? status;
   PastOrderForInvoiceAddressModel? address;
   TableInfo? tableInfo;
+  bool? isUseCampaign;
 
   @override
   PastOrderForInvoiceModel fromJson(Map<String, dynamic> json) {
@@ -44,6 +46,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
       status: Status.fromJson(json['status']),
       address: PastOrderForInvoiceAddressModel.fromJson(json['address']),
       tableInfo: TableInfo.fromJson(json['table_info']),
+      isUseCampaign: json['is_use_campaign'],
     );
   }
 
