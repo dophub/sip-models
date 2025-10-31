@@ -6,7 +6,6 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
     this.customerName,
     this.totalAmount,
     this.orderNumber,
-    this.revisionNumber,
     this.orderPointId,
     this.recordDate,
     this.title,
@@ -20,7 +19,6 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
   String? customerName;
   double? totalAmount;
   String? orderNumber;
-  String? revisionNumber;
   String? orderPointId;
   String? recordDate;
   String? title;
@@ -36,7 +34,6 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
       customerName: json['customer_name'],
       totalAmount: json['total_amount'].toDouble(),
       orderNumber: json['order_number'],
-      revisionNumber: json['revision_number'],
       orderPointId: json['order_point_id'],
       recordDate: json['record_date'],
       title: json['title'],
