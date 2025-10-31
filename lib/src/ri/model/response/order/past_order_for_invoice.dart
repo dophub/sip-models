@@ -5,6 +5,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
     this.id,
     this.customerName,
     this.totalAmount,
+    this.beforeCampaignTotal,
     this.orderNumber,
     this.orderPointId,
     this.recordDate,
@@ -18,6 +19,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
   int? id;
   String? customerName;
   double? totalAmount;
+  double? beforeCampaignTotal;
   String? orderNumber;
   String? orderPointId;
   String? recordDate;
@@ -33,6 +35,7 @@ class PastOrderForInvoiceModel extends IBaseModel<PastOrderForInvoiceModel> {
       id: json['id'],
       customerName: json['customer_name'],
       totalAmount: json['total_amount'].toDouble(),
+      beforeCampaignTotal: json['before_campaign_total']?.toDouble(),
       orderNumber: json['order_number'],
       orderPointId: json['order_point_id'],
       recordDate: json['record_date'],
@@ -60,14 +63,14 @@ class PastOrderForInvoiceAddressModel {
   String? neighborhoodName;
 
   factory PastOrderForInvoiceAddressModel.fromJson(Map<String, dynamic> json) => PastOrderForInvoiceAddressModel(
-    districtName: json['district_name'],
-    neighborhoodName: json['neighborhood_name'],
-  );
+        districtName: json['district_name'],
+        neighborhoodName: json['neighborhood_name'],
+      );
 
   Map<String, dynamic> toJson() => {
-    'district_name': districtName,
-    'neighborhood_name': neighborhoodName,
-  };
+        'district_name': districtName,
+        'neighborhood_name': neighborhoodName,
+      };
 }
 
 class Status {
@@ -82,16 +85,16 @@ class Status {
   String? orderStatusGroupId;
 
   factory Status.fromJson(Map<String, dynamic> json) => Status(
-    orderStatusCode: json['order_status_code'],
-    orderStatusName: json['order_status_name'],
-    orderStatusGroupId: json['order_status_group_id'],
-  );
+        orderStatusCode: json['order_status_code'],
+        orderStatusName: json['order_status_name'],
+        orderStatusGroupId: json['order_status_group_id'],
+      );
 
   Map<String, dynamic> toJson() => {
-    'order_status_code': orderStatusCode,
-    'order_status_name': orderStatusName,
-    'order_status_group_id': orderStatusGroupId,
-  };
+        'order_status_code': orderStatusCode,
+        'order_status_name': orderStatusName,
+        'order_status_group_id': orderStatusGroupId,
+      };
 }
 
 class TableInfo {
@@ -108,16 +111,16 @@ class TableInfo {
   dynamic tableName;
 
   factory TableInfo.fromJson(Map<String, dynamic> json) => TableInfo(
-    stationCode: json['station_code'],
-    stationName: json['station_name'],
-    tableCode: json['table_code'],
-    tableName: json['table_name'],
-  );
+        stationCode: json['station_code'],
+        stationName: json['station_name'],
+        tableCode: json['table_code'],
+        tableName: json['table_name'],
+      );
 
   Map<String, dynamic> toJson() => {
-    'station_code': stationCode,
-    'station_name': stationName,
-    'table_code': tableCode,
-    'table_name': tableName,
-  };
+        'station_code': stationCode,
+        'station_name': stationName,
+        'table_code': tableCode,
+        'table_name': tableName,
+      };
 }
