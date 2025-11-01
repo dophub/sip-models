@@ -19,7 +19,7 @@ class NextOrderStatusResponseModel extends IBaseModel<NextOrderStatusResponseMod
   fromJson(Map<String, dynamic> map) => NextOrderStatusResponseModel(
         order: map["order"] == null ? null : OrderModel().jsonParser(map["order"]),
         service: map["service"],
-        marketplace: map["marketplace"] == null ? null : json.decode(map["marketplace"]),
+        marketplace: map["marketplace"],
       );
 
   @override
