@@ -11,7 +11,7 @@ enum ApiLocalizationKeyEnum {
 
 enum DealerSettingItemTypeEnum { dropdown, checkbox, textbox }
 
-enum MenuVisStatusEnum { show, hide, hideTitle }
+enum MenuVisStatusEnum { show, hide, hideTitle, hideMenuAndVisibilityBtn }
 
 enum PrinterFontSizeEnum {
   XS(1),
