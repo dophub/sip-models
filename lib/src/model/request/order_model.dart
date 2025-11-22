@@ -558,22 +558,26 @@ class OrderCustomerModel {
     this.id,
     this.sessionId,
     this.nameSurname,
+    this.mobilePhone,
   });
 
   int? id;
   String? sessionId;
   String? nameSurname;
+  String? mobilePhone;
 
   factory OrderCustomerModel.fromJson(Map<String, dynamic> json) => OrderCustomerModel(
         id: json["id"],
         sessionId: json["sessionId"],
         nameSurname: json["name_surname"],
+        mobilePhone: json["mobile_phone"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "sessionId": sessionId,
         "name_surname": nameSurname,
+        "mobile_phone": mobilePhone,
       };
 }
 
