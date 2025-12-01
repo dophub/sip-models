@@ -742,15 +742,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   });
 
   @override
-  PaymentTransactionModel fromJson(Map<String, dynamic> json) {
-    id = json["id"];
-    amount = json["amount"]?.toDouble();
-    status = json["status"];
-    dealerId = json["dealer_id"];
-    paymentCodeId = json["payment_code_id"];
-    message = json["message"];
-    return this;
-  }
+  PaymentTransactionModel fromJson(Map<String, dynamic> json) => PaymentTransactionModel.fromJson(json);
 
   factory PaymentTransactionModel.fromJson(Map<String, dynamic> json) => PaymentTransactionModel(
         id: json["id"],
