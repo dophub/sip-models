@@ -300,6 +300,7 @@ class OrderItem {
     this.campaignId,
     this.isGift,
     this.isUseCampaign,
+    this.orderPayStatusTypeId,
   });
 
   int? id;
@@ -325,6 +326,7 @@ class OrderItem {
   int? campaignId;
   bool? isGift;
   bool? isUseCampaign;
+  String? orderPayStatusTypeId;
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
@@ -474,6 +476,7 @@ class OrderItem {
         campaignId: json["campaign_id"],
         isGift: json["is_gift"],
         isUseCampaign: json["is_use_campaign"],
+        orderPayStatusTypeId: json["order_pay_status_type_id"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -491,15 +494,16 @@ class OrderItem {
         "item_type_id": itemTypeId,
         "order_main_id": orderMainId,
         "promotion_menu_id": promotionMenuId,
-        "item_object": itemObject == null ? null : itemObject!.toJson(),
+        "item_object": itemObject?.toJson(),
         "item_price_without_kdv": itemPriceWithoutKdv,
         "total_price_without_kdv": totalPriceWithoutKdv,
-        "status": status == null ? null : status!.toJson(),
+        "status": status?.toJson(),
         "before_campaign_item_price": beforeCampaignItemPrice,
         "before_campaign_total": beforeCampaignTotal,
         "campaign_id": campaignId,
         "is_gift": isGift,
         "is_use_campaign": isUseCampaign,
+        "order_pay_status_type_id": orderPayStatusTypeId,
       };
 }
 
