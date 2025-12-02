@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import '../../general/response/payment_transaction_model.dart';
 import '../response/address/customer_address_model.dart';
 import '../response/other/images_model.dart';
 import '../response/other/menu_detail_model.dart';
@@ -548,7 +549,7 @@ class OrderOption {
         "option_type": optionType,
         "total_price": totalPrice,
         "section_id": sectionId,
-        "section_item": sectionItem == null ? null : sectionItem!.toJson(),
+        "section_item": sectionItem?.toJson(),
         "section_title": sectionTitle,
       };
 }
@@ -721,45 +722,5 @@ class OrderCampaignsModel {
         "spot_title": spotTitle,
         "id": id,
         "campaign_amount": campaignAmount,
-      };
-}
-
-class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
-  int? id;
-  double? amount;
-  String? status;
-  int? dealerId;
-  String? paymentCodeId;
-  String? message;
-
-  PaymentTransactionModel({
-    this.id,
-    this.amount,
-    this.status,
-    this.dealerId,
-    this.paymentCodeId,
-    this.message,
-  });
-
-  @override
-  PaymentTransactionModel fromJson(Map<String, dynamic> json) => PaymentTransactionModel.fromJson(json);
-
-  factory PaymentTransactionModel.fromJson(Map<String, dynamic> json) => PaymentTransactionModel(
-        id: json["id"],
-        amount: json["amount"]?.toDouble(),
-        status: json["status"],
-        dealerId: json["dealer_id"],
-        paymentCodeId: json["payment_code_id"],
-        message: json["message"],
-      );
-
-  @override
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "amount": amount,
-        "status": status,
-        "dealer_id": dealerId,
-        "payment_code_id": paymentCodeId,
-        "message": message,
       };
 }
