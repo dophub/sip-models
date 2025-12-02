@@ -110,7 +110,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   @override
   OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
         id: json["id"],
-        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem().fromJson(x))),
+        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
         ssoId: json["sso_id"],
         callNumber: json["callnumber"],
         dealerId: json["dealer_id"],
@@ -275,7 +275,7 @@ class PaymentInfo {
 
 /// [OrderModel] Order masterin Detayını temsil etmekte
 /// Mater için list halinde olup her biri bi ürünü temsil etmekte
-class OrderItem extends IBaseModel<OrderItem> {
+class OrderItem {
   OrderItem({
     this.id,
     this.count,
@@ -448,9 +448,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     return option;
   }
 
-
-  @override
-  OrderItem fromJson(Map<String, dynamic> json) => OrderItem(
+  factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
         id: json["id"],
         count: json["count"],
         options:
@@ -478,7 +476,6 @@ class OrderItem extends IBaseModel<OrderItem> {
         isUseCampaign: json["is_use_campaign"],
       );
 
-  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "count": count,
