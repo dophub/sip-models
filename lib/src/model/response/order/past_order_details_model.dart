@@ -77,7 +77,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
         dealer: DealerModel().fromJson(json["dealer"]),
         payment: json["payment"] == null ? PaymentDetailModel() : PaymentDetailModel.fromJson(json["payment"]),
         status: json["status"] == null ? StatusModel() : StatusModel.fromJson(json["status"]),
-        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
+        items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem().fromJson(x))),
         campaigns: json["campaigns"] == null
             ? []
             : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
