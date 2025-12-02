@@ -70,3 +70,5 @@ enum PrintTemplateIdEnum {
 
   const PrintTemplateIdEnum(this.title);
 }
+
+enum OrderItemPaymentStatus { SUCCESS, ERROR }
