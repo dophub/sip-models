@@ -12,7 +12,7 @@ class OrderItemsModel extends IBaseModel<OrderItemsModel> {
   });
 
   @override
-  fromJson(Map<String, dynamic> json) => OrderItemsModel(
+  OrderItemsModel fromJson(Map<String, dynamic> json) => OrderItemsModel(
         orderItems: json["orderItems"] == null
             ? []
             : List<OrderItem>.from(json["orderItems"]!.map((x) => OrderItem.fromJson(x))),
