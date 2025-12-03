@@ -33,7 +33,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         message: json["message"],
         paymentInfo:
             json["payment_info"] == null ? null : PaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]).toLocal(),
       );
 
   @override
