@@ -52,7 +52,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
 class PaymentTransactionPaymentInfoModel {
   String? ip;
   List<PaymentTransactionItemModel>? items;
-  int? amount;
+  double? amount;
   bool? use3D;
   String? sourceId;
   String? sourceType;
@@ -78,7 +78,7 @@ class PaymentTransactionPaymentInfoModel {
             ? []
             : List<PaymentTransactionItemModel>.from(
                 json["items"]!.map((x) => PaymentTransactionItemModel.fromJson(x))),
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         use3D: json["use_3d"],
         sourceId: json["source_id"],
         sourceType: json["source_type"],
