@@ -8,6 +8,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   String? paymentCodeId;
   String? message;
   PaymentTransactionPaymentInfoModel? paymentInfo;
+  DateTime? createdAt;
 
   PaymentTransactionModel({
     this.id,
@@ -17,6 +18,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
     this.paymentCodeId,
     this.message,
     this.paymentInfo,
+    this.createdAt,
   });
 
   @override
@@ -31,6 +33,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         message: json["message"],
         paymentInfo:
             json["payment_info"] == null ? null : PaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
       );
 
   @override
@@ -42,6 +45,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         "payment_code_id": paymentCodeId,
         "message": message,
         "payment_info": paymentInfo?.toJson(),
+        "created_at": createdAt?.toIso8601String(),
       };
 }
 
