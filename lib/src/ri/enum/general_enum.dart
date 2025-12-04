@@ -71,4 +71,10 @@ enum PrintTemplateIdEnum {
   const PrintTemplateIdEnum(this.title);
 }
 
-enum OrderItemPaymentStatus { SUCCESS, ERROR }
+enum OrderItemPaymentStatus {
+  WAITING, //	Bekliyor
+  SUCCESS, //Tamamlandı
+  CANCEL, // İptal
+  REFUND, //	Iade
+  ERROR, //	Hatalı
+}
