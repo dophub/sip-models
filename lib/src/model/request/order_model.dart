@@ -275,7 +275,7 @@ class PaymentInfo {
 
 /// [OrderModel] Order masterin Detayını temsil etmekte
 /// Mater için list halinde olup her biri bi ürünü temsil etmekte
-class OrderItem {
+class OrderItem extends IBaseModel<OrderItem> {
   OrderItem({
     this.id,
     this.count,
@@ -450,7 +450,10 @@ class OrderItem {
     return option;
   }
 
-  factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
+  factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem().fromJson(json);
+
+  @override
+  OrderItem fromJson(Map<String, dynamic> json) => OrderItem(
         id: json["id"],
         count: json["count"],
         options:
@@ -479,6 +482,7 @@ class OrderItem {
         orderPayStatusTypeId: json["order_pay_status_type_id"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "count": count,
