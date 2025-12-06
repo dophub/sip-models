@@ -41,14 +41,14 @@ class OrderPaySocketEventModel {
 
 class OrderPaySocketEventOrderModel {
   int? id;
-  int? totalAmount;
+  double? totalAmount;
   String? orderNote;
-  int? tipAmount;
+  double? tipAmount;
   String? clientPointId;
   String? orderStatusId;
   String? paymentTypeId;
   bool? isUseCampaign;
-  int? beforeCampaignTotal;
+  double? beforeCampaignTotal;
   String? orderPayStatusTypeId;
 
   OrderPaySocketEventOrderModel({
@@ -66,14 +66,14 @@ class OrderPaySocketEventOrderModel {
 
   factory OrderPaySocketEventOrderModel.fromJson(Map<String, dynamic> json) => OrderPaySocketEventOrderModel(
         id: json["id"],
-        totalAmount: json["total_amount"],
+        totalAmount: json["total_amount"]?.toDouble(),
         orderNote: json["order_note"],
-        tipAmount: json["tip_amount"],
+        tipAmount: json["tip_amount"]?.toDouble(),
         clientPointId: json["client_point_id"],
         orderStatusId: json["order_status_id"],
         paymentTypeId: json["payment_type_id"],
         isUseCampaign: json["is_use_campaign"],
-        beforeCampaignTotal: json["before_campaign_total"],
+        beforeCampaignTotal: json["before_campaign_total"]?.toDouble(),
         orderPayStatusTypeId: json["order_pay_status_type_id"],
       );
 
@@ -94,11 +94,11 @@ class OrderPaySocketEventOrderModel {
 class OrderPaySocketEventServiceModel {
   int? id;
   int? personCount;
-  int? totalTipAmount;
+  double? totalTipAmount;
   String? paymentTypeId;
-  int? serviceTotalAmount;
+  double? serviceTotalAmount;
   String? serviceStatusId;
-  int? tableServiceAmount;
+  double? tableServiceAmount;
   List<OrderPaySocketEventOrderModel>? orders;
 
   OrderPaySocketEventServiceModel({
@@ -115,11 +115,11 @@ class OrderPaySocketEventServiceModel {
   factory OrderPaySocketEventServiceModel.fromJson(Map<String, dynamic> json) => OrderPaySocketEventServiceModel(
         id: json["id"],
         personCount: json["person_count"],
-        totalTipAmount: json["total_tip_amount"],
+        totalTipAmount: json["total_tip_amount"]?.toDouble(),
         paymentTypeId: json["payment_type_id"],
-        serviceTotalAmount: json["service_total_amount"],
+        serviceTotalAmount: json["service_total_amount"]?.toDouble(),
         serviceStatusId: json["service_status_id"],
-        tableServiceAmount: json["table_service_amount"],
+        tableServiceAmount: json["table_service_amount"]?.toDouble(),
         orders: json["orders"] == null
             ? []
             : List<OrderPaySocketEventOrderModel>.from(
@@ -143,7 +143,7 @@ class OrderPaySocketEventTransactionModel {
   String? trackId;
   String? sourceId;
   String? sourceTypeId;
-  int? amount;
+  double? amount;
   String? status;
   String? message;
   String? paymentCodeId;
@@ -165,7 +165,7 @@ class OrderPaySocketEventTransactionModel {
         trackId: json["track_id"],
         sourceId: json["source_id"],
         sourceTypeId: json["source_type_id"],
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         status: json["status"],
         message: json["message"],
         paymentCodeId: json["payment_code_id"],
