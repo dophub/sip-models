@@ -7,6 +7,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   int? dealerId;
   String? paymentCodeId;
   String? message;
+  String? transactionId;
   PaymentTransactionPaymentInfoModel? paymentInfo;
   DateTime? createdAt;
 
@@ -17,6 +18,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
     this.dealerId,
     this.paymentCodeId,
     this.message,
+    this.transactionId,
     this.paymentInfo,
     this.createdAt,
   });
@@ -31,6 +33,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         dealerId: json["dealer_id"],
         paymentCodeId: json["payment_code_id"],
         message: json["message"],
+        transactionId: json["transaction_id"],
         paymentInfo:
             json["payment_info"] == null ? null : PaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
         createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]).toLocal(),
@@ -44,6 +47,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         "dealer_id": dealerId,
         "payment_code_id": paymentCodeId,
         "message": message,
+        "transaction_id": transactionId,
         "payment_info": paymentInfo?.toJson(),
         "created_at": createdAt?.toIso8601String(),
       };

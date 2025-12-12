@@ -1,6 +1,6 @@
 name: sip_models
 description: TürkcellSiparişim uygulamasında kullanılan modeller
-version: 1.2.50
+version: 1.2.51
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
