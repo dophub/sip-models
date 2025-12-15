@@ -4,6 +4,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
   int? id;
   double? amount;
   String? status;
+  String? sourceId;
   int? dealerId;
   String? paymentCodeId;
   String? message;
@@ -15,6 +16,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
     this.id,
     this.amount,
     this.status,
+    this.sourceId,
     this.dealerId,
     this.paymentCodeId,
     this.message,
@@ -30,6 +32,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         id: json["id"],
         amount: json["amount"]?.toDouble(),
         status: json["status"],
+        sourceId: json["source_id"],
         dealerId: json["dealer_id"],
         paymentCodeId: json["payment_code_id"],
         message: json["message"],
@@ -44,6 +47,7 @@ class PaymentTransactionModel extends IBaseModel<PaymentTransactionModel> {
         "id": id,
         "amount": amount,
         "status": status,
+        "source_id": sourceId,
         "dealer_id": dealerId,
         "payment_code_id": paymentCodeId,
         "message": message,
