@@ -1,3 +1,7 @@
+import 'dart:ui' show Color;
+
+import 'package:flutter/material.dart' show Colors;
+
 enum ApiLocalizationKeyEnum {
   DELIVERY_SS_TEXT, //	Teslimat tipi Self-Servis buton metni
   DELIVERY_TABLE_TEXT, //	Teslimat tipi Masaya Servis buton metni
@@ -46,16 +50,17 @@ enum PaymentTypeEnum {
 }
 
 enum PaymentTransactionsStatusEnum {
-  COMPLETED("Tamamlandı"),
-  WAITING("Beklemede"),
-  PENDING("İşlem Sürüyor"),
-  ERROR("Hata"),
-  CANCEL("İptal Edildi"),
-  REFUND("İade Edildi");
+  COMPLETED("Tamamlandı", Colors.green),
+  WAITING("Beklemede", Colors.yellow),
+  PENDING("İşlem Sürüyor", Colors.yellow),
+  ERROR("Hata", Colors.red),
+  CANCEL("İptal Edildi", Colors.red),
+  REFUND("İade Edildi", Colors.red);
 
   final String title;
+  final Color color;
 
-  const PaymentTransactionsStatusEnum(this.title);
+  const PaymentTransactionsStatusEnum(this.title, this.color);
 }
 
 enum PrintTemplateIdEnum {
