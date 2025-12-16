@@ -78,7 +78,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         clientPointId: json["client_point_id"],
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
         paymentTypeId: json['payment_type_id'],
-        totalAmount: json['total_amount'],
+        totalAmount: json['total_amount']?.toDouble(),
       );
 }
 
