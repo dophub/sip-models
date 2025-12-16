@@ -47,7 +47,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   String? paymentModelId;
   String? clientPointId;
   String? orderNumber;
-  double? totalAmount; // sadece RI depo kullanılmakta
+  double? totalAmount;
   String? addressName; // sadece RI depo kullanılmakta
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
   String? paymentTypeId;
@@ -78,6 +78,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         clientPointId: json["client_point_id"],
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
         paymentTypeId: json['payment_type_id'],
+        totalAmount: json['total_amount'],
       );
 }
 
