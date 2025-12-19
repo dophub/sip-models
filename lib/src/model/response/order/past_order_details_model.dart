@@ -29,6 +29,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.serviceDeliveryTypeId,
     this.orderComment,
     this.orderRating,
+    this.customerAddress,
   });
 
   int? id;
@@ -55,6 +56,7 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   int? tableServiceId;
   List<PastOrderDetailsOrderCommentModel>? orderComment;
   List<PastOrderDetailsRatingModel>? orderRating;
+  CustomerAddressModel? customerAddress;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
@@ -90,6 +92,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
             ? []
             : List<PastOrderDetailsRatingModel>.from(
                 json["order_rating"]!.map((x) => PastOrderDetailsRatingModel.fromJson(x))),
+        customerAddress:
+            json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
       );
 
   @override
