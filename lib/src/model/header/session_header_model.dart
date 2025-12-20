@@ -48,6 +48,8 @@ class SessionHeaderModel {
       "lang": lang,
       "orderpoint": orderPoint == null ? '' : orderPoint!.name,
       "neighborhoodid": (address.neighborhoodId ?? 0).toString(),
+      "districtid": (address.districtId ?? 0).toString(),
+      "cityid": (address.cityId ?? 0).toString(),
       "addressid": (address.id ?? 0).toString(),
       "latlng": address.latlng ?? '0,0',
       "panel": "d",
