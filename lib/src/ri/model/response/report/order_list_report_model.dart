@@ -79,7 +79,7 @@ class OrderListReportOrderModel {
         id: json["id"],
         orderNumber: json["order_number"],
         createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
-        totalAmount: json["total_amount"]?.toDouble(),,
+        totalAmount: json["total_amount"]?.toDouble(),
         dealerName: json["dealer_name"],
         customerName: json["customer_name"],
         customerPhone: json["customer_phone"],
