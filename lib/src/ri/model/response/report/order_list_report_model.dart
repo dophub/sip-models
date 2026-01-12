@@ -52,7 +52,7 @@ class OrderListReportOrderModel {
   int? id;
   String? orderNumber;
   DateTime? createDate;
-  int? totalAmount;
+  double? totalAmount;
   String? dealerName;
   String? customerName;
   String? customerPhone;
@@ -79,7 +79,7 @@ class OrderListReportOrderModel {
         id: json["id"],
         orderNumber: json["order_number"],
         createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
-        totalAmount: json["total_amount"],
+        totalAmount: json["total_amount"]?.toDouble(),,
         dealerName: json["dealer_name"],
         customerName: json["customer_name"],
         customerPhone: json["customer_phone"],
@@ -106,7 +106,7 @@ class OrderListReportOrderModel {
 
 class OrderListReportStatsModel {
   int? totalOrders;
-  int? totalRevenue;
+  double? totalRevenue;
   double? averageOrderValue;
   OrderListReportStatusBreakdownModel? statusBreakdown;
 
@@ -118,7 +118,7 @@ class OrderListReportStatsModel {
   });
 
   factory OrderListReportStatsModel.fromJson(Map<String, dynamic> json) => OrderListReportStatsModel(
-        totalOrders: json["total_orders"],
+        totalOrders: json["total_orders"]?.toDouble(),
         totalRevenue: json["total_revenue"],
         averageOrderValue: json["average_order_value"]?.toDouble(),
         statusBreakdown: json["status_breakdown"] == null ? null : OrderListReportStatusBreakdownModel.fromJson(json["status_breakdown"]),
