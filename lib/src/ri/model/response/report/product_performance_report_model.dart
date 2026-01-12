@@ -96,7 +96,7 @@ class ProductPerformanceReportSummaryModel {
   double? totalRevenue;
   double? totalRevenueTrend;
   int? totalQuantitySold;
-  int? totalQuantitySoldTrend;
+  double? totalQuantitySoldTrend;
   int? uniqueProducts;
   String? topProduct;
 
@@ -113,7 +113,7 @@ class ProductPerformanceReportSummaryModel {
         totalRevenue: json["total_revenue"]?.toDouble(),
         totalRevenueTrend: json["total_revenue_trend"]?.toDouble(),
         totalQuantitySold: json["total_quantity_sold"],
-        totalQuantitySoldTrend: json["total_quantity_sold_trend"],
+        totalQuantitySoldTrend: json["total_quantity_sold_trend"]?.toDouble(),
         uniqueProducts: json["unique_products"],
         topProduct: json["top_product"],
       );
