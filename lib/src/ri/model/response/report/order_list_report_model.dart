@@ -15,7 +15,9 @@ class OrderListReportModel extends IBaseModel<OrderListReportModel> {
   fromJson(Map<String, dynamic> json) => OrderListReportModel(
         dateRange: json["date_range"] == null ? null : OrderListReportDateRangeModel.fromJson(json["date_range"]),
         stats: json["stats"] == null ? null : OrderListReportStatsModel.fromJson(json["stats"]),
-        orders: json["orders"] == null ? [] : List<OrderListReportOrderModel>.from(json["orders"]!.map((x) => OrderListReportOrderModel.fromJson(x))),
+        orders: json["orders"] == null
+            ? []
+            : List<OrderListReportOrderModel>.from(json["orders"]!.map((x) => OrderListReportOrderModel.fromJson(x))),
       );
 
   @override
@@ -118,10 +120,12 @@ class OrderListReportStatsModel {
   });
 
   factory OrderListReportStatsModel.fromJson(Map<String, dynamic> json) => OrderListReportStatsModel(
-        totalOrders: json["total_orders"]?.toDouble(),
-        totalRevenue: json["total_revenue"],
+        totalOrders: json["total_orders"],
+        totalRevenue: json["total_revenue"]?.toDouble(),
         averageOrderValue: json["average_order_value"]?.toDouble(),
-        statusBreakdown: json["status_breakdown"] == null ? null : OrderListReportStatusBreakdownModel.fromJson(json["status_breakdown"]),
+        statusBreakdown: json["status_breakdown"] == null
+            ? null
+            : OrderListReportStatusBreakdownModel.fromJson(json["status_breakdown"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -147,7 +151,8 @@ class OrderListReportStatusBreakdownModel {
     this.yolda,
   });
 
-  factory OrderListReportStatusBreakdownModel.fromJson(Map<String, dynamic> json) => OrderListReportStatusBreakdownModel(
+  factory OrderListReportStatusBreakdownModel.fromJson(Map<String, dynamic> json) =>
+      OrderListReportStatusBreakdownModel(
         hazrlanyor: json["_hazırlanıyor"],
         ptal: json["İptal"],
         cihazda: json["_cihazda"],
