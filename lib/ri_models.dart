@@ -69,6 +69,7 @@ export 'package:sip_models/src/ri/model/response/qr/assigned_tables_model.dart';
 export 'package:sip_models/src/ri/model/response/order/next_order_status_response_model.dart';
 export 'package:sip_models/src/ri/model/response/qr/qr_check_model.dart';
 export 'package:sip_models/src/ri/model/response/report/daily_report_model.dart';
+export 'package:sip_models/src/ri/model/response/report/dashboard_report_model.dart';
 export 'package:sip_models/src/ri/model/response/station/service_model.dart';
 export 'package:sip_models/src/ri/model/response/station/station_model.dart';
 export 'package:sip_models/src/ri/model/response/station/status_model.dart';
