@@ -1,4 +1,6 @@
-class DashboardReportModel {
+import 'package:background_json_parser/background_json_parser.dart';
+
+class DashboardReportModel extends IBaseModel<DashboardReportModel> {
   DashboardReportDateRangeModel? dateRange;
   DashboardReportOverviewModel? overview;
   DashboardReportBreakdownsModel? breakdowns;
@@ -9,12 +11,14 @@ class DashboardReportModel {
     this.breakdowns,
   });
 
-  factory DashboardReportModel.fromJson(Map<String, dynamic> json) => DashboardReportModel(
+  @override
+  fromJson(Map<String, dynamic> json) => DashboardReportModel(
         dateRange: json["date_range"] == null ? null : DashboardReportDateRangeModel.fromJson(json["date_range"]),
         overview: json["overview"] == null ? null : DashboardReportOverviewModel.fromJson(json["overview"]),
         breakdowns: json["breakdowns"] == null ? null : DashboardReportBreakdownsModel.fromJson(json["breakdowns"]),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "date_range": dateRange?.toJson(),
         "overview": overview?.toJson(),
