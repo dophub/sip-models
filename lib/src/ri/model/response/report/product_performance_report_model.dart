@@ -52,7 +52,7 @@ class ProductPerformanceReportProductModel {
   int? productId;
   String? productName;
   int? totalQuantity;
-  int? totalRevenue;
+  double? totalRevenue;
   int? orderInclusionCount;
   double? averagePrice;
   int? rank;
@@ -73,7 +73,7 @@ class ProductPerformanceReportProductModel {
         productId: json["product_id"],
         productName: json["product_name"],
         totalQuantity: json["total_quantity"],
-        totalRevenue: json["total_revenue"],
+        totalRevenue: json["total_revenue"]?.toDouble(),
         orderInclusionCount: json["order_inclusion_count"],
         averagePrice: json["average_price"]?.toDouble(),
         rank: json["rank"],
@@ -93,8 +93,8 @@ class ProductPerformanceReportProductModel {
 }
 
 class ProductPerformanceReportSummaryModel {
-  int? totalRevenue;
-  int? totalRevenueTrend;
+  double? totalRevenue;
+  double? totalRevenueTrend;
   int? totalQuantitySold;
   int? totalQuantitySoldTrend;
   int? uniqueProducts;
@@ -110,8 +110,8 @@ class ProductPerformanceReportSummaryModel {
   });
 
   factory ProductPerformanceReportSummaryModel.fromJson(Map<String, dynamic> json) => ProductPerformanceReportSummaryModel(
-        totalRevenue: json["total_revenue"],
-        totalRevenueTrend: json["total_revenue_trend"],
+        totalRevenue: json["total_revenue"]?.toDouble(),
+        totalRevenueTrend: json["total_revenue_trend"]?.toDouble(),
         totalQuantitySold: json["total_quantity_sold"],
         totalQuantitySoldTrend: json["total_quantity_sold_trend"],
         uniqueProducts: json["unique_products"],
