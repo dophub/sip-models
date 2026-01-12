@@ -70,6 +70,9 @@ export 'package:sip_models/src/ri/model/response/order/next_order_status_respons
 export 'package:sip_models/src/ri/model/response/qr/qr_check_model.dart';
 export 'package:sip_models/src/ri/model/response/report/daily_report_model.dart';
 export 'package:sip_models/src/ri/model/response/report/dashboard_report_model.dart';
+export 'package:sip_models/src/ri/model/response/report/daily_sale_report_model.dart';
+export 'package:sip_models/src/ri/model/response/report/product_performance_report_model.dart';
+export 'package:sip_models/src/ri/model/response/report/order_list_report_model.dart';
 export 'package:sip_models/src/ri/model/response/station/service_model.dart';
 export 'package:sip_models/src/ri/model/response/station/station_model.dart';
 export 'package:sip_models/src/ri/model/response/station/status_model.dart';
