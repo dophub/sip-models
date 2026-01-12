@@ -40,7 +40,7 @@ class DailySaleReportBranchModel {
   int? dealerId;
   String? dealerName;
   String? dealerCode;
-  int? totalSales;
+  double? totalSales;
   int? transactionCount;
   List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
 
@@ -57,7 +57,7 @@ class DailySaleReportBranchModel {
         dealerId: json["dealer_id"],
         dealerName: json["dealer_name"],
         dealerCode: json["dealer_code"],
-        totalSales: json["total_sales"],
+        totalSales: json["total_sales"]?.toDouble(),
         transactionCount: json["transaction_count"],
         paymentBreakdown: json["payment_breakdown"] == null
             ? []
@@ -79,7 +79,7 @@ class DailySaleReportBranchModel {
 class DailySaleReportPaymentBreakdownModel {
   String? paymentTypeId;
   String? paymentTypeName;
-  int? amount;
+  double? amount;
   int? transactionCount;
   double? amountPercent;
   double? countPercent;
@@ -97,7 +97,7 @@ class DailySaleReportPaymentBreakdownModel {
       DailySaleReportPaymentBreakdownModel(
         paymentTypeId: json["payment_type_id"],
         paymentTypeName: json["payment_type_name"],
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         transactionCount: json["transaction_count"],
         amountPercent: json["amount_percent"]?.toDouble(),
         countPercent: json["count_percent"]?.toDouble(),
@@ -138,7 +138,7 @@ class DailySaleReportDateRangeModel {
 class DailySaleReportDeviceModel {
   String? deviceId;
   String? deviceName;
-  int? totalSales;
+  double? totalSales;
   int? transactionCount;
   List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
 
@@ -153,7 +153,7 @@ class DailySaleReportDeviceModel {
   factory DailySaleReportDeviceModel.fromJson(Map<String, dynamic> json) => DailySaleReportDeviceModel(
         deviceId: json["device_id"],
         deviceName: json["device_name"],
-        totalSales: json["total_sales"],
+        totalSales: json["total_sales"]?.toDouble(),
         transactionCount: json["transaction_count"],
         paymentBreakdown: json["payment_breakdown"] == null
             ? []
@@ -172,10 +172,10 @@ class DailySaleReportDeviceModel {
 }
 
 class DailySaleReportSummaryModel {
-  int? totalSales;
-  int? totalSalesTrend;
+  double? totalSales;
+  double? totalSalesTrend;
   int? transactionCount;
-  int? transactionCountTrend;
+  double? transactionCountTrend;
   List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
 
   DailySaleReportSummaryModel({
@@ -187,10 +187,10 @@ class DailySaleReportSummaryModel {
   });
 
   factory DailySaleReportSummaryModel.fromJson(Map<String, dynamic> json) => DailySaleReportSummaryModel(
-        totalSales: json["total_sales"],
-        totalSalesTrend: json["total_sales_trend"],
+        totalSales: json["total_sales"]?.toDouble(),
+        totalSalesTrend: json["total_sales_trend"]?.toDouble(),
         transactionCount: json["transaction_count"],
-        transactionCountTrend: json["transaction_count_trend"],
+        transactionCountTrend: json["transaction_count_trend"]?.toDouble(),
         paymentBreakdown: json["payment_breakdown"] == null
             ? []
             : List<DailySaleReportPaymentBreakdownModel>.from(
