@@ -52,6 +52,7 @@ class DealerModel extends IBaseModel<DealerModel> {
 
   /// Product Listesi Searchte kullanılıyor
   List<ProductModel>? products;
+  bool? restaurantInWorkingHours;
 
   DealerModel({
     this.id,
@@ -98,6 +99,7 @@ class DealerModel extends IBaseModel<DealerModel> {
     this.mainBrand,
     this.isOutOfTakeoutZone,
     this.products,
+    this.restaurantInWorkingHours,
   });
 
   @override
@@ -153,6 +155,7 @@ class DealerModel extends IBaseModel<DealerModel> {
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
+        restaurantInWorkingHours: json["restaurant_in_working_hours"],
       );
 
   @override
