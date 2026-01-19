@@ -31,6 +31,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
     this.menuListTypeId,
     this.listOrder,
     this.products,
+    this.imageUrl,
   });
 
   CategoryModel.clone(CategoryModel obj)
@@ -40,6 +41,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
           menuListTypeId: obj.menuListTypeId,
           listOrder: obj.listOrder,
           products: obj.products,
+          imageUrl: obj.imageUrl,
         );
 
   Key? key;
@@ -48,6 +50,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
   String? menuListTypeId;
   int? listOrder;
   List<ProductModel>? products;
+  String? imageUrl;
 
   @override
   CategoryModel fromJson(Map<dynamic, dynamic> json) => CategoryModel(
@@ -58,6 +61,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
         products: json["products"] == null
             ? []
             : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
+        imageUrl: json['image_url'],
       );
 
   @override
