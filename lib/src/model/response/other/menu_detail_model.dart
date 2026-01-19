@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import 'package:flutter/cupertino.dart';
 import '../campaign/campaign_model.dart';
 import 'images_model.dart';
 import 'price_model.dart';
@@ -24,6 +25,7 @@ class MenuDetailModel {
 
 class CategoryModel extends IBaseModel<CategoryModel> {
   CategoryModel({
+    this.key,
     this.id,
     this.categoryName,
     this.menuListTypeId,
@@ -40,6 +42,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
           products: obj.products,
         );
 
+  Key? key;
   int? id;
   String? categoryName;
   String? menuListTypeId;
