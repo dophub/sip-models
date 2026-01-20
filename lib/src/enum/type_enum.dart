@@ -79,21 +79,20 @@ enum WalletSourceType {
   WALLET_OUT,
 }
 
-/// [WalletSourceType] Cüzdan hareket tipi
-/// [COMPLETED] Başarılı
-/// [SUCCESS] Başarılı
-/// [FAIL] Başarısız
-/// [WAIT] Bekelmede
+/// [COMPLETED] Tamamlandı
+/// [PENDING] Beklemede
 /// [ERROR] Hata
+/// [CANCEL] İptal
+/// [WAITING] Bekliyor
+/// [REVERSAL]  Para iadesi alma
 enum WalletMovementStatus {
   COMPLETED,
-  SUCCESS,
-  FAIL,
-  WAIT,
+  PENDING,
   ERROR,
+  CANCEL,
+  WAITING,
+  REVERSAL,
 }
-
-
 
 /// Ödeme tipi
 enum PaymentSourceType { ORDER, SERVICE }
