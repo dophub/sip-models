@@ -95,4 +95,15 @@ enum WalletMovementStatus {
 }
 
 /// Ödeme tipi
-enum PaymentSourceType { ORDER, SERVICE }
+/// [ORDER] ORder ödeme
+/// [SERVICE] service mödeme
+/// [WALLET_IN] cüzdan bakiyesinde işlem yapıldığında (cüzdana para yükleme)
+/// [WALLET_OUT] cüzdan bakiyesinde işlem yapıldığında (cüzdana para eksiltme)
+/// [TRANSACTION] iptal iade işlemlerinde olur hangi transation iptal olacak gibi
+enum PaymentSourceType {
+  ORDER,
+  SERVICE,
+  WALLET_IN,
+  WALLET_OUT,
+  TRANSACTION,
+}
