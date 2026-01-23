@@ -63,9 +63,12 @@ enum TableServiceType {
 }
 
 /// [WalletType] çüzdan tip
-/// [PrePaid] Önceden Ödemeli
-/// [PostPaid] Sonradan ödemeli
-enum WalletType { PrePaid, PostPaid }
+enum WalletType {
+  PrePaid, //	On Odemeli
+  PostPaid, //	Sonradan Odemeli
+  Discount, //	Indirim karti	(komşu kartı vs..)
+  Loyalty, //	Harca Kazan
+}
 
 /// [WalletSourceType] Cüzdan hareket tipi
 /// [ORDER] sipariş ödemesi
