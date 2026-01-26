@@ -26,6 +26,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   final int? walletId;
   final bool? invoiceStatus;
   final String? paymentCodeId;
+  WalletMovementPaymentTagsModel? paymentTags;
 
   WalletMovementModel({
     this.id,
@@ -53,6 +54,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     this.walletId,
     this.invoiceStatus,
     this.paymentCodeId,
+    this.paymentTags,
   });
 
   @override
@@ -82,6 +84,8 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
         walletId: json["wallet_id"],
         invoiceStatus: json["invoicestatus"],
         paymentCodeId: json["payment_code_id"],
+        paymentTags:
+            json["payment_tags"] == null ? null : WalletMovementPaymentTagsModel.fromJson(json["payment_tags"]),
       );
 
   @override
@@ -111,5 +115,30 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
         "wallet_id": walletId,
         "invoicestatus": invoiceStatus,
         "payment_code_id": paymentCodeId,
+        "payment_tags": paymentTags?.toJson(),
+      };
+}
+
+class WalletMovementPaymentTagsModel {
+  String? code;
+  String? name;
+  bool? listingInWeb;
+
+  WalletMovementPaymentTagsModel({
+    this.code,
+    this.name,
+    this.listingInWeb,
+  });
+
+  factory WalletMovementPaymentTagsModel.fromJson(Map<String, dynamic> json) => WalletMovementPaymentTagsModel(
+        code: json["code"],
+        name: json["name"],
+        listingInWeb: json["listing_in_web"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "name": name,
+        "listing_in_web": listingInWeb,
       };
 }
