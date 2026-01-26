@@ -174,3 +174,28 @@ enum PaymentModelID {
 
   const PaymentModelID(this.title);
 }
+
+
+enum PaymentTagID {
+  LOYALTY_CANCEL, //	Harca Kazan Geri Alımı	false
+  LOYALTY_PAYMENT, //	Harca Kazan ile Ödeme
+  LOYALTY_EARN, //	Harca Kazan Ikramiyesi	false
+  ORDER_CANCEL, //	Siparis Iptali	false
+  ORDER_PAYMENT, //	Siparis Odemesi	false
+  WALLET_BONUS, //	Cuzdan Bakiye Ikramiyesi	false
+  ONLINEHAVALE, //	Online Havale	false
+  ONLINECARD, //	Online Kart	false
+  SERVICE_PAYMENT, //	Servis Odemesi	false
+  SERVICE_CANCEL, //	Servis Iptali	false
+  ORDER_PAYMENT_CHANGE, //	Siparis Odeme Degisimi	false
+  SERVICE_PAYMENT_CHANGE, //	Servis Odeme Degisimi	false
+  ORDER_REFUND, //	Siparis Iadesi	false
+  SERVICE_REFUND, //	Servis Iadesi	false
+  HAVALE, //	Havale	true
+  CIRO_PRIMI, //	Ciro Primi	true
+  FRANCHISE_UCRETI, //	Franchise Ucreti	true
+  CEZA, //	Ceza	true
+  FARK, //	Fark Islemi	true
+  BAKIYE_YUKLEME, //	Bakiye Yukleme	true
+  MEAL_CARDS, //	Yemek Kartlari	true
+}
