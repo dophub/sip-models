@@ -190,9 +190,9 @@ class WalletCustomerGroupModel {
 
 class WalletCustomerGroupMatchModel {
   int? id;
-  WalletMainDealerModel? dealer;
+  WalletDealerModel? dealer;
   WalletMainBrandModel? mainBrand;
-  WalletMainCompanyModel? company;
+  WalletCompanyModel? company;
 
   WalletCustomerGroupMatchModel({
     this.id,
@@ -203,9 +203,9 @@ class WalletCustomerGroupMatchModel {
 
   factory WalletCustomerGroupMatchModel.fromJson(Map<String, dynamic> json) => WalletCustomerGroupMatchModel(
         id: json["id"],
-        dealer: json["dealer"] == null ? null : Dealer.fromJson(json["dealer"]),
-        mainBrand: json["main_brand"] == null ? null : MainBrand.fromJson(json["main_brand"]),
-        company: json["company"] == null ? null : Company.fromJson(json["company"]),
+        dealer: json["dealer"] == null ? null : WalletDealerModel.fromJson(json["dealer"]),
+        mainBrand: json["main_brand"] == null ? null : WalletMainBrandModel.fromJson(json["main_brand"]),
+        company: json["company"] == null ? null : WalletCompanyModel.fromJson(json["company"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -216,16 +216,16 @@ class WalletCustomerGroupMatchModel {
       };
 }
 
-class WalletMainCompanyModel {
+class WalletCompanyModel {
   int? id;
   String? title;
 
-  WalletMainCompanyModel({
+  WalletCompanyModel({
     this.id,
     this.title,
   });
 
-  factory WalletMainCompanyModel.fromJson(Map<String, dynamic> json) => WalletMainCompanyModel(
+  factory WalletCompanyModel.fromJson(Map<String, dynamic> json) => WalletCompanyModel(
         id: json["id"],
         title: json["title"],
       );
@@ -236,16 +236,16 @@ class WalletMainCompanyModel {
       };
 }
 
-class WalletMainDealerModel {
+class WalletDealerModel {
   int? id;
   String? dealerName;
 
-  WalletMainDealerModel({
+  WalletDealerModel({
     this.id,
     this.dealerName,
   });
 
-  factory WalletMainDealerModel.fromJson(Map<String, dynamic> json) => WalletMainDealerModel(
+  factory WalletDealerModel.fromJson(Map<String, dynamic> json) => WalletDealerModel(
         id: json["id"],
         dealerName: json["dealer_name"],
       );
