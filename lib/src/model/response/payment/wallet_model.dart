@@ -7,46 +7,40 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   String? typeId;
   String? number;
   WalletCustomersModel? customers;
+  int? paymentPercentage;
   String? title;
   WalletCurrencyModel? currency;
   double? balance;
   double? minimumBalance;
   double? dailyAmountLimit;
   double? weeklyAmountLimit;
-  double? monthlyAmountLimit;
+  double? mountlyAmountLimit;
   double? dailyUsingLimit;
   WalletCustomerGroupModel? customerGroup;
   bool? isActive;
   int? createdAt;
   int? updatedAt;
   int? expiredDate;
-  int? customerId; // Sadece RI
-  String? currencyId; // Sadece RI
-  String? customerName; // Sadece RI
-  String? mobilePhone; // Sadece RI
 
   WalletModel({
     this.id,
     this.typeId,
     this.number,
     this.customers,
+    this.paymentPercentage,
     this.title,
     this.currency,
     this.balance,
     this.minimumBalance,
     this.dailyAmountLimit,
     this.weeklyAmountLimit,
-    this.monthlyAmountLimit,
+    this.mountlyAmountLimit,
     this.dailyUsingLimit,
     this.customerGroup,
     this.isActive,
     this.createdAt,
     this.updatedAt,
     this.expiredDate,
-    this.customerId,
-    this.currencyId,
-    this.customerName,
-    this.mobilePhone,
   });
 
   @override
@@ -55,24 +49,20 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         typeId: json["type_id"],
         number: json["number"],
         customers: json["customers"] == null ? null : WalletCustomersModel.fromJson(json["customers"]),
+        paymentPercentage: json["payment_percentage"],
         title: json["title"],
         currency: json["currency"] == null ? null : WalletCurrencyModel.fromJson(json["currency"]),
         balance: json["balance"]?.toDouble(),
         minimumBalance: json["minimum_balance"]?.toDouble(),
         dailyAmountLimit: json["daily_amount_limit"]?.toDouble(),
         weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
-        monthlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
+        mountlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
         dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
-        customerGroup:
-            json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
+        customerGroup: json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
         isActive: json["is_active"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         expiredDate: json["expired_date"],
-        customerId: json["customer_id"],
-        currencyId: json["currency_id"],
-        customerName: json["customer_name"],
-        mobilePhone: json["mobile_phone"],
       );
 
   @override
@@ -81,61 +71,30 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         "type_id": typeId,
         "number": number,
         "customers": customers?.toJson(),
+        "payment_percentage": paymentPercentage,
         "title": title,
         "currency": currency?.toJson(),
         "balance": balance,
         "minimum_balance": minimumBalance,
         "daily_amount_limit": dailyAmountLimit,
         "weekly_amount_limit": weeklyAmountLimit,
-        "mountly_amount_limit": monthlyAmountLimit,
+        "mountly_amount_limit": mountlyAmountLimit,
         "daily_using_limit": dailyUsingLimit,
         "customer_group": customerGroup?.toJson(),
         "is_active": isActive,
         "created_at": createdAt,
         "updated_at": updatedAt,
         "expired_date": expiredDate,
-        "customer_id": customerId,
-        "currency_id": currencyId,
-        "customer_name": customerName,
-        "mobile_phone": mobilePhone,
       };
 
   @override
   String get getName => title ?? '';
 }
 
-class WalletCustomersModel {
-  final int? id;
-  final String? firstName;
-  final String? lastName;
-  final String? mobilePhone;
-
-  WalletCustomersModel({
-    this.id,
-    this.firstName,
-    this.lastName,
-    this.mobilePhone,
-  });
-
-  factory WalletCustomersModel.fromJson(Map<String, dynamic> json) => WalletCustomersModel(
-        id: json["id"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        mobilePhone: json["mobile_phone"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "last_name": lastName,
-        "mobile_phone": mobilePhone,
-      };
-}
-
 class WalletCurrencyModel {
-  final String? code;
-  final String? name;
-  final String? isoCode;
+  String? code;
+  String? name;
+  String? isoCode;
 
   WalletCurrencyModel({
     this.code,
@@ -157,75 +116,97 @@ class WalletCurrencyModel {
 }
 
 class WalletCustomerGroupModel {
-  final int? id;
-  final String? title;
-  final String? type;
-  final List<WalletCustomerGroupMatchModel>? customerGroupMatch;
+  int? id;
+  String? title;
+  String? type;
+  WalletValidRulesModel? validRules;
+  List<WalletValidCompanyModel>? validCompanies;
 
   WalletCustomerGroupModel({
     this.id,
     this.title,
     this.type,
-    this.customerGroupMatch,
+    this.validRules,
+    this.validCompanies,
   });
 
   factory WalletCustomerGroupModel.fromJson(Map<String, dynamic> json) => WalletCustomerGroupModel(
         id: json["id"],
         title: json["title"],
         type: json["type"],
-        customerGroupMatch: json["customer_group_match"] == null
+        validRules: json["valid_rules"] == null ? null : WalletValidRulesModel.fromJson(json["valid_rules"]),
+        validCompanies: json["valid_companies"] == null
             ? []
-            : List<WalletCustomerGroupMatchModel>.from(
-                json["customer_group_match"]!.map((x) => WalletCustomerGroupMatchModel.fromJson(x))),
+            : List<WalletValidCompanyModel>.from(json["valid_companies"]!.map((x) => WalletValidCompanyModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
         "type": type,
-        "customer_group_match":
-            customerGroupMatch == null ? [] : List<dynamic>.from(customerGroupMatch!.map((x) => x.toJson())),
+        "valid_rules": validRules?.toJson(),
+        "valid_companies": validCompanies == null ? [] : List<dynamic>.from(validCompanies!.map((x) => x.toJson())),
       };
 }
 
-class WalletCustomerGroupMatchModel {
+class WalletValidCompanyModel {
   int? id;
-  WalletDealerModel? dealer;
-  WalletMainBrandModel? mainBrand;
-  WalletCompanyModel? company;
+  String? title;
+  List<WalletBrandModel>? brands;
 
-  WalletCustomerGroupMatchModel({
+  WalletValidCompanyModel({
     this.id,
-    this.dealer,
-    this.mainBrand,
-    this.company,
+    this.title,
+    this.brands,
   });
 
-  factory WalletCustomerGroupMatchModel.fromJson(Map<String, dynamic> json) => WalletCustomerGroupMatchModel(
+  factory WalletValidCompanyModel.fromJson(Map<String, dynamic> json) => WalletValidCompanyModel(
         id: json["id"],
-        dealer: json["dealer"] == null ? null : WalletDealerModel.fromJson(json["dealer"]),
-        mainBrand: json["main_brand"] == null ? null : WalletMainBrandModel.fromJson(json["main_brand"]),
-        company: json["company"] == null ? null : WalletCompanyModel.fromJson(json["company"]),
+        title: json["title"],
+        brands: json["brands"] == null ? [] : List<WalletBrandModel>.from(json["brands"]!.map((x) => WalletBrandModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "dealer": dealer?.toJson(),
-        "main_brand": mainBrand?.toJson(),
-        "company": company?.toJson(),
+        "title": title,
+        "brands": brands == null ? [] : List<dynamic>.from(brands!.map((x) => x.toJson())),
       };
 }
 
-class WalletCompanyModel {
+class WalletBrandModel {
+  int? id;
+  String? title;
+  List<WalletDealerModel>? dealers;
+
+  WalletBrandModel({
+    this.id,
+    this.title,
+    this.dealers,
+  });
+
+  factory WalletBrandModel.fromJson(Map<String, dynamic> json) => WalletBrandModel(
+        id: json["id"],
+        title: json["title"],
+        dealers: json["dealers"] == null ? [] : List<WalletDealerModel>.from(json["dealers"]!.map((x) => WalletDealerModel.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+        "dealers": dealers == null ? [] : List<dynamic>.from(dealers!.map((x) => x.toJson())),
+      };
+}
+
+class WalletDealerModel {
   int? id;
   String? title;
 
-  WalletCompanyModel({
+  WalletDealerModel({
     this.id,
     this.title,
   });
 
-  factory WalletCompanyModel.fromJson(Map<String, dynamic> json) => WalletCompanyModel(
+  factory WalletDealerModel.fromJson(Map<String, dynamic> json) => WalletDealerModel(
         id: json["id"],
         title: json["title"],
       );
@@ -236,42 +217,79 @@ class WalletCompanyModel {
       };
 }
 
-class WalletDealerModel {
-  int? id;
-  String? dealerName;
+class WalletValidRulesModel {
+  bool? isActive;
+  DateTime? startDate;
+  DateTime? endDate;
+  List<String>? paymentTypes;
+  List<dynamic>? payPaymentTypes;
+  bool? isMinPackageAmountStrict;
+  String? ruleName;
+  String? ruleTypeId;
+  double? rewardAmount;
 
-  WalletDealerModel({
-    this.id,
-    this.dealerName,
+  WalletValidRulesModel({
+    this.isActive,
+    this.startDate,
+    this.endDate,
+    this.paymentTypes,
+    this.payPaymentTypes,
+    this.isMinPackageAmountStrict,
+    this.ruleName,
+    this.ruleTypeId,
+    this.rewardAmount,
   });
 
-  factory WalletDealerModel.fromJson(Map<String, dynamic> json) => WalletDealerModel(
-        id: json["id"],
-        dealerName: json["dealer_name"],
+  factory WalletValidRulesModel.fromJson(Map<String, dynamic> json) => WalletValidRulesModel(
+        isActive: json["is_active"],
+        startDate: json["start_date"] == null ? null : DateTime.parse(json["start_date"]),
+        endDate: json["end_date"] == null ? null : DateTime.parse(json["end_date"]),
+        paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
+        payPaymentTypes:
+            json["pay_payment_types"] == null ? [] : List<dynamic>.from(json["pay_payment_types"]!.map((x) => x)),
+        isMinPackageAmountStrict: json["is_min_package_amount_strict"],
+        ruleName: json["rule_name"],
+        ruleTypeId: json["rule_type_id"],
+        rewardAmount: json["reward_amount"].toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "dealer_name": dealerName,
+        "is_active": isActive,
+        "start_date": startDate?.toIso8601String(),
+        "end_date": endDate?.toIso8601String(),
+        "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
+        "pay_payment_types": payPaymentTypes == null ? [] : List<dynamic>.from(payPaymentTypes!.map((x) => x)),
+        "is_min_package_amount_strict": isMinPackageAmountStrict,
+        "rule_name": ruleName,
+        "rule_type_id": ruleTypeId,
+        "reward_amount": rewardAmount,
       };
 }
 
-class WalletMainBrandModel {
+class WalletCustomersModel {
   int? id;
-  String? brandName;
+  String? firstName;
+  String? lastName;
+  String? mobilePhone;
 
-  WalletMainBrandModel({
+  WalletCustomersModel({
     this.id,
-    this.brandName,
+    this.firstName,
+    this.lastName,
+    this.mobilePhone,
   });
 
-  factory WalletMainBrandModel.fromJson(Map<String, dynamic> json) => WalletMainBrandModel(
+  factory WalletCustomersModel.fromJson(Map<String, dynamic> json) => WalletCustomersModel(
         id: json["id"],
-        brandName: json["brand_name"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        mobilePhone: json["mobile_phone"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "brand_name": brandName,
+        "first_name": firstName,
+        "last_name": lastName,
+        "mobile_phone": mobilePhone,
       };
 }
