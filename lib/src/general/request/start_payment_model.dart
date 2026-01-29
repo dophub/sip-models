@@ -17,6 +17,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? cardId;
   String? deliveryDate;
   String? orderNote;
+  StartPaymentLoyaltyModel? loyalty;
 
   StartPaymentModel({
     this.paymentType,
@@ -35,6 +36,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.cardId,
     this.deliveryDate,
     this.orderNote,
+    this.loyalty,
   });
 
   @override
@@ -57,6 +59,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         cardId: json["card_id"],
         deliveryDate: json["delivery_date"],
         orderNote: json["order_note"],
+        loyalty: json["loyalty"] == null ? null : StartPaymentLoyaltyModel.fromJson(json["loyalty"]),
       );
 
   @override
@@ -77,6 +80,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "card_id": cardId,
         "delivery_date": deliveryDate,
         "order_note": orderNote,
+        "loyalty": loyalty?.toJson(),
       };
 }
 
@@ -133,5 +137,29 @@ class StartPaymentItemModel {
   Map<String, dynamic> toJson() => {
         "id": id,
         "count": count,
+      };
+}
+
+class StartPaymentLoyaltyModel {
+  String? loyaltyId;
+  bool? loyaltyFullAmount;
+  int? loyaltyAmount;
+
+  StartPaymentLoyaltyModel({
+    this.loyaltyId,
+    this.loyaltyFullAmount,
+    this.loyaltyAmount,
+  });
+
+  factory StartPaymentLoyaltyModel.fromJson(Map<String, dynamic> json) => StartPaymentLoyaltyModel(
+        loyaltyId: json["loyalty_id"],
+        loyaltyFullAmount: json["loyalty_full_amount"],
+        loyaltyAmount: json["loyalty_amount"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "loyalty_id": loyaltyId,
+        "loyalty_full_amount": loyaltyFullAmount,
+        "loyalty_amount": loyaltyAmount,
       };
 }
