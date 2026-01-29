@@ -1,14 +1,15 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../response.dart';
+import '../../../../ri_models.dart';
 
-class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
+class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMultiItemPickerWidgetModel {
   String? id;
   String? typeId;
   String? number;
   WalletCustomersModel? customers;
   int? paymentPercentage;
-  String? title;
+
   WalletCurrencyModel? currency;
   double? balance;
   double? minimumBalance;
@@ -21,6 +22,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
   int? createdAt;
   int? updatedAt;
   int? expiredDate;
+  late String? _title;
 
   WalletModel({
     this.id,
@@ -28,7 +30,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
     this.number,
     this.customers,
     this.paymentPercentage,
-    this.title,
     this.currency,
     this.balance,
     this.minimumBalance,
@@ -41,7 +42,10 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
     this.createdAt,
     this.updatedAt,
     this.expiredDate,
-  });
+    String? title,
+  }) {
+    _title = title;
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => WalletModel(
@@ -58,7 +62,8 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
         mountlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
         dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
-        customerGroup: json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
+        customerGroup:
+            json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
         isActive: json["is_active"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
@@ -72,7 +77,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
         "number": number,
         "customers": customers?.toJson(),
         "payment_percentage": paymentPercentage,
-        "title": title,
+        "title": _title,
         "currency": currency?.toJson(),
         "balance": balance,
         "minimum_balance": minimumBalance,
@@ -88,7 +93,16 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType {
       };
 
   @override
-  String get getName => title ?? '';
+  String get getName => _title ?? '';
+
+  @override
+  String get title => _title ?? '';
+
+  @override
+  bool selectedValue = false;
+
+  @override
+  bool? isDisable = false;
 }
 
 class WalletCurrencyModel {
@@ -137,7 +151,8 @@ class WalletCustomerGroupModel {
         validRules: json["valid_rules"] == null ? null : WalletValidRulesModel.fromJson(json["valid_rules"]),
         validCompanies: json["valid_companies"] == null
             ? []
-            : List<WalletValidCompanyModel>.from(json["valid_companies"]!.map((x) => WalletValidCompanyModel.fromJson(x))),
+            : List<WalletValidCompanyModel>.from(
+                json["valid_companies"]!.map((x) => WalletValidCompanyModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -163,7 +178,9 @@ class WalletValidCompanyModel {
   factory WalletValidCompanyModel.fromJson(Map<String, dynamic> json) => WalletValidCompanyModel(
         id: json["id"],
         title: json["title"],
-        brands: json["brands"] == null ? [] : List<WalletBrandModel>.from(json["brands"]!.map((x) => WalletBrandModel.fromJson(x))),
+        brands: json["brands"] == null
+            ? []
+            : List<WalletBrandModel>.from(json["brands"]!.map((x) => WalletBrandModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -187,7 +204,9 @@ class WalletBrandModel {
   factory WalletBrandModel.fromJson(Map<String, dynamic> json) => WalletBrandModel(
         id: json["id"],
         title: json["title"],
-        dealers: json["dealers"] == null ? [] : List<WalletDealerModel>.from(json["dealers"]!.map((x) => WalletDealerModel.fromJson(x))),
+        dealers: json["dealers"] == null
+            ? []
+            : List<WalletDealerModel>.from(json["dealers"]!.map((x) => WalletDealerModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
