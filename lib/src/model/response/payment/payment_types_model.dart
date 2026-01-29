@@ -41,4 +41,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymen
 
   @override
   String get getName => paymentType!;
+
+  @override
+  String? get getPaymentType => paymentTypeCode;
 }
