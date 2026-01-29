@@ -242,8 +242,8 @@ class WalletDealerModel {
 
 class WalletValidRulesModel {
   bool? isActive;
-  DateTime? startDate;
-  DateTime? endDate;
+  int? startDate;
+  int? endDate;
   List<String>? paymentTypes;
   List<dynamic>? payPaymentTypes;
   bool? isMinPackageAmountStrict;
@@ -265,8 +265,8 @@ class WalletValidRulesModel {
 
   factory WalletValidRulesModel.fromJson(Map<String, dynamic> json) => WalletValidRulesModel(
         isActive: json["is_active"],
-        startDate: json["start_date"] == null ? null : DateTime.parse(json["start_date"]),
-        endDate: json["end_date"] == null ? null : DateTime.parse(json["end_date"]),
+        startDate: json["start_date"],
+        endDate: json["end_date"],
         paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
         payPaymentTypes:
             json["pay_payment_types"] == null ? [] : List<dynamic>.from(json["pay_payment_types"]!.map((x) => x)),
@@ -278,8 +278,8 @@ class WalletValidRulesModel {
 
   Map<String, dynamic> toJson() => {
         "is_active": isActive,
-        "start_date": startDate?.toIso8601String(),
-        "end_date": endDate?.toIso8601String(),
+        "start_date": startDate,
+        "end_date": endDate,
         "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
         "pay_payment_types": payPaymentTypes == null ? [] : List<dynamic>.from(payPaymentTypes!.map((x) => x)),
         "is_min_package_amount_strict": isMinPackageAmountStrict,
