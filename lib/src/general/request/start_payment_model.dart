@@ -143,7 +143,7 @@ class StartPaymentItemModel {
 class StartPaymentLoyaltyModel {
   String? loyaltyId;
   bool? loyaltyFullAmount;
-  int? loyaltyAmount;
+  double? loyaltyAmount;
 
   StartPaymentLoyaltyModel({
     this.loyaltyId,
@@ -154,7 +154,7 @@ class StartPaymentLoyaltyModel {
   factory StartPaymentLoyaltyModel.fromJson(Map<String, dynamic> json) => StartPaymentLoyaltyModel(
         loyaltyId: json["loyalty_id"],
         loyaltyFullAmount: json["loyalty_full_amount"],
-        loyaltyAmount: json["loyalty_amount"],
+        loyaltyAmount: json["loyalty_amount"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
