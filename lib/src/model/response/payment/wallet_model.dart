@@ -98,6 +98,10 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   @override
   String get title => _title ?? '';
 
+  set title(String title) {
+    _title = title;
+  }
+
   @override
   bool selectedValue = false;
 
