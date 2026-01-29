@@ -245,7 +245,6 @@ class WalletValidRulesModel {
   int? startDate;
   int? endDate;
   List<String>? paymentTypes;
-  List<dynamic>? payPaymentTypes;
   bool? isMinPackageAmountStrict;
   String? ruleName;
   String? ruleTypeId;
@@ -256,7 +255,6 @@ class WalletValidRulesModel {
     this.startDate,
     this.endDate,
     this.paymentTypes,
-    this.payPaymentTypes,
     this.isMinPackageAmountStrict,
     this.ruleName,
     this.ruleTypeId,
@@ -268,8 +266,6 @@ class WalletValidRulesModel {
         startDate: json["start_date"],
         endDate: json["end_date"],
         paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
-        payPaymentTypes:
-            json["pay_payment_types"] == null ? [] : List<dynamic>.from(json["pay_payment_types"]!.map((x) => x)),
         isMinPackageAmountStrict: json["is_min_package_amount_strict"],
         ruleName: json["rule_name"],
         ruleTypeId: json["rule_type_id"],
@@ -281,7 +277,6 @@ class WalletValidRulesModel {
         "start_date": startDate,
         "end_date": endDate,
         "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
-        "pay_payment_types": payPaymentTypes == null ? [] : List<dynamic>.from(payPaymentTypes!.map((x) => x)),
         "is_min_package_amount_strict": isMinPackageAmountStrict,
         "rule_name": ruleName,
         "rule_type_id": ruleTypeId,
