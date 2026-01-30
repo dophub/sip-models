@@ -23,7 +23,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   int? updatedAt;
   int? expiredDate;
   int? customerId;
-  int? currencyId;
+  String? currencyId;
   late String? _title;
   String? paymentTypeCode;
   String? customerName;
