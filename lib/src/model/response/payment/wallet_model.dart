@@ -22,8 +22,12 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   int? createdAt;
   int? updatedAt;
   int? expiredDate;
+  int? customerId;
+  int? currencyId;
   late String? _title;
   String? paymentTypeCode;
+  String? customerName;
+  String? mobilePhone;
 
   WalletModel({
     this.id,
@@ -45,6 +49,10 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     this.expiredDate,
     String? title,
     this.paymentTypeCode,
+    this.customerName,
+    this.mobilePhone,
+    this.customerId,
+    this.currencyId,
   }) {
     _title = title;
   }
@@ -70,7 +78,11 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         expiredDate: json["expired_date"],
+        customerId: json["customer_id"],
+        currencyId: json["currency_id"],
         paymentTypeCode: json["payment_type_code"],
+        customerName: json["customer_name"],
+        mobilePhone: json["mobile_phone"],
       );
 
   @override
@@ -93,7 +105,11 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         "created_at": createdAt,
         "updated_at": updatedAt,
         "expired_date": expiredDate,
+        "customer_id": customerId,
+        "currency_id": currencyId,
         "payment_type_code": paymentTypeCode,
+        "customer_name": customerName,
+        "mobile_phone": mobilePhone,
       };
 
   @override
