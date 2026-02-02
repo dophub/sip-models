@@ -9,6 +9,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymen
     this.isActive,
     this.isOnlinePayment,
     this.imageUrl,
+    this.virtualId,
   });
 
   String? paymentTypeCode;
@@ -16,6 +17,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymen
   String? imageUrl;
   bool? isActive;
   bool? isOnlinePayment;
+  String? virtualId;
 
   @override
   Map<String, dynamic> toJson() {
@@ -25,6 +27,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymen
     map['is_active'] = isActive;
     map['is_online_payment'] = isOnlinePayment;
     map['image_url'] = imageUrl;
+    map['virtual_id'] = virtualId;
     return map;
   }
 
@@ -36,6 +39,7 @@ class PaymentTypesModel extends IBaseModel<PaymentTypesModel> implements IPaymen
       isActive: json['is_active'],
       isOnlinePayment: json['is_online_payment'],
       imageUrl: json['image_url'],
+      virtualId: json['virtual_id'],
     );
   }
 
