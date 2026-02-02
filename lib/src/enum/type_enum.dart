@@ -75,11 +75,13 @@ enum WalletType {
 /// [SERVICE] servis ödemesi
 /// [WALLET_IN] Yükleme
 /// [WALLET_OUT] harcama
+/// [TRANSACTION] Başka TRANSACTION bağlı bir hareket
 enum WalletSourceType {
   ORDER,
   SERVICE,
   WALLET_IN,
   WALLET_OUT,
+  TRANSACTION,
 }
 
 /// [COMPLETED] Tamamlandı
