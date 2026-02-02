@@ -14,7 +14,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   List<StartPaymentItemModel>? items;
   bool? use3D;
   StartPaymentCardDetailModel? cardDetails;
-  String? cardId;
   String? deliveryDate;
   String? orderNote;
   StartPaymentLoyaltyModel? loyalty;
@@ -33,7 +32,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.reasonCode,
     this.use3D,
     this.cardDetails,
-    this.cardId,
     this.deliveryDate,
     this.orderNote,
     this.loyalty,
@@ -56,7 +54,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
             : List<StartPaymentItemModel>.from(json["items"]!.map((x) => StartPaymentItemModel.fromJson(x))),
         use3D: json["use_3d"],
         cardDetails: json["card_details"] == null ? null : StartPaymentCardDetailModel.fromJson(json["card_details"]),
-        cardId: json["card_id"],
         deliveryDate: json["delivery_date"],
         orderNote: json["order_note"],
         loyalty: json["loyalty"] == null ? null : StartPaymentLoyaltyModel.fromJson(json["loyalty"]),
@@ -77,7 +74,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
         "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
         "use_3d": use3D,
         "card_details": cardDetails?.toJson(),
-        "card_id": cardId,
         "delivery_date": deliveryDate,
         "order_note": orderNote,
         "loyalty": loyalty?.toJson(),
@@ -90,6 +86,8 @@ class StartPaymentCardDetailModel {
   String? year;
   String? cvv;
   String? cardNumber;
+  String? cardId;
+  String? virtualId;
   bool? cardSave;
 
   StartPaymentCardDetailModel({
@@ -98,6 +96,8 @@ class StartPaymentCardDetailModel {
     this.year,
     this.cvv,
     this.cardNumber,
+    this.cardId,
+    this.virtualId,
     this.cardSave,
   });
 
@@ -107,6 +107,8 @@ class StartPaymentCardDetailModel {
         year: json["year"],
         cvv: json["cvv"],
         cardNumber: json["card_number"],
+        cardId: json["card_id"],
+        virtualId: json["virtual_id"],
         cardSave: json["card_save"],
       );
 
@@ -116,6 +118,8 @@ class StartPaymentCardDetailModel {
         "year": year,
         "cvv": cvv,
         "card_number": cardNumber,
+        "card_id": cardId,
+        "virtual_id": virtualId,
         "card_save": cardSave,
       };
 }
