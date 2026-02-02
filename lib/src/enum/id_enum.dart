@@ -198,4 +198,10 @@ enum PaymentTagID {
   FARK, //	Fark Islemi	true
   BAKIYE_YUKLEME, //	Bakiye Yukleme	true
   MEAL_CARDS, //	Yemek Kartlari	true
+  LOYALTY_EARN_CANCEL, //Ikramiye Geri Alimi	false
+  WALLET_ADD_MONEY, //	Cuzdan Para Yuklemesi	false
 }
+
+
+
+
