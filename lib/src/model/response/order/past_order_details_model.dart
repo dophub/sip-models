@@ -30,6 +30,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
     this.orderComment,
     this.orderRating,
     this.customerAddress,
+    this.payLoyalty,
+    this.earnedLoyalty,
   });
 
   int? id;
@@ -57,6 +59,8 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
   List<PastOrderDetailsOrderCommentModel>? orderComment;
   List<PastOrderDetailsRatingModel>? orderRating;
   CustomerAddressModel? customerAddress;
+  PastOrderDetailsLoyaltyModel? payLoyalty;
+  PastOrderDetailsLoyaltyModel? earnedLoyalty;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => PastOrderDetailsModel(
@@ -94,6 +98,9 @@ class PastOrderDetailsModel extends IBaseModel<PastOrderDetailsModel> {
                 json["order_rating"]!.map((x) => PastOrderDetailsRatingModel.fromJson(x))),
         customerAddress:
             json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
+        payLoyalty: json["pay_loyalty"] == null ? null : PastOrderDetailsLoyaltyModel.fromJson(json["pay_loyalty"]),
+        earnedLoyalty:
+            json["earned_loyalty"] == null ? null : PastOrderDetailsLoyaltyModel.fromJson(json["earned_loyalty"]),
       );
 
   @override
@@ -212,5 +219,25 @@ class PastOrderDetailsRatingModel {
         "create_date": createDate?.toIso8601String(),
         "order_id": orderId,
         "rating_category_id": ratingCategoryId,
+      };
+}
+
+class PastOrderDetailsLoyaltyModel {
+  double? amount;
+  String? status;
+
+  PastOrderDetailsLoyaltyModel({
+    this.amount,
+    this.status,
+  });
+
+  factory PastOrderDetailsLoyaltyModel.fromJson(Map<String, dynamic> json) => PastOrderDetailsLoyaltyModel(
+        amount: json["amount"]?.toDouble(),
+        status: json["status"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "amount": amount,
+        "status": status,
       };
 }
