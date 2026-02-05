@@ -56,7 +56,7 @@ enum PaymentTransactionsStatusEnum {
   PENDING("İşlem Sürüyor", Colors.yellow),
   ERROR("Hata", Colors.red),
   CANCEL("İptal Edildi", Colors.red),
-  REFUND("İade Edildi", Colors.red);
+  REVERSAL("İade Edildi", Colors.red);
 
   final String title;
   final Color color;
