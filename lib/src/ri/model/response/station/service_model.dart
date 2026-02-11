@@ -3,7 +3,7 @@ import 'status_model.dart';
 class StationServiceModel {
   int? id;
   int? person;
-  num? total;
+  double? total;
   String? createSideId;
   TableOrderStatusModel? status;
   double? paymentAmount;
@@ -18,10 +18,10 @@ class StationServiceModel {
   });
 
   factory StationServiceModel.fromJson(Map<String, dynamic> json) => StationServiceModel(
-        id: json['id'] as int?,
-        person: json['person'] as int?,
-        total: json['total'] as num?,
-        createSideId: json['create_side_id'] as String?,
+        id: json['id'],
+        person: json['person'],
+        total: json['total']?.toDouble(),
+        createSideId: json['create_side_id'],
         status: json['status'] == null ? null : TableOrderStatusModel.fromJson(json['status'] as Map<String, dynamic>),
         paymentAmount: json['payment_amount']?.toDouble(),
       );
