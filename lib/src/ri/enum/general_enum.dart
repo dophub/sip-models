@@ -51,12 +51,12 @@ enum PaymentTypeEnum {
 }
 
 enum PaymentTransactionsStatusEnum {
-  COMPLETED("Tamamlandı", Colors.green),
-  WAITING("Beklemede", Colors.yellow),
-  PENDING("İşlem Sürüyor", Colors.yellow),
-  ERROR("Hata", Colors.red),
-  CANCEL("İptal Edildi", Colors.red),
-  REVERSAL("İade Edildi", Colors.red);
+  COMPLETED("Tamamlandı", Color(0xFF2E7D32)),
+  WAITING("Beklemede", Color(0xFF1565C0)),
+  PENDING("İşlem Sürüyor", Color(0xFF42A5F5)),
+  ERROR("Hata", Color(0xFFD32F2F)),
+  CANCEL("İptal Edildi", Color(0xFF616161)),
+  REVERSAL("İade Edildi", Color(0xFF8E24AA));
 
   final String title;
   final Color color;
