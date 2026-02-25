@@ -11,6 +11,7 @@ import 'waiter_model.dart';
 class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   OrderStatusModel? orderStatus;
   PaymentInfoModel? paymentType;
+  DeliveryTypeModel? deliveryTypeModel;
   List<WaiterModel>? waiters;
   List<ParamStationTableModel>? stationTable;
   List<CourierModel>? courier;
@@ -23,6 +24,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   ParametersResponseModel({
     this.orderStatus,
     this.paymentType,
+    this.deliveryTypeModel,
     this.waiters,
     this.stationTable,
     this.courier,
@@ -53,6 +55,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
       orderStatus:
           json['order_status'] == null ? null : OrderStatusModel.fromJson(json['order_status'] as Map<String, dynamic>),
       paymentType: json["payment_type"] == null ? null : PaymentInfoModel.fromJson(json["payment_type"]),
+      deliveryTypeModel: json["delivery_type"] == null ? null : DeliveryTypeModel.fromJson(json["delivery_type"]),
       waiters:
           (json['waiters'] as List<dynamic>?)?.map((e) => WaiterModel.fromJson(e as Map<String, dynamic>)).toList(),
       stationTable: (json['station_table'] as List<dynamic>?)
@@ -82,6 +85,82 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   Map<String, dynamic> toJson() {
     throw UnimplementedError();
   }
+}
+
+class DeliveryTypeModel {
+  bool? marketplaceIsActive;
+  bool? reservationIsActive;
+  bool? valeIsActive;
+  bool? tableIsActive;
+  bool? selfServiceIsActive;
+  bool? getinIsActive;
+  bool? takeoutIsActive;
+  bool? scheduledIsActive;
+  bool? openMarketplace;
+  bool? openReservation;
+  bool? openTable;
+  bool? openVale;
+  bool? openSelfService;
+  bool? openGetin;
+  bool? openTakeout;
+  bool? openScheduled;
+
+  DeliveryTypeModel({
+    this.marketplaceIsActive,
+    this.reservationIsActive,
+    this.valeIsActive,
+    this.tableIsActive,
+    this.selfServiceIsActive,
+    this.getinIsActive,
+    this.takeoutIsActive,
+    this.scheduledIsActive,
+    this.openMarketplace,
+    this.openReservation,
+    this.openTable,
+    this.openVale,
+    this.openSelfService,
+    this.openGetin,
+    this.openTakeout,
+    this.openScheduled,
+  });
+
+  factory DeliveryTypeModel.fromJson(Map<String, dynamic> json) => DeliveryTypeModel(
+        marketplaceIsActive: json["marketplace_is_active"],
+        reservationIsActive: json["reservation_is_active"],
+        valeIsActive: json["vale_is_active"],
+        tableIsActive: json["table_is_active"],
+        selfServiceIsActive: json["self_service_is_active"],
+        getinIsActive: json["getin_is_active"],
+        takeoutIsActive: json["takeout_is_active"],
+        scheduledIsActive: json["scheduled_is_active"],
+        openMarketplace: json["open_marketplace"],
+        openReservation: json["open_reservation"],
+        openTable: json["open_table"],
+        openVale: json["open_vale"],
+        openSelfService: json["open_self_service"],
+        openGetin: json["open_getin"],
+        openTakeout: json["open_takeout"],
+        openScheduled: json["open_scheduled"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "marketplace_is_active": marketplaceIsActive,
+        "reservation_is_active": reservationIsActive,
+        "vale_is_active": valeIsActive,
+        "table_is_active": tableIsActive,
+        "self_service_is_active": selfServiceIsActive,
+        "getin_is_active": getinIsActive,
+        "takeout_is_active": takeoutIsActive,
+        "scheduled_is_active": scheduledIsActive,
+        "open_marketplace": openMarketplace,
+        "open_reservation": openReservation,
+        "open_table": openTable,
+        "open_vale": openVale,
+        "open_self_service": openSelfService,
+        "open_getin": openGetin,
+        "open_takeout": openTakeout,
+        "open_scheduled": openScheduled,
+      };
 }
 
 class PaymentInfoModel {
