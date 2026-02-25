@@ -11,7 +11,7 @@ import 'waiter_model.dart';
 class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   OrderStatusModel? orderStatus;
   PaymentInfoModel? paymentType;
-  DeliveryTypeModel? deliveryTypeModel;
+  ParametersResponseDeliveryTypeModel? deliveryTypeModel;
   List<WaiterModel>? waiters;
   List<ParamStationTableModel>? stationTable;
   List<CourierModel>? courier;
@@ -55,7 +55,8 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
       orderStatus:
           json['order_status'] == null ? null : OrderStatusModel.fromJson(json['order_status'] as Map<String, dynamic>),
       paymentType: json["payment_type"] == null ? null : PaymentInfoModel.fromJson(json["payment_type"]),
-      deliveryTypeModel: json["delivery_type"] == null ? null : DeliveryTypeModel.fromJson(json["delivery_type"]),
+      deliveryTypeModel:
+          json["delivery_type"] == null ? null : ParametersResponseDeliveryTypeModel.fromJson(json["delivery_type"]),
       waiters:
           (json['waiters'] as List<dynamic>?)?.map((e) => WaiterModel.fromJson(e as Map<String, dynamic>)).toList(),
       stationTable: (json['station_table'] as List<dynamic>?)
@@ -87,7 +88,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   }
 }
 
-class DeliveryTypeModel {
+class ParametersResponseDeliveryTypeModel {
   bool? marketplaceIsActive;
   bool? reservationIsActive;
   bool? valeIsActive;
@@ -105,7 +106,7 @@ class DeliveryTypeModel {
   bool? openTakeout;
   bool? openScheduled;
 
-  DeliveryTypeModel({
+  ParametersResponseDeliveryTypeModel({
     this.marketplaceIsActive,
     this.reservationIsActive,
     this.valeIsActive,
@@ -124,7 +125,8 @@ class DeliveryTypeModel {
     this.openScheduled,
   });
 
-  factory DeliveryTypeModel.fromJson(Map<String, dynamic> json) => DeliveryTypeModel(
+  factory ParametersResponseDeliveryTypeModel.fromJson(Map<String, dynamic> json) =>
+      ParametersResponseDeliveryTypeModel(
         marketplaceIsActive: json["marketplace_is_active"],
         reservationIsActive: json["reservation_is_active"],
         valeIsActive: json["vale_is_active"],
