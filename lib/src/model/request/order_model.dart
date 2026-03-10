@@ -58,6 +58,9 @@ class OrderModel extends IBaseModel<OrderModel> {
   String? infoPhoneNumber;
   String? invoiceSuccessLink;
   List<PaymentTransactionModel>? paymentTransactions;
+  int? manualDiscountTypeId;
+  double? manualDiscountValue;
+  double? manualDiscountAmount;
 
   OrderModel({
     this.id,
@@ -105,6 +108,9 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.infoPhoneNumber,
     this.invoiceSuccessLink,
     this.paymentTransactions,
+    this.manualDiscountTypeId,
+    this.manualDiscountValue,
+    this.manualDiscountAmount,
   });
 
   @override
@@ -161,6 +167,9 @@ class OrderModel extends IBaseModel<OrderModel> {
         paymentModelId: json["payment_model_id"],
         infoPhoneNumber: json["info_phone_number"],
         invoiceSuccessLink: json["invoice_success_link"],
+        manualDiscountTypeId: json["manual_discount_type_id"],
+        manualDiscountValue: json["manual_discount_value"]?.toDouble(),
+        manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
         paymentTransactions: json["payment_transactions"] == null
             ? []
             : List<PaymentTransactionModel>.from(
@@ -212,6 +221,9 @@ class OrderModel extends IBaseModel<OrderModel> {
         "payment_model_id": paymentModelId,
         "info_phone_number": infoPhoneNumber,
         "invoice_success_link": invoiceSuccessLink,
+        "manual_discount_type_id": manualDiscountTypeId,
+        "manual_discount_value": manualDiscountValue,
+        "manual_discount_amount": manualDiscountAmount,
         "payment_transactions":
             paymentTransactions == null ? [] : List<dynamic>.from(paymentTransactions!.map((x) => x.toJson())),
       };
