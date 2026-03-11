@@ -61,6 +61,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   int? manualDiscountTypeId;
   double? manualDiscountValue;
   double? manualDiscountAmount;
+  double? totalManualDiscount;
 
   OrderModel({
     this.id,
@@ -111,6 +112,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.manualDiscountTypeId,
     this.manualDiscountValue,
     this.manualDiscountAmount,
+    this.totalManualDiscount,
   });
 
   @override
@@ -170,6 +172,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         manualDiscountTypeId: json["manual_discount_type_id"],
         manualDiscountValue: json["manual_discount_value"]?.toDouble(),
         manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
+        totalManualDiscount: json["total_manual_discount"]?.toDouble(),
         paymentTransactions: json["payment_transactions"] == null
             ? []
             : List<PaymentTransactionModel>.from(
@@ -224,6 +227,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "manual_discount_type_id": manualDiscountTypeId,
         "manual_discount_value": manualDiscountValue,
         "manual_discount_amount": manualDiscountAmount,
+        "total_manual_discount": totalManualDiscount,
         "payment_transactions":
             paymentTransactions == null ? [] : List<dynamic>.from(paymentTransactions!.map((x) => x.toJson())),
       };
