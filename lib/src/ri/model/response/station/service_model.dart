@@ -7,6 +7,7 @@ class StationServiceModel {
   String? createSideId;
   TableOrderStatusModel? status;
   double? paymentAmount;
+  double? totalManualDiscount;
 
   StationServiceModel({
     this.id,
@@ -15,6 +16,7 @@ class StationServiceModel {
     this.createSideId,
     this.status,
     this.paymentAmount, // Ödenen tutar
+    this.totalManualDiscount, // toplam tutara yapılan indirim
   });
 
   factory StationServiceModel.fromJson(Map<String, dynamic> json) => StationServiceModel(
@@ -24,6 +26,7 @@ class StationServiceModel {
         createSideId: json['create_side_id'],
         status: json['status'] == null ? null : TableOrderStatusModel.fromJson(json['status'] as Map<String, dynamic>),
         paymentAmount: json['payment_amount']?.toDouble(),
+        totalManualDiscount: json['total_manual_discount']?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -33,5 +36,6 @@ class StationServiceModel {
         'create_side_id': createSideId,
         'status': status?.toJson(),
         'payment_amount': paymentAmount,
+        'total_manual_discount': totalManualDiscount,
       };
 }
