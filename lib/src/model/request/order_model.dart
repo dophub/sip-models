@@ -317,6 +317,13 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.isGift,
     this.isUseCampaign,
     this.orderPayStatusTypeId,
+    this.manualDiscountValue,
+    this.manualDiscountAmount,
+    this.manualDiscountTypeId,
+    this.afterManualDiscountTotal,
+    this.afterManualDiscountItemPrice,
+    this.afterManualDiscountTotalWithoutKdv,
+    this.afterManualDiscountItemPriceWithoutKdv,
   });
 
   int? id;
@@ -343,6 +350,13 @@ class OrderItem extends IBaseModel<OrderItem> {
   bool? isGift;
   bool? isUseCampaign;
   String? orderPayStatusTypeId;
+  int? manualDiscountValue;
+  int? manualDiscountAmount;
+  int? manualDiscountTypeId;
+  int? afterManualDiscountTotal;
+  double? afterManualDiscountItemPrice;
+  double? afterManualDiscountTotalWithoutKdv;
+  double? afterManualDiscountItemPriceWithoutKdv;
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
@@ -496,6 +510,13 @@ class OrderItem extends IBaseModel<OrderItem> {
         isGift: json["is_gift"],
         isUseCampaign: json["is_use_campaign"],
         orderPayStatusTypeId: json["order_pay_status_type_id"],
+        manualDiscountValue: json["manual_discount_value"],
+        manualDiscountAmount: json["manual_discount_amount"],
+        manualDiscountTypeId: json["manual_discount_type_id"],
+        afterManualDiscountTotal: json["after_manual_discount_total"],
+        afterManualDiscountItemPrice: json["after_manual_discount_item_price"]?.toDouble(),
+        afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
+        afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
       );
 
   @override
@@ -524,6 +545,13 @@ class OrderItem extends IBaseModel<OrderItem> {
         "is_gift": isGift,
         "is_use_campaign": isUseCampaign,
         "order_pay_status_type_id": orderPayStatusTypeId,
+        "manual_discount_value": manualDiscountValue,
+        "manual_discount_amount": manualDiscountAmount,
+        "manual_discount_type_id": manualDiscountTypeId,
+        "after_manual_discount_total": afterManualDiscountTotal,
+        "after_manual_discount_item_price": afterManualDiscountItemPrice,
+        "after_manual_discount_total_without_kdv": afterManualDiscountTotalWithoutKdv,
+        "after_manual_discount_item_price_without_kdv": afterManualDiscountItemPriceWithoutKdv,
       };
 }
 
