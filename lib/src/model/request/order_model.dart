@@ -350,10 +350,10 @@ class OrderItem extends IBaseModel<OrderItem> {
   bool? isGift;
   bool? isUseCampaign;
   String? orderPayStatusTypeId;
-  int? manualDiscountValue;
-  int? manualDiscountAmount;
+  double? manualDiscountValue;
+  double? manualDiscountAmount;
   int? manualDiscountTypeId;
-  int? afterManualDiscountTotal;
+  double? afterManualDiscountTotal;
   double? afterManualDiscountItemPrice;
   double? afterManualDiscountTotalWithoutKdv;
   double? afterManualDiscountItemPriceWithoutKdv;
@@ -510,10 +510,10 @@ class OrderItem extends IBaseModel<OrderItem> {
         isGift: json["is_gift"],
         isUseCampaign: json["is_use_campaign"],
         orderPayStatusTypeId: json["order_pay_status_type_id"],
-        manualDiscountValue: json["manual_discount_value"],
-        manualDiscountAmount: json["manual_discount_amount"],
+        manualDiscountValue: json["manual_discount_value"]?.toDouble(),
+        manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
         manualDiscountTypeId: json["manual_discount_type_id"],
-        afterManualDiscountTotal: json["after_manual_discount_total"],
+        afterManualDiscountTotal: json["after_manual_discount_total"]?.toDouble(),
         afterManualDiscountItemPrice: json["after_manual_discount_item_price"]?.toDouble(),
         afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
         afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
