@@ -90,6 +90,7 @@ enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, CANCEL2, REVISION }
 /// [KIOSK] Siparişim işletme tarafında kullanılan kiosk modu
 enum ClientPointId {
   MOBILE_APP('Mobil Uygulama'),
+  RESTORAN_ISIM('Restoran İşim'),
   KIOSK('KIOSK'),
   WEB_APP('WEB'),
   B2B('B2B');
