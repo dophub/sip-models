@@ -12,14 +12,16 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
     this.address,
     this.paymentType,
     this.dealer,
+    this.courier,
   });
 
   int? orderId;
   String? orderNote;
   PaymentInfo? paymentType;
   String? customerFullname;
-  _CourierOrderAddressModel? address;
+  CourierOrderAddressModel? address;
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
+  CourierOrderCourierModel? courier;
 
   @override
   fromJson(Map json) => CourierOrderModel(
@@ -27,8 +29,9 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
         customerFullname: json['customer_fullname'],
         orderNote: json['order_note'],
         paymentType: json['payment_info'],
-        address: _CourierOrderAddressModel.fromMap(json['address']),
+        address: CourierOrderAddressModel.fromMap(json['address']),
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
+        courier: json["courier"] == null ? null : CourierOrderCourierModel.fromJson(json["courier"]),
       );
 
   @override
@@ -37,8 +40,8 @@ class CourierOrderModel extends IBaseModel<CourierOrderModel> {
   }
 }
 
-class _CourierOrderAddressModel {
-  _CourierOrderAddressModel({
+class CourierOrderAddressModel {
+  CourierOrderAddressModel({
     required this.address,
     required this.addressName,
     required this.addressRoute,
@@ -56,7 +59,7 @@ class _CourierOrderAddressModel {
   String flatNumber;
   String latlng;
 
-  factory _CourierOrderAddressModel.fromMap(Map<String, dynamic> json) => _CourierOrderAddressModel(
+  factory CourierOrderAddressModel.fromMap(Map<String, dynamic> json) => CourierOrderAddressModel(
         address: json['address'],
         addressName: json['address_name'],
         addressRoute: json['address_route'],
@@ -74,5 +77,33 @@ class _CourierOrderAddressModel {
         'floor': floor,
         'flat_number': flatNumber,
         'latlng': latlng,
+      };
+}
+
+class CourierOrderCourierModel {
+  int? id;
+  String? name;
+  String? surname;
+  String? fullName;
+
+  CourierOrderCourierModel({
+    this.id,
+    this.name,
+    this.surname,
+    this.fullName,
+  });
+
+  factory CourierOrderCourierModel.fromJson(Map<String, dynamic> json) => CourierOrderCourierModel(
+        id: json["id"],
+        name: json["name"],
+        surname: json["surname"],
+        fullName: json["full_name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "surname": surname,
+        "full_name": fullName,
       };
 }
