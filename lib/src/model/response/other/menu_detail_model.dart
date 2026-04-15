@@ -114,7 +114,7 @@ class ProductModel extends IBaseModel<ProductModel> {
   fromJson(Map<dynamic, dynamic> json) => ProductModel(
         id: json["id"],
         dealerId: json["dealer_id"],
-        price: List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
+        price: json["price"] == null ? [] : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
         images:
             json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
         calorie: json["calorie"] ?? 0,
