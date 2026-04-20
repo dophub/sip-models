@@ -17,7 +17,8 @@ enum BaseModelStatus {
   Found,
   BadRequest,
   Gone,
-  unauthorized
+  unauthorized,
+  forbidden
 }
 
 /// WebView Ödeme callback query parameters enum
