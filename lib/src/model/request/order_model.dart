@@ -207,7 +207,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "customer": customer?.toJson(),
         "record_date": recordDate?.toIso8601String(),
         "order_options": orderOptions,
-        "customer_address": customerAddress!.toJson(),
+        "customer_address": customerAddress?.toJson(),
         "payment_info": paymentInfo!.toJson(),
         "table_service_id": tableServiceId,
         "is_use_campaign": isUseCampaign,
