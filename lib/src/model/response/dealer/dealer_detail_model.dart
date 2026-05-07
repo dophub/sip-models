@@ -66,7 +66,7 @@ class DealerDetailModel {
   String? tableServiceExplainHeaderText; // Sepette olan masaya service seçme kart ının başlığı
   String? tableServiceExplainText; // Sepette olan masaya service seçme kart ının alt başlığı
   bool? isAppActive; // dijital menu uygulamasında uygulamada aç buttonu active değil mi
-  bool? isQrCodeApprovedBYScanner; // localde kullanılmakta qr code onaylanmaya gerek var mı (onaylama qr kod okutarak yada girerek yapılır)
+  bool? mustApproveQrCode; // localde kullanılmakta qr code onaylanmaya gerek var mı (onaylama qr kod okutarak yada girerek yapılır)
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json, {required String qr}) => DealerDetailModel(
         qr: qr,
