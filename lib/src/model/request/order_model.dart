@@ -758,21 +758,29 @@ class OrderCampaignsModel {
     this.spotTitle,
     this.id,
     this.campaignAmount,
+    this.isThirdParty,
+    this.providerName,
   });
 
   String? spotTitle;
   int? id;
   double? campaignAmount;
+  bool? isThirdParty;
+  String? providerName;
 
   factory OrderCampaignsModel.fromJson(Map<String, dynamic> json) => OrderCampaignsModel(
         spotTitle: json["spot_title"],
         id: json["id"],
         campaignAmount: json["campaign_amount"].toDouble(),
+        isThirdParty: json["is_third_party"],
+        providerName: json["provider_name"],
       );
 
   Map<String, dynamic> toJson() => {
         "spot_title": spotTitle,
         "id": id,
         "campaign_amount": campaignAmount,
+        "is_third_party": isThirdParty,
+        "provider_name": providerName,
       };
 }
