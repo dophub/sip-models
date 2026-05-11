@@ -70,7 +70,8 @@ enum PrintTemplateIdEnum {
   TAKEOUT('Sipariş order printer'),
   DEMO('Demo order printer'),
   SELFSERVICE('selfservis order printer'),
-  GETIN('GelAl order printer');
+  GETIN('GelAl order printer'),
+  RECEIPT('Fiş (Revize Fiş, Self Servis Fişi ve Sipariş Fişi)');
 
   final String title;
 
