@@ -43,7 +43,8 @@ enum PaymentTypeEnum {
   CARDPOS('Fiziki POS Kredi Kartı'),
   CARD2('Paycell Sanal Pos'),
   NKOLAY('NKolay Online'),
-  LOYALTY('Para Puan');
+  LOYALTY('Para Puan'),
+  ONCREDIT('Veresiye');
 
   final String title;
 
