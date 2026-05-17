@@ -136,7 +136,7 @@ enum AddressTypeEnum {
 }
 
 /// Http işlemerinde kullanılmakta
-enum HttpMethod { get, post, put, delete, update }
+enum HttpMethod { get, post, put, delete, update, patch }
 
 /// Zorunlu güncelleme olduğu alacağı aksiyon
 /// [LOGOUT] Çıkış yap
