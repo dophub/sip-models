@@ -40,7 +40,7 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
 
 class ProductPerformanceReportDateRangeCategoryBreakdownModel {
   String? name;
-  int? amount;
+  double? amount;
   int? count;
   double? amountPercent;
   double? countPercent;
@@ -56,7 +56,7 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
   factory ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(Map<String, dynamic> json) =>
       ProductPerformanceReportDateRangeCategoryBreakdownModel(
         name: json["name"],
-        amount: json["amount"],
+        amount: json["amount"]?.toDouble(),
         count: json["count"],
         amountPercent: json["amount_percent"]?.toDouble(),
         countPercent: json["count_percent"]?.toDouble(),
