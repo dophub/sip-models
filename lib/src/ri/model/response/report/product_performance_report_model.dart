@@ -4,18 +4,28 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
   ProductPerformanceReportDateRangeModel? dateRange;
   ProductPerformanceReportSummaryModel? summary;
   List<ProductPerformanceReportProductModel>? products;
+  List<ProductPerformanceReportDateRangeCategoryBreakdownModel>? categoryBreakdown;
 
   ProductPerformanceReportModel({
     this.dateRange,
     this.summary,
     this.products,
+    this.categoryBreakdown,
   });
 
   @override
   fromJson(Map<String, dynamic> json) => ProductPerformanceReportModel(
-        dateRange: json["date_range"] == null ? null : ProductPerformanceReportDateRangeModel.fromJson(json["date_range"]),
+        dateRange:
+            json["date_range"] == null ? null : ProductPerformanceReportDateRangeModel.fromJson(json["date_range"]),
         summary: json["summary"] == null ? null : ProductPerformanceReportSummaryModel.fromJson(json["summary"]),
-        products: json["products"] == null ? [] : List<ProductPerformanceReportProductModel>.from(json["products"]!.map((x) => ProductPerformanceReportProductModel.fromJson(x))),
+        products: json["products"] == null
+            ? []
+            : List<ProductPerformanceReportProductModel>.from(
+                json["products"]!.map((x) => ProductPerformanceReportProductModel.fromJson(x))),
+        categoryBreakdown: json["category_breakdown"] == null
+            ? []
+            : List<ProductPerformanceReportDateRangeCategoryBreakdownModel>.from(json["category_breakdown"]!
+                .map((x) => ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(x))),
       );
 
   @override
@@ -23,6 +33,45 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
         "date_range": dateRange?.toJson(),
         "summary": summary?.toJson(),
         "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x.toJson())),
+        "category_breakdown":
+            categoryBreakdown == null ? [] : List<dynamic>.from(categoryBreakdown!.map((x) => x.toJson())),
+      };
+}
+
+class ProductPerformanceReportDateRangeCategoryBreakdownModel {
+  String? id;
+  String? name;
+  int? amount;
+  int? count;
+  double? amountPercent;
+  double? countPercent;
+
+  ProductPerformanceReportDateRangeCategoryBreakdownModel({
+    this.id,
+    this.name,
+    this.amount,
+    this.count,
+    this.amountPercent,
+    this.countPercent,
+  });
+
+  factory ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(Map<String, dynamic> json) =>
+      ProductPerformanceReportDateRangeCategoryBreakdownModel(
+        id: json["id"],
+        name: json["name"],
+        amount: json["amount"],
+        count: json["count"],
+        amountPercent: json["amount_percent"]?.toDouble(),
+        countPercent: json["count_percent"]?.toDouble(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "amount": amount,
+        "count": count,
+        "amount_percent": amountPercent,
+        "count_percent": countPercent,
       };
 }
 
@@ -35,7 +84,8 @@ class ProductPerformanceReportDateRangeModel {
     this.end,
   });
 
-  factory ProductPerformanceReportDateRangeModel.fromJson(Map<String, dynamic> json) => ProductPerformanceReportDateRangeModel(
+  factory ProductPerformanceReportDateRangeModel.fromJson(Map<String, dynamic> json) =>
+      ProductPerformanceReportDateRangeModel(
         start: json["start"] == null ? null : DateTime.parse(json["start"]),
         end: json["end"] == null ? null : DateTime.parse(json["end"]),
       );
@@ -69,7 +119,8 @@ class ProductPerformanceReportProductModel {
     this.qtyPercent,
   });
 
-  factory ProductPerformanceReportProductModel.fromJson(Map<String, dynamic> json) => ProductPerformanceReportProductModel(
+  factory ProductPerformanceReportProductModel.fromJson(Map<String, dynamic> json) =>
+      ProductPerformanceReportProductModel(
         productId: json["product_id"],
         productName: json["product_name"],
         totalQuantity: json["total_quantity"],
@@ -109,7 +160,8 @@ class ProductPerformanceReportSummaryModel {
     this.topProduct,
   });
 
-  factory ProductPerformanceReportSummaryModel.fromJson(Map<String, dynamic> json) => ProductPerformanceReportSummaryModel(
+  factory ProductPerformanceReportSummaryModel.fromJson(Map<String, dynamic> json) =>
+      ProductPerformanceReportSummaryModel(
         totalRevenue: json["total_revenue"]?.toDouble(),
         totalRevenueTrend: json["total_revenue_trend"]?.toDouble(),
         totalQuantitySold: json["total_quantity_sold"],
