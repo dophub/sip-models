@@ -80,7 +80,7 @@ class OrderListReportOrderModel {
   factory OrderListReportOrderModel.fromJson(Map<String, dynamic> json) => OrderListReportOrderModel(
         id: json["id"],
         orderNumber: json["order_number"],
-        createDate: json["create_date"] == null ? null : DateTime.parse(json["create_date"]),
+        createDate: json["create_date"] == null ? null : DateTime.tryParse(json["create_date"])?.toLocal(),
         totalAmount: json["total_amount"]?.toDouble(),
         dealerName: json["dealer_name"],
         customerName: json["customer_name"],
