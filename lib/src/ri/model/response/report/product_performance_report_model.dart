@@ -39,7 +39,6 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
 }
 
 class ProductPerformanceReportDateRangeCategoryBreakdownModel {
-  String? id;
   String? name;
   int? amount;
   int? count;
@@ -47,7 +46,6 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
   double? countPercent;
 
   ProductPerformanceReportDateRangeCategoryBreakdownModel({
-    this.id,
     this.name,
     this.amount,
     this.count,
@@ -57,7 +55,6 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
 
   factory ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(Map<String, dynamic> json) =>
       ProductPerformanceReportDateRangeCategoryBreakdownModel(
-        id: json["id"],
         name: json["name"],
         amount: json["amount"],
         count: json["count"],
@@ -66,7 +63,6 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
         "name": name,
         "amount": amount,
         "count": count,
