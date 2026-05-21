@@ -1,4 +1,3 @@
-/*
 import 'package:background_json_parser/background_json_parser.dart';
 
 class DailyReportModel extends IBaseModel<DailyReportModel> {
@@ -186,4 +185,3 @@ abstract class IReportModel {
   int? count;
   double? turnover;
 }
-*/
