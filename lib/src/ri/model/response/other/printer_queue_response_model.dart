@@ -125,6 +125,7 @@ class PrinterQueueResponsePrintDataModel {
     this.tableServiceAmount,
     this.paymentModelId,
     this.dealerInfo,
+    this.pleksiNumber,
   });
 
   List<PrinterQuequeResponseOrderModel>? orders;
@@ -149,6 +150,7 @@ class PrinterQueueResponsePrintDataModel {
   double? tableServiceAmount;
   String? paymentModelId;
   PrinterQueueDealerInfoModel? dealerInfo;
+  int? pleksiNumber;
 
   factory PrinterQueueResponsePrintDataModel.fromJson(Map<String, dynamic> json) => PrinterQueueResponsePrintDataModel(
         orders: json["orders"] == null
@@ -176,6 +178,7 @@ class PrinterQueueResponsePrintDataModel {
         tableServiceAmount: json["table_service_amount"]?.toDouble(),
         paymentModelId: json["payment_model_id"],
         dealerInfo: json["dealer_info"] == null ? null : PrinterQueueDealerInfoModel.fromJson(json["dealer_info"]),
+        pleksiNumber: json["pleksi_number"],
       );
 }
 
