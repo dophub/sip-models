@@ -107,7 +107,7 @@ class PrinterQueueResponsePrintDataModel {
   int? dealerId;
   String? qTableId;
   int? serviceId;
-  _TableInfo? tableInfo;
+  TableInfoPrintDataModel? tableInfo;
   int? personCount;
   String? serviceNumber;
   String? serviceDeliveryType;
@@ -136,7 +136,7 @@ class PrinterQueueResponsePrintDataModel {
         numberOfService: json["number_of_service"],
         qTableId: json["q_table_id"],
         serviceId: json["service_id"],
-        tableInfo: json["table_info"] == null ? null : _TableInfo.fromJson(json["table_info"]),
+        tableInfo: json["table_info"] == null ? null : TableInfoPrintDataModel.fromJson(json["table_info"]),
         personCount: json["person_count"],
         serviceNumber: json["service_number"],
         payCustomerId: json["pay_customer_id"],
@@ -399,8 +399,8 @@ class _OrderStatus {
       };
 }
 
-class _TableInfo {
-  _TableInfo({
+class TableInfoPrintDataModel {
+  TableInfoPrintDataModel({
     this.tableCode,
     this.tableName,
     this.stationCode,
@@ -412,7 +412,7 @@ class _TableInfo {
   String? stationCode;
   String? stationName;
 
-  factory _TableInfo.fromJson(Map<String, dynamic> json) => _TableInfo(
+  factory TableInfoPrintDataModel.fromJson(Map<String, dynamic> json) => TableInfoPrintDataModel(
         tableCode: json["table_code"],
         tableName: json["table_name"],
         stationCode: json["station_code"],

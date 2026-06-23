@@ -19,6 +19,25 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
   bool isSelected = false;
 
+  PrinterQueueResponseModel toPrinterQueueResponseModel() => PrinterQueueResponseModel(
+        id: orderId,
+        printData: PrinterQueueResponsePrintDataModel(
+          numberOfService: orderInfo?.numberOfService,
+          tableInfo: orderInfo?.tableName == null ? null : TableInfoPrintDataModel(tableName: orderInfo?.tableName),
+          serviceDeliveryType: serviceDeliveryTypeId,
+          paymentModelId: orderInfo?.paymentModelId,
+          orders: [
+            PrinterQuequeResponseOrderModel(
+              nickName: firstName,
+              recordDate: orderDate,
+              orderPointId: orderInfo?.orderPointId,
+              items: products?.map((e) => e.toPrinterQueueResponseOrderOrderItemModel()).toList() ?? [],
+            ),
+          ],
+        ),
+        paymentModelId: orderInfo?.paymentModelId,
+      );
+
   KitchenOrderModel({
     this.orderId,
     this.kitchenId,
@@ -135,6 +154,21 @@ class KitchenOrderProductModel {
     this.options,
     this.statusId,
   });
+
+  PrinterQueueResponseOrderOrderItemModel toPrinterQueueResponseOrderOrderItemModel() =>
+      PrinterQueueResponseOrderOrderItemModel(
+        id: productId,
+        count: count,
+        status: PrinterQueueResponseOrderOrderItemStatusModel(
+          statusCode: OrderItemStatusId.INKITCHEN.name,
+          statusName: 'Hazırlanıyor',
+        ),
+        options: options,
+        itemNote: itemNote,
+        itemTitle: productName,
+        totalPrice: null,
+        itemTypeId: itemTypeId,
+      );
 
   factory KitchenOrderProductModel.fromJson(Map<String, dynamic> json) {
     return KitchenOrderProductModel(
