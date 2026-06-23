@@ -136,21 +136,6 @@ class KitchenOrderProductModel {
     this.statusId,
   });
 
-  PrinterQueueResponseOrderOrderItemModel toPrinterQueueResponseOrderOrderItemModel() =>
-      PrinterQueueResponseOrderOrderItemModel(
-        id: productId,
-        count: count,
-        status: PrinterQueueResponseOrderOrderItemStatusModel(
-          statusCode: OrderItemStatusId.INKITCHEN.name,
-          statusName: 'Hazırlanıyor',
-        ),
-        options: options,
-        itemNote: itemNote,
-        itemTitle: productName,
-        totalPrice: null,
-        itemTypeId: itemTypeId,
-      );
-
   factory KitchenOrderProductModel.fromJson(Map<String, dynamic> json) {
     return KitchenOrderProductModel(
       productName: json["product_name"],
