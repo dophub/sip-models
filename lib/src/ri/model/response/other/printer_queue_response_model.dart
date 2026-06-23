@@ -44,7 +44,7 @@ class PrinterQueueResponseModel extends IBaseModel<PrinterQueueResponseModel> {
   List<PrinterLineAndStyleModel>? footers;
   String? paperSize;
 
-  toKitchenOrderModel() => KitchenOrderModel(
+  KitchenOrderModel toKitchenOrderModel() => KitchenOrderModel(
         orderId: id,
         kitchenId: '',
         firstName: printData!.orders!.firstOrNull?.nickName ?? '',
