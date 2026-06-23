@@ -44,32 +44,6 @@ class PrinterQueueResponseModel extends IBaseModel<PrinterQueueResponseModel> {
   List<PrinterLineAndStyleModel>? footers;
   String? paperSize;
 
-  KitchenOrderModel toKitchenOrderModel() => KitchenOrderModel(
-        orderId: id,
-        kitchenId: '',
-        firstName: printData!.orders!.firstOrNull?.nickName ?? '',
-        lastName: '',
-        orderDate: printData!.orders!.firstOrNull?.recordDate,
-        products: printData!.orders!.firstOrNull?.items!
-                .map((e) => KitchenOrderProductModel(
-                      productName: e.itemTitle,
-                      productId: e.id,
-                      itemTypeId: e.itemTypeId,
-                      count: e.count,
-                      itemNote: e.itemNote,
-                      options: e.options,
-                    ))
-                .toList() ??
-            [],
-        orderInfo: KitchenOrderInfoModel(
-          numberOfService: printData!.numberOfService,
-          tableName: printData!.tableInfo!.tableName,
-          orderPointId: printData!.orders?.firstOrNull?.orderPointId ?? '',
-          paymentModelId: paymentModelId,
-        ),
-        serviceDeliveryTypeId: printData!.serviceDeliveryType,
-      );
-
   @override
   PrinterQueueResponseModel fromJson(Map<String, dynamic> json) => PrinterQueueResponseModel(
         id: json["id"],
