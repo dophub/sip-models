@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "async",
-      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/async-2.12.0",
+      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/async-2.13.1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
     {
       "name": "background_json_parser",
-      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/background_json_parser-1.0.6",
+      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/background_json_parser-1.0.7",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -117,7 +117,7 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/source_span-1.10.1",
+      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/source_span-1.10.2",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
@@ -159,9 +159,9 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/vm_service-14.3.1",
+      "rootUri": "file:///Users/mustafaturkmen/.pub-cache/hosted/pub.dev/vm_service-15.2.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.5"
     },
     {
       "name": "sip_models",
