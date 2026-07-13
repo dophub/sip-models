@@ -28,6 +28,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
     this.dealer,
     this.orderNumber,
     this.paymentTypeId,
+    this.prefixedOrderNumber,
   }) {
     super.id = id;
   }
@@ -51,6 +52,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
   String? addressName; // sadece RI depo kullanılmakta
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
   String? paymentTypeId;
+  String? prefixedOrderNumber;
 
   @override
   Map<String, dynamic> toJson() => throw UnimplementedError();
@@ -79,6 +81,7 @@ class TableOrderModel extends IBaseModel<TableOrderModel> with ActiveOrderModelE
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
         paymentTypeId: json['payment_type_id'],
         totalAmount: json['total_amount']?.toDouble(),
+        prefixedOrderNumber: json["prefixed_order_number"],
       );
 }
 

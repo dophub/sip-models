@@ -27,6 +27,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
   String? neighborhoodName;
   String? clientPointId;
   OrderDealerInfoModel? dealer; // hangi işletmeye sipariş verilmiş
+  String? prefixedOrderNumber;
 
   MarketplaceOrderModel({
     this.items,
@@ -51,6 +52,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
     this.neighborhoodName,
     this.clientPointId,
     this.dealer,
+    this.prefixedOrderNumber,
   }) {
     super.id = orderId;
   }
@@ -79,6 +81,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
         neighborhoodName: json["neighborhood_name"],
         clientPointId: json["client_point_id"],
         dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
+        prefixedOrderNumber: json["prefixed_order_number"],
       );
 
   @override
@@ -105,6 +108,7 @@ class MarketplaceOrderModel extends IBaseModel<MarketplaceOrderModel> with Activ
         "neighborhood_name": neighborhoodName,
         "client_point_id": clientPointId,
         "dealer": dealer?.toJson(),
+        "prefixed_order_number": prefixedOrderNumber,
       };
 }
 
