@@ -3,7 +3,7 @@ import 'package:background_json_parser/background_json_parser.dart';
 class SupportPagesModel extends IBaseModel<SupportPagesModel> {
   int? id;
   int? mainBrandId;
-  Map<String, SupportPageModel>? pages;
+  Map<String, List<SupportPageModel>>? pages;
   DateTime? createdAt;
   DateTime? updatedAt;
 
@@ -21,7 +21,7 @@ class SupportPagesModel extends IBaseModel<SupportPagesModel> {
       id: json["id"],
       mainBrandId: json["main_brand_id"],
       pages: (json["pages"] as Map<String, dynamic>?)
-          ?.map((key, value) => MapEntry(key, SupportPageModel.fromJson(value))),
+          ?.map((key, value) => MapEntry(key, List<SupportPageModel>.from(json[key]!.map((x) => SupportPageModel.fromJson(x))))),
       createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
       updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     );
