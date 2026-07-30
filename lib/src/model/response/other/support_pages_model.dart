@@ -1,7 +1,9 @@
-class SupportPagesModel {
+import 'package:background_json_parser/background_json_parser.dart';
+
+class SupportPagesModel extends IBaseModel<SupportPagesModel> {
   int? id;
   int? mainBrandId;
-  Map<String, dynamic>? pages;
+  Map<String, SupportPageModel>? pages;
   DateTime? createdAt;
   DateTime? updatedAt;
 
@@ -13,24 +15,28 @@ class SupportPagesModel {
     this.updatedAt,
   });
 
-  factory SupportPagesModel.fromJson(Map<String, dynamic> json) => SupportPagesModel(
-        id: json["id"],
-        mainBrandId: json["main_brand_id"],
-        pages: json["pages"],
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
-      );
+  @override
+  fromJson(Map<String, dynamic> json) {
+    return SupportPagesModel(
+      id: json["id"],
+      mainBrandId: json["main_brand_id"],
+      pages: (json["pages"] as Map<String, dynamic>?)
+          ?.map((key, value) => MapEntry(key, SupportPageModel.fromJson(value))),
+      createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+      updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+    );
+  }
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "main_brand_id": mainBrandId,
-        "pages": pages,
         "created_at": createdAt?.toIso8601String(),
         "updated_at": updatedAt?.toIso8601String(),
       };
 }
 
-class En {
+class SupportPageModel {
   String? tag;
   String? slug;
   String? image;
@@ -40,7 +46,7 @@ class En {
   String? metaKeywords;
   String? metaDescription;
 
-  En({
+  SupportPageModel({
     this.tag,
     this.slug,
     this.image,
@@ -51,7 +57,7 @@ class En {
     this.metaDescription,
   });
 
-  factory En.fromJson(Map<String, dynamic> json) => En(
+  factory SupportPageModel.fromJson(Map<String, dynamic> json) => SupportPageModel(
         tag: json["tag"],
         slug: json["slug"],
         image: json["image"],
