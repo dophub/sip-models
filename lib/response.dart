@@ -48,5 +48,6 @@ export 'src/model/response/other/wallet_qr_detail_model.dart';
 export 'src/model/response/other/wallet_qr_payment_operation_model.dart';
 export 'src/model/response/other/fast_sale_close_table_model.dart';
 export 'src/model/response/other/profile_dashboard_model.dart';
+export 'src/model/response/other/support_pages_model.dart';
 export 'src/model/response/address/lat_lng_model.dart';
 export 'package:sip_models/src/general/response/start_payment_response_model.dart';
