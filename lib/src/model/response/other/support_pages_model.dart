@@ -20,8 +20,12 @@ class SupportPagesModel extends IBaseModel<SupportPagesModel> {
     return SupportPagesModel(
       id: json["id"],
       mainBrandId: json["main_brand_id"],
-      pages: (json["pages"] as Map<String, dynamic>?)
-          ?.map((key, value) => MapEntry(key, List<SupportPageModel>.from(json[key]!.map((x) => SupportPageModel.fromJson(x))))),
+      pages: (json["pages"] as Map<String, dynamic>?)?.map(
+        (key, value) => MapEntry(
+          key,
+          value == null ? [] : List<SupportPageModel>.from((value as List).map((e) => SupportPageModel.fromJson(e))),
+        ),
+      ),
       createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
       updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     );
