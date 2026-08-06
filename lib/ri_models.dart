@@ -30,7 +30,6 @@ export 'package:sip_models/src/ri/model/response/login/transaction_model.dart';
 export 'package:sip_models/src/ri/model/response/order/kitchen_order_model.dart';
 export 'package:sip_models/src/ri/model/response/order/order_status_history_model.dart';
 export 'package:sip_models/src/ri/model/response/order/marketplace_order_model.dart';
-export 'package:sip_models/src/ri/model/response/order/order_manager_model.dart';
 export 'package:sip_models/src/ri/model/response/order/past_order_for_invoice.dart';
 export 'package:sip_models/src/ri/model/response/order/table_order_model.dart';
 export 'package:sip_models/src/ri/model/response/order/third_part_cache_service_model.dart';
