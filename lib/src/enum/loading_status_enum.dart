@@ -34,12 +34,17 @@ const Map<String, ApiStatus> stringToApiStatusMap = {
 };
 
 /// [SocketStatus] socket bağlantı dururmu
+/// [SocketStatus] socket bağlantı durumu
 enum SocketStatus {
-  init,
-  connect,
-  connecting,
-  error,
-  connectError,
-  connectTimeout,
-  disconnect,
+  init('Başlatılıyor'),
+  connect('Bağlandı'),
+  connecting('Bağlanıyor'),
+  error('Hata'),
+  connectError('Bağlantı Hatası'),
+  connectTimeout('Bağlantı Zaman Aşımı'),
+  disconnect('Bağlantı Kesildi');
+
+  final String title;
+
+  const SocketStatus(this.title);
 }
