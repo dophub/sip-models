@@ -87,8 +87,8 @@ enum GetBuilderId { onChangeServiceModel }
 /// [CANCEL2] Ödeme yapıldıktan sonra iptal edilen ürünler
 enum OrderItemStatusId {
   WAIT('Bekliyor', Colors.amber),
-  COMPLETE('Tamamlandı', Colors.orange),
-  INKITCHEN('Mutfakta', Colors.blue),
+  COMPLETE('Tamamlandı', Colors.green),
+  INKITCHEN('Mutfakta', Colors.orange),
   CANCEL('İptal', Colors.red),
   CANCEL2('İptal', Colors.red),
   REVISION('Revizyon', Colors.purple);
