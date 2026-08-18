@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart' show Colors, Color;
+
 import '../../enum.dart';
 
 /// [DeliveryTimeId] Teslimat zamanı
@@ -83,7 +85,19 @@ enum GetBuilderId { onChangeServiceModel }
 /// [INKITCHEN] Mutfakta
 /// [CANCEL] Ödeme yapılmadan önce iptal edilen ürünler
 /// [CANCEL2] Ödeme yapıldıktan sonra iptal edilen ürünler
-enum OrderItemStatusId { WAIT, COMPLETE, INKITCHEN, CANCEL, CANCEL2, REVISION }
+enum OrderItemStatusId {
+  WAIT('Bekliyor', Colors.orange),
+  COMPLETE('Tamamlandı', Colors.green),
+  INKITCHEN('Mutfakta', Colors.blue),
+  CANCEL('İptal', Colors.red),
+  CANCEL2('İptal', Colors.red),
+  REVISION('Revizyon', Colors.purple);
+
+  final String title;
+  final Color color;
+
+  const OrderItemStatusId(this.title, this.color);
+}
 
 /// [ClientPointId] Platform
 /// [MOBILE_APP] Mobil
@@ -176,7 +190,6 @@ enum PaymentModelID {
   const PaymentModelID(this.title);
 }
 
-
 enum PaymentTagID {
   LOYALTY_CANCEL, //	Harca Kazan Geri Alımı	false
   LOYALTY_PAYMENT, //	Harca Kazan ile Ödeme
@@ -202,7 +215,3 @@ enum PaymentTagID {
   LOYALTY_EARN_CANCEL, //Ikramiye Geri Alimi	false
   WALLET_ADD_MONEY, //	Cuzdan Para Yuklemesi	false
 }
-
-
-
-
