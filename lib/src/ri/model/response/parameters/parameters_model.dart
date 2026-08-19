@@ -16,7 +16,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
   List<ParamStationTableModel>? stationTable;
   List<CourierModel>? courier;
   ParametersResponseDealerInfoModel? dealerInfo;
-  List<OrderCancelModel>? orderCancel;
+  List<OrderCancelModel>? cancelReasons;
   List<PosBrandsModel>? posBrands;
   Map<String, Map<String, String>?>? contents; // localization Map<LanguageCode,Map<Kay,value>>
   List<PaymentTagsModel>? paymentTags;
@@ -29,7 +29,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
     this.stationTable,
     this.courier,
     this.dealerInfo,
-    this.orderCancel,
+    this.cancelReasons,
     this.posBrands,
     this.contents,
     this.paymentTags,
@@ -67,7 +67,7 @@ class ParametersResponseModel extends IBaseModel<ParametersResponseModel> {
       dealerInfo: json['dealer_info'] == null
           ? null
           : ParametersResponseDealerInfoModel.fromJson(json['dealer_info'] as Map<String, dynamic>),
-      orderCancel: (json['order_cancel'] as List<dynamic>?)
+      cancelReasons: (json['cancel_reasons'] as List<dynamic>?)
           ?.map((e) => OrderCancelModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       posBrands: (json['pos_brands'] as List<dynamic>?)
