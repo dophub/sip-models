@@ -182,6 +182,8 @@ class ItemOrder {
     this.note,
     this.timeoutAction,
     this.customerAddressId = 0,
+    this.encryptedData,
+    this.smsCode,
   });
 
   /// Order içinde itemleri ayırmak için olan id.
@@ -197,6 +199,8 @@ class ItemOrder {
   String? note;
   String? timeoutAction;
   int? customerAddressId;
+  String? encryptedData;
+  String? smsCode;
 
   factory ItemOrder.fromJson(Map<String?, dynamic> json) => ItemOrder(
         id: json["id"],
@@ -209,6 +213,8 @@ class ItemOrder {
         promotionMenu: PromotionMenu.fromJson(json["promotion_menu"]),
         timeoutAction: json["timeout_action"],
         customerAddressId: json["customer_address_id"],
+        encryptedData: json["encrypted_data"],
+        smsCode: json["sms_code"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -218,10 +224,12 @@ class ItemOrder {
         "item_amount": itemAmount,
         "total_amount": totalAmount,
         "note": note,
-        "product": product == null ? null : product!.toJson(),
-        "promotion_menu": promotionMenu == null ? null : promotionMenu!.toJson(),
+        "product": product?.toJson(),
+        "promotion_menu": promotionMenu?.toJson(),
         "timeout_action": timeoutAction,
         "customer_address_id": customerAddressId,
+        "encrypted_data": encryptedData,
+        "sms_code": smsCode,
       };
 }
 
