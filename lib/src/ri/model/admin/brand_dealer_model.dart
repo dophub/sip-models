@@ -61,6 +61,7 @@ class _BrandDealerCityModel {
   int? id;
   String? name;
 
+
   _BrandDealerCityModel({
     this.id,
     this.name,
