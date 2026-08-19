@@ -36,6 +36,7 @@ export 'package:sip_models/src/ri/model/response/order/third_part_cache_service_
 export 'package:sip_models/src/ri/model/response/order_stats/order_count_model.dart';
 export 'package:sip_models/src/ri/model/response/order_stats/order_stats_model.dart';
 export 'package:sip_models/src/ri/model/response/other/active_orders_count_model.dart';
+export 'package:sip_models/src/ri/model/response/other/id_name_model.dart';
 export 'package:sip_models/src/ri/model/response/other/branch_product_activation_model.dart';
 export 'package:sip_models/src/ri/model/response/other/by_dealer_model.dart';
 export 'package:sip_models/src/ri/model/response/other/categories_response_model.dart';
