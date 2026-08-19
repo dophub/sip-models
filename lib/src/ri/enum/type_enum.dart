@@ -48,6 +48,12 @@ enum OrderCancelReasonEnum {
   ZAMAN_ASIMI //"Zaman aşımına uğradı",
 }
 
+/// iptal sebeplerin türleri
+enum CancelReasonsTypeEnum {
+  ORDER,
+  ITEMS,
+}
+
 enum QrStatusEnum { ASSIGNED, NOT, NOT_FOUND }
 
 enum DialogIs { done, error, ask, sending }
@@ -94,5 +100,3 @@ enum CancelPosPaymentTypeEnum {
 enum WorkingModeEnum { pos, admin }
 
 enum PrinterPaperTypeEnum { mm58, mm80 }
-
-
