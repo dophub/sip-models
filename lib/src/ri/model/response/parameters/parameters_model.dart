@@ -314,6 +314,7 @@ class ParametersResponseDealerInfoModel {
     this.reservationIsActive,
     this.valeIsActive,
     this.selfServiceIsActive,
+    this.criticalOrderOperationSmsRequired,
     this.selfServiceDefaultTable,
     this.selfServiceDefaultTableQrCode,
     this.dealerPos,
@@ -344,6 +345,7 @@ class ParametersResponseDealerInfoModel {
   bool? reservationIsActive;
   bool? valeIsActive;
   bool? selfServiceIsActive;
+  bool? criticalOrderOperationSmsRequired;
   String? selfServiceDefaultTable;
   String? selfServiceDefaultTableQrCode;
   List<DealerInfoPosModel>? dealerPos;
@@ -375,6 +377,7 @@ class ParametersResponseDealerInfoModel {
         reservationIsActive: json["reservation_is_active"],
         valeIsActive: json["vale_is_active"],
         selfServiceIsActive: json["self_service_is_active"],
+        criticalOrderOperationSmsRequired: json["critical_order_operation_sms_required"],
         selfServiceDefaultTable: json["self_service_default_table"],
         selfServiceDefaultTableQrCode: json["self_service_default_table_qrcode"],
         dealerPos: json["dealer_pos"] == null
