@@ -143,6 +143,7 @@ class KitchenOrderCourierModel {
 class KitchenOrderProductModel {
   String? productName;
   int? productId;
+  int? itemsId;
   String? itemTypeId;
   int? count;
   String? itemNote;
@@ -152,6 +153,7 @@ class KitchenOrderProductModel {
   KitchenOrderProductModel({
     this.productName,
     this.productId,
+    this.itemsId,
     this.itemTypeId,
     this.count,
     this.itemNote,
@@ -178,6 +180,7 @@ class KitchenOrderProductModel {
     return KitchenOrderProductModel(
       productName: json["product_name"],
       productId: json["product_id"],
+      itemsId: json["items_id"],
       itemTypeId: json["item_type_id"],
       count: json["count"],
       itemNote: json["item_note"],
@@ -189,6 +192,7 @@ class KitchenOrderProductModel {
   Map<String, dynamic> toJson() => {
         "product_name": productName,
         "product_id": productId,
+        "items_id": itemsId,
         "item_type_id": itemTypeId,
         "count": count,
         "item_note": itemNote,
