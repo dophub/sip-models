@@ -146,6 +146,7 @@ class KitchenOrderProductModel {
   int? itemsId;
   String? itemTypeId;
   int? count;
+  int? completeCount;
   String? itemNote;
   String? statusId;
   List<OrderOption>? options;
@@ -156,6 +157,7 @@ class KitchenOrderProductModel {
     this.itemsId,
     this.itemTypeId,
     this.count,
+    this.completeCount,
     this.itemNote,
     this.options,
     this.statusId,
@@ -183,6 +185,7 @@ class KitchenOrderProductModel {
       itemsId: json["items_id"],
       itemTypeId: json["item_type_id"],
       count: json["count"],
+      completeCount: json["complete_count"],
       itemNote: json["item_note"],
       statusId: json["status_id"],
       options: List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
@@ -195,6 +198,7 @@ class KitchenOrderProductModel {
         "items_id": itemsId,
         "item_type_id": itemTypeId,
         "count": count,
+        "complete_count": completeCount,
         "item_note": itemNote,
         "status_id": statusId,
         "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
