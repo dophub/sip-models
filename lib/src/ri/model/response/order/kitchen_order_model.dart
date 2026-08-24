@@ -11,6 +11,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   String? lastName;
   String? addressName;
   DateTime? orderDate;
+  DateTime? kitchenActiveDate;
   List<KitchenOrderProductModel>? products;
   KitchenOrderInfoModel? orderInfo;
   int counter = 0; // Siparişin üstüne geçen süreyi belirtir
@@ -45,6 +46,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
     this.lastName,
     this.addressName,
     this.orderDate,
+    this.kitchenActiveDate,
     this.products,
     this.orderInfo,
     this.serviceDeliveryTypeId,
@@ -60,6 +62,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         lastName: json["last_name"],
         addressName: json["address_name"],
         orderDate: DateTime.parse(json["order_date"]),
+        kitchenActiveDate: DateTime.parse(json["kitchen_active_date"]),
         orderInfo: KitchenOrderInfoModel.fromJson(json["order_info"]),
         products: json["products"] == null
             ? []
@@ -81,6 +84,7 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
         "last_name": lastName,
         "address_name": addressName,
         "order_date": orderDate?.toIso8601String(),
+        "kitchen_active_date": kitchenActiveDate?.toIso8601String(),
         "order_info": orderInfo?.toJson(),
         "products": List<dynamic>.from(products!.map((x) => x.toJson())),
         "courier": courier?.toJson(),
