@@ -1,5 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
+import '../../../../response.dart';
+import '../../../../ri_models.dart';
 import '../../../ri/model/other/multi_item_picker_widget_model.dart';
 
 class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements IMultiItemPickerWidgetModel {
@@ -46,6 +48,47 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
   bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
   double? distance;
   String? streetName;
+
+  AddLocalCustomerAddressModel toAddLocalCustomerAddressModel() {
+    return AddLocalCustomerAddressModel(
+      id: id,
+      addressName: addressName,
+      address: address,
+      buildingNumber: buildingNumber,
+      floor: floor,
+      flatNumber: flatNumber,
+      addressRoute: addressRoute,
+      latlng: latlng,
+      addressTypeId: addressTypeId,
+      cityId: cityId,
+      districtId: districtId,
+      neighborhoodId: neighborhoodId,
+      city: cityId == null && cityName == null
+          ? null
+          : AddLocalCustomerCityModel(
+              id: cityId,
+              name: cityName,
+            ),
+      district: districtId == null && districtName == null
+          ? null
+          : AddLocalCustomerDistrictModel(
+              id: districtId,
+              name: districtName,
+            ),
+      neighborhood: neighborhoodId == null && neighborhoodName == null
+          ? null
+          : AddLocalCustomerNeighborhoodModel(
+              id: neighborhoodId,
+              name: neighborhoodName,
+            ),
+      addressType: addressTypeId == null && addressTypeName == null
+          ? null
+          : AddressType(
+              addressTypeCode: addressTypeId,
+              addressTypeName: addressTypeName,
+            ),
+    );
+  }
 
   CustomerAddressModel copyWith() {
     return CustomerAddressModel(

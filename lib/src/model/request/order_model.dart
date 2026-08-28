@@ -1,4 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
+import '../../../ri_models.dart';
 import '../../general/response/payment_transaction_model.dart';
 import '../response/address/customer_address_model.dart';
 import '../response/other/images_model.dart';
@@ -622,6 +623,16 @@ class OrderCustomerModel {
   String? sessionId;
   String? nameSurname;
   String? mobilePhone;
+
+  AddLocalCustomerDataModel toAddLocalCustomerDataModel() {
+    return AddLocalCustomerDataModel(
+      id: id,
+      firstName: nameSurname,
+      lastName: null,
+      mobilePhone: mobilePhone,
+      ssoId: sessionId,
+    );
+  }
 
   factory OrderCustomerModel.fromJson(Map<String, dynamic> json) => OrderCustomerModel(
         id: json["id"],
