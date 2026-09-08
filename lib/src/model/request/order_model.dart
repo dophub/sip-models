@@ -311,6 +311,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.totalPrice,
     this.itemTypeId,
     this.cancelNote,
+    this.cancelRejectCodeId,
     this.orderMainId,
     this.promotionMenuId,
     this.itemPriceWithoutKdv,
@@ -345,6 +346,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   double? totalPrice;
   String? itemTypeId;
   String? cancelNote;
+  String? cancelRejectCodeId;
   int? orderMainId;
   int? promotionMenuId;
   double? itemPriceWithoutKdv;
@@ -506,6 +508,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         totalPrice: json["total_price"].toDouble(),
         itemTypeId: json["item_type_id"],
         cancelNote: json["cancel_note"],
+    cancelRejectCodeId: json["cancel_reject_code_id"],
         orderMainId: json["order_main_id"],
         promotionMenuId: json["promotion_menu_id"],
         itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
@@ -542,6 +545,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         "total_price": totalPrice,
         "item_type_id": itemTypeId,
         "cancel_note": cancelNote,
+        "cancel_reject_code_id": cancelRejectCodeId,
         "order_main_id": orderMainId,
         "promotion_menu_id": promotionMenuId,
         "item_object": itemObject?.toJson(),
