@@ -39,6 +39,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   double? totalAmountWithoutKdv;
   OrderCustomerModel? customer;
   DateTime? recordDate;
+  DateTime? updateDate;
   String? orderOptions;
   CourierInfo? courierInfo;
   CustomerAddressModel? customerAddress;
@@ -90,6 +91,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.totalAmountWithoutKdv,
     this.customer,
     this.recordDate,
+    this.updateDate,
     this.orderOptions,
     this.customerAddress,
     this.tableServiceId,
@@ -153,6 +155,7 @@ class OrderModel extends IBaseModel<OrderModel> {
             json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
         customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
         recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
+        updateDate: json["update_date"] == null ? null : DateTime.tryParse(json["update_date"]),
         orderOptions: json["order_options"] ?? '',
         customerAddress:
             json["customer_address"] == null ? null : CustomerAddressModel().fromJson(json["customer_address"]),
@@ -216,6 +219,7 @@ class OrderModel extends IBaseModel<OrderModel> {
         "total_amount_without_kdv": totalAmountWithoutKdv,
         "customer": customer?.toJson(),
         "record_date": recordDate?.toIso8601String(),
+        "update_date": updateDate?.toIso8601String(),
         "order_options": orderOptions,
         "customer_address": customerAddress?.toJson(),
         "payment_info": paymentInfo?.toJson(),
