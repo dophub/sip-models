@@ -310,6 +310,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.taxPercent,
     this.totalPrice,
     this.itemTypeId,
+    this.cancelNote,
     this.orderMainId,
     this.promotionMenuId,
     this.itemPriceWithoutKdv,
@@ -343,6 +344,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   int? taxPercent;
   double? totalPrice;
   String? itemTypeId;
+  String? cancelNote;
   int? orderMainId;
   int? promotionMenuId;
   double? itemPriceWithoutKdv;
@@ -503,6 +505,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         taxPercent: json["tax_percent"],
         totalPrice: json["total_price"].toDouble(),
         itemTypeId: json["item_type_id"],
+        cancelNote: json["cancel_note"],
         orderMainId: json["order_main_id"],
         promotionMenuId: json["promotion_menu_id"],
         itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
@@ -538,6 +541,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         "tax_percent": taxPercent,
         "total_price": totalPrice,
         "item_type_id": itemTypeId,
+        "cancel_note": cancelNote,
         "order_main_id": orderMainId,
         "promotion_menu_id": promotionMenuId,
         "item_object": itemObject?.toJson(),
