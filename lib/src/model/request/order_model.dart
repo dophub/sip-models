@@ -64,6 +64,8 @@ class OrderModel extends IBaseModel<OrderModel> {
   double? manualDiscountAmount;
   double? totalManualDiscount;
   String? prefixedOrderNumber;
+  String? cancelNote;
+  ItemCancelRejectModel? cancelReject;
 
   OrderModel({
     this.id,
@@ -116,6 +118,8 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.manualDiscountAmount,
     this.totalManualDiscount,
     this.prefixedOrderNumber,
+    this.cancelNote,
+    this.cancelReject,
   });
 
   @override
@@ -181,6 +185,8 @@ class OrderModel extends IBaseModel<OrderModel> {
             : List<PaymentTransactionModel>.from(
                 json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x))),
         prefixedOrderNumber: json["prefixed_order_number"],
+        cancelNote: json["cancel_note"],
+        cancelReject: json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]),
       );
 
   @override
@@ -235,6 +241,8 @@ class OrderModel extends IBaseModel<OrderModel> {
         "payment_transactions":
             paymentTransactions == null ? [] : List<dynamic>.from(paymentTransactions!.map((x) => x.toJson())),
         "prefixed_order_number": prefixedOrderNumber,
+        "cancel_note": cancelNote,
+        "cancel_reject": cancelReject?.toJson(),
       };
 }
 
