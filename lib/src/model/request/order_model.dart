@@ -331,6 +331,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.afterManualDiscountItemPrice,
     this.afterManualDiscountTotalWithoutKdv,
     this.afterManualDiscountItemPriceWithoutKdv,
+    this.cancelReject,
   });
 
   int? id;
@@ -366,6 +367,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   double? afterManualDiscountItemPrice;
   double? afterManualDiscountTotalWithoutKdv;
   double? afterManualDiscountItemPriceWithoutKdv;
+  ItemCancelRejectModel? cancelReject;
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
@@ -508,7 +510,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         totalPrice: json["total_price"].toDouble(),
         itemTypeId: json["item_type_id"],
         cancelNote: json["cancel_note"],
-    cancelRejectCodeId: json["cancel_reject_code_id"],
+        cancelRejectCodeId: json["cancel_reject_code_id"],
         orderMainId: json["order_main_id"],
         promotionMenuId: json["promotion_menu_id"],
         itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
@@ -528,6 +530,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         afterManualDiscountItemPrice: json["after_manual_discount_item_price"]?.toDouble(),
         afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
         afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
+        cancelReject: json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]),
       );
 
   @override
@@ -565,6 +568,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         "after_manual_discount_item_price": afterManualDiscountItemPrice,
         "after_manual_discount_total_without_kdv": afterManualDiscountTotalWithoutKdv,
         "after_manual_discount_item_price_without_kdv": afterManualDiscountItemPriceWithoutKdv,
+        "cancel_reject": cancelReject?.toJson(),
       };
 }
 
@@ -805,5 +809,25 @@ class OrderCampaignsModel {
         "campaign_amount": campaignAmount,
         "is_third_party": isThirdParty,
         "provider_name": providerName,
+      };
+}
+
+class ItemCancelRejectModel {
+  String? code;
+  String? title;
+
+  ItemCancelRejectModel({
+    this.code,
+    this.title,
+  });
+
+  factory ItemCancelRejectModel.fromJson(Map<String, dynamic> json) => ItemCancelRejectModel(
+        code: json["code"],
+        title: json["title"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "title": title,
       };
 }
