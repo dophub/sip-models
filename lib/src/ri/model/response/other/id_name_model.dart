@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class IdNameModel({required int id, required int name}) extends IBaseModel<IdNameModel> {
+class IdNameModel({this.id, this.name}) extends IBaseModel<IdNameModel> {
   int? id;
   String? name;
 
