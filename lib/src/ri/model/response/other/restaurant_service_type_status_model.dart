@@ -17,6 +17,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     this.getinIsActive,
     this.openTakeout,
     this.takeoutIsActive,
+    this.openScheduled,
+    this.scheduledIsActive,
   });
 
   bool? marketplaceIsActive;
@@ -34,44 +36,50 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
   bool? getinIsActive;
   bool? openTakeout;
   bool? takeoutIsActive;
+  bool? openScheduled;
+  bool? scheduledIsActive;
 
   @override
   Map<String, dynamic> toJson() => {
-        "marketplace_is_active": marketplaceIsActive,
-        "reservation_is_active": reservationIsActive,
-        "vale_is_active": valeIsActive,
-        "table_is_active": tableIsActive,
-        "self_service_is_active": selfServiceIsActive,
-        "delay": delay,
-        "open_marketplace": openMarketplace,
-        "open_reservation": openReservation,
-        "open_table": openTable,
-        "open_vale": openVale,
-        "open_self_service": openSelfService,
-        "open_getin": openGetin,
-        "getin_is_active": getinIsActive,
-        "open_takeout": openTakeout,
-        "takeout_is_active": takeoutIsActive,
-      };
+    "marketplace_is_active": marketplaceIsActive,
+    "reservation_is_active": reservationIsActive,
+    "vale_is_active": valeIsActive,
+    "table_is_active": tableIsActive,
+    "self_service_is_active": selfServiceIsActive,
+    "delay": delay,
+    "open_marketplace": openMarketplace,
+    "open_reservation": openReservation,
+    "open_table": openTable,
+    "open_vale": openVale,
+    "open_self_service": openSelfService,
+    "open_getin": openGetin,
+    "getin_is_active": getinIsActive,
+    "open_takeout": openTakeout,
+    "takeout_is_active": takeoutIsActive,
+    "open_scheduled": openScheduled,
+    "scheduled_is_active": scheduledIsActive,
+  };
 
   @override
   RestaurantServiceTypeStatusModel fromJson(Map<String, dynamic> json) => RestaurantServiceTypeStatusModel(
-        marketplaceIsActive: json["marketplace_is_active"],
-        reservationIsActive: json["reservation_is_active"],
-        valeIsActive: json["vale_is_active"],
-        tableIsActive: json["table_is_active"],
-        selfServiceIsActive: json["self_service_is_active"],
-        delay: json["delay"] ?? 0,
-        openMarketplace: json["open_marketplace"],
-        openReservation: json["open_reservation"],
-        openTable: json["open_table"],
-        openVale: json["open_vale"],
-        openSelfService: json["open_self_service"],
-        openGetin: json["open_getin"],
-        getinIsActive: json["getin_is_active"],
-        openTakeout: json["open_takeout"],
-        takeoutIsActive: json["takeout_is_active"],
-      );
+    marketplaceIsActive: json["marketplace_is_active"],
+    reservationIsActive: json["reservation_is_active"],
+    valeIsActive: json["vale_is_active"],
+    tableIsActive: json["table_is_active"],
+    selfServiceIsActive: json["self_service_is_active"],
+    delay: json["delay"] ?? 0,
+    openMarketplace: json["open_marketplace"],
+    openReservation: json["open_reservation"],
+    openTable: json["open_table"],
+    openVale: json["open_vale"],
+    openSelfService: json["open_self_service"],
+    openGetin: json["open_getin"],
+    getinIsActive: json["getin_is_active"],
+    openTakeout: json["open_takeout"],
+    takeoutIsActive: json["takeout_is_active"],
+    openScheduled: json["open_scheduled"],
+    scheduledIsActive: json["scheduled_is_active"],
+  );
 
   RestaurantServiceTypeStatusModel copyWith({
     bool? valeIsActive,
@@ -89,6 +97,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
     bool? getinIsActive,
     bool? takeoutIsActive,
     bool? openTakeout,
+    bool? openScheduled,
+    bool? scheduledIsActive,
   }) {
     return RestaurantServiceTypeStatusModel(
       valeIsActive: valeIsActive ?? this.valeIsActive,
@@ -106,6 +116,8 @@ class RestaurantServiceTypeStatusModel extends IBaseModel<RestaurantServiceTypeS
       getinIsActive: getinIsActive ?? this.getinIsActive,
       takeoutIsActive: takeoutIsActive ?? this.takeoutIsActive,
       openTakeout: openTakeout ?? this.openTakeout,
+      openScheduled: openScheduled ?? this.openScheduled,
+      scheduledIsActive: scheduledIsActive ?? this.scheduledIsActive,
     );
   }
 }
