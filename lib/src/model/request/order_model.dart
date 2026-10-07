@@ -787,8 +787,8 @@ class OrderItemDiscountModel {
   String? source;
   int? orderItemId;
   int? manualDiscountTypeId;
-  int? manualDiscountValue;
-  int? manualDiscountAmount;
+  double? manualDiscountValue;
+  double? manualDiscountAmount;
   DateTime? createdAt;
 
   OrderItemDiscountModel({
@@ -804,8 +804,8 @@ class OrderItemDiscountModel {
     source: json["source"],
     orderItemId: json["order_item_id"],
     manualDiscountTypeId: json["manual_discount_type_id"],
-    manualDiscountValue: json["manual_discount_value"],
-    manualDiscountAmount: json["manual_discount_amount"],
+    manualDiscountValue: json["manual_discount_value"]?.toDouble(),
+    manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
     createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
   );
 
