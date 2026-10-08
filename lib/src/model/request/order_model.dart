@@ -796,6 +796,7 @@ class OrderItemDiscountModel {
   double? manualDiscountValue;
   double? manualDiscountAmount;
   DateTime? createdAt;
+  bool? isActive;
 
   OrderItemDiscountModel({
     this.source,
@@ -804,6 +805,7 @@ class OrderItemDiscountModel {
     this.manualDiscountValue,
     this.manualDiscountAmount,
     this.createdAt,
+    this.isActive,
   });
 
   factory OrderItemDiscountModel.fromJson(Map<String, dynamic> json) => OrderItemDiscountModel(
@@ -813,6 +815,7 @@ class OrderItemDiscountModel {
     manualDiscountValue: json["manual_discount_value"]?.toDouble(),
     manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
     createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+    isActive: json["is_active"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -822,5 +825,6 @@ class OrderItemDiscountModel {
     "manual_discount_value": manualDiscountValue,
     "manual_discount_amount": manualDiscountAmount,
     "created_at": createdAt?.toIso8601String(),
+    "is_active": isActive,
   };
 }
