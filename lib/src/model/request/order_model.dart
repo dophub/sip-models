@@ -128,78 +128,83 @@ class OrderModel extends IBaseModel<OrderModel> {
   });
 
   @override
-  OrderModel fromJson(Map<dynamic, dynamic> json) => OrderModel(
-    id: json["id"],
-    items: json["items"] == null ? [] : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x))),
-    ssoId: json["sso_id"],
-    callNumber: json["callnumber"],
-    dealerId: json["dealer_id"],
-    nickName: json["nick_name"],
-    sessionId: json["sessionId"],
-    orderNote: json["order_note"],
-    tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
-    customerId: json["customer_id"],
-    orderNumber: json["order_number"],
-    orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
-    totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
-    serviceTotalAmount: json["service_total_amount"]?.toDouble(),
-    preTotalAmount: json["pre_total_amount"] == null ? 0.0 : json["pre_total_amount"].toDouble(),
-    preTotalAmountWithoutKdv: json["pre_total_amount_without_kdv"] == null
-        ? 0.0
-        : json["pre_total_amount_without_kdv"].toDouble(),
-    deliveryDate: json["delivery_date"],
-    orderPointId: json["order_point_id"],
-    clientPointId: json["client_point_id"],
-    courierInfo: json['courier_info'] == null
-        ? null
-        : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
-    deliveryTypeId: json["delivery_type_id"],
-    sessionPointId: json["session_point_id"],
-    tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
-    totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
-    customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
-    recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
-    updateDate: json["update_date"] == null ? null : DateTime.tryParse(json["update_date"]),
-    orderOptions: json["order_options"] ?? '',
-    customerAddress: json["customer_address"] == null
-        ? null
-        : CustomerAddressModel().fromJson(json["customer_address"]),
-    paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
-    tableServiceId: json["table_service_id"],
-    isUseCampaign: json["is_use_campaign"],
-    beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
-    totalCampaignDiscount: json["total_campaign_discount"] == null ? 0.0 : json["total_campaign_discount"].toDouble(),
-    totalUsedCampaignBudget: json["total_used_campaign_budget"] == null
-        ? 0.0
-        : json["total_used_campaign_budget"].toDouble(),
-    campaigns: json["campaigns"] == null
-        ? []
-        : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
-    serviceDeliveryTypeId: json["service_delivery_type_id"],
-    orderDeviceId: json["order_device_id"],
-    tableName: json["table_name"],
-    pleksiNumber: json["pleksi_number"],
-    numberOfService: json["number_of_service"],
-    tableServiceAmount: json["table_service_amount"]?.toDouble(),
-    paymentModelId: json["payment_model_id"],
-    infoPhoneNumber: json["info_phone_number"],
-    invoiceSuccessLink: json["invoice_success_link"],
-    manualDiscountTypeId: json["manual_discount_type_id"],
-    manualDiscountValue: json["manual_discount_value"]?.toDouble(),
-    manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
-    totalManualDiscount: json["total_manual_discount"]?.toDouble(),
-    paymentTransactions: json["payment_transactions"] == null
-        ? []
-        : List<PaymentTransactionModel>.from(
-            json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x)),
-          ),
-    prefixedOrderNumber: json["prefixed_order_number"],
-    cancelNote: json["cancel_note"],
-    cancelReject: json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]),
-    discounts: json["discounts"] == null
-        ? []
-        : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
-  );
+  OrderModel fromJson(Map<dynamic, dynamic> json) {
+    final _sessionPointId = json["session_point_id"];
+    return OrderModel(
+      id: json["id"],
+      items: json["items"] == null
+          ? []
+          : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x, _sessionPointId))),
+      ssoId: json["sso_id"],
+      callNumber: json["callnumber"],
+      dealerId: json["dealer_id"],
+      nickName: json["nick_name"],
+      sessionId: json["sessionId"],
+      orderNote: json["order_note"],
+      tipAmount: json["tip_amount"] == null ? 0.0 : json["tip_amount"].toDouble(),
+      customerId: json["customer_id"],
+      orderNumber: json["order_number"],
+      orderStatus: json["order_status"] == null ? null : OrderStatusModel.fromJson(json["order_status"]),
+      totalAmount: json["total_amount"] == null ? 0.0 : json["total_amount"].toDouble(),
+      serviceTotalAmount: json["service_total_amount"]?.toDouble(),
+      preTotalAmount: json["pre_total_amount"] == null ? 0.0 : json["pre_total_amount"].toDouble(),
+      preTotalAmountWithoutKdv: json["pre_total_amount_without_kdv"] == null
+          ? 0.0
+          : json["pre_total_amount_without_kdv"].toDouble(),
+      deliveryDate: json["delivery_date"],
+      orderPointId: json["order_point_id"],
+      clientPointId: json["client_point_id"],
+      courierInfo: json['courier_info'] == null
+          ? null
+          : CourierInfo.fromJson(json['courier_info'] as Map<String, dynamic>),
+      deliveryTypeId: json["delivery_type_id"],
+      sessionPointId: _sessionPointId,
+      tipAmountWithoutKdv: json["tip_amount_without_kdv"] == null ? 0 : json["tip_amount_without_kdv"].toDouble(),
+      totalAmountWithoutKdv: json["total_amount_without_kdv"] == null ? 0 : json["total_amount_without_kdv"].toDouble(),
+      customer: json["customer"] == null ? null : OrderCustomerModel.fromJson(json["customer"]),
+      recordDate: json["record_date"] == null ? null : DateTime.tryParse(json["record_date"]),
+      updateDate: json["update_date"] == null ? null : DateTime.tryParse(json["update_date"]),
+      orderOptions: json["order_options"] ?? '',
+      customerAddress: json["customer_address"] == null
+          ? null
+          : CustomerAddressModel().fromJson(json["customer_address"]),
+      paymentInfo: json["payment_info"] == null ? null : PaymentInfo.fromJson(json["payment_info"]),
+      tableServiceId: json["table_service_id"],
+      isUseCampaign: json["is_use_campaign"],
+      beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
+      totalCampaignDiscount: json["total_campaign_discount"] == null ? 0.0 : json["total_campaign_discount"].toDouble(),
+      totalUsedCampaignBudget: json["total_used_campaign_budget"] == null
+          ? 0.0
+          : json["total_used_campaign_budget"].toDouble(),
+      campaigns: json["campaigns"] == null
+          ? []
+          : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
+      serviceDeliveryTypeId: json["service_delivery_type_id"],
+      orderDeviceId: json["order_device_id"],
+      tableName: json["table_name"],
+      pleksiNumber: json["pleksi_number"],
+      numberOfService: json["number_of_service"],
+      tableServiceAmount: json["table_service_amount"]?.toDouble(),
+      paymentModelId: json["payment_model_id"],
+      infoPhoneNumber: json["info_phone_number"],
+      invoiceSuccessLink: json["invoice_success_link"],
+      manualDiscountTypeId: json["manual_discount_type_id"],
+      manualDiscountValue: json["manual_discount_value"]?.toDouble(),
+      manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
+      totalManualDiscount: json["total_manual_discount"]?.toDouble(),
+      paymentTransactions: json["payment_transactions"] == null
+          ? []
+          : List<PaymentTransactionModel>.from(
+              json["payment_transactions"]!.map((x) => PaymentTransactionModel.fromJson(x)),
+            ),
+      prefixedOrderNumber: json["prefixed_order_number"],
+      cancelNote: json["cancel_note"],
+      cancelReject: json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]),
+      discounts: json["discounts"] == null
+          ? []
+          : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
+    );
+  }
 
   @override
   Map<String, dynamic> toJson() => {
@@ -494,7 +499,8 @@ class OrderItem extends IBaseModel<OrderItem> {
     return option;
   }
 
-  factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem().fromJson(json);
+  factory OrderItem.fromJson(Map<String, dynamic> json, String? sessionPointId) =>
+      OrderItem(orderSessionPointId: sessionPointId).fromJson(json);
 
   @override
   OrderItem fromJson(Map<String, dynamic> json) => OrderItem(
