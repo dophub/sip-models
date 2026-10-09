@@ -346,6 +346,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.afterManualDiscountItemPriceWithoutKdv,
     this.cancelReject,
     this.discounts,
+    this.orderSessionPointId,
   });
 
   int? id;
@@ -383,6 +384,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   double? afterManualDiscountItemPriceWithoutKdv;
   ItemCancelRejectModel? cancelReject;
   List<OrderItemDiscountModel>? discounts;
+  String? orderSessionPointId; // sadece local de kullanılmakta
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
