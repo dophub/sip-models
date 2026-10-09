@@ -134,7 +134,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       id: json["id"],
       items: json["items"] == null
           ? []
-          : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x, _sessionPointId))),
+          : List<OrderItem>.from(json["items"].map((x) => OrderItem.fromJson(x, sessionPointId: _sessionPointId))),
       ssoId: json["sso_id"],
       callNumber: json["callnumber"],
       dealerId: json["dealer_id"],
@@ -499,7 +499,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     return option;
   }
 
-  factory OrderItem.fromJson(Map<String, dynamic> json, String? sessionPointId) =>
+  factory OrderItem.fromJson(Map<String, dynamic> json, {String? sessionPointId}) =>
       OrderItem(orderSessionPointId: sessionPointId).fromJson(json);
 
   @override
