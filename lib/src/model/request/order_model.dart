@@ -503,47 +503,51 @@ class OrderItem extends IBaseModel<OrderItem> {
       OrderItem(orderSessionPointId: sessionPointId).fromJson(json);
 
   @override
-  OrderItem fromJson(Map<String, dynamic> json) => OrderItem(
-    id: json["id"],
-    count: json["count"],
-    options: json["options"] == null ? [] : List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x))),
-    itemCode: json["item_code"],
-    itemNote: json["item_note"] ?? '',
-    statusId: json["status_id"],
-    itemPrice: json["item_price"].toDouble(),
-    itemTitle: json["item_title"],
-    productId: json["product_id"],
-    itemObject: ProductModel().fromJson(json["item_object"]),
-    taxPercent: json["tax_percent"],
-    totalPrice: json["total_price"].toDouble(),
-    itemTypeId: json["item_type_id"],
-    cancelNote: json["cancel_note"],
-    cancelRejectCodeId: json["cancel_reject_code_id"],
-    orderMainId: json["order_main_id"],
-    promotionMenuId: json["promotion_menu_id"],
-    itemPriceWithoutKdv: json["item_price_without_kdv"].toDouble(),
-    totalPriceWithoutKdv: json["total_price_without_kdv"].toDouble(),
-    status: ItemStatus.fromJson(json["status"]),
-    beforeCampaignItemPrice: json["before_campaign_item_price"] == null
-        ? 0.0
-        : json["before_campaign_item_price"].toDouble(),
-    beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
-    campaignId: json["campaign_id"],
-    isGift: json["is_gift"],
-    isUseCampaign: json["is_use_campaign"],
-    orderPayStatusTypeId: json["order_pay_status_type_id"],
-    manualDiscountValue: json["manual_discount_value"]?.toDouble(),
-    manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
-    manualDiscountTypeId: json["manual_discount_type_id"],
-    afterManualDiscountTotal: json["after_manual_discount_total"]?.toDouble(),
-    afterManualDiscountItemPrice: json["after_manual_discount_item_price"]?.toDouble(),
-    afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
-    afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
-    cancelReject: json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]),
-    discounts: json["discounts"] == null
+  OrderItem fromJson(Map<String, dynamic> json) {
+    id = json["id"];
+    count = json["count"];
+    options = json["options"] == null
         ? []
-        : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
-  );
+        : List<OrderOption>.from(json["options"].map((x) => OrderOption.fromJson(x)));
+    itemCode = json["item_code"];
+    itemNote = json["item_note"] ?? '';
+    statusId = json["status_id"];
+    itemPrice = json["item_price"].toDouble();
+    itemTitle = json["item_title"];
+    productId = json["product_id"];
+    itemObject = ProductModel().fromJson(json["item_object"]);
+    taxPercent = json["tax_percent"];
+    totalPrice = json["total_price"].toDouble();
+    itemTypeId = json["item_type_id"];
+    cancelNote = json["cancel_note"];
+    cancelRejectCodeId = json["cancel_reject_code_id"];
+    orderMainId = json["order_main_id"];
+    promotionMenuId = json["promotion_menu_id"];
+    itemPriceWithoutKdv = json["item_price_without_kdv"].toDouble();
+    totalPriceWithoutKdv = json["total_price_without_kdv"].toDouble();
+    status = ItemStatus.fromJson(json["status"]);
+    beforeCampaignItemPrice = json["before_campaign_item_price"] == null
+        ? 0.0
+        : json["before_campaign_item_price"].toDouble();
+    beforeCampaignTotal = json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble();
+    campaignId = json["campaign_id"];
+    isGift = json["is_gift"];
+    isUseCampaign = json["is_use_campaign"];
+    orderPayStatusTypeId = json["order_pay_status_type_id"];
+    manualDiscountValue = json["manual_discount_value"]?.toDouble();
+    manualDiscountAmount = json["manual_discount_amount"]?.toDouble();
+    manualDiscountTypeId = json["manual_discount_type_id"];
+    afterManualDiscountTotal = json["after_manual_discount_total"]?.toDouble();
+    afterManualDiscountItemPrice = json["after_manual_discount_item_price"]?.toDouble();
+    afterManualDiscountTotalWithoutKdv = json["after_manual_discount_total_without_kdv"]?.toDouble();
+    afterManualDiscountItemPriceWithoutKdv = json["after_manual_discount_item_price_without_kdv"]?.toDouble();
+    cancelReject = json["cancel_reject"] == null ? null : ItemCancelRejectModel.fromJson(json["cancel_reject"]);
+    discounts = json["discounts"] == null
+        ? []
+        : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x)));
+
+    return this;
+  }
 
   @override
   Map<String, dynamic> toJson() => {
