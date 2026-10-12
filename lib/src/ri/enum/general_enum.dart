@@ -86,3 +86,18 @@ enum OrderItemPaymentStatus {
   REFUND, //	Iade
   ERROR, //	Hatalı
 }
+
+/// 0 No discount (reset) 0 0
+/// 1 Percentage discount Percentage (e.g. 50 for 50%) Calculated TL amount
+/// 2 Fixed total amount New total (e.g. 300.00) Difference from original total
+/// 3 Giveaway (free) 0 Original tot
+enum ManuelDiscountType {
+  noDiscount(0),
+  percentageDiscount(1),
+  fixedTotalAmount(2),
+  giveaway(3);
+
+  final int discountType;
+
+  const ManuelDiscountType(this.discountType);
+}
