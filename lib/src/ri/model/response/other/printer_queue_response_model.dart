@@ -186,9 +186,11 @@ class PrinterQuequeResponseOrderModel {
     this.tableServiceId,
     this.tipAmountWithoutKdv,
     this.totalAmountWithoutKdv,
+    this.beforeCampaignTotal,
     this.prefixedOrderNumber,
     this.discounts,
     this.campaigns,
+    this.isUseCampaign,
   });
 
   int? id;
@@ -218,9 +220,11 @@ class PrinterQuequeResponseOrderModel {
   int? tableServiceId;
   double? tipAmountWithoutKdv;
   double? totalAmountWithoutKdv;
+  double? beforeCampaignTotal;
   String? prefixedOrderNumber;
   List<OrderItemDiscountModel>? discounts;
   List<OrderCampaignsModel>? campaigns;
+  bool? isUseCampaign;
 
   factory PrinterQuequeResponseOrderModel.fromJson(Map<String, dynamic> json) => PrinterQuequeResponseOrderModel(
     id: json["id"],
@@ -256,6 +260,7 @@ class PrinterQuequeResponseOrderModel {
     tableServiceId: json["table_service_id"],
     tipAmountWithoutKdv: json["tip_amount_without_kdv"]?.toDouble(),
     totalAmountWithoutKdv: json["total_amount_without_kdv"]?.toDouble(),
+    beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
     prefixedOrderNumber: json["prefixed_order_number"],
     discounts: json["discounts"] == null
         ? []
@@ -263,6 +268,7 @@ class PrinterQuequeResponseOrderModel {
     campaigns: json["campaigns"] == null
         ? []
         : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
+    isUseCampaign: json["is_use_campaign"],
   );
 }
 
