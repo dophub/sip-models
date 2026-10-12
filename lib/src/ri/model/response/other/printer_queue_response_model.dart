@@ -308,13 +308,15 @@ class PrinterQueueResponseOrderOrderItemModel {
     required this.itemTitle,
     required this.totalPrice,
     required this.itemTypeId,
-    this.manualDiscountValue,
-    this.manualDiscountAmount,
-    this.manualDiscountTypeId,
-    this.afterManualDiscountTotal,
-    this.afterManualDiscountItemPrice,
-    this.afterManualDiscountTotalWithoutKdv,
-    this.afterManualDiscountItemPriceWithoutKdv,
+    required this.manualDiscountValue,
+    required this.manualDiscountAmount,
+    required this.manualDiscountTypeId,
+    required this.afterManualDiscountTotal,
+    required this.afterManualDiscountItemPrice,
+    required this.afterManualDiscountTotalWithoutKdv,
+    required this.afterManualDiscountItemPriceWithoutKdv,
+    required this.isUseCampaign,
+    required this.beforeCampaignItemPrice,
   });
 
   final int? id;
@@ -332,6 +334,8 @@ class PrinterQueueResponseOrderOrderItemModel {
   final double? afterManualDiscountItemPrice;
   final double? afterManualDiscountTotalWithoutKdv;
   final double? afterManualDiscountItemPriceWithoutKdv;
+  final bool? isUseCampaign;
+  final double? beforeCampaignItemPrice;
 
   factory PrinterQueueResponseOrderOrderItemModel.fromJson(Map<String, dynamic> json) =>
       PrinterQueueResponseOrderOrderItemModel(
@@ -352,6 +356,10 @@ class PrinterQueueResponseOrderOrderItemModel {
         afterManualDiscountItemPrice: json["after_manual_discount_item_price"]?.toDouble(),
         afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
         afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
+        isUseCampaign: json["is_use_campaign"],
+        beforeCampaignItemPrice: json["before_campaign_item_price"] == null
+            ? 0.0
+            : json["before_campaign_item_price"].toDouble(),
       );
 }
 

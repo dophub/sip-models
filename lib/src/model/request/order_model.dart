@@ -391,6 +391,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   List<OrderItemDiscountModel>? discounts;
   String? orderSessionPointId; // sadece local de kullanılmakta
 
+
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
   /// Normak ürün için.
