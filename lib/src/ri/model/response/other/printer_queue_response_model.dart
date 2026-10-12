@@ -187,6 +187,7 @@ class PrinterQuequeResponseOrderModel {
     this.tipAmountWithoutKdv,
     this.totalAmountWithoutKdv,
     this.prefixedOrderNumber,
+    this.discounts,
   });
 
   int? id;
@@ -217,6 +218,7 @@ class PrinterQuequeResponseOrderModel {
   double? tipAmountWithoutKdv;
   double? totalAmountWithoutKdv;
   String? prefixedOrderNumber;
+  List<OrderItemDiscountModel>? discounts;
 
   factory PrinterQuequeResponseOrderModel.fromJson(Map<String, dynamic> json) => PrinterQuequeResponseOrderModel(
     id: json["id"],
@@ -253,6 +255,9 @@ class PrinterQuequeResponseOrderModel {
     tipAmountWithoutKdv: json["tip_amount_without_kdv"]?.toDouble(),
     totalAmountWithoutKdv: json["total_amount_without_kdv"]?.toDouble(),
     prefixedOrderNumber: json["prefixed_order_number"],
+    discounts: json["discounts"] == null
+        ? []
+        : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
   );
 }
 
