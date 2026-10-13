@@ -191,6 +191,10 @@ class PrinterQuequeResponseOrderModel {
     this.discounts,
     this.campaigns,
     this.isUseCampaign,
+    this.manualDiscountTypeId,
+    this.manualDiscountValue,
+    this.manualDiscountAmount,
+    this.totalManualDiscount,
   });
 
   int? id;
@@ -225,6 +229,10 @@ class PrinterQuequeResponseOrderModel {
   List<OrderItemDiscountModel>? discounts;
   List<OrderCampaignsModel>? campaigns;
   bool? isUseCampaign;
+  int? manualDiscountTypeId;
+  double? manualDiscountValue;
+  double? manualDiscountAmount;
+  double? totalManualDiscount;
 
   factory PrinterQuequeResponseOrderModel.fromJson(Map<String, dynamic> json) => PrinterQuequeResponseOrderModel(
     id: json["id"],
@@ -269,6 +277,10 @@ class PrinterQuequeResponseOrderModel {
         ? []
         : List<OrderCampaignsModel>.from(json["campaigns"].map((x) => OrderCampaignsModel.fromJson(x))),
     isUseCampaign: json["is_use_campaign"],
+    manualDiscountTypeId: json["manual_discount_type_id"],
+    manualDiscountValue: json["manual_discount_value"]?.toDouble(),
+    manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),
+    totalManualDiscount: json["total_manual_discount"]?.toDouble(),
   );
 }
 
