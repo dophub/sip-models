@@ -336,7 +336,7 @@ class PrinterQueueResponseOrderOrderItemModel {
   });
 
   final int? id;
-  final int? count;
+  final double? count;
   final PrinterQueueResponseOrderOrderItemStatusModel? status;
   final List<OrderOption>? options;
   final String? itemNote;
@@ -356,7 +356,7 @@ class PrinterQueueResponseOrderOrderItemModel {
   factory PrinterQueueResponseOrderOrderItemModel.fromJson(Map<String, dynamic> json) =>
       PrinterQueueResponseOrderOrderItemModel(
         id: json["id"],
-        count: json["count"],
+        count: json["count"]?.toDouble(),
         status: json["status"] == null ? null : PrinterQueueResponseOrderOrderItemStatusModel.fromJson(json["status"]),
         options: json["options"] == null
             ? []
