@@ -166,7 +166,7 @@ class KitchenOrderProductModel {
   PrinterQueueResponseOrderOrderItemModel toPrinterQueueResponseOrderOrderItemModel() =>
       PrinterQueueResponseOrderOrderItemModel(
         id: productId,
-        count: count,
+        count: count?.toDouble(),
         status: PrinterQueueResponseOrderOrderItemStatusModel(
           statusCode: OrderItemStatusId.INKITCHEN.name,
           statusName: 'Hazırlanıyor',
