@@ -6,34 +6,27 @@ class DailySaleReportModel extends IBaseModel<DailySaleReportModel> {
   List<DailySaleReportBranchModel>? branches;
   List<DailySaleReportDeviceModel>? devices;
 
-  DailySaleReportModel({
-    this.dateRange,
-    this.summary,
-    this.branches,
-    this.devices,
-  });
+  DailySaleReportModel({this.dateRange, this.summary, this.branches, this.devices});
 
   @override
   fromJson(Map<String, dynamic> json) => DailySaleReportModel(
-        dateRange: json["date_range"] == null ? null : DailySaleReportDateRangeModel.fromJson(json["date_range"]),
-        summary: json["summary"] == null ? null : DailySaleReportSummaryModel.fromJson(json["summary"]),
-        branches: json["branches"] == null
-            ? []
-            : List<DailySaleReportBranchModel>.from(
-                json["branches"]!.map((x) => DailySaleReportBranchModel.fromJson(x))),
-        devices: json["devices"] == null
-            ? []
-            : List<DailySaleReportDeviceModel>.from(
-                json["devices"]!.map((x) => DailySaleReportDeviceModel.fromJson(x))),
-      );
+    dateRange: json["date_range"] == null ? null : DailySaleReportDateRangeModel.fromJson(json["date_range"]),
+    summary: json["summary"] == null ? null : DailySaleReportSummaryModel.fromJson(json["summary"]),
+    branches: json["branches"] == null
+        ? []
+        : List<DailySaleReportBranchModel>.from(json["branches"]!.map((x) => DailySaleReportBranchModel.fromJson(x))),
+    devices: json["devices"] == null
+        ? []
+        : List<DailySaleReportDeviceModel>.from(json["devices"]!.map((x) => DailySaleReportDeviceModel.fromJson(x))),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "date_range": dateRange?.toJson(),
-        "summary": summary?.toJson(),
-        "branches": branches == null ? [] : List<dynamic>.from(branches!.map((x) => x.toJson())),
-        "devices": devices == null ? [] : List<dynamic>.from(devices!.map((x) => x.toJson())),
-      };
+    "date_range": dateRange?.toJson(),
+    "summary": summary?.toJson(),
+    "branches": branches == null ? [] : List<dynamic>.from(branches!.map((x) => x.toJson())),
+    "devices": devices == null ? [] : List<dynamic>.from(devices!.map((x) => x.toJson())),
+  };
 }
 
 class DailySaleReportBranchModel {
@@ -42,7 +35,7 @@ class DailySaleReportBranchModel {
   String? dealerCode;
   double? totalSales;
   int? transactionCount;
-  List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
+  List<DailySaleReportSummaryPaymentBreakdownModel>? paymentBreakdown;
 
   DailySaleReportBranchModel({
     this.dealerId,
@@ -54,85 +47,45 @@ class DailySaleReportBranchModel {
   });
 
   factory DailySaleReportBranchModel.fromJson(Map<String, dynamic> json) => DailySaleReportBranchModel(
-        dealerId: json["dealer_id"],
-        dealerName: json["dealer_name"],
-        dealerCode: json["dealer_code"],
-        totalSales: json["total_sales"]?.toDouble(),
-        transactionCount: json["transaction_count"],
-        paymentBreakdown: json["payment_breakdown"] == null
-            ? []
-            : List<DailySaleReportPaymentBreakdownModel>.from(
-                json["payment_breakdown"]!.map((x) => DailySaleReportPaymentBreakdownModel.fromJson(x))),
-      );
+    dealerId: json["dealer_id"],
+    dealerName: json["dealer_name"],
+    dealerCode: json["dealer_code"],
+    totalSales: json["total_sales"]?.toDouble(),
+    transactionCount: json["transaction_count"],
+    paymentBreakdown: json["payment_breakdown"] == null
+        ? []
+        : List<DailySaleReportSummaryPaymentBreakdownModel>.from(
+            json["payment_breakdown"]!.map((x) => DailySaleReportSummaryPaymentBreakdownModel.fromJson(x)),
+          ),
+  );
 
   Map<String, dynamic> toJson() => {
-        "dealer_id": dealerId,
-        "dealer_name": dealerName,
-        "dealer_code": dealerCode,
-        "total_sales": totalSales,
-        "transaction_count": transactionCount,
-        "payment_breakdown":
-            paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
-      };
-}
-
-class DailySaleReportPaymentBreakdownModel {
-  String? paymentTypeId;
-  String? paymentTypeName;
-  double? amount;
-  int? transactionCount;
-  double? amountPercent;
-  double? countPercent;
-
-  DailySaleReportPaymentBreakdownModel({
-    this.paymentTypeId,
-    this.paymentTypeName,
-    this.amount,
-    this.transactionCount,
-    this.amountPercent,
-    this.countPercent,
-  });
-
-  factory DailySaleReportPaymentBreakdownModel.fromJson(Map<String, dynamic> json) =>
-      DailySaleReportPaymentBreakdownModel(
-        paymentTypeId: json["payment_type_id"],
-        paymentTypeName: json["payment_type_name"],
-        amount: json["amount"]?.toDouble(),
-        transactionCount: json["transaction_count"],
-        amountPercent: json["amount_percent"]?.toDouble(),
-        countPercent: json["count_percent"]?.toDouble(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "payment_type_id": paymentTypeId,
-        "payment_type_name": paymentTypeName,
-        "amount": amount,
-        "transaction_count": transactionCount,
-        "amount_percent": amountPercent,
-        "count_percent": countPercent,
-      };
+    "dealer_id": dealerId,
+    "dealer_name": dealerName,
+    "dealer_code": dealerCode,
+    "total_sales": totalSales,
+    "transaction_count": transactionCount,
+    "payment_breakdown": paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
+  };
 }
 
 class DailySaleReportDateRangeModel {
   DateTime? start;
   DateTime? end;
 
-  DailySaleReportDateRangeModel({
-    this.start,
-    this.end,
-  });
+  DailySaleReportDateRangeModel({this.start, this.end});
 
   factory DailySaleReportDateRangeModel.fromJson(Map<String, dynamic> json) => DailySaleReportDateRangeModel(
-        start: json["start"] == null ? null : DateTime.parse(json["start"]),
-        end: json["end"] == null ? null : DateTime.parse(json["end"]),
-      );
+    start: json["start"] == null ? null : DateTime.parse(json["start"]),
+    end: json["end"] == null ? null : DateTime.parse(json["end"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "start":
-            "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-        "end":
-            "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
-      };
+    "start":
+        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
+    "end":
+        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
+  };
 }
 
 class DailySaleReportDeviceModel {
@@ -140,7 +93,7 @@ class DailySaleReportDeviceModel {
   String? deviceName;
   double? totalSales;
   int? transactionCount;
-  List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
+  List<DailySaleReportSummaryPaymentBreakdownModel>? paymentBreakdown;
 
   DailySaleReportDeviceModel({
     this.deviceId,
@@ -151,24 +104,24 @@ class DailySaleReportDeviceModel {
   });
 
   factory DailySaleReportDeviceModel.fromJson(Map<String, dynamic> json) => DailySaleReportDeviceModel(
-        deviceId: json["device_id"],
-        deviceName: json["device_name"],
-        totalSales: json["total_sales"]?.toDouble(),
-        transactionCount: json["transaction_count"],
-        paymentBreakdown: json["payment_breakdown"] == null
-            ? []
-            : List<DailySaleReportPaymentBreakdownModel>.from(
-                json["payment_breakdown"]!.map((x) => DailySaleReportPaymentBreakdownModel.fromJson(x))),
-      );
+    deviceId: json["device_id"],
+    deviceName: json["device_name"],
+    totalSales: json["total_sales"]?.toDouble(),
+    transactionCount: json["transaction_count"],
+    paymentBreakdown: json["payment_breakdown"] == null
+        ? []
+        : List<DailySaleReportSummaryPaymentBreakdownModel>.from(
+            json["payment_breakdown"]!.map((x) => DailySaleReportSummaryPaymentBreakdownModel.fromJson(x)),
+          ),
+  );
 
   Map<String, dynamic> toJson() => {
-        "device_id": deviceId,
-        "device_name": deviceName,
-        "total_sales": totalSales,
-        "transaction_count": transactionCount,
-        "payment_breakdown":
-            paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
-      };
+    "device_id": deviceId,
+    "device_name": deviceName,
+    "total_sales": totalSales,
+    "transaction_count": transactionCount,
+    "payment_breakdown": paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
+  };
 }
 
 class DailySaleReportSummaryModel {
@@ -176,7 +129,7 @@ class DailySaleReportSummaryModel {
   double? totalSalesTrend;
   int? transactionCount;
   double? transactionCountTrend;
-  List<DailySaleReportPaymentBreakdownModel>? paymentBreakdown;
+  List<DailySaleReportSummaryPaymentBreakdownModel>? paymentBreakdown;
 
   DailySaleReportSummaryModel({
     this.totalSales,
@@ -187,22 +140,104 @@ class DailySaleReportSummaryModel {
   });
 
   factory DailySaleReportSummaryModel.fromJson(Map<String, dynamic> json) => DailySaleReportSummaryModel(
-        totalSales: json["total_sales"]?.toDouble(),
-        totalSalesTrend: json["total_sales_trend"]?.toDouble(),
+    totalSales: json["total_sales"]?.toDouble(),
+    totalSalesTrend: json["total_sales_trend"]?.toDouble(),
+    transactionCount: json["transaction_count"],
+    transactionCountTrend: json["transaction_count_trend"]?.toDouble(),
+    paymentBreakdown: json["payment_breakdown"] == null
+        ? []
+        : List<DailySaleReportSummaryPaymentBreakdownModel>.from(
+            json["payment_breakdown"]!.map((x) => DailySaleReportSummaryPaymentBreakdownModel.fromJson(x)),
+          ),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "total_sales": totalSales,
+    "total_sales_trend": totalSalesTrend,
+    "transaction_count": transactionCount,
+    "transaction_count_trend": transactionCountTrend,
+    "payment_breakdown": paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
+  };
+}
+
+class DailySaleReportSummaryPaymentBreakdownModel {
+  String? paymentGroupId;
+  String? paymentGroupName;
+  double? amount;
+  int? transactionCount;
+  double? amountPercent;
+  double? countPercent;
+  List<DailySaleReportSummaryPaymentBreakdownItemModel>? items;
+
+  DailySaleReportSummaryPaymentBreakdownModel({
+    this.paymentGroupId,
+    this.paymentGroupName,
+    this.amount,
+    this.transactionCount,
+    this.amountPercent,
+    this.countPercent,
+    this.items,
+  });
+
+  factory DailySaleReportSummaryPaymentBreakdownModel.fromJson(Map<String, dynamic> json) =>
+      DailySaleReportSummaryPaymentBreakdownModel(
+        paymentGroupId: json["payment_group_id"],
+        paymentGroupName: json["payment_group_name"],
+        amount: json["amount"]?.toDouble(),
         transactionCount: json["transaction_count"],
-        transactionCountTrend: json["transaction_count_trend"]?.toDouble(),
-        paymentBreakdown: json["payment_breakdown"] == null
+        amountPercent: json["amount_percent"]?.toDouble(),
+        countPercent: json["count_percent"]?.toDouble(),
+        items: json["items"] == null
             ? []
-            : List<DailySaleReportPaymentBreakdownModel>.from(
-                json["payment_breakdown"]!.map((x) => DailySaleReportPaymentBreakdownModel.fromJson(x))),
+            : List<DailySaleReportSummaryPaymentBreakdownItemModel>.from(
+                json["items"]!.map((x) => DailySaleReportSummaryPaymentBreakdownItemModel.fromJson(x)),
+              ),
       );
 
   Map<String, dynamic> toJson() => {
-        "total_sales": totalSales,
-        "total_sales_trend": totalSalesTrend,
-        "transaction_count": transactionCount,
-        "transaction_count_trend": transactionCountTrend,
-        "payment_breakdown":
-            paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
-      };
+    "payment_group_id": paymentGroupId,
+    "payment_group_name": paymentGroupName,
+    "amount": amount,
+    "transaction_count": transactionCount,
+    "amount_percent": amountPercent,
+    "count_percent": countPercent,
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+  };
+}
+
+class DailySaleReportSummaryPaymentBreakdownItemModel {
+  String? paymentTypeId;
+  String? paymentTypeName;
+  double? amount;
+  int? transactionCount;
+  double? amountPercent;
+  double? countPercent;
+
+  DailySaleReportSummaryPaymentBreakdownItemModel({
+    this.paymentTypeId,
+    this.paymentTypeName,
+    this.amount,
+    this.transactionCount,
+    this.amountPercent,
+    this.countPercent,
+  });
+
+  factory DailySaleReportSummaryPaymentBreakdownItemModel.fromJson(Map<String, dynamic> json) =>
+      DailySaleReportSummaryPaymentBreakdownItemModel(
+        paymentTypeId: json["payment_type_id"],
+        paymentTypeName: json["payment_type_name"],
+        amount: json["amount"]?.toDouble(),
+        transactionCount: json["transaction_count"],
+        amountPercent: json["amount_percent"]?.toDouble(),
+        countPercent: json["count_percent"]?.toDouble(),
+      );
+
+  Map<String, dynamic> toJson() => {
+    "payment_type_id": paymentTypeId,
+    "payment_type_name": paymentTypeName,
+    "amount": amount,
+    "transaction_count": transactionCount,
+    "amount_percent": amountPercent,
+    "count_percent": countPercent,
+  };
 }
