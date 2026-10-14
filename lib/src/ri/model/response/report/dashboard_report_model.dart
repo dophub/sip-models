@@ -65,6 +65,7 @@ class DashboardReportByModel {
   int? count;
   double? amountPercent;
   double? countPercent;
+  List<DashboardReportByModel>? items;
 
   DashboardReportByModel({
     this.id,
@@ -73,25 +74,28 @@ class DashboardReportByModel {
     this.count,
     this.amountPercent,
     this.countPercent,
+    this.items,
   });
 
   factory DashboardReportByModel.fromJson(Map<String, dynamic> json) => DashboardReportByModel(
-        id: json["id"],
-        name: json["name"],
-        amount: json["amount"]?.toDouble(),
-        count: json["count"],
-        amountPercent: json["amount_percent"]?.toDouble(),
-        countPercent: json["count_percent"]?.toDouble(),
-      );
+    id: json["id"],
+    name: json["name"],
+    amount: json["amount"]?.toDouble(),
+    count: json["count"],
+    amountPercent: json["amount_percent"]?.toDouble(),
+    countPercent: json["count_percent"]?.toDouble(),
+    items: json["items"] == null ? [] : List<DashboardReportByModel>.from(json["items"]!.map((x) => DashboardReportByModel.fromJson(x))),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "amount": amount,
-        "count": count,
-        "amount_percent": amountPercent,
-        "count_percent": countPercent,
-      };
+    "id": id,
+    "name": name,
+    "amount": amount,
+    "count": count,
+    "amount_percent": amountPercent,
+    "count_percent": countPercent,
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+  };
 }
 
 class DashboardReportDateRangeModel {
