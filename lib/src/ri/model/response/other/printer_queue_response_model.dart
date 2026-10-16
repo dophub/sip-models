@@ -335,6 +335,7 @@ class PrinterQueueResponseOrderOrderItemModel {
     required this.itemNote,
     required this.itemTitle,
     required this.totalPrice,
+    required this.itemPrice,
     required this.itemTypeId,
     this.manualDiscountValue,
     this.manualDiscountAmount,
@@ -355,6 +356,7 @@ class PrinterQueueResponseOrderOrderItemModel {
   final String? itemNote;
   final String? itemTitle;
   final double? totalPrice;
+  final double? itemPrice;
   final String? itemTypeId;
   final double? manualDiscountValue;
   final double? manualDiscountAmount;
@@ -378,6 +380,7 @@ class PrinterQueueResponseOrderOrderItemModel {
         itemNote: json["item_note"],
         itemTitle: json["item_title"],
         totalPrice: json["total_price"]?.toDouble(),
+        itemPrice: json["item_price"]?.toDouble(),
         itemTypeId: json["item_type_id"],
         manualDiscountValue: json["manual_discount_value"]?.toDouble(),
         manualDiscountAmount: json["manual_discount_amount"]?.toDouble(),

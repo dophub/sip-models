@@ -1,6 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:sip_models/src/enum/id_enum.dart';
 import 'package:sip_models/src/model/request/order_model.dart';
+
 import '../../other/order_dealer_info_model.dart';
 import '../other/printer_queue_response_model.dart';
 
@@ -21,23 +22,23 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
   bool isSelected = false;
 
   PrinterQueueResponseModel toPrinterQueueResponseModel() => PrinterQueueResponseModel(
-        id: orderId,
-        printData: PrinterQueueResponsePrintDataModel(
-          numberOfService: orderInfo?.numberOfService,
-          tableInfo: orderInfo?.tableName == null ? null : TableInfoPrintDataModel(tableName: orderInfo?.tableName),
-          serviceDeliveryType: serviceDeliveryTypeId,
-          paymentModelId: orderInfo?.paymentModelId,
-          orders: [
-            PrinterQuequeResponseOrderModel(
-              nickName: firstName,
-              recordDate: orderDate,
-              orderPointId: orderInfo?.orderPointId,
-              items: products?.map((e) => e.toPrinterQueueResponseOrderOrderItemModel()).toList() ?? [],
-            ),
-          ],
+    id: orderId,
+    printData: PrinterQueueResponsePrintDataModel(
+      numberOfService: orderInfo?.numberOfService,
+      tableInfo: orderInfo?.tableName == null ? null : TableInfoPrintDataModel(tableName: orderInfo?.tableName),
+      serviceDeliveryType: serviceDeliveryTypeId,
+      paymentModelId: orderInfo?.paymentModelId,
+      orders: [
+        PrinterQuequeResponseOrderModel(
+          nickName: firstName,
+          recordDate: orderDate,
+          orderPointId: orderInfo?.orderPointId,
+          items: products?.map((e) => e.toPrinterQueueResponseOrderOrderItemModel()).toList() ?? [],
         ),
-        paymentModelId: orderInfo?.paymentModelId,
-      );
+      ],
+    ),
+    paymentModelId: orderInfo?.paymentModelId,
+  );
 
   KitchenOrderModel({
     this.orderId,
@@ -56,40 +57,36 @@ class KitchenOrderModel extends IBaseModel<KitchenOrderModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => KitchenOrderModel(
-        orderId: json["order_id"],
-        kitchenId: json["kitchen_id"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        addressName: json["address_name"],
-        orderDate: DateTime.parse(json["order_date"]),
-        kitchenActiveDate: DateTime.parse(json["kitchen_active_date"]),
-        orderInfo: KitchenOrderInfoModel.fromJson(json["order_info"]),
-        products: json["products"] == null
-            ? []
-            : List<KitchenOrderProductModel>.from(
-                json["products"].map(
-                  (x) => KitchenOrderProductModel.fromJson(x),
-                ),
-              ),
-        serviceDeliveryTypeId: json["service_delivery_type_id"],
-        courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
-        dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
-      );
+    orderId: json["order_id"],
+    kitchenId: json["kitchen_id"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
+    addressName: json["address_name"],
+    orderDate: DateTime.parse(json["order_date"]),
+    kitchenActiveDate: DateTime.parse(json["kitchen_active_date"]),
+    orderInfo: KitchenOrderInfoModel.fromJson(json["order_info"]),
+    products: json["products"] == null
+        ? []
+        : List<KitchenOrderProductModel>.from(json["products"].map((x) => KitchenOrderProductModel.fromJson(x))),
+    serviceDeliveryTypeId: json["service_delivery_type_id"],
+    courier: json["courier"] == null ? null : KitchenOrderCourierModel.fromJson(json["courier"]),
+    dealer: json['dealer'] == null ? null : OrderDealerInfoModel.fromJson(json['dealer']),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "order_id": orderId,
-        "kitchen_id": kitchenId,
-        "first_name": firstName,
-        "last_name": lastName,
-        "address_name": addressName,
-        "order_date": orderDate?.toIso8601String(),
-        "kitchen_active_date": kitchenActiveDate?.toIso8601String(),
-        "order_info": orderInfo?.toJson(),
-        "products": List<dynamic>.from(products!.map((x) => x.toJson())),
-        "courier": courier?.toJson(),
-        "dealer": dealer?.toJson(),
-      };
+    "order_id": orderId,
+    "kitchen_id": kitchenId,
+    "first_name": firstName,
+    "last_name": lastName,
+    "address_name": addressName,
+    "order_date": orderDate?.toIso8601String(),
+    "kitchen_active_date": kitchenActiveDate?.toIso8601String(),
+    "order_info": orderInfo?.toJson(),
+    "products": List<dynamic>.from(products!.map((x) => x.toJson())),
+    "courier": courier?.toJson(),
+    "dealer": dealer?.toJson(),
+  };
 }
 
 class KitchenOrderInfoModel {
@@ -98,46 +95,33 @@ class KitchenOrderInfoModel {
   String? orderPointId;
   String? paymentModelId;
 
-  KitchenOrderInfoModel({
-    this.numberOfService,
-    this.tableName,
-    this.orderPointId,
-    this.paymentModelId,
-  });
+  KitchenOrderInfoModel({this.numberOfService, this.tableName, this.orderPointId, this.paymentModelId});
 
   factory KitchenOrderInfoModel.fromJson(Map<String, dynamic> json) => KitchenOrderInfoModel(
-        numberOfService: json["number_of_service"],
-        tableName: json["table_name"],
-        orderPointId: json["order_point_id"],
-        paymentModelId: json["payment_model_id"],
-      );
+    numberOfService: json["number_of_service"],
+    tableName: json["table_name"],
+    orderPointId: json["order_point_id"],
+    paymentModelId: json["payment_model_id"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "number_of_service": numberOfService,
-        "table_name": tableName,
-        "order_point_id": orderPointId,
-        "payment_model_id": paymentModelId,
-      };
+    "number_of_service": numberOfService,
+    "table_name": tableName,
+    "order_point_id": orderPointId,
+    "payment_model_id": paymentModelId,
+  };
 }
 
 class KitchenOrderCourierModel {
   int? id;
   String? nameSurname;
 
-  KitchenOrderCourierModel({
-    this.id,
-    this.nameSurname,
-  });
+  KitchenOrderCourierModel({this.id, this.nameSurname});
 
-  factory KitchenOrderCourierModel.fromJson(Map<String, dynamic> json) => KitchenOrderCourierModel(
-        id: json["id"],
-        nameSurname: json["name_surname"],
-      );
+  factory KitchenOrderCourierModel.fromJson(Map<String, dynamic> json) =>
+      KitchenOrderCourierModel(id: json["id"], nameSurname: json["name_surname"]);
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name_surname": nameSurname,
-      };
+  Map<String, dynamic> toJson() => {"id": id, "name_surname": nameSurname};
 }
 
 class KitchenOrderProductModel {
@@ -176,6 +160,7 @@ class KitchenOrderProductModel {
         itemTitle: productName,
         totalPrice: null,
         itemTypeId: itemTypeId,
+        itemPrice: null,
       );
 
   factory KitchenOrderProductModel.fromJson(Map<String, dynamic> json) {
@@ -193,14 +178,14 @@ class KitchenOrderProductModel {
   }
 
   Map<String, dynamic> toJson() => {
-        "product_name": productName,
-        "product_id": productId,
-        "items_id": itemsId,
-        "item_type_id": itemTypeId,
-        "count": count,
-        "complete_count": completeCount,
-        "item_note": itemNote,
-        "status_id": statusId,
-        "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
-      };
+    "product_name": productName,
+    "product_id": productId,
+    "items_id": itemsId,
+    "item_type_id": itemTypeId,
+    "count": count,
+    "complete_count": completeCount,
+    "item_note": itemNote,
+    "status_id": statusId,
+    "options": options != null ? List<dynamic>.from(options!.map((x) => x.toJson())) : null,
+  };
 }
