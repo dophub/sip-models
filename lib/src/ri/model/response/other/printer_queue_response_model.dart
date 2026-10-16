@@ -345,6 +345,7 @@ class PrinterQueueResponseOrderOrderItemModel {
     this.afterManualDiscountItemPriceWithoutKdv,
     this.isUseCampaign,
     this.beforeCampaignItemPrice,
+    this.unit,
   });
 
   final int? id;
@@ -364,6 +365,7 @@ class PrinterQueueResponseOrderOrderItemModel {
   final double? afterManualDiscountItemPriceWithoutKdv;
   final bool? isUseCampaign;
   final double? beforeCampaignItemPrice;
+  final UnitModel? unit;
 
   factory PrinterQueueResponseOrderOrderItemModel.fromJson(Map<String, dynamic> json) =>
       PrinterQueueResponseOrderOrderItemModel(
@@ -385,10 +387,25 @@ class PrinterQueueResponseOrderOrderItemModel {
         afterManualDiscountTotalWithoutKdv: json["after_manual_discount_total_without_kdv"]?.toDouble(),
         afterManualDiscountItemPriceWithoutKdv: json["after_manual_discount_item_price_without_kdv"]?.toDouble(),
         isUseCampaign: json["is_use_campaign"],
+        unit: json["is_use_campaign"] == null ? null : UnitModel.fromJson(json["is_use_campaign"]),
         beforeCampaignItemPrice: json["before_campaign_item_price"] == null
             ? 0.0
             : json["before_campaign_item_price"].toDouble(),
       );
+}
+
+class UnitModel {
+  String? id;
+  String? code;
+  String? name;
+  bool? hasDecimal;
+
+  UnitModel({this.id, this.code, this.name, this.hasDecimal});
+
+  factory UnitModel.fromJson(Map<String, dynamic> json) =>
+      UnitModel(id: json["id"], code: json["code"], name: json["name"], hasDecimal: json["has_decimal"]);
+
+  Map<String, dynamic> toJson() => {"id": id, "code": code, "name": name, "has_decimal": hasDecimal};
 }
 
 class PrinterQueueResponseOrderOrderItemStatusModel {
