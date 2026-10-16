@@ -346,6 +346,7 @@ class PrinterQueueResponseOrderOrderItemModel {
     this.afterManualDiscountItemPriceWithoutKdv,
     this.isUseCampaign,
     this.beforeCampaignItemPrice,
+    this.beforeCampaignTotal,
     this.unit,
   });
 
@@ -367,6 +368,7 @@ class PrinterQueueResponseOrderOrderItemModel {
   final double? afterManualDiscountItemPriceWithoutKdv;
   final bool? isUseCampaign;
   final double? beforeCampaignItemPrice;
+  final double? beforeCampaignTotal;
   final OrderItemUnitModel? unit;
 
   factory PrinterQueueResponseOrderOrderItemModel.fromJson(Map<String, dynamic> json) =>
@@ -394,6 +396,7 @@ class PrinterQueueResponseOrderOrderItemModel {
         beforeCampaignItemPrice: json["before_campaign_item_price"] == null
             ? 0.0
             : json["before_campaign_item_price"].toDouble(),
+        beforeCampaignTotal: json["before_campaign_total"] == null ? 0.0 : json["before_campaign_total"].toDouble(),
       );
 }
 
