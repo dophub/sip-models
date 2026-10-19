@@ -5,37 +5,43 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
   ProductPerformanceReportSummaryModel? summary;
   List<ProductPerformanceReportProductModel>? products;
   List<ProductPerformanceReportDateRangeCategoryBreakdownModel>? categoryBreakdown;
+  String? printHtml;
 
-  ProductPerformanceReportModel({
-    this.dateRange,
-    this.summary,
-    this.products,
-    this.categoryBreakdown,
-  });
+  ProductPerformanceReportModel({this.dateRange, this.summary, this.products, this.categoryBreakdown, this.printHtml});
+
+  factory ProductPerformanceReportModel.fromJson(String json, bool isString) {
+    if (isString) {
+      return ProductPerformanceReportModel(printHtml: json);
+    } else {
+      return ProductPerformanceReportModel().jsonParser(json);
+    }
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => ProductPerformanceReportModel(
-        dateRange:
-            json["date_range"] == null ? null : ProductPerformanceReportDateRangeModel.fromJson(json["date_range"]),
-        summary: json["summary"] == null ? null : ProductPerformanceReportSummaryModel.fromJson(json["summary"]),
-        products: json["products"] == null
-            ? []
-            : List<ProductPerformanceReportProductModel>.from(
-                json["products"]!.map((x) => ProductPerformanceReportProductModel.fromJson(x))),
-        categoryBreakdown: json["category_breakdown"] == null
-            ? []
-            : List<ProductPerformanceReportDateRangeCategoryBreakdownModel>.from(json["category_breakdown"]!
-                .map((x) => ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(x))),
-      );
+    dateRange: json["date_range"] == null ? null : ProductPerformanceReportDateRangeModel.fromJson(json["date_range"]),
+    summary: json["summary"] == null ? null : ProductPerformanceReportSummaryModel.fromJson(json["summary"]),
+    products: json["products"] == null
+        ? []
+        : List<ProductPerformanceReportProductModel>.from(
+            json["products"]!.map((x) => ProductPerformanceReportProductModel.fromJson(x)),
+          ),
+    categoryBreakdown: json["category_breakdown"] == null
+        ? []
+        : List<ProductPerformanceReportDateRangeCategoryBreakdownModel>.from(
+            json["category_breakdown"]!.map((x) => ProductPerformanceReportDateRangeCategoryBreakdownModel.fromJson(x)),
+          ),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "date_range": dateRange?.toJson(),
-        "summary": summary?.toJson(),
-        "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x.toJson())),
-        "category_breakdown":
-            categoryBreakdown == null ? [] : List<dynamic>.from(categoryBreakdown!.map((x) => x.toJson())),
-      };
+    "date_range": dateRange?.toJson(),
+    "summary": summary?.toJson(),
+    "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x.toJson())),
+    "category_breakdown": categoryBreakdown == null
+        ? []
+        : List<dynamic>.from(categoryBreakdown!.map((x) => x.toJson())),
+  };
 }
 
 class ProductPerformanceReportDateRangeCategoryBreakdownModel {
@@ -63,22 +69,19 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "name": name,
-        "amount": amount,
-        "count": count,
-        "amount_percent": amountPercent,
-        "count_percent": countPercent,
-      };
+    "name": name,
+    "amount": amount,
+    "count": count,
+    "amount_percent": amountPercent,
+    "count_percent": countPercent,
+  };
 }
 
 class ProductPerformanceReportDateRangeModel {
   DateTime? start;
   DateTime? end;
 
-  ProductPerformanceReportDateRangeModel({
-    this.start,
-    this.end,
-  });
+  ProductPerformanceReportDateRangeModel({this.start, this.end});
 
   factory ProductPerformanceReportDateRangeModel.fromJson(Map<String, dynamic> json) =>
       ProductPerformanceReportDateRangeModel(
@@ -87,11 +90,11 @@ class ProductPerformanceReportDateRangeModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "start":
-            "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-        "end":
-            "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
-      };
+    "start":
+        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
+    "end":
+        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
+  };
 }
 
 class ProductPerformanceReportProductModel {
@@ -128,15 +131,15 @@ class ProductPerformanceReportProductModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "product_id": productId,
-        "product_name": productName,
-        "total_quantity": totalQuantity,
-        "total_revenue": totalRevenue,
-        "order_inclusion_count": orderInclusionCount,
-        "average_price": averagePrice,
-        "rank": rank,
-        "qty_percent": qtyPercent,
-      };
+    "product_id": productId,
+    "product_name": productName,
+    "total_quantity": totalQuantity,
+    "total_revenue": totalRevenue,
+    "order_inclusion_count": orderInclusionCount,
+    "average_price": averagePrice,
+    "rank": rank,
+    "qty_percent": qtyPercent,
+  };
 }
 
 class ProductPerformanceReportSummaryModel {
@@ -167,11 +170,11 @@ class ProductPerformanceReportSummaryModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "total_revenue": totalRevenue,
-        "total_revenue_trend": totalRevenueTrend,
-        "total_quantity_sold": totalQuantitySold,
-        "total_quantity_sold_trend": totalQuantitySoldTrend,
-        "unique_products": uniqueProducts,
-        "top_product": topProduct,
-      };
+    "total_revenue": totalRevenue,
+    "total_revenue_trend": totalRevenueTrend,
+    "total_quantity_sold": totalQuantitySold,
+    "total_quantity_sold_trend": totalQuantitySoldTrend,
+    "unique_products": uniqueProducts,
+    "top_product": topProduct,
+  };
 }

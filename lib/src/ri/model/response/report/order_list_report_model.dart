@@ -4,50 +4,52 @@ class OrderListReportModel extends IBaseModel<OrderListReportModel> {
   OrderListReportDateRangeModel? dateRange;
   OrderListReportStatsModel? stats;
   List<OrderListReportOrderModel>? orders;
+  String? printHtml;
 
-  OrderListReportModel({
-    this.dateRange,
-    this.stats,
-    this.orders,
-  });
+  OrderListReportModel({this.dateRange, this.stats, this.orders, this.printHtml});
+
+  factory OrderListReportModel.fromJson(String json, bool isString) {
+    if (isString) {
+      return OrderListReportModel(printHtml: json);
+    } else {
+      return OrderListReportModel().jsonParser(json);
+    }
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => OrderListReportModel(
-        dateRange: json["date_range"] == null ? null : OrderListReportDateRangeModel.fromJson(json["date_range"]),
-        stats: json["stats"] == null ? null : OrderListReportStatsModel.fromJson(json["stats"]),
-        orders: json["orders"] == null
-            ? []
-            : List<OrderListReportOrderModel>.from(json["orders"]!.map((x) => OrderListReportOrderModel.fromJson(x))),
-      );
+    dateRange: json["date_range"] == null ? null : OrderListReportDateRangeModel.fromJson(json["date_range"]),
+    stats: json["stats"] == null ? null : OrderListReportStatsModel.fromJson(json["stats"]),
+    orders: json["orders"] == null
+        ? []
+        : List<OrderListReportOrderModel>.from(json["orders"]!.map((x) => OrderListReportOrderModel.fromJson(x))),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "date_range": dateRange?.toJson(),
-        "stats": stats?.toJson(),
-        "orders": orders == null ? [] : List<dynamic>.from(orders!.map((x) => x.toJson())),
-      };
+    "date_range": dateRange?.toJson(),
+    "stats": stats?.toJson(),
+    "orders": orders == null ? [] : List<dynamic>.from(orders!.map((x) => x.toJson())),
+  };
 }
 
 class OrderListReportDateRangeModel {
   DateTime? start;
   DateTime? end;
 
-  OrderListReportDateRangeModel({
-    this.start,
-    this.end,
-  });
+  OrderListReportDateRangeModel({this.start, this.end});
 
   factory OrderListReportDateRangeModel.fromJson(Map<String, dynamic> json) => OrderListReportDateRangeModel(
-        start: json["start"] == null ? null : DateTime.parse(json["start"]),
-        end: json["end"] == null ? null : DateTime.parse(json["end"]),
-      );
+    start: json["start"] == null ? null : DateTime.parse(json["start"]),
+    end: json["end"] == null ? null : DateTime.parse(json["end"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "start":
-            "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-        "end":
-            "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
-      };
+    "start":
+        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
+    "end":
+        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
+  };
 }
 
 class OrderListReportOrderModel {
@@ -78,32 +80,32 @@ class OrderListReportOrderModel {
   });
 
   factory OrderListReportOrderModel.fromJson(Map<String, dynamic> json) => OrderListReportOrderModel(
-        id: json["id"],
-        orderNumber: json["order_number"],
-        createDate: json["create_date"] == null ? null : DateTime.tryParse(json["create_date"])?.toLocal(),
-        totalAmount: json["total_amount"]?.toDouble(),
-        dealerName: json["dealer_name"],
-        customerName: json["customer_name"],
-        customerPhone: json["customer_phone"],
-        orderStatus: json["order_status"],
-        paymentType: json["payment_type"],
-        deliveryType: json["delivery_type"],
-        itemCount: json["item_count"],
-      );
+    id: json["id"],
+    orderNumber: json["order_number"],
+    createDate: json["create_date"] == null ? null : DateTime.tryParse(json["create_date"])?.toLocal(),
+    totalAmount: json["total_amount"]?.toDouble(),
+    dealerName: json["dealer_name"],
+    customerName: json["customer_name"],
+    customerPhone: json["customer_phone"],
+    orderStatus: json["order_status"],
+    paymentType: json["payment_type"],
+    deliveryType: json["delivery_type"],
+    itemCount: json["item_count"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "order_number": orderNumber,
-        "create_date": createDate?.toIso8601String(),
-        "total_amount": totalAmount,
-        "dealer_name": dealerName,
-        "customer_name": customerName,
-        "customer_phone": customerPhone,
-        "order_status": orderStatus,
-        "payment_type": paymentType,
-        "delivery_type": deliveryType,
-        "item_count": itemCount,
-      };
+    "id": id,
+    "order_number": orderNumber,
+    "create_date": createDate?.toIso8601String(),
+    "total_amount": totalAmount,
+    "dealer_name": dealerName,
+    "customer_name": customerName,
+    "customer_phone": customerPhone,
+    "order_status": orderStatus,
+    "payment_type": paymentType,
+    "delivery_type": deliveryType,
+    "item_count": itemCount,
+  };
 }
 
 class OrderListReportStatsModel {
@@ -112,28 +114,23 @@ class OrderListReportStatsModel {
   double? averageOrderValue;
   OrderListReportStatusBreakdownModel? statusBreakdown;
 
-  OrderListReportStatsModel({
-    this.totalOrders,
-    this.totalRevenue,
-    this.averageOrderValue,
-    this.statusBreakdown,
-  });
+  OrderListReportStatsModel({this.totalOrders, this.totalRevenue, this.averageOrderValue, this.statusBreakdown});
 
   factory OrderListReportStatsModel.fromJson(Map<String, dynamic> json) => OrderListReportStatsModel(
-        totalOrders: json["total_orders"],
-        totalRevenue: json["total_revenue"]?.toDouble(),
-        averageOrderValue: json["average_order_value"]?.toDouble(),
-        statusBreakdown: json["status_breakdown"] == null
-            ? null
-            : OrderListReportStatusBreakdownModel.fromJson(json["status_breakdown"]),
-      );
+    totalOrders: json["total_orders"],
+    totalRevenue: json["total_revenue"]?.toDouble(),
+    averageOrderValue: json["average_order_value"]?.toDouble(),
+    statusBreakdown: json["status_breakdown"] == null
+        ? null
+        : OrderListReportStatusBreakdownModel.fromJson(json["status_breakdown"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "total_orders": totalOrders,
-        "total_revenue": totalRevenue,
-        "average_order_value": averageOrderValue,
-        "status_breakdown": statusBreakdown?.toJson(),
-      };
+    "total_orders": totalOrders,
+    "total_revenue": totalRevenue,
+    "average_order_value": averageOrderValue,
+    "status_breakdown": statusBreakdown?.toJson(),
+  };
 }
 
 class OrderListReportStatusBreakdownModel {
@@ -143,13 +140,7 @@ class OrderListReportStatusBreakdownModel {
   int? tamamland;
   int? yolda;
 
-  OrderListReportStatusBreakdownModel({
-    this.hazrlanyor,
-    this.ptal,
-    this.cihazda,
-    this.tamamland,
-    this.yolda,
-  });
+  OrderListReportStatusBreakdownModel({this.hazrlanyor, this.ptal, this.cihazda, this.tamamland, this.yolda});
 
   factory OrderListReportStatusBreakdownModel.fromJson(Map<String, dynamic> json) =>
       OrderListReportStatusBreakdownModel(
@@ -161,10 +152,10 @@ class OrderListReportStatusBreakdownModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "_hazırlanıyor": hazrlanyor,
-        "İptal": ptal,
-        "_cihazda": cihazda,
-        "_tamamlandı": tamamland,
-        "_yolda": yolda,
-      };
+    "_hazırlanıyor": hazrlanyor,
+    "İptal": ptal,
+    "_cihazda": cihazda,
+    "_tamamlandı": tamamland,
+    "_yolda": yolda,
+  };
 }

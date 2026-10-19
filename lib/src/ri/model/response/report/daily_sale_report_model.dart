@@ -5,8 +5,17 @@ class DailySaleReportModel extends IBaseModel<DailySaleReportModel> {
   DailySaleReportSummaryModel? summary;
   List<DailySaleReportBranchModel>? branches;
   List<DailySaleReportDeviceModel>? devices;
+  String? printHtml;
 
-  DailySaleReportModel({this.dateRange, this.summary, this.branches, this.devices});
+  DailySaleReportModel({this.dateRange, this.summary, this.branches, this.devices, this.printHtml});
+
+  factory DailySaleReportModel.fromJson(String json, bool isString) {
+    if (isString) {
+      return DailySaleReportModel(printHtml: json);
+    } else {
+      return DailySaleReportModel().jsonParser(json);
+    }
+  }
 
   @override
   fromJson(Map<String, dynamic> json) => DailySaleReportModel(
