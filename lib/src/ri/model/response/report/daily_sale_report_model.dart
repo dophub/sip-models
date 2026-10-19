@@ -1,13 +1,19 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class DailySaleReportModel extends IBaseModel<DailySaleReportModel> {
-  DailySaleReportDateRangeModel? dateRange;
+import 'IReport.dart';
+
+class DailySaleReportModel extends IBaseModel<DailySaleReportModel> implements IReport {
   DailySaleReportSummaryModel? summary;
   List<DailySaleReportBranchModel>? branches;
   List<DailySaleReportDeviceModel>? devices;
+
+  @override
+  ReportDateRangeModel? dateRange;
+
+  @override
   String? printHtml;
 
-  DailySaleReportModel({this.dateRange, this.summary, this.branches, this.devices, this.printHtml});
+  DailySaleReportModel({this.summary, this.branches, this.devices, this.dateRange, this.printHtml});
 
   factory DailySaleReportModel.fromJson(String json, bool isString) {
     if (isString) {
@@ -19,7 +25,7 @@ class DailySaleReportModel extends IBaseModel<DailySaleReportModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => DailySaleReportModel(
-    dateRange: json["date_range"] == null ? null : DailySaleReportDateRangeModel.fromJson(json["date_range"]),
+    dateRange: json["date_range"] == null ? null : ReportDateRangeModel.fromJson(json["date_range"]),
     summary: json["summary"] == null ? null : DailySaleReportSummaryModel.fromJson(json["summary"]),
     branches: json["branches"] == null
         ? []
@@ -75,25 +81,6 @@ class DailySaleReportBranchModel {
     "total_sales": totalSales,
     "transaction_count": transactionCount,
     "payment_breakdown": paymentBreakdown == null ? [] : List<dynamic>.from(paymentBreakdown!.map((x) => x.toJson())),
-  };
-}
-
-class DailySaleReportDateRangeModel {
-  DateTime? start;
-  DateTime? end;
-
-  DailySaleReportDateRangeModel({this.start, this.end});
-
-  factory DailySaleReportDateRangeModel.fromJson(Map<String, dynamic> json) => DailySaleReportDateRangeModel(
-    start: json["start"] == null ? null : DateTime.parse(json["start"]),
-    end: json["end"] == null ? null : DateTime.parse(json["end"]),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "start":
-        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-    "end":
-        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
   };
 }
 

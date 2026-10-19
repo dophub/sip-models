@@ -1,10 +1,16 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportModel> {
-  ProductPerformanceReportDateRangeModel? dateRange;
+import 'IReport.dart';
+
+class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportModel> implements IReport {
   ProductPerformanceReportSummaryModel? summary;
   List<ProductPerformanceReportProductModel>? products;
   List<ProductPerformanceReportDateRangeCategoryBreakdownModel>? categoryBreakdown;
+
+  @override
+  ReportDateRangeModel? dateRange;
+
+  @override
   String? printHtml;
 
   ProductPerformanceReportModel({this.dateRange, this.summary, this.products, this.categoryBreakdown, this.printHtml});
@@ -19,7 +25,7 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
 
   @override
   fromJson(Map<String, dynamic> json) => ProductPerformanceReportModel(
-    dateRange: json["date_range"] == null ? null : ProductPerformanceReportDateRangeModel.fromJson(json["date_range"]),
+    dateRange: json["date_range"] == null ? null : ReportDateRangeModel.fromJson(json["date_range"]),
     summary: json["summary"] == null ? null : ProductPerformanceReportSummaryModel.fromJson(json["summary"]),
     products: json["products"] == null
         ? []
@@ -74,26 +80,6 @@ class ProductPerformanceReportDateRangeCategoryBreakdownModel {
     "count": count,
     "amount_percent": amountPercent,
     "count_percent": countPercent,
-  };
-}
-
-class ProductPerformanceReportDateRangeModel {
-  DateTime? start;
-  DateTime? end;
-
-  ProductPerformanceReportDateRangeModel({this.start, this.end});
-
-  factory ProductPerformanceReportDateRangeModel.fromJson(Map<String, dynamic> json) =>
-      ProductPerformanceReportDateRangeModel(
-        start: json["start"] == null ? null : DateTime.parse(json["start"]),
-        end: json["end"] == null ? null : DateTime.parse(json["end"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-    "start":
-        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-    "end":
-        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
   };
 }
 

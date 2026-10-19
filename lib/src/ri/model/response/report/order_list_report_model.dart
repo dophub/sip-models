@@ -1,9 +1,15 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-class OrderListReportModel extends IBaseModel<OrderListReportModel> {
-  OrderListReportDateRangeModel? dateRange;
+import 'IReport.dart';
+
+class OrderListReportModel extends IBaseModel<OrderListReportModel> implements IReport {
   OrderListReportStatsModel? stats;
   List<OrderListReportOrderModel>? orders;
+
+  @override
+  ReportDateRangeModel? dateRange;
+
+  @override
   String? printHtml;
 
   OrderListReportModel({this.dateRange, this.stats, this.orders, this.printHtml});
@@ -18,7 +24,7 @@ class OrderListReportModel extends IBaseModel<OrderListReportModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => OrderListReportModel(
-    dateRange: json["date_range"] == null ? null : OrderListReportDateRangeModel.fromJson(json["date_range"]),
+    dateRange: json["date_range"] == null ? null : ReportDateRangeModel.fromJson(json["date_range"]),
     stats: json["stats"] == null ? null : OrderListReportStatsModel.fromJson(json["stats"]),
     orders: json["orders"] == null
         ? []
@@ -30,25 +36,6 @@ class OrderListReportModel extends IBaseModel<OrderListReportModel> {
     "date_range": dateRange?.toJson(),
     "stats": stats?.toJson(),
     "orders": orders == null ? [] : List<dynamic>.from(orders!.map((x) => x.toJson())),
-  };
-}
-
-class OrderListReportDateRangeModel {
-  DateTime? start;
-  DateTime? end;
-
-  OrderListReportDateRangeModel({this.start, this.end});
-
-  factory OrderListReportDateRangeModel.fromJson(Map<String, dynamic> json) => OrderListReportDateRangeModel(
-    start: json["start"] == null ? null : DateTime.parse(json["start"]),
-    end: json["end"] == null ? null : DateTime.parse(json["end"]),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "start":
-        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
-    "end":
-        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
   };
 }
 
