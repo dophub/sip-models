@@ -1,22 +1,20 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/foundation.dart';
+import 'package:sip_models/ri_enum.dart';
 
 import '../../other/multi_item_picker_widget_model.dart';
 
 class CheckPosStationResponseModel extends IBaseModel<CheckPosStationResponseModel> {
-  CheckPosStationResponseModel({
-    this.status,
-    this.info,
-  });
+  CheckPosStationResponseModel({this.status, this.info});
 
   String? status;
   CheckPosStationResponseInfoModel? info;
 
   @override
   CheckPosStationResponseModel fromJson(Map<String, dynamic> json) => CheckPosStationResponseModel(
-        status: json["status"],
-        info: json["info"] == null ? null : CheckPosStationResponseInfoModel.fromJson(json["info"]),
-      );
+    status: json["status"],
+    info: json["info"] == null ? null : CheckPosStationResponseInfoModel.fromJson(json["info"]),
+  );
 
   @override
   Map<String, dynamic> toJson() {
@@ -144,8 +142,9 @@ class CheckPosStationResponseInfoModel {
       defaultKisokBanner: json["default_kisok_banner"],
       dealerKioskBanner: json["dealer_kiosk_banner"],
       kioskShowMobilePhoneScreen: json["kiosk_show_mobile_phone_screen"],
-      localSettings:
-          json["local_settings"] == null ? null : PosStationLocalSettingsModel.fromJson(json["local_settings"]),
+      localSettings: json["local_settings"] == null
+          ? null
+          : PosStationLocalSettingsModel.fromJson(json["local_settings"]),
       kioskImages: json["kiosk_images"] == null
           ? []
           : List<KioskImageModel>.from(json["kiosk_images"].map((x) => KioskImageModel.fromJson(x))),
@@ -183,40 +182,39 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   String? printerTypeId;
   int? port;
   String? paperSize;
-  bool?
-      isKioskPaymentPrinter; // kioskta ödeme yapıldıktan sonra fiş hangi yazıcıdan çıksın (Kiosk dahili yazıcı için yapıldı)
+  bool? isKioskPaymentPrinter; // kioskta ödeme yapıldıktan sonra fiş hangi yazıcıdan çıksın (Kiosk dahili yazıcı için yapıldı)
 
   factory PosPrinterModel.fromJson(Map<String, dynamic> json) => PosPrinterModel(
-        id: json["id"],
-        ipAddress: json["ip_address"],
-        isDefault: json["is_default"],
-        isCheckWriting: json["is_check_writing"],
-        isPaySlipWriting: json["is_pay_slip_writing"],
-        printerName: json["printer_name"],
-        posStationId: json["pos_station_id"],
-        printerTypeId: json["printer_type_id"],
-        port: json["port"],
-        paperSize: json["paper_size"],
-        isKioskPaymentPrinter: json["is_kiosk_payment_printer"],
-      );
+    id: json["id"],
+    ipAddress: json["ip_address"],
+    isDefault: json["is_default"],
+    isCheckWriting: json["is_check_writing"],
+    isPaySlipWriting: json["is_pay_slip_writing"],
+    printerName: json["printer_name"],
+    posStationId: json["pos_station_id"],
+    printerTypeId: json["printer_type_id"],
+    port: json["port"],
+    paperSize: json["paper_size"],
+    isKioskPaymentPrinter: json["is_kiosk_payment_printer"],
+  );
 
   @override
   PosPrinterModel fromJson(Map<String, dynamic> json) => PosPrinterModel.fromJson(json);
 
   @override
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "ip_address": ipAddress,
-        "is_default": isDefault,
-        "is_check_writing": isCheckWriting,
-        "is_pay_slip_writing": isPaySlipWriting,
-        "printer_name": printerName,
-        "pos_station_id": posStationId,
-        "printer_type_id": printerTypeId,
-        "port": port,
-        "paper_size": paperSize,
-        "is_kiosk_payment_printer": isKioskPaymentPrinter,
-      };
+    "id": id,
+    "ip_address": ipAddress,
+    "is_default": isDefault,
+    "is_check_writing": isCheckWriting,
+    "is_pay_slip_writing": isPaySlipWriting,
+    "printer_name": printerName,
+    "pos_station_id": posStationId,
+    "printer_type_id": printerTypeId,
+    "port": port,
+    "paper_size": paperSize,
+    "is_kiosk_payment_printer": isKioskPaymentPrinter,
+  };
 
   @override
   bool? get isDisable => false;
@@ -224,7 +222,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   bool selectedValue = false;
 
   @override
-  String get title => '${printerName!} (${ipAddress!})';
+  String get title => printerTypeId == PrinterTypeEnum.NETWORK.name ? '${printerName!} (${ipAddress!})' : printerName!;
 }
 
 class PosStationLocalSettingsModel {
@@ -267,44 +265,44 @@ class PosStationLocalSettingsModel {
   });
 
   factory PosStationLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationLocalSettingsModel(
-        primaryColor: json["primary_color"],
-        onPrimaryColor: json["on_primary_color"],
-        secondaryColor: json["secondary_color"],
-        onSecondaryColor: json["on_secondary_color"],
-        backgroundColor: json["background_color"],
-        onBackgroundColor: json["on_background_color"],
-        buttonColor: json["button_color"],
-        landingButtonColor: json["landing_button_color"],
-        onButtonColor: json["on_button_color"],
-        onLandingButtonColor: json["on_landing_button_color"],
-        screenWaitingSeconds: json["screen_waiting_seconds"],
-        popupWaitingSeconds: json["popup_waiting_seconds"],
-        isDepot: json["is_depot"],
-        useDefaultPaymentType: json["use_default_payment_type"],
-        showWalletButtonIn: json["show_wallet_button_in"],
-        showPaycellQRButtonIn: json["show_paycell_qr_button_in"],
-        kioskLandingBannerTransitionDuration: json["kiosk_landing_banner_transition_duration"],
-      );
+    primaryColor: json["primary_color"],
+    onPrimaryColor: json["on_primary_color"],
+    secondaryColor: json["secondary_color"],
+    onSecondaryColor: json["on_secondary_color"],
+    backgroundColor: json["background_color"],
+    onBackgroundColor: json["on_background_color"],
+    buttonColor: json["button_color"],
+    landingButtonColor: json["landing_button_color"],
+    onButtonColor: json["on_button_color"],
+    onLandingButtonColor: json["on_landing_button_color"],
+    screenWaitingSeconds: json["screen_waiting_seconds"],
+    popupWaitingSeconds: json["popup_waiting_seconds"],
+    isDepot: json["is_depot"],
+    useDefaultPaymentType: json["use_default_payment_type"],
+    showWalletButtonIn: json["show_wallet_button_in"],
+    showPaycellQRButtonIn: json["show_paycell_qr_button_in"],
+    kioskLandingBannerTransitionDuration: json["kiosk_landing_banner_transition_duration"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "primary_color": primaryColor,
-        "on_primary_color": onPrimaryColor,
-        "secondary_color": secondaryColor,
-        "on_secondary_color": onSecondaryColor,
-        "background_color": backgroundColor,
-        "on_background_color": onBackgroundColor,
-        "button_color": buttonColor,
-        "landing_button_color": landingButtonColor,
-        "on_button_color": onButtonColor,
-        "on_landing_button_color": onLandingButtonColor,
-        "screen_waiting_seconds": screenWaitingSeconds,
-        "popup_waiting_seconds": popupWaitingSeconds,
-        "is_depot": isDepot,
-        "use_default_payment_type": useDefaultPaymentType,
-        "show_wallet_button_in": showWalletButtonIn,
-        "show_paycell_qr_button_in": showPaycellQRButtonIn,
-        "kiosk_landing_banner_transition_duration": kioskLandingBannerTransitionDuration,
-      };
+    "primary_color": primaryColor,
+    "on_primary_color": onPrimaryColor,
+    "secondary_color": secondaryColor,
+    "on_secondary_color": onSecondaryColor,
+    "background_color": backgroundColor,
+    "on_background_color": onBackgroundColor,
+    "button_color": buttonColor,
+    "landing_button_color": landingButtonColor,
+    "on_button_color": onButtonColor,
+    "on_landing_button_color": onLandingButtonColor,
+    "screen_waiting_seconds": screenWaitingSeconds,
+    "popup_waiting_seconds": popupWaitingSeconds,
+    "is_depot": isDepot,
+    "use_default_payment_type": useDefaultPaymentType,
+    "show_wallet_button_in": showWalletButtonIn,
+    "show_paycell_qr_button_in": showPaycellQRButtonIn,
+    "kiosk_landing_banner_transition_duration": kioskLandingBannerTransitionDuration,
+  };
 }
 
 class KioskImageModel {
@@ -314,29 +312,23 @@ class KioskImageModel {
   String? imageUrl;
   KioskImageTime? imageTime;
 
-  KioskImageModel({
-    this.id,
-    this.langId,
-    this.dealerId,
-    this.imageUrl,
-    this.imageTime,
-  });
+  KioskImageModel({this.id, this.langId, this.dealerId, this.imageUrl, this.imageTime});
 
   factory KioskImageModel.fromJson(Map<String, dynamic> json) => KioskImageModel(
-        id: json["id"],
-        langId: json["lang_id"],
-        dealerId: json["dealer_id"],
-        imageUrl: json["image_url"],
-        imageTime: json["image_time"] == null ? null : KioskImageTime.fromJson(json["image_time"]),
-      );
+    id: json["id"],
+    langId: json["lang_id"],
+    dealerId: json["dealer_id"],
+    imageUrl: json["image_url"],
+    imageTime: json["image_time"] == null ? null : KioskImageTime.fromJson(json["image_time"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "lang_id": langId,
-        "dealer_id": dealerId,
-        "image_url": imageUrl,
-        "image_time": imageTime?.toJson(),
-      };
+    "id": id,
+    "lang_id": langId,
+    "dealer_id": dealerId,
+    "image_url": imageUrl,
+    "image_time": imageTime?.toJson(),
+  };
 }
 
 class KioskImageTime {
@@ -348,36 +340,28 @@ class KioskImageTime {
   String? frequencyId;
   DateTime? oneTimeDate;
 
-  KioskImageTime({
-    this.id,
-    this.name,
-    this.endTime,
-    this.weekdays,
-    this.startTime,
-    this.frequencyId,
-    this.oneTimeDate,
-  });
+  KioskImageTime({this.id, this.name, this.endTime, this.weekdays, this.startTime, this.frequencyId, this.oneTimeDate});
 
   factory KioskImageTime.fromJson(Map<String, dynamic> json) => KioskImageTime(
-        id: json["id"],
-        name: json["name"],
-        endTime: json["end_time"],
-        weekdays: json["weekdays"] == null ? [] : List<String>.from(json["weekdays"]!.map((x) => x)),
-        startTime: json["start_time"],
-        frequencyId: json["frequency_id"],
-        oneTimeDate: json["one_time_date"] == null ? null : DateTime.tryParse(json["one_time_date"]),
-      );
+    id: json["id"],
+    name: json["name"],
+    endTime: json["end_time"],
+    weekdays: json["weekdays"] == null ? [] : List<String>.from(json["weekdays"]!.map((x) => x)),
+    startTime: json["start_time"],
+    frequencyId: json["frequency_id"],
+    oneTimeDate: json["one_time_date"] == null ? null : DateTime.tryParse(json["one_time_date"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "end_time": endTime,
-        "weekdays": weekdays == null ? [] : List<dynamic>.from(weekdays!.map((x) => x)),
-        "start_time": startTime,
-        "frequency_id": frequencyId,
-        "one_time_date":
-            "${oneTimeDate!.year.toString().padLeft(4, '0')}-${oneTimeDate!.month.toString().padLeft(2, '0')}-${oneTimeDate!.day.toString().padLeft(2, '0')}",
-      };
+    "id": id,
+    "name": name,
+    "end_time": endTime,
+    "weekdays": weekdays == null ? [] : List<dynamic>.from(weekdays!.map((x) => x)),
+    "start_time": startTime,
+    "frequency_id": frequencyId,
+    "one_time_date":
+        "${oneTimeDate!.year.toString().padLeft(4, '0')}-${oneTimeDate!.month.toString().padLeft(2, '0')}-${oneTimeDate!.day.toString().padLeft(2, '0')}",
+  };
 }
 
 class DealerContentModel {
@@ -385,37 +369,21 @@ class DealerContentModel {
   String langId;
   String contentTypeId;
 
-  DealerContentModel({
-    required this.content,
-    required this.langId,
-    required this.contentTypeId,
-  });
+  DealerContentModel({required this.content, required this.langId, required this.contentTypeId});
 
-  factory DealerContentModel.fromJson(Map<String, dynamic> json) => DealerContentModel(
-        content: json["content"],
-        langId: json["lang_id"],
-        contentTypeId: json["content_type_id"],
-      );
+  factory DealerContentModel.fromJson(Map<String, dynamic> json) =>
+      DealerContentModel(content: json["content"], langId: json["lang_id"], contentTypeId: json["content_type_id"]);
 
-  Map<String, dynamic> toJson() => {
-        "content": content,
-        "lang_id": langId,
-        "content_type_id": contentTypeId,
-      };
+  Map<String, dynamic> toJson() => {"content": content, "lang_id": langId, "content_type_id": contentTypeId};
 }
 
 class PosStationsLocalSettingsModel {
   int? categoryProductColumnCount;
 
-  PosStationsLocalSettingsModel({
-    required this.categoryProductColumnCount,
-  });
+  PosStationsLocalSettingsModel({required this.categoryProductColumnCount});
 
-  factory PosStationsLocalSettingsModel.fromJson(Map<String, dynamic> json) => PosStationsLocalSettingsModel(
-        categoryProductColumnCount: json["category_product_column_count"],
-      );
+  factory PosStationsLocalSettingsModel.fromJson(Map<String, dynamic> json) =>
+      PosStationsLocalSettingsModel(categoryProductColumnCount: json["category_product_column_count"]);
 
-  Map<String, dynamic> toJson() => {
-        "category_product_column_count": categoryProductColumnCount,
-      };
+  Map<String, dynamic> toJson() => {"category_product_column_count": categoryProductColumnCount};
 }
