@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-import 'IReport.dart';
+import 'ireport.dart';
 
 class DailySaleReportModel extends IBaseModel<DailySaleReportModel> implements IReport {
   DailySaleReportSummaryModel? summary;

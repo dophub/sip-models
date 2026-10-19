@@ -1,6 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-import 'IReport.dart';
+import 'ireport.dart';
 
 class OrderListReportModel extends IBaseModel<OrderListReportModel> implements IReport {
   OrderListReportStatsModel? stats;
