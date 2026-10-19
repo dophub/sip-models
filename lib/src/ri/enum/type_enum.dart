@@ -45,14 +45,11 @@ enum OrderCancelReasonEnum {
   SAAT_IPTAL, //"Restoran kapanmaya yakın olduğundan kabul etmedi.",
   ISLETME_IPTAL, //"Restoran yetkilisi siparişi butona basarak reddetti.",
   URUN_YOK, //"Ürün Stokta Yok",
-  ZAMAN_ASIMI //"Zaman aşımına uğradı",
+  ZAMAN_ASIMI, //"Zaman aşımına uğradı",
 }
 
 /// iptal sebeplerin türleri
-enum CancelReasonsTypeEnum {
-  ORDER,
-  ITEMS,
-}
+enum CancelReasonsTypeEnum { ORDER, ITEMS }
 
 enum QrStatusEnum { ASSIGNED, NOT, NOT_FOUND }
 
@@ -78,13 +75,7 @@ enum LogTypes {
   APP_EXCEPTION,
 }
 
-enum PaycellLogEnums {
-  LOG,
-  ERROR,
-  RESPONSE,
-  REQUEST,
-  THROWN_WHEN,
-}
+enum PaycellLogEnums { LOG, ERROR, RESPONSE, REQUEST, THROWN_WHEN }
 
 enum PaycellPaymentStatus { SUCCESS, ERROR }
 
@@ -99,4 +90,11 @@ enum CancelPosPaymentTypeEnum {
 
 enum WorkingModeEnum { pos, admin }
 
-enum PrinterPaperTypeEnum { mm58, mm80 }
+enum PrinterPaperTypeEnum {
+  mm58(384),
+  mm80(576);
+
+  final int width;
+
+  const new(this.width);
+}
