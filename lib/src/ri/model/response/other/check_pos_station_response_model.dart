@@ -223,7 +223,7 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
 
   @override
   String get title =>
-      (printerTypeId == PrinterTypeEnum.NETWORK.name ? '${printerName!} (${ipAddress!})' : printerName!) +
+      (printerTypeId == PrinterTypeEnum.NETWORK.name ? '$printerName ($ipAddress)' : printerName ?? '') +
       ' ($printerTypeId)';
 }
 
