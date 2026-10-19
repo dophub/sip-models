@@ -222,7 +222,9 @@ class PosPrinterModel extends IBaseModel<PosPrinterModel> implements IMultiItemP
   bool selectedValue = false;
 
   @override
-  String get title => printerTypeId == PrinterTypeEnum.NETWORK.name ? '${printerName!} (${ipAddress!})' : printerName!;
+  String get title =>
+      (printerTypeId == PrinterTypeEnum.NETWORK.name ? '${printerName!} (${ipAddress!})' : printerName!) +
+      ' ($printerTypeId)';
 }
 
 class PosStationLocalSettingsModel {
