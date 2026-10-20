@@ -353,7 +353,7 @@ class EndOfDayReportTopProductModel extends IDashboardBarsCardModel {
   List<EndOfDayReportTopProductModel>? get items => [];
 
   @override
-  String? get name => productName;
+  String? get name => rank.toString() + ' ' + productName!;
 }
 
 class EndOfDayReportLossesModel {
