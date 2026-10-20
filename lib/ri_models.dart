@@ -72,6 +72,7 @@ export 'package:sip_models/src/ri/model/response/report/daily_report_model.dart'
 export 'package:sip_models/src/ri/model/response/report/ireport.dart';
 export 'package:sip_models/src/ri/model/response/report/dashboard_report_model.dart';
 export 'package:sip_models/src/ri/model/response/report/end_of_day_report_model.dart';
+export 'package:sip_models/src/ri/model/response/report/idashboard_bars_card_model.dart';
 export 'package:sip_models/src/ri/model/response/report/daily_sale_report_model.dart';
 export 'package:sip_models/src/ri/model/response/report/product_performance_report_model.dart';
 export 'package:sip_models/src/ri/model/response/report/order_list_report_model.dart';
