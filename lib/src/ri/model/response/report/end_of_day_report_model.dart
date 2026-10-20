@@ -1,5 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
+import 'idashboard_bars_card_model.dart';
 import 'ireport.dart';
 
 class EndOfDayReportModel extends IBaseModel<EndOfDayReportModel> implements IReport {
@@ -160,12 +161,14 @@ class EndOfDayReportSummaryModel {
   };
 }
 
-class EndOfDayReportPaymentMethodModel {
+class EndOfDayReportPaymentMethodModel extends IDashboardBarsCardModel<EndOfDayReportPaymentMethodModel> {
   String? paymentTypeId;
   String? paymentTypeName;
   String? paymentGroup;
+  @override
   double? amount;
   int? transactionCount;
+  @override
   double? amountPercent;
 
   EndOfDayReportPaymentMethodModel({
@@ -194,6 +197,21 @@ class EndOfDayReportPaymentMethodModel {
     "transaction_count": transactionCount,
     "amount_percent": amountPercent,
   };
+
+  @override
+  int? get count => transactionCount;
+
+  @override
+  String? get name => paymentTypeName;
+
+  @override
+  double? get countPercent => null;
+
+  @override
+  String? get id => null;
+
+  @override
+  List<EndOfDayReportPaymentMethodModel>? get items => [];
 }
 
 class EndOfDayReportTipsModel {
@@ -220,11 +238,14 @@ class EndOfDayReportHourlySalesModel {
   Map<String, dynamic> toJson() => {"hour": hour, "amount": amount, "count": count};
 }
 
-class EndOfDayReportChannelModel {
+class EndOfDayReportChannelModel extends IDashboardBarsCardModel<EndOfDayReportChannelModel> {
   String? channelId;
   String? channelName;
+  @override
   double? amount;
+  @override
   int? count;
+  @override
   double? amountPercent;
 
   EndOfDayReportChannelModel({this.channelId, this.channelName, this.amount, this.count, this.amountPercent});
@@ -244,12 +265,28 @@ class EndOfDayReportChannelModel {
     "count": count,
     "amount_percent": amountPercent,
   };
+
+  @override
+  double? get countPercent => null;
+
+  @override
+  String? get id => channelId;
+
+  @override
+  List<EndOfDayReportChannelModel>? get items => [];
+
+  @override
+  String? get name => channelName;
 }
 
-class EndOfDayReportCategoryModel {
+class EndOfDayReportCategoryModel extends IDashboardBarsCardModel<EndOfDayReportCategoryModel> {
+  @override
   String? name;
+  @override
   double? amount;
+  @override
   int? count;
+  @override
   double? amountPercent;
 
   EndOfDayReportCategoryModel({this.name, this.amount, this.count, this.amountPercent});
@@ -262,9 +299,17 @@ class EndOfDayReportCategoryModel {
   );
 
   Map<String, dynamic> toJson() => {"name": name, "amount": amount, "count": count, "amount_percent": amountPercent};
+
+  @override
+  double? get countPercent => null;
+
+  String? get id => null;
+
+  @override
+  List<EndOfDayReportCategoryModel>? get items => [];
 }
 
-class EndOfDayReportTopProductModel {
+class EndOfDayReportTopProductModel extends IDashboardBarsCardModel<EndOfDayReportTopProductModel> {
   int? rank;
   int? productId;
   String? productName;
@@ -288,6 +333,27 @@ class EndOfDayReportTopProductModel {
     "quantity": quantity,
     "revenue": revenue,
   };
+
+  @override
+  double? get amount => revenue;
+
+  @override
+  double? get amountPercent => null;
+
+  @override
+  int? get count => quantity;
+
+  @override
+  double? get countPercent => null;
+
+  @override
+  String? get id => null;
+
+  @override
+  List<EndOfDayReportTopProductModel>? get items => [];
+
+  @override
+  String? get name => productName;
 }
 
 class EndOfDayReportLossesModel {

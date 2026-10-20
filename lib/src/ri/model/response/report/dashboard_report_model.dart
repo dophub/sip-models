@@ -1,5 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
+import 'idashboard_bars_card_model.dart';
 import 'ireport.dart';
 
 class DashboardReportModel extends IBaseModel<DashboardReportModel> implements IReport {
@@ -62,13 +63,20 @@ class DashboardReportBreakdownsModel {
   };
 }
 
-class DashboardReportByModel {
+class DashboardReportByModel implements IDashboardBarsCardModel<DashboardReportByModel> {
+  @override
   String? id;
+  @override
   String? name;
+  @override
   double? amount;
+  @override
   int? count;
+  @override
   double? amountPercent;
+  @override
   double? countPercent;
+  @override
   List<DashboardReportByModel>? items;
 
   DashboardReportByModel({
