@@ -161,7 +161,7 @@ class EndOfDayReportSummaryModel {
   };
 }
 
-class EndOfDayReportPaymentMethodModel extends IDashboardBarsCardModel<EndOfDayReportPaymentMethodModel> {
+class EndOfDayReportPaymentMethodModel extends IDashboardBarsCardModel {
   String? paymentTypeId;
   String? paymentTypeName;
   String? paymentGroup;
@@ -238,7 +238,7 @@ class EndOfDayReportHourlySalesModel {
   Map<String, dynamic> toJson() => {"hour": hour, "amount": amount, "count": count};
 }
 
-class EndOfDayReportChannelModel extends IDashboardBarsCardModel<EndOfDayReportChannelModel> {
+class EndOfDayReportChannelModel extends IDashboardBarsCardModel {
   String? channelId;
   String? channelName;
   @override
@@ -279,7 +279,7 @@ class EndOfDayReportChannelModel extends IDashboardBarsCardModel<EndOfDayReportC
   String? get name => channelName;
 }
 
-class EndOfDayReportCategoryModel extends IDashboardBarsCardModel<EndOfDayReportCategoryModel> {
+class EndOfDayReportCategoryModel extends IDashboardBarsCardModel {
   @override
   String? name;
   @override
@@ -309,7 +309,7 @@ class EndOfDayReportCategoryModel extends IDashboardBarsCardModel<EndOfDayReport
   List<EndOfDayReportCategoryModel>? get items => [];
 }
 
-class EndOfDayReportTopProductModel extends IDashboardBarsCardModel<EndOfDayReportTopProductModel> {
+class EndOfDayReportTopProductModel extends IDashboardBarsCardModel {
   int? rank;
   int? productId;
   String? productName;

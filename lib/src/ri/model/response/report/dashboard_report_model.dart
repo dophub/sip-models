@@ -63,7 +63,7 @@ class DashboardReportBreakdownsModel {
   };
 }
 
-class DashboardReportByModel implements IDashboardBarsCardModel<DashboardReportByModel> {
+class DashboardReportByModel implements IDashboardBarsCardModel {
   @override
   String? id;
   @override
