@@ -1,6 +1,7 @@
 import 'package:background_json_parser/background_json_parser.dart';
 import 'package:flutter/material.dart' show GlobalKey;
 import 'package:sip_models/src/model/widget/sections_widget_model.dart';
+
 import '../../../enum/id_enum.dart';
 import '../other/images_model.dart';
 import '../other/price_model.dart';
@@ -23,6 +24,7 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISect
     this.isSelected = false,
     this.itemType,
     this.additionalPrice,
+    this.stockUnits,
   });
 
   int? id;
@@ -40,47 +42,51 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISect
   bool isSelected;
   String? itemType;
   double? additionalPrice; // promosyonlu ürünlerde section fiyatıdır
+  List<StockUnitModel>? stockUnits;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => ProductDetailModel(
-        id: json["id"],
-        productName: json["product_name"],
-        shortDescription: json["short_description"],
-        description: json["description"],
-        productCode: json["product_code"],
-        tags: json["tags"] == null ? [] : List<String>.from(json["tags"].map((x) => x)),
-        makeTime: json["make_time"],
-        calorie: json["calorie"],
-        price: json["price"] == null ? [] : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
-        images:
-            json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
-        optionGroups: json["option_groups"] == null
-            ? []
-            : List<OptionGroupModel>.from(json["option_groups"].map((x) => OptionGroupModel.fromJson(x))),
-        features: json["features"] == null
-            ? []
-            : List<FeatureModel>.from(json["features"].map((x) => FeatureModel.fromJson(x))),
-        itemType: json["item_type"],
-        additionalPrice: json["additional_price"]?.toDouble(),
-      );
+    id: json["id"],
+    productName: json["product_name"],
+    shortDescription: json["short_description"],
+    description: json["description"],
+    productCode: json["product_code"],
+    tags: json["tags"] == null ? [] : List<String>.from(json["tags"].map((x) => x)),
+    makeTime: json["make_time"],
+    calorie: json["calorie"],
+    price: json["price"] == null ? [] : List<PriceModel>.from(json["price"].map((x) => PriceModel.fromJson(x))),
+    images: json["images"] == null ? [] : List<ImagesModel>.from(json["images"].map((x) => ImagesModel.fromJson(x))),
+    optionGroups: json["option_groups"] == null
+        ? []
+        : List<OptionGroupModel>.from(json["option_groups"].map((x) => OptionGroupModel.fromJson(x))),
+    features: json["features"] == null
+        ? []
+        : List<FeatureModel>.from(json["features"].map((x) => FeatureModel.fromJson(x))),
+    itemType: json["item_type"],
+    additionalPrice: json["additional_price"]?.toDouble(),
+    stockUnits: json["stock_units"] == null
+        ? []
+        : List<StockUnitModel>.from(json["stock_units"]!.map((x) => StockUnitModel.fromJson(x))),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "product_name": productName,
-        "short_description": shortDescription,
-        "description": description,
-        "product_code": productCode,
-        "tags": tags == null ? [] : List<dynamic>.from(tags!.map((x) => x)),
-        "make_time": makeTime,
-        "calorie": calorie,
-        "price": price == null ? [] : List<dynamic>.from(price!.map((x) => x.toJson())),
-        "images": List<dynamic>.from(images!.map((x) => x.toJson())),
-        "option_groups": optionGroups == null ? [] : List<dynamic>.from(optionGroups!.map((x) => x.toJson())),
-        "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x.toJson())),
-        "item_type": itemType,
-        "additional_price": additionalPrice,
-      };
+    "id": id,
+    "product_name": productName,
+    "short_description": shortDescription,
+    "description": description,
+    "product_code": productCode,
+    "tags": tags == null ? [] : List<dynamic>.from(tags!.map((x) => x)),
+    "make_time": makeTime,
+    "calorie": calorie,
+    "price": price == null ? [] : List<dynamic>.from(price!.map((x) => x.toJson())),
+    "images": List<dynamic>.from(images!.map((x) => x.toJson())),
+    "option_groups": optionGroups == null ? [] : List<dynamic>.from(optionGroups!.map((x) => x.toJson())),
+    "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x.toJson())),
+    "item_type": itemType,
+    "additional_price": additionalPrice,
+    "stock_units": stockUnits == null ? [] : List<dynamic>.from(stockUnits!.map((x) => x.toJson())),
+  };
 
   @override
   String get getId => throw UnimplementedError();
@@ -96,8 +102,10 @@ class ProductDetailModel extends IBaseModel<ProductDetailModel> implements ISect
 
   @override
   String get getImage => images!
-      .firstWhere((ImagesModel element) => element.imageSizeId == ImageSizeId.mobile_list_col.name,
-          orElse: () => ImagesModel()..imageUrl = '')
+      .firstWhere(
+        (ImagesModel element) => element.imageSizeId == ImageSizeId.mobile_list_col.name,
+        orElse: () => ImagesModel()..imageUrl = '',
+      )
       .imageUrl!;
 
   @override
@@ -134,30 +142,30 @@ class FeatureModel {
   bool isSelected;
 
   factory FeatureModel.fromJson(Map<String, dynamic> json) => FeatureModel(
-        id: json["id"],
-        items: json["items"] == null ? [] : List<ItemModel>.from(json["items"].map((x) => ItemModel.fromJson(x))),
-        maxCount: json["max_count"],
-        listOrder: json["list_order"],
-        description: json["description"],
-        featureName: json["feature_name"],
-        addingTypeId: json["adding_type_id"],
-        chooseTypeId: json["choose_type_id"],
-        maxFreeCount: json["max_free_count"],
-        isRequire: json["is_require"],
-      );
+    id: json["id"],
+    items: json["items"] == null ? [] : List<ItemModel>.from(json["items"].map((x) => ItemModel.fromJson(x))),
+    maxCount: json["max_count"],
+    listOrder: json["list_order"],
+    description: json["description"],
+    featureName: json["feature_name"],
+    addingTypeId: json["adding_type_id"],
+    chooseTypeId: json["choose_type_id"],
+    maxFreeCount: json["max_free_count"],
+    isRequire: json["is_require"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
-        "max_count": maxCount,
-        "list_order": listOrder,
-        "description": description,
-        "feature_name": featureName,
-        "adding_type_id": addingTypeId,
-        "choose_type_id": chooseTypeId,
-        "max_free_count": maxFreeCount,
-        "is_require": isRequire,
-      };
+    "id": id,
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+    "max_count": maxCount,
+    "list_order": listOrder,
+    "description": description,
+    "feature_name": featureName,
+    "adding_type_id": addingTypeId,
+    "choose_type_id": chooseTypeId,
+    "max_free_count": maxFreeCount,
+    "is_require": isRequire,
+  };
 }
 
 class ItemModel extends ISectionsWidgetModel {
@@ -182,24 +190,24 @@ class ItemModel extends ISectionsWidgetModel {
   String? imageUrl;
 
   factory ItemModel.fromJson(Map<String, dynamic> json) => ItemModel(
-        id: json["id"],
-        isFree: json["is_free"],
-        addPrice: json["add_price"].toDouble(),
-        isDefault: json["is_default"],
-        listOrder: json["list_order"],
-        productName: json["product_name"],
-        imageUrl: json["image_url"],
-      );
+    id: json["id"],
+    isFree: json["is_free"],
+    addPrice: json["add_price"].toDouble(),
+    isDefault: json["is_default"],
+    listOrder: json["list_order"],
+    productName: json["product_name"],
+    imageUrl: json["image_url"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "is_free": isFree,
-        "add_price": addPrice,
-        "is_default": isDefault,
-        "list_order": listOrder,
-        "product_name": productName,
-        "image_url": imageUrl,
-      };
+    "id": id,
+    "is_free": isFree,
+    "add_price": addPrice,
+    "is_default": isDefault,
+    "list_order": listOrder,
+    "product_name": productName,
+    "image_url": imageUrl,
+  };
 
   @override
   String get getId => throw UnimplementedError();
@@ -250,29 +258,28 @@ class OptionGroupModel {
   bool isSelected;
 
   factory OptionGroupModel.fromJson(Map<String, dynamic> json) => OptionGroupModel(
-        id: json["id"],
-        options:
-            json["options"] == null ? [] : List<OptionModel>.from(json["options"].map((x) => OptionModel.fromJson(x))),
-        maxCount: json["max_count"],
-        listOrder: json["list_order"],
-        description: json["description"],
-        addingTypeId: json["adding_type_id"],
-        chooseTypeId: json["choose_type_id"],
-        optionGroupName: json["option_group_name"],
-        isRequire: json["is_require"],
-      );
+    id: json["id"],
+    options: json["options"] == null ? [] : List<OptionModel>.from(json["options"].map((x) => OptionModel.fromJson(x))),
+    maxCount: json["max_count"],
+    listOrder: json["list_order"],
+    description: json["description"],
+    addingTypeId: json["adding_type_id"],
+    chooseTypeId: json["choose_type_id"],
+    optionGroupName: json["option_group_name"],
+    isRequire: json["is_require"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "options": options == null ? [] : List<dynamic>.from(options!.map((x) => x.toJson())),
-        "max_count": maxCount,
-        "list_order": listOrder,
-        "description": description,
-        "adding_type_id": addingTypeId,
-        "choose_type_id": chooseTypeId,
-        "option_group_name": optionGroupName,
-        "is_require": isRequire,
-      };
+    "id": id,
+    "options": options == null ? [] : List<dynamic>.from(options!.map((x) => x.toJson())),
+    "max_count": maxCount,
+    "list_order": listOrder,
+    "description": description,
+    "adding_type_id": addingTypeId,
+    "choose_type_id": chooseTypeId,
+    "option_group_name": optionGroupName,
+    "is_require": isRequire,
+  };
 }
 
 class OptionModel extends ISectionsWidgetModel {
@@ -299,26 +306,26 @@ class OptionModel extends ISectionsWidgetModel {
   String? imageUrl;
 
   factory OptionModel.fromJson(Map<String, dynamic> json) => OptionModel(
-        id: json["id"],
-        isFree: json["is_free"],
-        addPrice: json["add_price"]?.toDouble() ?? 0.0,
-        isDefault: json["is_default"],
-        listOrder: json["list_order"],
-        optionCode: json["option_code"],
-        optionName: json["option_name"],
-        imageUrl: json["image_url"],
-      );
+    id: json["id"],
+    isFree: json["is_free"],
+    addPrice: json["add_price"]?.toDouble() ?? 0.0,
+    isDefault: json["is_default"],
+    listOrder: json["list_order"],
+    optionCode: json["option_code"],
+    optionName: json["option_name"],
+    imageUrl: json["image_url"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "is_free": isFree,
-        "add_price": addPrice,
-        "is_default": isDefault,
-        "list_order": listOrder,
-        "option_code": optionCode,
-        "option_name": optionName,
-        "image_url": imageUrl,
-      };
+    "id": id,
+    "is_free": isFree,
+    "add_price": addPrice,
+    "is_default": isDefault,
+    "list_order": listOrder,
+    "option_code": optionCode,
+    "option_name": optionName,
+    "image_url": imageUrl,
+  };
 
   @override
   String get getId => throw UnimplementedError();
@@ -340,4 +347,48 @@ class OptionModel extends ISectionsWidgetModel {
   set setStatus(bool value) {
     isSelected = value;
   }
+}
+
+class StockUnitModel {
+  String? id;
+  String? code;
+  String? name;
+  dynamic barcode;
+  String? unitId;
+  int? multiplier;
+  bool? hasDecimal;
+  bool? isBaseUnit;
+
+  StockUnitModel({
+    this.id,
+    this.code,
+    this.name,
+    this.barcode,
+    this.unitId,
+    this.multiplier,
+    this.hasDecimal,
+    this.isBaseUnit,
+  });
+
+  factory StockUnitModel.fromJson(Map<String, dynamic> json) => StockUnitModel(
+    id: json["id"],
+    code: json["code"],
+    name: json["name"],
+    barcode: json["barcode"],
+    unitId: json["unit_id"],
+    multiplier: json["multiplier"],
+    hasDecimal: json["has_decimal"],
+    isBaseUnit: json["is_base_unit"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "code": code,
+    "name": name,
+    "barcode": barcode,
+    "unit_id": unitId,
+    "multiplier": multiplier,
+    "has_decimal": hasDecimal,
+    "is_base_unit": isBaseUnit,
+  };
 }
