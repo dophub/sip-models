@@ -17,6 +17,7 @@ export 'src/model/response/order/past_orders_model.dart';
 export 'src/model/response/other/price_model.dart';
 export 'src/model/response/order/product_cart_model.dart';
 export 'src/model/response/product/product_detail_model.dart';
+export 'src/model/response/product/stock_unit_model.dart';
 export 'src/model/response/product/promotion_menu_model.dart';
 export 'src/model/response/other/rating_group.dart';
 export 'src/model/response/other/response_error_model.dart';
