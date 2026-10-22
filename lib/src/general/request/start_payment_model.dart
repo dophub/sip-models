@@ -126,7 +126,7 @@ class StartPaymentCardDetailModel {
 
 class StartPaymentItemModel {
   int? id;
-  int? count;
+  num? count;
 
   StartPaymentItemModel({
     this.id,
