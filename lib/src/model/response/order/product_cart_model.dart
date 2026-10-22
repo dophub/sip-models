@@ -187,7 +187,7 @@ class ItemOrder {
   /// bu durumda order içinde iki farklı ürün olup ürün id [item_id] leri aynı olup ama id leri farklı olur
   int id;
   String? itemType;
-  int? count;
+  num? count;
   double? itemAmount;
   double? totalAmount;
   Product? product;
