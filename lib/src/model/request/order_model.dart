@@ -70,7 +70,6 @@ class OrderModel extends IBaseModel<OrderModel> {
   String? cancelNote;
   ItemCancelRejectModel? cancelReject;
   List<OrderItemDiscountModel>? discounts;
-  StockUnitModel? unit;
 
   OrderModel({
     this.id,
@@ -127,7 +126,6 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.cancelNote,
     this.cancelReject,
     this.discounts,
-    this.unit,
   });
 
   @override
@@ -206,7 +204,6 @@ class OrderModel extends IBaseModel<OrderModel> {
       discounts: json["discounts"] == null
           ? []
           : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
-      unit: json["unit"] == null ? null : StockUnitModel.fromJson(json["unit"]),
     );
   }
 
@@ -267,7 +264,6 @@ class OrderModel extends IBaseModel<OrderModel> {
     "cancel_note": cancelNote,
     "cancel_reject": cancelReject?.toJson(),
     "discounts": discounts == null ? [] : List<dynamic>.from(discounts!.map((x) => x.toJson())),
-    "unit": unit?.toJson(),
   };
 }
 
@@ -357,6 +353,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     this.cancelReject,
     this.discounts,
     this.orderSessionPointId,
+    this.unit,
   });
 
   int? id;
@@ -395,6 +392,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   ItemCancelRejectModel? cancelReject;
   List<OrderItemDiscountModel>? discounts;
   String? orderSessionPointId; // sadece local de kullanılmakta
+  StockUnitModel? unit;
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
@@ -549,6 +547,7 @@ class OrderItem extends IBaseModel<OrderItem> {
         ? []
         : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
     orderSessionPointId: orderSessionPointId,
+    unit: json["unit"] == null ? null : StockUnitModel.fromJson(json["unit"]),
   );
 
   @override
@@ -588,6 +587,7 @@ class OrderItem extends IBaseModel<OrderItem> {
     "after_manual_discount_item_price_without_kdv": afterManualDiscountItemPriceWithoutKdv,
     "cancel_reject": cancelReject?.toJson(),
     "discounts": discounts == null ? [] : List<dynamic>.from(discounts!.map((x) => x.toJson())),
+    "unit": unit?.toJson(),
   };
 }
 
