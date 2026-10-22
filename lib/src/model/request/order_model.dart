@@ -1,5 +1,6 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
+import '../../../response.dart';
 import '../../../ri_models.dart';
 import '../../general/response/payment_transaction_model.dart';
 import '../response/address/customer_address_model.dart';
@@ -69,6 +70,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   String? cancelNote;
   ItemCancelRejectModel? cancelReject;
   List<OrderItemDiscountModel>? discounts;
+  StockUnitModel? unit;
 
   OrderModel({
     this.id,
@@ -125,6 +127,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.cancelNote,
     this.cancelReject,
     this.discounts,
+    this.unit,
   });
 
   @override
@@ -203,6 +206,7 @@ class OrderModel extends IBaseModel<OrderModel> {
       discounts: json["discounts"] == null
           ? []
           : List<OrderItemDiscountModel>.from(json["discounts"]!.map((x) => OrderItemDiscountModel.fromJson(x))),
+      unit: json["unit"] == null ? null : StockUnitModel.fromJson(json["unit"]),
     );
   }
 
@@ -263,6 +267,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     "cancel_note": cancelNote,
     "cancel_reject": cancelReject?.toJson(),
     "discounts": discounts == null ? [] : List<dynamic>.from(discounts!.map((x) => x.toJson())),
+    "unit": unit?.toJson(),
   };
 }
 
@@ -390,7 +395,6 @@ class OrderItem extends IBaseModel<OrderItem> {
   ItemCancelRejectModel? cancelReject;
   List<OrderItemDiscountModel>? discounts;
   String? orderSessionPointId; // sadece local de kullanılmakta
-
 
   /// Order modelde olan ürünü ProductPrfile ekranında kullanılan modele çevirmekte
   /// [OrderItem] ---> [ProductDetailModel]
