@@ -71,7 +71,7 @@ class DashboardReportByModel implements IDashboardBarsCardModel {
   @override
   double? amount;
   @override
-  int? count;
+  num? count;
   @override
   double? amountPercent;
   @override

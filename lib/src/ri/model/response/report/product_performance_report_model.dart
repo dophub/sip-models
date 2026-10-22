@@ -53,7 +53,7 @@ class ProductPerformanceReportModel extends IBaseModel<ProductPerformanceReportM
 class ProductPerformanceReportDateRangeCategoryBreakdownModel {
   String? name;
   double? amount;
-  int? count;
+  num? count;
   double? amountPercent;
   double? countPercent;
 

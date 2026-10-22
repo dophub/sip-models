@@ -216,7 +216,7 @@ class StartPaymentTransactionPaymentInfoModel {
 
 class StartPaymentTransactionItemModel {
   int? id;
-  int? count;
+  num? count;
 
   StartPaymentTransactionItemModel({
     this.id,

@@ -72,7 +72,7 @@ class PaycellOrdersResponseModelItem {
     this.options,
   });
 
-  int? count;
+  num? count;
   String? productName;
   double? itemPrice;
   double? totalPrice;

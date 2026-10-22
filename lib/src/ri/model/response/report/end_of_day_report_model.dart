@@ -199,7 +199,7 @@ class EndOfDayReportPaymentMethodModel extends IDashboardBarsCardModel {
   };
 
   @override
-  int? get count => transactionCount;
+  num? get count => transactionCount;
 
   @override
   String? get name => paymentTypeName;
@@ -244,7 +244,7 @@ class EndOfDayReportChannelModel extends IDashboardBarsCardModel {
   @override
   double? amount;
   @override
-  int? count;
+  num? count;
   @override
   double? amountPercent;
 
@@ -285,7 +285,7 @@ class EndOfDayReportCategoryModel extends IDashboardBarsCardModel {
   @override
   double? amount;
   @override
-  int? count;
+  num? count;
   @override
   double? amountPercent;
 
@@ -313,7 +313,7 @@ class EndOfDayReportTopProductModel extends IDashboardBarsCardModel {
   int? rank;
   int? productId;
   String? productName;
-  int? quantity;
+  num? quantity;
   double? revenue;
 
   EndOfDayReportTopProductModel({this.rank, this.productId, this.productName, this.quantity, this.revenue});
@@ -341,7 +341,7 @@ class EndOfDayReportTopProductModel extends IDashboardBarsCardModel {
   double? get amountPercent => null;
 
   @override
-  int? get count => quantity;
+  num? get count => quantity;
 
   @override
   double? get countPercent => null;

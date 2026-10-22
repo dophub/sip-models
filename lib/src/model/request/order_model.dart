@@ -357,7 +357,7 @@ class OrderItem extends IBaseModel<OrderItem> {
   });
 
   int? id;
-  int? count;
+  num? count;
   List<OrderOption>? options;
   String? itemCode;
   String? itemNote;

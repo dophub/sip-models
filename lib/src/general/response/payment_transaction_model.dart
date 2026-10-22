@@ -110,7 +110,7 @@ class PaymentTransactionPaymentInfoModel {
 
 class PaymentTransactionItemModel {
   int? id;
-  int? count;
+  num? count;
 
   PaymentTransactionItemModel({
     this.id,

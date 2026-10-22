@@ -4,7 +4,6 @@ import 'package:sip_models/src/ri/model/response/station/status_model.dart';
 
 class ServiceChannelSocketModel extends IBaseModel<ServiceChannelSocketModel> {
   ServiceChannelSocketModel({
-    this.count,
     this.id,
     this.tableId,
     this.total,
@@ -17,7 +16,6 @@ class ServiceChannelSocketModel extends IBaseModel<ServiceChannelSocketModel> {
     this.paymentModelId,
   });
 
-  int? count;
   int? id;
   String? tableId;
   double? total;
@@ -31,7 +29,6 @@ class ServiceChannelSocketModel extends IBaseModel<ServiceChannelSocketModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => ServiceChannelSocketModel(
-        count: json["count"],
         id: json["id"],
         tableId: json["table_id"],
         total: json["total"].toDouble(),
@@ -46,7 +43,6 @@ class ServiceChannelSocketModel extends IBaseModel<ServiceChannelSocketModel> {
 
   @override
   Map<String, dynamic> toJson() => {
-        "count": count,
         "id": id,
         "table_id": tableId,
         "total": total,

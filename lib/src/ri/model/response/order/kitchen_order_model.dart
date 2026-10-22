@@ -129,7 +129,7 @@ class KitchenOrderProductModel {
   int? productId;
   int? itemsId;
   String? itemTypeId;
-  int? count;
+  num? count;
   int? completeCount;
   String? itemNote;
   String? statusId;

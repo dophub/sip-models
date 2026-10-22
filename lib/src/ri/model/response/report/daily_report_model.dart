@@ -23,72 +23,66 @@ class DailyReportModel extends IBaseModel<DailyReportModel> {
 
   @override
   fromJson(Map<String, dynamic> json) => DailyReportModel(
-        count: json["count"],
-        startDate: json["startDate"],
-        endDate: json["endDate"],
-        paymentTypes: json["paymentTypes"] == null
-            ? []
-            : List<DailyReportPaymentTypeModel>.from(
-                json["paymentTypes"].map((x) => DailyReportPaymentTypeModel.fromJson(x))),
-        statusTypes: json["statusTypes"] == null
-            ? []
-            : List<DailyReportStatusTypeModel>.from(
-                json["statusTypes"].map((x) => DailyReportStatusTypeModel.fromJson(x))),
-        orderSources: json["orderSources"] == null
-            ? []
-            : List<DailyReportOrderSourceModel>.from(
-                json["orderSources"].map((x) => DailyReportOrderSourceModel.fromJson(x))),
-        orderItems: json["orderItems"] == null
-            ? []
-            : List<DailyReportOrderItemModel>.from(
-                json["orderItems"].map((x) => DailyReportOrderItemModel.fromJson(x))),
-        clientPoints: json["clientPoints"] == null
-            ? []
-            : List<DailyReportOrderItemModel>.from(
-                json["clientPoints"].map((x) => DailyReportOrderItemModel.fromJson(x))),
-      );
+    count: json["count"],
+    startDate: json["startDate"],
+    endDate: json["endDate"],
+    paymentTypes: json["paymentTypes"] == null
+        ? []
+        : List<DailyReportPaymentTypeModel>.from(
+            json["paymentTypes"].map((x) => DailyReportPaymentTypeModel.fromJson(x)),
+          ),
+    statusTypes: json["statusTypes"] == null
+        ? []
+        : List<DailyReportStatusTypeModel>.from(json["statusTypes"].map((x) => DailyReportStatusTypeModel.fromJson(x))),
+    orderSources: json["orderSources"] == null
+        ? []
+        : List<DailyReportOrderSourceModel>.from(
+            json["orderSources"].map((x) => DailyReportOrderSourceModel.fromJson(x)),
+          ),
+    orderItems: json["orderItems"] == null
+        ? []
+        : List<DailyReportOrderItemModel>.from(json["orderItems"].map((x) => DailyReportOrderItemModel.fromJson(x))),
+    clientPoints: json["clientPoints"] == null
+        ? []
+        : List<DailyReportOrderItemModel>.from(json["clientPoints"].map((x) => DailyReportOrderItemModel.fromJson(x))),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "count": count,
-        "startDate": startDate,
-        "endDate": endDate,
-        "paymentTypes": List<dynamic>.from(paymentTypes!.map((x) => x.toJson())),
-        "statusTypes": List<dynamic>.from(statusTypes!.map((x) => x.toJson())),
-        "orderSources": List<dynamic>.from(orderSources!.map((x) => x.toJson())),
-        "orderItems": List<dynamic>.from(orderItems!.map((x) => x.toJson())),
-        "clientPoints": List<dynamic>.from(clientPoints!.map((x) => x.toJson())),
-      };
+    "count": count,
+    "startDate": startDate,
+    "endDate": endDate,
+    "paymentTypes": List<dynamic>.from(paymentTypes!.map((x) => x.toJson())),
+    "statusTypes": List<dynamic>.from(statusTypes!.map((x) => x.toJson())),
+    "orderSources": List<dynamic>.from(orderSources!.map((x) => x.toJson())),
+    "orderItems": List<dynamic>.from(orderItems!.map((x) => x.toJson())),
+    "clientPoints": List<dynamic>.from(clientPoints!.map((x) => x.toJson())),
+  };
 }
 
 class DailyReportOrderItemModel implements IReportModel {
   String? orderItem;
   String? clientPoint;
   @override
-  int? count;
+  num? count;
   @override
   double? turnover;
 
-  DailyReportOrderItemModel({
-    this.orderItem,
-    this.clientPoint,
-    this.count,
-    this.turnover,
-  });
+  DailyReportOrderItemModel({this.orderItem, this.clientPoint, this.count, this.turnover});
 
   factory DailyReportOrderItemModel.fromJson(Map<String, dynamic> json) => DailyReportOrderItemModel(
-        orderItem: json["orderItem"],
-        clientPoint: json["clientPoint"],
-        count: json["count"],
-        turnover: json["turnover"].toDouble(),
-      );
+    orderItem: json["orderItem"],
+    clientPoint: json["clientPoint"],
+    count: json["count"],
+    turnover: json["turnover"].toDouble(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "orderItem": orderItem,
-        "clientPoint": clientPoint,
-        "count": count,
-        "turnover": turnover,
-      };
+    "orderItem": orderItem,
+    "clientPoint": clientPoint,
+    "count": count,
+    "turnover": turnover,
+  };
 
   @override
   String? get title => orderItem;
@@ -96,26 +90,20 @@ class DailyReportOrderItemModel implements IReportModel {
 
 class DailyReportOrderSourceModel implements IReportModel {
   String? orderSource;
-  int? count;
+  @override
+  num? count;
+  @override
   double? turnover;
 
-  DailyReportOrderSourceModel({
-    this.orderSource,
-    this.count,
-    this.turnover,
-  });
+  DailyReportOrderSourceModel({this.orderSource, this.count, this.turnover});
 
   factory DailyReportOrderSourceModel.fromJson(Map<String, dynamic> json) => DailyReportOrderSourceModel(
-        orderSource: json["orderSource"],
-        count: json["count"],
-        turnover: json["turnover"].toDouble(),
-      );
+    orderSource: json["orderSource"],
+    count: json["count"],
+    turnover: json["turnover"].toDouble(),
+  );
 
-  Map<String, dynamic> toJson() => {
-        "orderSource": orderSource,
-        "count": count,
-        "turnover": turnover,
-      };
+  Map<String, dynamic> toJson() => {"orderSource": orderSource, "count": count, "turnover": turnover};
 
   @override
   String? get title => orderSource;
@@ -124,27 +112,19 @@ class DailyReportOrderSourceModel implements IReportModel {
 class DailyReportPaymentTypeModel implements IReportModel {
   String? paymentType;
   @override
-  int? count;
+  num? count;
   @override
   double? turnover;
 
-  DailyReportPaymentTypeModel({
-    this.paymentType,
-    this.count,
-    this.turnover,
-  });
+  DailyReportPaymentTypeModel({this.paymentType, this.count, this.turnover});
 
   factory DailyReportPaymentTypeModel.fromJson(Map<String, dynamic> json) => DailyReportPaymentTypeModel(
-        paymentType: json["paymentType"],
-        count: json["count"],
-        turnover: json["turnover"].toDouble(),
-      );
+    paymentType: json["paymentType"],
+    count: json["count"],
+    turnover: json["turnover"].toDouble(),
+  );
 
-  Map<String, dynamic> toJson() => {
-        "paymentType": paymentType,
-        "count": count,
-        "turnover": turnover,
-      };
+  Map<String, dynamic> toJson() => {"paymentType": paymentType, "count": count, "turnover": turnover};
 
   @override
   String? get title => paymentType;
@@ -153,27 +133,19 @@ class DailyReportPaymentTypeModel implements IReportModel {
 class DailyReportStatusTypeModel implements IReportModel {
   String? statusType;
   @override
-  int? count;
+  num? count;
   @override
   double? turnover;
 
-  DailyReportStatusTypeModel({
-    this.statusType,
-    this.count,
-    this.turnover,
-  });
+  DailyReportStatusTypeModel({this.statusType, this.count, this.turnover});
 
   factory DailyReportStatusTypeModel.fromJson(Map<String, dynamic> json) => DailyReportStatusTypeModel(
-        statusType: json["statusType"],
-        count: json["count"],
-        turnover: json["turnover"].toDouble(),
-      );
+    statusType: json["statusType"],
+    count: json["count"],
+    turnover: json["turnover"].toDouble(),
+  );
 
-  Map<String, dynamic> toJson() => {
-        "statusType": statusType,
-        "count": count,
-        "turnover": turnover,
-      };
+  Map<String, dynamic> toJson() => {"statusType": statusType, "count": count, "turnover": turnover};
 
   @override
   String? get title => statusType;
@@ -182,6 +154,6 @@ class DailyReportStatusTypeModel implements IReportModel {
 abstract class IReportModel {
   String? get title;
 
-  int? count;
+  num? count;
   double? turnover;
 }
