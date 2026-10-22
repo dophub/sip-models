@@ -4,7 +4,7 @@ class StockUnitModel {
   String? name;
   dynamic barcode;
   String? unitId;
-  int? multiplier;
+  double? multiplier;
   bool? hasDecimal;
   bool? isBaseUnit;
 
@@ -25,7 +25,7 @@ class StockUnitModel {
     name: json["name"],
     barcode: json["barcode"],
     unitId: json["unit_id"],
-    multiplier: json["multiplier"],
+    multiplier: json["multiplier"]?.toDouble(),
     hasDecimal: json["has_decimal"],
     isBaseUnit: json["is_base_unit"],
   );
