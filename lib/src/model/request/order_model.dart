@@ -35,6 +35,7 @@ class OrderModel extends IBaseModel<OrderModel> {
   String? deliveryDate;
   String? orderPointId;
   String? clientPointId;
+  String? clientPointName;
   String? deliveryTypeId;
   String? sessionPointId;
   double? tipAmountWithoutKdv;
@@ -87,6 +88,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     this.serviceTotalAmount,
     this.deliveryDate,
     this.orderPointId,
+    this.clientPointName,
     this.clientPointId,
     this.deliveryTypeId,
     this.sessionPointId,
@@ -154,6 +156,7 @@ class OrderModel extends IBaseModel<OrderModel> {
           : json["pre_total_amount_without_kdv"].toDouble(),
       deliveryDate: json["delivery_date"],
       orderPointId: json["order_point_id"],
+      clientPointName: json["client_point_name"],
       clientPointId: json["client_point_id"],
       courierInfo: json['courier_info'] == null
           ? null
@@ -227,6 +230,7 @@ class OrderModel extends IBaseModel<OrderModel> {
     "pre_total_amount_without_kdv": preTotalAmountWithoutKdv,
     "delivery_date": deliveryDate,
     "order_point_id": orderPointId,
+    "client_point_name": clientPointName,
     "client_point_id": clientPointId,
     "delivery_type_id": deliveryTypeId,
     "session_point_id": sessionPointId,
