@@ -37,7 +37,7 @@ class FixMenu {
   });
 
   int? id;
-  int? count;
+  num? count;
 
   Map<String, dynamic> toJson() => {
         "id": id,
