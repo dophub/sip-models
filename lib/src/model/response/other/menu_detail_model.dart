@@ -105,7 +105,7 @@ class ProductModel extends IBaseModel<ProductModel> {
   int? orderCount;
   String? productName;
   String? shortDescription;
-  int? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
+  num? count; // Marketplace kullanıcı tarafından seçilen fix menunun adedini tutmak için kullanılmakta
   List<CampaignModel>? campaigns;
   bool? isSell;
   int? mainBrandId;
