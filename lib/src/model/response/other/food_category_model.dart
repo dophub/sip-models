@@ -1,3 +1,4 @@
+/*
 import 'package:background_json_parser/background_json_parser.dart';
 
 import '../../../../response.dart';
@@ -30,3 +31,4 @@ class FoodCategoryModel extends IBaseModel<FoodCategoryModel> {
     throw UnimplementedError();
   }
 }
+*/
