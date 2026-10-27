@@ -1,6 +1,5 @@
 import 'package:background_json_parser/background_json_parser.dart';
 
-import '../other/food_category_model.dart';
 import '../other/images_model.dart';
 
 /// QR Kod okutulduğu zaman Api den dönen response
@@ -13,8 +12,6 @@ class DealerDetailModel {
     this.table,
     this.workingHours,
     this.logoImage,
-    this.menus,
-    this.categories,
     this.listImage,
     this.qrCoverImage,
     this.mobileCoverImage,
@@ -44,8 +41,6 @@ class DealerDetailModel {
   String? dealerName;
   TableModel? table;
   WorkingHourModel? workingHours;
-  List<MenuModel>? menus;
-  List<FoodCategoryModel>? categories;
   ImagesModel? logoImage;
   ImagesModel? listImage;
   ImagesModel? qrCoverImage;
@@ -83,10 +78,6 @@ class DealerDetailModel {
     mobileCoverImage: json["mobile_cover_image"] == null
         ? ImagesModel()
         : ImagesModel.fromJson(json["mobile_cover_image"]),
-    menus: json["menus"] == null ? [] : List<MenuModel>.from(json["menus"].map((x) => MenuModel().jsonParser(x))),
-    categories: json["categories"] == null
-        ? []
-        : List<FoodCategoryModel>.from(json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
     isTipsActive: json["is_tips_active"],
     dealerTipShowTypeId: json["dealer_tip_show_type_id"],
     minTipPercent: json["min_tip_percent"],
