@@ -3,7 +3,6 @@ export 'src/model/response/address/address_by_location.dart';
 export 'src/model/response/address/customer_address_model.dart';
 export 'src/model/response/auth/api_url_model.dart';
 export 'src/model/response/payment/cards_model.dart';
-export 'src/model/response/other/food_category_model.dart';
 export 'src/model/response/address/city_district_neighborhood_model.dart';
 export 'src/model/response/dealer/dealer_detail_model.dart';
 export 'src/model/response/other/default_model.dart';

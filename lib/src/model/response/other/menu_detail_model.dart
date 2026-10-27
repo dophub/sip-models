@@ -45,7 +45,7 @@ class CategoryModel extends IBaseModel<CategoryModel> {
         );
 
   Key? key;
-  int? id;
+  dynamic? id;
   String? categoryName;
   String? menuListTypeId;
   int? listOrder;
