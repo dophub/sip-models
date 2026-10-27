@@ -1,3 +1,5 @@
+import 'package:background_json_parser/background_json_parser.dart';
+
 import '../other/food_category_model.dart';
 import '../other/images_model.dart';
 
@@ -69,53 +71,48 @@ class DealerDetailModel {
   bool? mustApproveQrCode; // localde kullanılmakta qr code onaylanmaya gerek var mı (onaylama qr kod okutarak yada girerek yapılır)
 
   factory DealerDetailModel.fromJson(Map<String, dynamic> json, {required String qr}) => DealerDetailModel(
-        qr: qr,
-        dealerId: json["dealer_id"],
-        mainBrandId: json["main_brand_id"],
-        dealerName: json["dealer_name"],
-        table: TableModel.fromJson(json["tables"]),
-        workingHours: WorkingHourModel.fromJson(json["working_hours"]),
-        logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
-        listImage: json["list_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["list_image"]),
-        qrCoverImage: json["qr_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["qr_cover_image"]),
-        mobileCoverImage:
-            json["mobile_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["mobile_cover_image"]),
-        menus: json["menus"] == null ? [] : List<MenuModel>.from(json["menus"].map((x) => MenuModel.fromJson(x))),
-        categories: json["categories"] == null
-            ? []
-            : List<FoodCategoryModel>.from(json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
-        isTipsActive: json["is_tips_active"],
-        dealerTipShowTypeId: json["dealer_tip_show_type_id"],
-        minTipPercent: json["min_tip_percent"],
-        restaurantInWorkingHours: json["restaurant_in_working_hours"],
-        tipsTable: json["tips_table"] == null
-            ? []
-            : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
-        valeIsActive: json["vale_is_active"],
-        reservationIsActive: json["reservation_is_active"],
-        tableIsActive: json["table_is_active"],
-        selfServiceIsActive: json["self_service_is_active"],
-        bundleid: json["bundleid"],
-        associatedDomain: json["associated_domain"],
-        deeplinkDomain: json["deeplink_domain"],
-        isStickyQR: json["is_sticky_qr"],
-        isChangeableDeliveryType: json["is_changeable_delivery_type"],
-        tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
-        tableServiceExplainHeaderText: json["table_service_explain_header_text"],
-        tableServiceExplainText: json["table_service_explain_text"],
-        isAppActive: json["is_app_active"],
-      );
+    qr: qr,
+    dealerId: json["dealer_id"],
+    mainBrandId: json["main_brand_id"],
+    dealerName: json["dealer_name"],
+    table: TableModel.fromJson(json["tables"]),
+    workingHours: WorkingHourModel.fromJson(json["working_hours"]),
+    logoImage: json["logo_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["logo_image"]),
+    listImage: json["list_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["list_image"]),
+    qrCoverImage: json["qr_cover_image"] == null ? ImagesModel() : ImagesModel.fromJson(json["qr_cover_image"]),
+    mobileCoverImage: json["mobile_cover_image"] == null
+        ? ImagesModel()
+        : ImagesModel.fromJson(json["mobile_cover_image"]),
+    menus: json["menus"] == null ? [] : List<MenuModel>.from(json["menus"].map((x) => MenuModel().jsonParser(x))),
+    categories: json["categories"] == null
+        ? []
+        : List<FoodCategoryModel>.from(json["categories"].map((x) => FoodCategoryModel().fromJson(x))),
+    isTipsActive: json["is_tips_active"],
+    dealerTipShowTypeId: json["dealer_tip_show_type_id"],
+    minTipPercent: json["min_tip_percent"],
+    restaurantInWorkingHours: json["restaurant_in_working_hours"],
+    tipsTable: json["tips_table"] == null
+        ? []
+        : List<TipsTableModel>.from(json["tips_table"].map((x) => TipsTableModel.fromJson(x))),
+    valeIsActive: json["vale_is_active"],
+    reservationIsActive: json["reservation_is_active"],
+    tableIsActive: json["table_is_active"],
+    selfServiceIsActive: json["self_service_is_active"],
+    bundleid: json["bundleid"],
+    associatedDomain: json["associated_domain"],
+    deeplinkDomain: json["deeplink_domain"],
+    isStickyQR: json["is_sticky_qr"],
+    isChangeableDeliveryType: json["is_changeable_delivery_type"],
+    tableServiceAmount: json["table_service_amount"]?.toDouble() ?? 0.0,
+    tableServiceExplainHeaderText: json["table_service_explain_header_text"],
+    tableServiceExplainText: json["table_service_explain_text"],
+    isAppActive: json["is_app_active"],
+  );
 }
 
 /// Okutulan masa bilgileri
 class TableModel {
-  TableModel({
-    this.tableCode,
-    this.tableName,
-    this.stationCode,
-    this.stationName,
-    this.paymentModelId,
-  });
+  TableModel({this.tableCode, this.tableName, this.stationCode, this.stationName, this.paymentModelId});
 
   String? tableCode;
   String? tableName;
@@ -124,33 +121,34 @@ class TableModel {
   String? paymentModelId;
 
   factory TableModel.fromJson(Map<String, dynamic> json) => TableModel(
-        tableCode: json["table_code"],
-        tableName: json["table_name"],
-        stationCode: json["station_code"],
-        stationName: json["station_name"],
-        paymentModelId: json["payment_model_id"],
-      );
+    tableCode: json["table_code"],
+    tableName: json["table_name"],
+    stationCode: json["station_code"],
+    stationName: json["station_name"],
+    paymentModelId: json["payment_model_id"],
+  );
 }
 
-class MenuModel {
-  MenuModel({
-    this.id,
-    this.menuName,
-    this.menuImage,
-    this.menuOrder,
-  });
+class MenuModel extends IBaseModel<MenuModel> {
+  MenuModel({this.id, this.menuName, this.menuImage, this.menuOrder});
 
   int? id;
   String? menuName;
   String? menuImage;
   int? menuOrder;
 
-  factory MenuModel.fromJson(Map<String, dynamic> json) => MenuModel(
-        id: json["id"],
-        menuName: json["menu_name"],
-        menuImage: json["menu_image"],
-        menuOrder: json["menu_order"],
-      );
+  @override
+  fromJson(Map<String, dynamic> json) => MenuModel(
+    id: json["id"],
+    menuName: json["menu_name"],
+    menuImage: json["menu_image"],
+    menuOrder: json["menu_order"],
+  );
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
 }
 
 /// İşleteme çalışma saatleri
@@ -176,15 +174,15 @@ class WorkingHourModel {
   String? courierStart;
 
   factory WorkingHourModel.fromJson(Map<String, dynamic> json) => WorkingHourModel(
-        end: json["end"],
-        start: json["start"],
-        title: json["title"],
-        status: json["status"],
-        courier: json["courier"],
-        dayOfWeek: json["dayofweek"],
-        courierEnd: json["courier_end"],
-        courierStart: json["courier_start"],
-      );
+    end: json["end"],
+    start: json["start"],
+    title: json["title"],
+    status: json["status"],
+    courier: json["courier"],
+    dayOfWeek: json["dayofweek"],
+    courierEnd: json["courier_end"],
+    courierStart: json["courier_start"],
+  );
 
   Map<String, dynamic> toJson() {
     return {
@@ -201,25 +199,14 @@ class WorkingHourModel {
 }
 
 class TipsTableModel {
-  TipsTableModel({
-    this.id,
-    this.amount,
-    this.listOrder,
-  });
+  TipsTableModel({this.id, this.amount, this.listOrder});
 
   int? id;
   double? amount;
   int? listOrder;
 
-  factory TipsTableModel.fromJson(Map<String, dynamic> json) => TipsTableModel(
-        id: json["id"],
-        amount: json["amount"].toDouble(),
-        listOrder: json["list_order"],
-      );
+  factory TipsTableModel.fromJson(Map<String, dynamic> json) =>
+      TipsTableModel(id: json["id"], amount: json["amount"].toDouble(), listOrder: json["list_order"]);
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "amount": amount,
-        "list_order": listOrder,
-      };
+  Map<String, dynamic> toJson() => {"id": id, "amount": amount, "list_order": listOrder};
 }
