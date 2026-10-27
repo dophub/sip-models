@@ -4,7 +4,7 @@ import '../../../../response.dart';
 
 ///Dealer(Kategori) ve MarketPlace(Mutfaklar) modüllerinde kullanılan model
 class FoodCategoryModel extends IBaseModel<FoodCategoryModel> {
-  FoodCategoryModel({this.id, this.image, this.listOrder, this.categoryName});
+  FoodCategoryModel({this.id, this.image, this.listOrder, this.categoryName, this.products});
 
   /// 1- Dealer modulunde QR detail categories için int olarak kullanılmakta
   /// 2- MarketPlace modulunde NearDealerDetail de String olarak kullanılmakta
@@ -12,6 +12,7 @@ class FoodCategoryModel extends IBaseModel<FoodCategoryModel> {
   String? image;
   int? listOrder;
   String? categoryName;
+  List<ProductModel>? products;
 
   @override
   fromJson(Map<dynamic, dynamic> json) => FoodCategoryModel(
@@ -19,6 +20,9 @@ class FoodCategoryModel extends IBaseModel<FoodCategoryModel> {
     image: json["image_url"],
     listOrder: json["list_order"],
     categoryName: json["category_name"],
+    products: json["products"] == null
+        ? []
+        : List<ProductModel>.from(json["products"].map((x) => ProductModel().fromJson(x))),
   );
 
   @override
