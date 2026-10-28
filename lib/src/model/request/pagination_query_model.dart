@@ -2,11 +2,11 @@ class PaginationQueryModel {
   PaginationQueryModel({this.page, this.limit = 30, this.keyword, this.startDate, this.endDate, this.sort});
 
   int? page;
-  final int limit;
-  final String? keyword;
-  final DateTime? startDate;
-  final DateTime? endDate;
-  final String? sort;
+  int limit;
+  String? keyword;
+  DateTime? startDate;
+  DateTime? endDate;
+  String? sort;
 
   Map<String, String> toJson() => {
     'page': page.toString(),
