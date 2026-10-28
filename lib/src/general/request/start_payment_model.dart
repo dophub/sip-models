@@ -16,6 +16,8 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   StartPaymentCardDetailModel? cardDetails;
   String? deliveryDate;
   String? orderNote;
+  String? transactionId;
+  String? otpCode;
   StartPaymentLoyaltyModel? loyalty;
 
   StartPaymentModel({
@@ -35,49 +37,55 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.deliveryDate,
     this.orderNote,
     this.loyalty,
+    this.transactionId,
+    this.otpCode,
   });
 
   @override
   fromJson(Map<String, dynamic> json) => StartPaymentModel(
-        paymentType: json["payment_type"],
-        isFullPayment: json["is_full_payment"],
-        sourceType: json["source_type"],
-        sourceId: json["source_id"],
-        targetOrderId: json["target_order_id"],
-        amount: json["amount"]?.toDouble(),
-        walletId: json["wallet_id"],
-        content: json["content"],
-        serialNo: json["serial_no"],
-        reasonCode: json["reason_code"],
-        items: json["items"] == null
-            ? []
-            : List<StartPaymentItemModel>.from(json["items"]!.map((x) => StartPaymentItemModel.fromJson(x))),
-        use3D: json["use_3d"],
-        cardDetails: json["card_details"] == null ? null : StartPaymentCardDetailModel.fromJson(json["card_details"]),
-        deliveryDate: json["delivery_date"],
-        orderNote: json["order_note"],
-        loyalty: json["loyalty"] == null ? null : StartPaymentLoyaltyModel.fromJson(json["loyalty"]),
-      );
+    paymentType: json["payment_type"],
+    isFullPayment: json["is_full_payment"],
+    sourceType: json["source_type"],
+    sourceId: json["source_id"],
+    targetOrderId: json["target_order_id"],
+    amount: json["amount"]?.toDouble(),
+    walletId: json["wallet_id"],
+    content: json["content"],
+    serialNo: json["serial_no"],
+    reasonCode: json["reason_code"],
+    items: json["items"] == null
+        ? []
+        : List<StartPaymentItemModel>.from(json["items"]!.map((x) => StartPaymentItemModel.fromJson(x))),
+    use3D: json["use_3d"],
+    cardDetails: json["card_details"] == null ? null : StartPaymentCardDetailModel.fromJson(json["card_details"]),
+    deliveryDate: json["delivery_date"],
+    orderNote: json["order_note"],
+    transactionId: json["transaction_id"],
+    otpCode: json["otp_code"],
+    loyalty: json["loyalty"] == null ? null : StartPaymentLoyaltyModel.fromJson(json["loyalty"]),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "payment_type": paymentType,
-        "is_full_payment": isFullPayment,
-        "source_type": sourceType,
-        "source_id": sourceId,
-        "target_order_id": targetOrderId,
-        "amount": amount,
-        "wallet_id": walletId,
-        "content": content,
-        "serial_no": serialNo,
-        "reason_code": reasonCode,
-        "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
-        "use_3d": use3D,
-        "card_details": cardDetails?.toJson(),
-        "delivery_date": deliveryDate,
-        "order_note": orderNote,
-        "loyalty": loyalty?.toJson(),
-      };
+    "payment_type": paymentType,
+    "is_full_payment": isFullPayment,
+    "source_type": sourceType,
+    "source_id": sourceId,
+    "target_order_id": targetOrderId,
+    "amount": amount,
+    "wallet_id": walletId,
+    "content": content,
+    "serial_no": serialNo,
+    "reason_code": reasonCode,
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+    "use_3d": use3D,
+    "card_details": cardDetails?.toJson(),
+    "delivery_date": deliveryDate,
+    "order_note": orderNote,
+    "transaction_id": transactionId,
+    "otp_code": otpCode,
+    "loyalty": loyalty?.toJson(),
+  };
 }
 
 class StartPaymentCardDetailModel {
@@ -102,46 +110,38 @@ class StartPaymentCardDetailModel {
   });
 
   factory StartPaymentCardDetailModel.fromJson(Map<String, dynamic> json) => StartPaymentCardDetailModel(
-        nameSurname: json["name_surname"],
-        month: json["month"],
-        year: json["year"],
-        cvv: json["cvv"],
-        cardNumber: json["card_number"],
-        cardId: json["card_id"],
-        virtualId: json["virtual_id"],
-        cardSave: json["card_save"],
-      );
+    nameSurname: json["name_surname"],
+    month: json["month"],
+    year: json["year"],
+    cvv: json["cvv"],
+    cardNumber: json["card_number"],
+    cardId: json["card_id"],
+    virtualId: json["virtual_id"],
+    cardSave: json["card_save"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "name_surname": nameSurname,
-        "month": month,
-        "year": year,
-        "cvv": cvv,
-        "card_number": cardNumber,
-        "card_id": cardId,
-        "virtual_id": virtualId,
-        "card_save": cardSave,
-      };
+    "name_surname": nameSurname,
+    "month": month,
+    "year": year,
+    "cvv": cvv,
+    "card_number": cardNumber,
+    "card_id": cardId,
+    "virtual_id": virtualId,
+    "card_save": cardSave,
+  };
 }
 
 class StartPaymentItemModel {
   int? id;
   num? count;
 
-  StartPaymentItemModel({
-    this.id,
-    this.count,
-  });
+  StartPaymentItemModel({this.id, this.count});
 
-  factory StartPaymentItemModel.fromJson(Map<String, dynamic> json) => StartPaymentItemModel(
-        id: json["id"],
-        count: json["count"],
-      );
+  factory StartPaymentItemModel.fromJson(Map<String, dynamic> json) =>
+      StartPaymentItemModel(id: json["id"], count: json["count"]);
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "count": count,
-      };
+  Map<String, dynamic> toJson() => {"id": id, "count": count};
 }
 
 class StartPaymentLoyaltyModel {
@@ -149,21 +149,17 @@ class StartPaymentLoyaltyModel {
   bool? loyaltyFullAmount;
   double? loyaltyAmount;
 
-  StartPaymentLoyaltyModel({
-    this.loyaltyId,
-    this.loyaltyFullAmount,
-    this.loyaltyAmount,
-  });
+  StartPaymentLoyaltyModel({this.loyaltyId, this.loyaltyFullAmount, this.loyaltyAmount});
 
   factory StartPaymentLoyaltyModel.fromJson(Map<String, dynamic> json) => StartPaymentLoyaltyModel(
-        loyaltyId: json["loyalty_id"],
-        loyaltyFullAmount: json["loyalty_full_amount"],
-        loyaltyAmount: json["loyalty_amount"]?.toDouble(),
-      );
+    loyaltyId: json["loyalty_id"],
+    loyaltyFullAmount: json["loyalty_full_amount"],
+    loyaltyAmount: json["loyalty_amount"]?.toDouble(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "loyalty_id": loyaltyId,
-        "loyalty_full_amount": loyaltyFullAmount,
-        "loyalty_amount": loyaltyAmount,
-      };
+    "loyalty_id": loyaltyId,
+    "loyalty_full_amount": loyaltyFullAmount,
+    "loyalty_amount": loyaltyAmount,
+  };
 }
