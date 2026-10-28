@@ -12,7 +12,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   final String? bin;
   final int? serialNo;
   final String? ip;
-  final int? errorCode;
+  final String? errorCode;
   final int? reportDate;
   final int? createdAt;
   final int? updatedAt;
@@ -70,7 +70,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
         bin: json["bin"],
         serialNo: json["serial_no"],
         ip: json["ip"],
-        errorCode: json["error_code"],
+        errorCode: json["error_code"].toString(),
         reportDate: json["report_date"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
