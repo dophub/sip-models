@@ -26,6 +26,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
     this.isAvailable,
     this.distance,
     this.streetName,
+    this.customerId,
   });
 
   int? id;
@@ -48,6 +49,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
   bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
   double? distance;
   String? streetName;
+  int? customerId;
 
   AddLocalCustomerAddressModel toAddLocalCustomerAddressModel() {
     return AddLocalCustomerAddressModel(
@@ -63,30 +65,17 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
       cityId: cityId,
       districtId: districtId,
       neighborhoodId: neighborhoodId,
-      city: cityId == null && cityName == null
-          ? null
-          : AddLocalCustomerCityModel(
-              id: cityId,
-              name: cityName,
-            ),
+      city: cityId == null && cityName == null ? null : AddLocalCustomerCityModel(id: cityId, name: cityName),
       district: districtId == null && districtName == null
           ? null
-          : AddLocalCustomerDistrictModel(
-              id: districtId,
-              name: districtName,
-            ),
+          : AddLocalCustomerDistrictModel(id: districtId, name: districtName),
       neighborhood: neighborhoodId == null && neighborhoodName == null
           ? null
-          : AddLocalCustomerNeighborhoodModel(
-              id: neighborhoodId,
-              name: neighborhoodName,
-            ),
+          : AddLocalCustomerNeighborhoodModel(id: neighborhoodId, name: neighborhoodName),
       addressType: addressTypeId == null && addressTypeName == null
           ? null
-          : AddressType(
-              addressTypeCode: addressTypeId,
-              addressTypeName: addressTypeName,
-            ),
+          : AddressType(addressTypeCode: addressTypeId, addressTypeName: addressTypeName),
+      customerId: customerId,
     );
   }
 
@@ -112,56 +101,59 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
       isAvailable: isAvailable,
       distance: distance,
       streetName: streetName,
+      customerId: customerId,
     );
   }
 
   @override
   fromJson(Map<dynamic, dynamic> json) => CustomerAddressModel(
-        id: json["id"],
-        floor: json["floor"],
-        latlng: json["latlng"],
-        address: json["address"],
-        cityId: json["city_id"],
-        cityName: json["city_name"],
-        districtId: json["district_id"],
-        flatNumber: json["flat_number"],
-        addressName: json["address_name"],
-        addressRoute: json["address_route"],
-        districtName: json["district_name"],
-        buildingNumber: json["building_number"],
-        neighborhoodId: json["neighborhood_id"],
-        neighborhoodName: json["neighborhood_name"],
-        addressTypeId: json["address_type_id"],
-        addressTypeName: json["address_type_name"],
-        icon: json["icon"],
-        isAvailable: json["is_available"],
-        distance: json["distance"]?.toDouble(),
-        streetName: json["street_name"],
-      );
+    id: json["id"] ?? json['address_id'],
+    floor: json["floor"],
+    latlng: json["latlng"],
+    address: json["address"],
+    cityId: json["city_id"],
+    cityName: json["city_name"],
+    districtId: json["district_id"],
+    flatNumber: json["flat_number"],
+    addressName: json["address_name"],
+    addressRoute: json["address_route"],
+    districtName: json["district_name"],
+    buildingNumber: json["building_number"],
+    neighborhoodId: json["neighborhood_id"],
+    neighborhoodName: json["neighborhood_name"],
+    addressTypeId: json["address_type_id"],
+    addressTypeName: json["address_type_name"],
+    icon: json["icon"],
+    isAvailable: json["is_available"],
+    distance: json["distance"]?.toDouble(),
+    streetName: json["street_name"],
+    customerId: json["customer_id"],
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "floor": floor,
-        "latlng": latlng,
-        "address": address,
-        "city_id": cityId,
-        "city_name": cityName,
-        "district_id": districtId,
-        "flat_number": flatNumber,
-        "address_name": addressName,
-        "address_route": addressRoute,
-        "district_name": districtName,
-        "building_number": buildingNumber,
-        "neighborhood_id": neighborhoodId,
-        "neighborhood_name": neighborhoodName,
-        "address_type_id": addressTypeId,
-        "address_type_name": addressTypeName,
-        "icon": icon,
-        "is_available": isAvailable,
-        "distance": distance,
-        "street_name": streetName,
-      };
+    "id": id,
+    "floor": floor,
+    "latlng": latlng,
+    "address": address,
+    "city_id": cityId,
+    "city_name": cityName,
+    "district_id": districtId,
+    "flat_number": flatNumber,
+    "address_name": addressName,
+    "address_route": addressRoute,
+    "district_name": districtName,
+    "building_number": buildingNumber,
+    "neighborhood_id": neighborhoodId,
+    "neighborhood_name": neighborhoodName,
+    "address_type_id": addressTypeId,
+    "address_type_name": addressTypeName,
+    "icon": icon,
+    "is_available": isAvailable,
+    "distance": distance,
+    "street_name": streetName,
+    "customer_id": customerId,
+  };
 
   @override
   bool selectedValue = false;
