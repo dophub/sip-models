@@ -159,7 +159,7 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
   bool selectedValue = false;
 
   @override
-  String get title => '${addressName ?? ''}\n${address ?? ''}';
+  String get title => (addressName ?? '') + (address == null ? '' : '\n' + address!);
 
   @override
   bool? get isDisable => isAvailable;
