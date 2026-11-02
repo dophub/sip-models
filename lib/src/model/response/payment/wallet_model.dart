@@ -19,9 +19,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   double? dailyUsingLimit;
   WalletCustomerGroupModel? customerGroup;
   bool? isActive;
-  int? createdAt;
-  int? updatedAt;
-  int? expiredDate;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  DateTime? expiredDate;
   int? customerId;
   String? currencyId;
   late String? _title;
@@ -75,9 +75,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         customerGroup:
             json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
         isActive: json["is_active"],
-        createdAt: json["created_at"],
-        updatedAt: json["updated_at"],
-        expiredDate: json["expired_date"],
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+        expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
         customerId: json["customer_id"],
         currencyId: json["currency_id"],
         paymentTypeCode: json["payment_type_code"],
@@ -102,9 +102,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         "daily_using_limit": dailyUsingLimit,
         "customer_group": customerGroup?.toJson(),
         "is_active": isActive,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-        "expired_date": expiredDate,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "expired_date": expiredDate?.toIso8601String(),
         "customer_id": customerId,
         "currency_id": currencyId,
         "payment_type_code": paymentTypeCode,
@@ -265,8 +265,8 @@ class WalletDealerModel {
 
 class WalletValidRulesModel {
   bool? isActive;
-  int? startDate;
-  int? endDate;
+  DateTime? startDate;
+  DateTime? endDate;
   List<String>? paymentTypes;
   bool? isMinPackageAmountStrict;
   bool? allowWithCampaign;
@@ -288,8 +288,8 @@ class WalletValidRulesModel {
 
   factory WalletValidRulesModel.fromJson(Map<String, dynamic> json) => WalletValidRulesModel(
         isActive: json["is_active"],
-        startDate: json["start_date"],
-        endDate: json["end_date"],
+        startDate: json["start_date"] == null ? null : DateTime.parse(json["start_date"]),
+        endDate: json["end_date"] == null ? null : DateTime.parse(json["end_date"]),
         paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
         isMinPackageAmountStrict: json["is_min_package_amount_strict"],
         allowWithCampaign: json["allow_with_campaign"],
@@ -300,8 +300,8 @@ class WalletValidRulesModel {
 
   Map<String, dynamic> toJson() => {
         "is_active": isActive,
-        "start_date": startDate,
-        "end_date": endDate,
+        "start_date": startDate?.toIso8601String(),
+        "end_date": endDate?.toIso8601String(),
         "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
         "is_min_package_amount_strict": isMinPackageAmountStrict,
         "allow_with_campaign": allowWithCampaign,
