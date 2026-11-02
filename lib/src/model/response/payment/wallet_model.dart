@@ -80,7 +80,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     walletAddressMatch: json["wallet_address_match"] == null
         ? []
         : List<WalletAddressMatchModel>.from(
-            json["wallet_address_match"]!.map((x) => WalletAddressMatchModel().jsonParser(x)),
+            json["wallet_address_match"]!.map((x) => WalletAddressMatchModel().fromJson(x)),
           ),
   );
 
