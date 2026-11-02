@@ -18,6 +18,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   String? walletId;
   String? errorCode;
   String? notes;
+  String? type;
 
   WalletMovementModel({
     this.id,
@@ -37,6 +38,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     this.walletId,
     this.errorCode,
     this.notes,
+    this.type,
   });
 
   @override
@@ -58,6 +60,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     walletId: json["wallet_id"],
     errorCode: json["error_code"],
     notes: json["notes"],
+    type: json["type"],
   );
 
   @override
@@ -79,6 +82,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     "wallet_id": walletId,
     "error_code": errorCode,
     "notes": notes,
+    "type": type,
   };
 }
 

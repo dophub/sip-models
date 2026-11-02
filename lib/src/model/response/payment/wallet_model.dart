@@ -26,7 +26,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   late String? _title;
   String? paymentTypeCode;
   String? mobilePhone;
-  String? type;
 
   WalletModel({
     this.id,
@@ -49,7 +48,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     String? title,
     this.paymentTypeCode,
     this.mobilePhone,
-    this.type,
     this.currencyId,
   }) {
     _title = title;
@@ -57,55 +55,54 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
 
   @override
   fromJson(Map<String, dynamic> json) => WalletModel(
-    id: json["id"],
-    typeId: json["type_id"],
-    number: json["number"],
-    customers: json["customers"] == null ? null : WalletCustomersModel.fromJson(json["customers"]),
-    paymentPercentage: json["payment_percentage"],
-    title: json["title"],
-    currency: json["currency"] == null ? null : WalletCurrencyModel.fromJson(json["currency"]),
-    balance: json["balance"]?.toDouble(),
-    minimumBalance: json["minimum_balance"]?.toDouble(),
-    dailyAmountLimit: json["daily_amount_limit"]?.toDouble(),
-    weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
-    mountlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
-    dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
-    customerGroup: json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
-    isActive: json["is_active"],
-    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
-    expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
-    currencyId: json["currency_id"],
-    paymentTypeCode: json["payment_type_code"],
-    mobilePhone: json["mobile_phone"],
-    type: json["type"],
-  );
+        id: json["id"],
+        typeId: json["type_id"],
+        number: json["number"],
+        customers: json["customers"] == null ? null : WalletCustomersModel.fromJson(json["customers"]),
+        paymentPercentage: json["payment_percentage"],
+        title: json["title"],
+        currency: json["currency"] == null ? null : WalletCurrencyModel.fromJson(json["currency"]),
+        balance: json["balance"]?.toDouble(),
+        minimumBalance: json["minimum_balance"]?.toDouble(),
+        dailyAmountLimit: json["daily_amount_limit"]?.toDouble(),
+        weeklyAmountLimit: json["weekly_amount_limit"]?.toDouble(),
+        mountlyAmountLimit: json["mountly_amount_limit"]?.toDouble(),
+        dailyUsingLimit: json["daily_using_limit"]?.toDouble(),
+        customerGroup:
+            json["customer_group"] == null ? null : WalletCustomerGroupModel.fromJson(json["customer_group"]),
+        isActive: json["is_active"],
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+        expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
+        currencyId: json["currency_id"],
+        paymentTypeCode: json["payment_type_code"],
+        mobilePhone: json["mobile_phone"],
+      );
 
   @override
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "type_id": typeId,
-    "number": number,
-    "customers": customers?.toJson(),
-    "payment_percentage": paymentPercentage,
-    "title": _title,
-    "currency": currency?.toJson(),
-    "balance": balance,
-    "minimum_balance": minimumBalance,
-    "daily_amount_limit": dailyAmountLimit,
-    "weekly_amount_limit": weeklyAmountLimit,
-    "mountly_amount_limit": mountlyAmountLimit,
-    "daily_using_limit": dailyUsingLimit,
-    "customer_group": customerGroup?.toJson(),
-    "is_active": isActive,
-    "created_at": createdAt?.toIso8601String(),
-    "updated_at": updatedAt?.toIso8601String(),
-    "expired_date": expiredDate?.toIso8601String(),
-    "currency_id": currencyId,
-    "payment_type_code": paymentTypeCode,
-    "mobile_phone": mobilePhone,
-    "type": type,
-  };
+        "id": id,
+        "type_id": typeId,
+        "number": number,
+        "customers": customers?.toJson(),
+        "payment_percentage": paymentPercentage,
+        "title": _title,
+        "currency": currency?.toJson(),
+        "balance": balance,
+        "minimum_balance": minimumBalance,
+        "daily_amount_limit": dailyAmountLimit,
+        "weekly_amount_limit": weeklyAmountLimit,
+        "mountly_amount_limit": mountlyAmountLimit,
+        "daily_using_limit": dailyUsingLimit,
+        "customer_group": customerGroup?.toJson(),
+        "is_active": isActive,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "expired_date": expiredDate?.toIso8601String(),
+        "currency_id": currencyId,
+        "payment_type_code": paymentTypeCode,
+        "mobile_phone": mobilePhone,
+      };
 
   @override
   String get getName => _title ?? '';
@@ -132,12 +129,23 @@ class WalletCurrencyModel {
   String? name;
   String? isoCode;
 
-  WalletCurrencyModel({this.code, this.name, this.isoCode});
+  WalletCurrencyModel({
+    this.code,
+    this.name,
+    this.isoCode,
+  });
 
-  factory WalletCurrencyModel.fromJson(Map<String, dynamic> json) =>
-      WalletCurrencyModel(code: json["code"], name: json["name"], isoCode: json["iso_code"]);
+  factory WalletCurrencyModel.fromJson(Map<String, dynamic> json) => WalletCurrencyModel(
+        code: json["code"],
+        name: json["name"],
+        isoCode: json["iso_code"],
+      );
 
-  Map<String, dynamic> toJson() => {"code": code, "name": name, "iso_code": isoCode};
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "name": name,
+        "iso_code": isoCode,
+      };
 }
 
 class WalletCustomerGroupModel {
@@ -147,25 +155,32 @@ class WalletCustomerGroupModel {
   WalletValidRulesModel? validRules;
   List<WalletValidCompanyModel>? validCompanies;
 
-  WalletCustomerGroupModel({this.id, this.title, this.type, this.validRules, this.validCompanies});
+  WalletCustomerGroupModel({
+    this.id,
+    this.title,
+    this.type,
+    this.validRules,
+    this.validCompanies,
+  });
 
   factory WalletCustomerGroupModel.fromJson(Map<String, dynamic> json) => WalletCustomerGroupModel(
-    id: json["id"],
-    title: json["title"],
-    type: json["type"],
-    validRules: json["valid_rules"] == null ? null : WalletValidRulesModel.fromJson(json["valid_rules"]),
-    validCompanies: json["valid_companies"] == null
-        ? []
-        : List<WalletValidCompanyModel>.from(json["valid_companies"]!.map((x) => WalletValidCompanyModel.fromJson(x))),
-  );
+        id: json["id"],
+        title: json["title"],
+        type: json["type"],
+        validRules: json["valid_rules"] == null ? null : WalletValidRulesModel.fromJson(json["valid_rules"]),
+        validCompanies: json["valid_companies"] == null
+            ? []
+            : List<WalletValidCompanyModel>.from(
+                json["valid_companies"]!.map((x) => WalletValidCompanyModel.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "type": type,
-    "valid_rules": validRules?.toJson(),
-    "valid_companies": validCompanies == null ? [] : List<dynamic>.from(validCompanies!.map((x) => x.toJson())),
-  };
+        "id": id,
+        "title": title,
+        "type": type,
+        "valid_rules": validRules?.toJson(),
+        "valid_companies": validCompanies == null ? [] : List<dynamic>.from(validCompanies!.map((x) => x.toJson())),
+      };
 }
 
 class WalletValidCompanyModel {
@@ -173,21 +188,25 @@ class WalletValidCompanyModel {
   String? title;
   List<WalletBrandModel>? brands;
 
-  WalletValidCompanyModel({this.id, this.title, this.brands});
+  WalletValidCompanyModel({
+    this.id,
+    this.title,
+    this.brands,
+  });
 
   factory WalletValidCompanyModel.fromJson(Map<String, dynamic> json) => WalletValidCompanyModel(
-    id: json["id"],
-    title: json["title"],
-    brands: json["brands"] == null
-        ? []
-        : List<WalletBrandModel>.from(json["brands"]!.map((x) => WalletBrandModel.fromJson(x))),
-  );
+        id: json["id"],
+        title: json["title"],
+        brands: json["brands"] == null
+            ? []
+            : List<WalletBrandModel>.from(json["brands"]!.map((x) => WalletBrandModel.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "brands": brands == null ? [] : List<dynamic>.from(brands!.map((x) => x.toJson())),
-  };
+        "id": id,
+        "title": title,
+        "brands": brands == null ? [] : List<dynamic>.from(brands!.map((x) => x.toJson())),
+      };
 }
 
 class WalletBrandModel {
@@ -195,33 +214,45 @@ class WalletBrandModel {
   String? title;
   List<WalletDealerModel>? dealers;
 
-  WalletBrandModel({this.id, this.title, this.dealers});
+  WalletBrandModel({
+    this.id,
+    this.title,
+    this.dealers,
+  });
 
   factory WalletBrandModel.fromJson(Map<String, dynamic> json) => WalletBrandModel(
-    id: json["id"],
-    title: json["title"],
-    dealers: json["dealers"] == null
-        ? []
-        : List<WalletDealerModel>.from(json["dealers"]!.map((x) => WalletDealerModel.fromJson(x))),
-  );
+        id: json["id"],
+        title: json["title"],
+        dealers: json["dealers"] == null
+            ? []
+            : List<WalletDealerModel>.from(json["dealers"]!.map((x) => WalletDealerModel.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "dealers": dealers == null ? [] : List<dynamic>.from(dealers!.map((x) => x.toJson())),
-  };
+        "id": id,
+        "title": title,
+        "dealers": dealers == null ? [] : List<dynamic>.from(dealers!.map((x) => x.toJson())),
+      };
 }
 
 class WalletDealerModel {
   int? id;
   String? title;
 
-  WalletDealerModel({this.id, this.title});
+  WalletDealerModel({
+    this.id,
+    this.title,
+  });
 
-  factory WalletDealerModel.fromJson(Map<String, dynamic> json) =>
-      WalletDealerModel(id: json["id"], title: json["title"]);
+  factory WalletDealerModel.fromJson(Map<String, dynamic> json) => WalletDealerModel(
+        id: json["id"],
+        title: json["title"],
+      );
 
-  Map<String, dynamic> toJson() => {"id": id, "title": title};
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+      };
 }
 
 class WalletValidRulesModel {
@@ -248,28 +279,28 @@ class WalletValidRulesModel {
   });
 
   factory WalletValidRulesModel.fromJson(Map<String, dynamic> json) => WalletValidRulesModel(
-    isActive: json["is_active"],
-    startDate: json["start_date"] == null ? null : DateTime.parse(json["start_date"]),
-    endDate: json["end_date"] == null ? null : DateTime.parse(json["end_date"]),
-    paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
-    isMinPackageAmountStrict: json["is_min_package_amount_strict"],
-    allowWithCampaign: json["allow_with_campaign"],
-    ruleName: json["rule_name"],
-    ruleTypeId: json["rule_type_id"],
-    rewardAmount: json["reward_amount"].toDouble(),
-  );
+        isActive: json["is_active"],
+        startDate: json["start_date"] == null ? null : DateTime.parse(json["start_date"]),
+        endDate: json["end_date"] == null ? null : DateTime.parse(json["end_date"]),
+        paymentTypes: json["payment_types"] == null ? [] : List<String>.from(json["payment_types"]!.map((x) => x)),
+        isMinPackageAmountStrict: json["is_min_package_amount_strict"],
+        allowWithCampaign: json["allow_with_campaign"],
+        ruleName: json["rule_name"],
+        ruleTypeId: json["rule_type_id"],
+        rewardAmount: json["reward_amount"].toDouble(),
+      );
 
   Map<String, dynamic> toJson() => {
-    "is_active": isActive,
-    "start_date": startDate?.toIso8601String(),
-    "end_date": endDate?.toIso8601String(),
-    "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
-    "is_min_package_amount_strict": isMinPackageAmountStrict,
-    "allow_with_campaign": allowWithCampaign,
-    "rule_name": ruleName,
-    "rule_type_id": ruleTypeId,
-    "reward_amount": rewardAmount,
-  };
+        "is_active": isActive,
+        "start_date": startDate?.toIso8601String(),
+        "end_date": endDate?.toIso8601String(),
+        "payment_types": paymentTypes == null ? [] : List<dynamic>.from(paymentTypes!.map((x) => x)),
+        "is_min_package_amount_strict": isMinPackageAmountStrict,
+        "allow_with_campaign": allowWithCampaign,
+        "rule_name": ruleName,
+        "rule_type_id": ruleTypeId,
+        "reward_amount": rewardAmount,
+      };
 }
 
 class WalletCustomersModel {
@@ -278,19 +309,24 @@ class WalletCustomersModel {
   String? lastName;
   String? mobilePhone;
 
-  WalletCustomersModel({this.id, this.firstName, this.lastName, this.mobilePhone});
+  WalletCustomersModel({
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.mobilePhone,
+  });
 
   factory WalletCustomersModel.fromJson(Map<String, dynamic> json) => WalletCustomersModel(
-    id: json["id"],
-    firstName: json["first_name"],
-    lastName: json["last_name"],
-    mobilePhone: json["mobile_phone"],
-  );
+        id: json["id"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        mobilePhone: json["mobile_phone"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "first_name": firstName,
-    "last_name": lastName,
-    "mobile_phone": mobilePhone,
-  };
+        "id": id,
+        "first_name": firstName,
+        "last_name": lastName,
+        "mobile_phone": mobilePhone,
+      };
 }
