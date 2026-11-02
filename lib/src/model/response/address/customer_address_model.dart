@@ -26,7 +26,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
     this.isAvailable,
     this.distance,
     this.streetName,
-    this.customerId,
   });
 
   int? id;
@@ -49,7 +48,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
   bool? isAvailable; // adres belirli işletmenini hizmet içinde mi dışında mı kalıyor
   double? distance;
   String? streetName;
-  int? customerId;
 
   AddLocalCustomerAddressModel toAddLocalCustomerAddressModel() {
     return AddLocalCustomerAddressModel(
@@ -75,7 +73,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
       addressType: addressTypeId == null && addressTypeName == null
           ? null
           : AddressType(addressTypeCode: addressTypeId, addressTypeName: addressTypeName),
-      customerId: customerId,
     );
   }
 
@@ -101,13 +98,12 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
       isAvailable: isAvailable,
       distance: distance,
       streetName: streetName,
-      customerId: customerId,
     );
   }
 
   @override
   fromJson(Map<dynamic, dynamic> json) => CustomerAddressModel(
-    id: json["id"] ?? json['address_id'],
+    id: json["id"],
     floor: json["floor"],
     latlng: json["latlng"],
     address: json["address"],
@@ -127,7 +123,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
     isAvailable: json["is_available"],
     distance: json["distance"]?.toDouble(),
     streetName: json["street_name"],
-    customerId: json["customer_id"],
   );
 
   @override
@@ -152,7 +147,6 @@ class CustomerAddressModel extends IBaseModel<CustomerAddressModel> implements I
     "is_available": isAvailable,
     "distance": distance,
     "street_name": streetName,
-    "customer_id": customerId,
   };
 
   @override
