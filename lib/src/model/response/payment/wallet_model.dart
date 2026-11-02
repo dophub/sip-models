@@ -22,11 +22,9 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   DateTime? createdAt;
   DateTime? updatedAt;
   DateTime? expiredDate;
-  int? customerId;
   String? currencyId;
   late String? _title;
   String? paymentTypeCode;
-  String? customerName;
   String? mobilePhone;
 
   WalletModel({
@@ -49,9 +47,7 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     this.expiredDate,
     String? title,
     this.paymentTypeCode,
-    this.customerName,
     this.mobilePhone,
-    this.customerId,
     this.currencyId,
   }) {
     _title = title;
@@ -78,10 +74,8 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
         updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
         expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
-        customerId: json["customer_id"],
         currencyId: json["currency_id"],
         paymentTypeCode: json["payment_type_code"],
-        customerName: json["customer_name"],
         mobilePhone: json["mobile_phone"],
       );
 
@@ -105,10 +99,8 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
         "created_at": createdAt?.toIso8601String(),
         "updated_at": updatedAt?.toIso8601String(),
         "expired_date": expiredDate?.toIso8601String(),
-        "customer_id": customerId,
         "currency_id": currencyId,
         "payment_type_code": paymentTypeCode,
-        "customer_name": customerName,
         "mobile_phone": mobilePhone,
       };
 
