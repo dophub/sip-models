@@ -17,6 +17,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
   DateTime? updatedAt;
   String? walletId;
   String? errorCode;
+  String? notes;
 
   WalletMovementModel({
     this.id,
@@ -35,6 +36,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     this.updatedAt,
     this.walletId,
     this.errorCode,
+    this.notes,
   });
 
   @override
@@ -55,6 +57,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     walletId: json["wallet_id"],
     errorCode: json["error_code"],
+    notes: json["notes"],
   );
 
   @override
@@ -75,6 +78,7 @@ class WalletMovementModel extends IBaseModel<WalletMovementModel> {
     "updated_at": updatedAt?.toIso8601String(),
     "wallet_id": walletId,
     "error_code": errorCode,
+    "notes": notes,
   };
 }
 
@@ -84,8 +88,8 @@ class WalletMovementPaymentTagsModel {
 
   WalletMovementPaymentTagsModel({this.code, this.name});
 
-  factory WalletMovementPaymentTagsModel.fromJson(Map<String, dynamic> json) => WalletMovementPaymentTagsModel(code: json["code"], name: json["name"]);
+  factory WalletMovementPaymentTagsModel.fromJson(Map<String, dynamic> json) =>
+      WalletMovementPaymentTagsModel(code: json["code"], name: json["name"]);
 
   Map<String, dynamic> toJson() => {"code": code, "name": name};
 }
-
