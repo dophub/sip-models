@@ -19,6 +19,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? transactionId;
   String? otpCode;
   StartPaymentLoyaltyModel? loyalty;
+  String? paymentCoverageType;
 
   StartPaymentModel({
     this.paymentType,
@@ -39,6 +40,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     this.loyalty,
     this.transactionId,
     this.otpCode,
+    this.paymentCoverageType,
   });
 
   @override
@@ -63,6 +65,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     transactionId: json["transaction_id"],
     otpCode: json["otp_code"],
     loyalty: json["loyalty"] == null ? null : StartPaymentLoyaltyModel.fromJson(json["loyalty"]),
+    paymentCoverageType: json["payment_coverage_type"],
   );
 
   @override
@@ -85,6 +88,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
     "transaction_id": transactionId,
     "otp_code": otpCode,
     "loyalty": loyalty?.toJson(),
+    "payment_coverage_type": paymentCoverageType,
   };
 }
 

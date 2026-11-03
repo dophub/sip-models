@@ -76,13 +76,7 @@ enum WalletType {
 /// [WALLET_IN] Yükleme
 /// [WALLET_OUT] harcama
 /// [TRANSACTION] Başka TRANSACTION bağlı bir hareket
-enum WalletSourceType {
-  ORDER,
-  SERVICE,
-  WALLET_IN,
-  WALLET_OUT,
-  TRANSACTION,
-}
+enum WalletSourceType { ORDER, SERVICE, WALLET_IN, WALLET_OUT, TRANSACTION }
 
 /// [COMPLETED] Tamamlandı
 /// [PENDING] Beklemede
@@ -90,14 +84,7 @@ enum WalletSourceType {
 /// [CANCEL] İptal
 /// [WAITING] Bekliyor
 /// [REVERSAL]  Para iadesi alma
-enum WalletMovementStatus {
-  COMPLETED,
-  PENDING,
-  ERROR,
-  CANCEL,
-  WAITING,
-  REVERSAL,
-}
+enum WalletMovementStatus { COMPLETED, PENDING, ERROR, CANCEL, WAITING, REVERSAL }
 
 /// Ödeme tipi
 /// [ORDER] ORder ödeme
@@ -105,10 +92,11 @@ enum WalletMovementStatus {
 /// [WALLET_IN] cüzdan bakiyesinde işlem yapıldığında (cüzdana para yükleme)
 /// [WALLET_OUT] cüzdan bakiyesinde işlem yapıldığında (cüzdana para eksiltme)
 /// [TRANSACTION] iptal iade işlemlerinde olur hangi transation iptal olacak gibi
-enum PaymentSourceType {
-  ORDER,
-  SERVICE,
-  WALLET_IN,
-  WALLET_OUT,
-  TRANSACTION,
-}
+enum PaymentSourceType { ORDER, SERVICE, WALLET_IN, WALLET_OUT, TRANSACTION }
+
+/// Start payment endpointinde Ödeme şekli
+/// [PaymentCoverageType]
+/// [FULL] tamamını öde
+/// [ITEM] ürün bazlı öde
+/// [AMOUNT] tutar bazlı öde
+enum PaymentCoverageType { FULL, ITEM, AMOUNT }
