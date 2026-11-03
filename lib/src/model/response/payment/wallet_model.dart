@@ -21,7 +21,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
   DateTime? createdAt;
   DateTime? updatedAt;
   DateTime? expiredDate;
-  String? currencyId;
   late String? _title;
   String? paymentTypeCode;
   String? mobilePhone;
@@ -48,7 +47,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     String? title,
     this.paymentTypeCode,
     this.mobilePhone,
-    this.currencyId,
     this.walletAddressMatch,
   }) {
     _title = title;
@@ -74,7 +72,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
     updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
     expiredDate: json["expired_date"] == null ? null : DateTime.parse(json["expired_date"]),
-    currencyId: json["currency_id"],
     paymentTypeCode: json["payment_type_code"],
     mobilePhone: json["mobile_phone"],
     walletAddressMatch: json["wallet_address_match"] == null
@@ -104,7 +101,6 @@ class WalletModel extends IBaseModel<WalletModel> implements IPaymentType, IMult
     "created_at": createdAt?.toIso8601String(),
     "updated_at": updatedAt?.toIso8601String(),
     "expired_date": expiredDate?.toIso8601String(),
-    "currency_id": currencyId,
     "payment_type_code": paymentTypeCode,
     "mobile_phone": mobilePhone,
     "wallet_address_match": walletAddressMatch == null
