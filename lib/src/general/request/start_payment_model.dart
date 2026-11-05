@@ -2,7 +2,6 @@ import 'package:background_json_parser/background_json_parser.dart';
 
 class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? paymentType;
-  bool? isFullPayment;
   String? sourceType;
   String? sourceId;
   String? targetOrderId;
@@ -19,11 +18,10 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? transactionId;
   String? otpCode;
   StartPaymentLoyaltyModel? loyalty;
-  String? paymentCoverageType;
+  String? paymentCoverageType;¥¥
 
   StartPaymentModel({
     this.paymentType,
-    this.isFullPayment,
     this.sourceType,
     this.sourceId,
     this.targetOrderId,
@@ -46,7 +44,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   @override
   fromJson(Map<String, dynamic> json) => StartPaymentModel(
     paymentType: json["payment_type"],
-    isFullPayment: json["is_full_payment"],
     sourceType: json["source_type"],
     sourceId: json["source_id"],
     targetOrderId: json["target_order_id"],
@@ -71,7 +68,6 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   @override
   Map<String, dynamic> toJson() => {
     "payment_type": paymentType,
-    "is_full_payment": isFullPayment,
     "source_type": sourceType,
     "source_id": sourceId,
     "target_order_id": targetOrderId,

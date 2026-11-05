@@ -176,11 +176,6 @@
       ]
     },
     {
-      "name": "vector_math",
-      "version": "2.4.3",
-      "dependencies": []
-    },
-    {
       "name": "flutter_lints",
       "version": "1.0.4",
       "dependencies": [
@@ -190,6 +185,11 @@
     {
       "name": "lints",
       "version": "1.0.1",
+      "dependencies": []
+    },
+    {
+      "name": "vector_math",
+      "version": "2.4.4",
       "dependencies": []
     },
     {
