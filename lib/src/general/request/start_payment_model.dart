@@ -18,7 +18,7 @@ class StartPaymentModel extends IBaseModel<StartPaymentModel> {
   String? transactionId;
   String? otpCode;
   StartPaymentLoyaltyModel? loyalty;
-  String? paymentCoverageType;¥¥
+  String? paymentCoverageType;
 
   StartPaymentModel({
     this.paymentType,
