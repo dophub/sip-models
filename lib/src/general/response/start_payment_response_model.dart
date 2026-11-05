@@ -4,25 +4,23 @@ class StartPaymentResponseModel extends IBaseModel<StartPaymentResponseModel> {
   StartPaymentResponseTransactionModel? transaction;
   StartPaymentResponseDataRecordModel? responseDataRecord;
 
-  StartPaymentResponseModel({
-    this.transaction,
-    this.responseDataRecord,
-  });
+  StartPaymentResponseModel({this.transaction, this.responseDataRecord});
 
   @override
   fromJson(Map<String, dynamic> json) => StartPaymentResponseModel(
-        transaction:
-            json["transaction"] == null ? null : StartPaymentResponseTransactionModel().fromJson(json["transaction"]),
-        responseDataRecord: json["responseDataRecord"] == null
-            ? null
-            : StartPaymentResponseDataRecordModel.fromJson(json["responseDataRecord"]),
-      );
+    transaction: json["transaction"] == null
+        ? null
+        : StartPaymentResponseTransactionModel().fromJson(json["transaction"]),
+    responseDataRecord: json["responseDataRecord"] == null
+        ? null
+        : StartPaymentResponseDataRecordModel.fromJson(json["responseDataRecord"]),
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "transaction": transaction?.toJson(),
-        "responseDataRecord": responseDataRecord?.toJson(),
-      };
+    "transaction": transaction?.toJson(),
+    "responseDataRecord": responseDataRecord?.toJson(),
+  };
 }
 
 class StartPaymentResponseDataRecordModel {
@@ -30,11 +28,7 @@ class StartPaymentResponseDataRecordModel {
   String? status;
   String? message;
 
-  StartPaymentResponseDataRecordModel({
-    this.base64Content,
-    this.status,
-    this.message,
-  });
+  StartPaymentResponseDataRecordModel({this.base64Content, this.status, this.message});
 
   factory StartPaymentResponseDataRecordModel.fromJson(Map<String, dynamic> json) =>
       StartPaymentResponseDataRecordModel(
@@ -43,11 +37,7 @@ class StartPaymentResponseDataRecordModel {
         message: json["message"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "base64Content": base64Content,
-        "status": status,
-        "message": message,
-      };
+  Map<String, dynamic> toJson() => {"base64Content": base64Content, "status": status, "message": message};
 }
 
 class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentResponseTransactionModel> {
@@ -75,6 +65,7 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
   String? paymentCodeId;
   String? paymentTagsId;
   String? walletId;
+  String? paymentCoverageType;
 
   StartPaymentResponseTransactionModel({
     this.id,
@@ -101,65 +92,68 @@ class StartPaymentResponseTransactionModel extends IBaseModel<StartPaymentRespon
     this.paymentCodeId,
     this.paymentTagsId,
     this.walletId,
+    this.paymentCoverageType,
   });
 
   @override
   fromJson(Map<String, dynamic> json) => StartPaymentResponseTransactionModel(
-        id: json["id"],
-        transactionId: json["transaction_id"],
-        sourceId: json["source_id"],
-        amount: json["amount"]?.toDouble(),
-        paymentMethod: json["payment_method"],
-        status: json["status"],
-        trackId: json["track_id"],
-        serialNo: json["serial_no"],
-        ip: json["ip"],
-        paymentInfo: json["payment_info"] == null
-            ? null
-            : StartPaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
-        reportDate: json["report_date"] == null ? null : DateTime.parse(json["report_date"]),
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
-        currencyId: json["currency_id"],
-        customerId: json["customer_id"],
-        dealerId: json["dealer_id"],
-        mainBrandId: json["main_brand_id"],
-        paymentTypeId: json["payment_type_id"],
-        sourceTypeId: json["source_type_id"],
-        invoicestatus: json["invoicestatus"],
-        isPosTriggering: json["is_pos_triggering"],
-        paymentCodeId: json["payment_code_id"],
-        paymentTagsId: json["payment_tags_id"],
-        walletId: json["wallet_id"],
-      );
+    id: json["id"],
+    transactionId: json["transaction_id"],
+    sourceId: json["source_id"],
+    amount: json["amount"]?.toDouble(),
+    paymentMethod: json["payment_method"],
+    status: json["status"],
+    trackId: json["track_id"],
+    serialNo: json["serial_no"],
+    ip: json["ip"],
+    paymentInfo: json["payment_info"] == null
+        ? null
+        : StartPaymentTransactionPaymentInfoModel.fromJson(json["payment_info"]),
+    reportDate: json["report_date"] == null ? null : DateTime.parse(json["report_date"]),
+    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+    currencyId: json["currency_id"],
+    customerId: json["customer_id"],
+    dealerId: json["dealer_id"],
+    mainBrandId: json["main_brand_id"],
+    paymentTypeId: json["payment_type_id"],
+    sourceTypeId: json["source_type_id"],
+    invoicestatus: json["invoicestatus"],
+    isPosTriggering: json["is_pos_triggering"],
+    paymentCodeId: json["payment_code_id"],
+    paymentTagsId: json["payment_tags_id"],
+    walletId: json["wallet_id"],
+    paymentCoverageType: json["payment_coverage_type"],
+  );
 
   @override
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "transaction_id": transactionId,
-        "source_id": sourceId,
-        "amount": amount,
-        "payment_method": paymentMethod,
-        "status": status,
-        "track_id": trackId,
-        "serial_no": serialNo,
-        "ip": ip,
-        "payment_info": paymentInfo?.toJson(),
-        "report_date": reportDate?.toIso8601String(),
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "currency_id": currencyId,
-        "customer_id": customerId,
-        "dealer_id": dealerId,
-        "main_brand_id": mainBrandId,
-        "payment_type_id": paymentTypeId,
-        "source_type_id": sourceTypeId,
-        "invoicestatus": invoicestatus,
-        "is_pos_triggering": isPosTriggering,
-        "payment_code_id": paymentCodeId,
-        "payment_tags_id": paymentTagsId,
-        "wallet_id": walletId,
-      };
+    "id": id,
+    "transaction_id": transactionId,
+    "source_id": sourceId,
+    "amount": amount,
+    "payment_method": paymentMethod,
+    "status": status,
+    "track_id": trackId,
+    "serial_no": serialNo,
+    "ip": ip,
+    "payment_info": paymentInfo?.toJson(),
+    "report_date": reportDate?.toIso8601String(),
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "currency_id": currencyId,
+    "customer_id": customerId,
+    "dealer_id": dealerId,
+    "main_brand_id": mainBrandId,
+    "payment_type_id": paymentTypeId,
+    "source_type_id": sourceTypeId,
+    "invoicestatus": invoicestatus,
+    "is_pos_triggering": isPosTriggering,
+    "payment_code_id": paymentCodeId,
+    "payment_tags_id": paymentTagsId,
+    "wallet_id": walletId,
+    "payment_coverage_type": paymentCoverageType,
+  };
 }
 
 class StartPaymentTransactionPaymentInfoModel {
@@ -192,7 +186,8 @@ class StartPaymentTransactionPaymentInfoModel {
         items: json["items"] == null
             ? []
             : List<StartPaymentTransactionItemModel>.from(
-                json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x))),
+                json["items"]!.map((x) => StartPaymentTransactionItemModel.fromJson(x)),
+              ),
         amount: json["amount"]?.toDouble(),
         serialNo: json["serial_no"],
         sourceId: json["source_id"],
@@ -202,36 +197,28 @@ class StartPaymentTransactionPaymentInfoModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "ip": ip,
-        "user": user?.toJson(),
-        "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
-        "amount": amount?.toDouble(),
-        "serial_no": serialNo,
-        "source_id": sourceId,
-        "source_type": sourceType,
-        "payment_type": paymentType,
-        "is_full_payment": isFullPayment,
-      };
+    "ip": ip,
+    "user": user?.toJson(),
+    "items": items == null ? [] : List<dynamic>.from(items!.map((x) => x.toJson())),
+    "amount": amount?.toDouble(),
+    "serial_no": serialNo,
+    "source_id": sourceId,
+    "source_type": sourceType,
+    "payment_type": paymentType,
+    "is_full_payment": isFullPayment,
+  };
 }
 
 class StartPaymentTransactionItemModel {
   int? id;
   num? count;
 
-  StartPaymentTransactionItemModel({
-    this.id,
-    this.count,
-  });
+  StartPaymentTransactionItemModel({this.id, this.count});
 
-  factory StartPaymentTransactionItemModel.fromJson(Map<String, dynamic> json) => StartPaymentTransactionItemModel(
-        id: json["id"],
-        count: json["count"],
-      );
+  factory StartPaymentTransactionItemModel.fromJson(Map<String, dynamic> json) =>
+      StartPaymentTransactionItemModel(id: json["id"], count: json["count"]);
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "count": count,
-      };
+  Map<String, dynamic> toJson() => {"id": id, "count": count};
 }
 
 class StartPaymentTransactionUserModel {
@@ -270,38 +257,38 @@ class StartPaymentTransactionUserModel {
   });
 
   factory StartPaymentTransactionUserModel.fromJson(Map<String, dynamic> json) => StartPaymentTransactionUserModel(
-        exp: json["exp"],
-        iat: json["iat"],
-        client: json["client"],
-        expires: json["expires"],
-        userId: json["user_id"],
-        isDepot: json["is_depot"],
-        dealerId: json["dealer_id"],
-        userRole: json["user_role"] == null ? [] : List<String>.from(json["user_role"]!.map((x) => x)),
-        userType: json["user_type"],
-        sessionId: json["session_id"],
-        userTitle: json["user_title"],
-        clientPoint: json["client_point"],
-        mobilePhone: json["mobile_phone"],
-        mainBrandId: json["main_brand_id"],
-        userDealerId: json["user_dealer_id"],
-      );
+    exp: json["exp"],
+    iat: json["iat"],
+    client: json["client"],
+    expires: json["expires"],
+    userId: json["user_id"],
+    isDepot: json["is_depot"],
+    dealerId: json["dealer_id"],
+    userRole: json["user_role"] == null ? [] : List<String>.from(json["user_role"]!.map((x) => x)),
+    userType: json["user_type"],
+    sessionId: json["session_id"],
+    userTitle: json["user_title"],
+    clientPoint: json["client_point"],
+    mobilePhone: json["mobile_phone"],
+    mainBrandId: json["main_brand_id"],
+    userDealerId: json["user_dealer_id"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "exp": exp,
-        "iat": iat,
-        "client": client,
-        "expires": expires,
-        "user_id": userId,
-        "is_depot": isDepot,
-        "dealer_id": dealerId,
-        "user_role": userRole == null ? [] : List<dynamic>.from(userRole!.map((x) => x)),
-        "user_type": userType,
-        "session_id": sessionId,
-        "user_title": userTitle,
-        "client_point": clientPoint,
-        "mobile_phone": mobilePhone,
-        "main_brand_id": mainBrandId,
-        "user_dealer_id": userDealerId,
-      };
+    "exp": exp,
+    "iat": iat,
+    "client": client,
+    "expires": expires,
+    "user_id": userId,
+    "is_depot": isDepot,
+    "dealer_id": dealerId,
+    "user_role": userRole == null ? [] : List<dynamic>.from(userRole!.map((x) => x)),
+    "user_type": userType,
+    "session_id": sessionId,
+    "user_title": userTitle,
+    "client_point": clientPoint,
+    "mobile_phone": mobilePhone,
+    "main_brand_id": mainBrandId,
+    "user_dealer_id": userDealerId,
+  };
 }
