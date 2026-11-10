@@ -72,6 +72,28 @@ class CurrentUserModel extends IBaseModel<CurrentUserModel> {
             json["permissions"]!.map((x) => CurrentUserPermissionModel.fromJson(x)),
           ),
   );
+
+  bool hasSomeRoleAndPermission(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CurrentUserModel) return false;
+    if (operationRole != other.operationRole) return false;
+
+    final currentPermissions = permissions ?? <CurrentUserPermissionModel>[];
+
+    final otherPermissions = List<CurrentUserPermissionModel>.of(other.permissions ?? <CurrentUserPermissionModel>[]);
+
+    if (currentPermissions.length != otherPermissions.length) return false;
+
+    for (final permission in currentPermissions) {
+      final index = otherPermissions.indexOf(permission);
+
+      if (index == -1) return false;
+
+      otherPermissions.removeAt(index);
+    }
+
+    return true;
+  }
 }
 
 class CurrentUserImageModel {
@@ -104,6 +126,19 @@ class CurrentUserOperationRoleModel {
   );
 
   Map<String, dynamic> toJson() => {"role_code": roleCode, "role_name": roleName, "role_weight": roleWeight};
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is CurrentUserOperationRoleModel &&
+        roleCode == other.roleCode &&
+        roleName == other.roleName &&
+        roleWeight == other.roleWeight;
+  }
+
+  @override
+  int get hashCode => Object.hash(roleCode, roleName, roleWeight);
 }
 
 class CurrentUserPermissionModel {
@@ -133,4 +168,20 @@ class CurrentUserPermissionModel {
     "group_name": groupName,
     "description": description,
   };
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is CurrentUserPermissionModel &&
+        id == other.id &&
+        code == other.code &&
+        name == other.name &&
+        groupId == other.groupId &&
+        groupName == other.groupName &&
+        description == other.description;
+  }
+
+  @override
+  int get hashCode => Object.hash(id, code, name, groupId, groupName, description);
 }
